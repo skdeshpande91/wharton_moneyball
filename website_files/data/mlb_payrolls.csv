@@ -1,0 +1,541 @@
+Team,GM,Team_Payroll,Winning_Percentage,Year
+Arizona DBacks,Joe Garagiola,31614500,0.401,1998
+Arizona DBacks,Joe Garagiola,70496000,0.617,1999
+Arizona DBacks,Joe Garagiola,81027833,0.525,2000
+Arizona DBacks,Joe Garagiola,81206513,0.568,2001
+Arizona DBacks,Joe Garagiola,102820000,0.605,2002
+Arizona DBacks,Joe Garagiola,80640333,0.519,2003
+Arizona DBacks,Joe Garagiola,70204984,0.315,2004
+Arizona DBacks,Josh Byrnes,63015834,0.475,2005
+Arizona DBacks,Josh Byrnes,59684226,0.469,2006
+Arizona DBacks,Josh Byrnes,52067546,0.556,2007
+Arizona DBacks,Josh Byrnes,66202712,0.506,2008
+Arizona DBacks,Josh Byrnes,73571667,0.432,2009
+Arizona DBacks,Josh Byrnes,60718167,0.401,2010
+Arizona DBacks,Kevin Towers,53639833,0.58,2011
+Arizona DBacks,Kevin Towers,74284833,0.5,2012
+Arizona DBacks,Kevin Towers,89100500,0.5,2013
+Arizona DBacks,Kevin Towers/Dave Stewart,112688666,0.395,2014
+Arizona DBacks,Dave Stewart,76639242,0.488,2015
+Atlanta Braves,John Schuerholz,61708000,0.654,1998
+Atlanta Braves,John Schuerholz,74890000,0.636,1999
+Atlanta Braves,John Schuerholz,84537836,0.586,2000
+Atlanta Braves,John Schuerholz,91851687,0.543,2001
+Atlanta Braves,John Schuerholz,93470367,0.631,2002
+Atlanta Braves,John Schuerholz,106243667,0.623,2003
+Atlanta Braves,John Schuerholz,88507788,0.593,2004
+Atlanta Braves,John Schuerholz,85148582,0.556,2005
+Atlanta Braves,John Schuerholz,90156876,0.488,2006
+Atlanta Braves,John Schuerholz,87290833,0.519,2007
+Atlanta Braves,Frank Wren,102365683,0.444,2008
+Atlanta Braves,Frank Wren,96726167,0.531,2009
+Atlanta Braves,Frank Wren,84423667,0.562,2010
+Atlanta Braves,Frank Wren,87003192,0.549,2011
+Atlanta Braves,Frank Wren,83309942,0.58,2012
+Atlanta Braves,Frank Wren,89778192,0.593,2013
+Atlanta Braves,Frank Wren/John Hart,110897341,0.488,2014
+Atlanta Braves,John Hart,111081246,0.414,2015
+Baltimore Orioles,Pat Gillick,71860921,0.488,1998
+Baltimore Orioles,Frank Wren,72198363,0.481,1999
+Baltimore Orioles,Syd Thrift,81447435,0.457,2000
+Baltimore Orioles,Syd Thrift,72426328,0.391,2001
+Baltimore Orioles,Syd Thrift,60493487,0.414,2002
+Baltimore Orioles,Jim Beattie and Mike Flanagan,73877500,0.438,2003
+Baltimore Orioles,Jim Beattie and Mike Flanagan,51212653,0.481,2004
+Baltimore Orioles,Jim Beattie and Mike Flanagan,74570539,0.457,2005
+Baltimore Orioles,Mike Flanagan,72585582,0.432,2006
+Baltimore Orioles,Mike Flanagan and Andy MacPhail,93554808,0.426,2007
+Baltimore Orioles,Andy MacPhail,67196246,0.422,2008
+Baltimore Orioles,Andy MacPhail,67101667,0.395,2009
+Baltimore Orioles,Andy MacPhail,81612500,0.407,2010
+Baltimore Orioles,Andy MacPhail,85304038,0.426,2011
+Baltimore Orioles,Dan Duquette,81428999,0.574,2012
+Baltimore Orioles,Dan Duquette,90993333,0.525,2013
+Baltimore Orioles,Dan Duquette,107406623,0.593,2014
+Baltimore Orioles,Dan Duquette,118284476,0.5,2015
+Boston Red Sox,Dan Duquette,59497000,0.568,1998
+Boston Red Sox,Dan Duquette,71725000,0.58,1999
+Boston Red Sox,Dan Duquette,77940333,0.525,2000
+Boston Red Sox,Dan Duquette,109558908,0.509,2001
+Boston Red Sox,Mike Port,108366060,0.574,2002
+Boston Red Sox,Theo Epstein,99946500,0.586,2003
+Boston Red Sox,Theo Epstein,125208542,0.605,2004
+Boston Red Sox,Theo Epstein,121311945,0.586,2005
+Boston Red Sox,Theo Epstein,120099824,0.531,2006
+Boston Red Sox,Theo Epstein,143026214,0.593,2007
+Boston Red Sox,Theo Epstein,133390035,0.586,2008
+Boston Red Sox,Theo Epstein,122696000,0.586,2009
+Boston Red Sox,Theo Epstein,162747333,0.549,2010
+Boston Red Sox,Theo Epstein,161407476,0.556,2011
+Boston Red Sox,Ben Cherington,173186617,0.426,2012
+Boston Red Sox,Ben Cherington,150655500,0.599,2013
+Boston Red Sox,Ben Cherington,162817411,0.438,2014
+Boston Red Sox,Ben Cherington,214789749,0.481,2015
+Chicago Cubs,Ed Lynch,49816000,0.552,1998
+Chicago Cubs,Ed Lynch,55443500,0.414,1999
+Chicago Cubs,Ed Lynch/Andy MacPhail,60539333,0.401,2000
+Chicago Cubs,Andy MacPhail,64015833,0.543,2001
+Chicago Cubs,Andy MacPhail/Jim Hendry,75690833,0.414,2002
+Chicago Cubs,Jim Hendry,79868333,0.543,2003
+Chicago Cubs,Jim Hendry,91101667,0.549,2004
+Chicago Cubs,Jim Hendry,87210933,0.488,2005
+Chicago Cubs,Jim Hendry,94424499,0.407,2006
+Chicago Cubs,Jim Hendry,99670332,0.525,2007
+Chicago Cubs,Jim Hendry,118345833,0.602,2008
+Chicago Cubs,Jim Hendry,135050000,0.516,2009
+Chicago Cubs,Jim Hendry,146859000,0.463,2010
+Chicago Cubs,Jim Hendry,125480664,0.438,2011
+Chicago Cubs,Jed Hoyer,88197033,0.377,2012
+Chicago Cubs,Jed Hoyer,104304676,0.407,2013
+Chicago Cubs,Jed Hoyer,89007857,0.451,2014
+Chicago Cubs,Jed Hoyer,134193810,0.599,2015
+Chicago White Sox,Ron Schueler,35180000,0.494,1998
+Chicago White Sox,Ron Schueler,24535000,0.466,1999
+Chicago White Sox,Ron Schueler,31133500,0.586,2000
+Chicago White Sox,Ken Williams,62363000,0.512,2001
+Chicago White Sox,Ken Williams,57052833,0.5,2002
+Chicago White Sox,Ken Williams,51010000,0.531,2003
+Chicago White Sox,Ken Williams,65212500,0.512,2004
+Chicago White Sox,Ken Williams,75228000,0.611,2005
+Chicago White Sox,Ken Williams,102750667,0.556,2006
+Chicago White Sox,Ken Williams,108671833,0.444,2007
+Chicago White Sox,Ken Williams,121189332,0.546,2008
+Chicago White Sox,Ken Williams,96068500,0.488,2009
+Chicago White Sox,Ken Williams,108273197,0.543,2010
+Chicago White Sox,Ken Williams,129285539,0.488,2011
+Chicago White Sox,Ken Williams,96919500,0.525,2012
+Chicago White Sox,Rick Hahn,119073277,0.389,2013
+Chicago White Sox,Rick Hahn,91159254,0.451,2014
+Chicago White Sox,Rick Hahn,118875487,0.469,2015
+Cincinnati Reds,Jim Bowden,20707333,0.475,1998
+Cincinnati Reds,Jim Bowden,42142761,0.589,1999
+Cincinnati Reds,Jim Bowden,46867200,0.525,2000
+Cincinnati Reds,Jim Bowden,45227882,0.407,2001
+Cincinnati Reds,Jim Bowden,45050390,0.481,2002
+Cincinnati Reds,Jim Bowden,59355667,0.426,2003
+Cincinnati Reds,Dan OÍBrien Jr.,43067858,0.469,2004
+Cincinnati Reds,Dan OÍBrien Jr.,59658275,0.451,2005
+Cincinnati Reds,Wayne Krivsky,60909519,0.494,2006
+Cincinnati Reds,Wayne Krivsky,68904980,0.444,2007
+Cincinnati Reds,Wayne Krivsky,74117695,0.457,2008
+Cincinnati Reds,Walt Jocketty,70968500,0.481,2009
+Cincinnati Reds,Walt Jocketty,72386544,0.562,2010
+Cincinnati Reds,Walt Jocketty,76181365,0.488,2011
+Cincinnati Reds,Walt Jocketty,82203616,0.599,2012
+Cincinnati Reds,Walt Jocketty,107491305,0.556,2013
+Cincinnati Reds,Walt Jocketty,112390772,0.469,2014
+Cincinnati Reds,Walt Jocketty,114040612,0.395,2015
+Cleveland Indians,John Hart,59543165,0.549,1998
+Cleveland Indians,John Hart,73278458,0.599,1999
+Cleveland Indians,John Hart,75880871,0.556,2000
+Cleveland Indians,John Hart,91974979,0.562,2001
+Cleveland Indians,Mark Shapiro,78909448,0.457,2002
+Cleveland Indians,Mark Shapiro,48584834,0.42,2003
+Cleveland Indians,Mark Shapiro,34569300,0.494,2004
+Cleveland Indians,Mark Shapiro,41830400,0.574,2005
+Cleveland Indians,Mark Shapiro,56031500,0.481,2006
+Cleveland Indians,Mark Shapiro,61673267,0.593,2007
+Cleveland Indians,Mark Shapiro,78970066,0.5,2008
+Cleveland Indians,Mark Shapiro,81625567,0.401,2009
+Cleveland Indians,Mark Shapiro,61203967,0.426,2010
+Cleveland Indians,Chris Antonetti,49188867,0.494,2011
+Cleveland Indians,Chris Antonetti,78430300,0.42,2012
+Cleveland Indians,Chris Antonetti,77772800,0.568,2013
+Cleveland Indians,Chris Antonetti,82534800,0.525,2014
+Cleveland Indians,Chris Antonetti,77404413,0.503,2015
+Colorado Rockies,Bob Gebhard,47714648,0.475,1998
+Colorado Rockies,Bob Gebhard,54442505,0.444,1999
+Colorado Rockies,Dan O'Dowd,61111190,0.506,2000
+Colorado Rockies,Dan O'Dowd,71068000,0.451,2001
+Colorado Rockies,Dan O'Dowd,56851043,0.451,2002
+Colorado Rockies,Dan O'Dowd,67179667,0.457,2003
+Colorado Rockies,Dan O'Dowd,64590403,0.42,2004
+Colorado Rockies,Dan O'Dowd,47789000,0.414,2005
+Colorado Rockies,Dan O'Dowd,41233000,0.469,2006
+Colorado Rockies,Dan O'Dowd,54424000,0.552,2007
+Colorado Rockies,Dan O'Dowd,68655500,0.457,2008
+Colorado Rockies,Dan O'Dowd,75201000,0.568,2009
+Colorado Rockies,Dan O'Dowd,84227000,0.512,2010
+Colorado Rockies,Dan O'Dowd,87998071,0.451,2011
+Colorado Rockies,Dan O'Dowd,78069571,0.395,2012
+Colorado Rockies,Dan O'Dowd,71924071,0.457,2013
+Colorado Rockies,Dan OÍDowd/Jeff Bridich,95832071,0.407,2014
+Colorado Rockies,Jeff Bridich,106860781,0.42,2015
+Detroit Tigers,Randy Smith,19237500,0.401,1998
+Detroit Tigers,Randy Smith,34959667,0.429,1999
+Detroit Tigers,Randy Smith,58265167,0.488,2000
+Detroit Tigers,Randy Smith,49831167,0.407,2001
+Detroit Tigers,Dave Dombrowski,55048000,0.342,2002
+Detroit Tigers,Dave Dombrowski,49168000,0.265,2003
+Detroit Tigers,Dave Dombrowski,46353554,0.444,2004
+Detroit Tigers,Dave Dombrowski,68998183,0.438,2005
+Detroit Tigers,Dave Dombrowski,82612866,0.586,2006
+Detroit Tigers,Dave Dombrowski,95180369,0.543,2007
+Detroit Tigers,Dave Dombrowski,137685196,0.457,2008
+Detroit Tigers,Dave Dombrowski,115085145,0.528,2009
+Detroit Tigers,Dave Dombrowski,122864929,0.5,2010
+Detroit Tigers,Dave Dombrowski,105705232,0.586,2011
+Detroit Tigers,Dave Dombrowski,132300000,0.543,2012
+Detroit Tigers,Dave Dombrowski,148414500,0.574,2013
+Detroit Tigers,Dave Dombrowski,162228527,0.556,2014
+Detroit Tigers,Dave Dombrowski,162218297,0.46,2015
+Houston Astros,Gerry Hunsicker,48304000,0.63,1998
+Houston Astros,Gerry Hunsicker,54339000,0.599,1999
+Houston Astros,Gerry Hunsicker,51289111,0.444,2000
+Houston Astros,Gerry Hunsicker,60382667,0.574,2001
+Houston Astros,Gerry Hunsicker,63448417,0.519,2002
+Houston Astros,Gerry Hunsicker,71040000,0.537,2003
+Houston Astros,Gerry Hunsicker,74666303,0.568,2004
+Houston Astros,Tim Purpura,76779022,0.549,2005
+Houston Astros,Tim Purpura,92551503,0.506,2006
+Houston Astros,Tim Purpura/Ed Wade,87759000,0.451,2007
+Houston Astros,Ed Wade,88930414,0.534,2008
+Houston Astros,Ed Wade,102996415,0.457,2009
+Houston Astros,Ed Wade,92355500,0.469,2010
+Houston Astros,Ed Wade,70694000,0.346,2011
+Houston Astros,Jeff Luhnow,60651000,0.34,2012
+Houston Astros,Jeff Luhnow,22062600,0.315,2013
+Houston Astros,Jeff Luhnow,44544174,0.432,2014
+Houston Astros,Jeff Luhnow,81450835,0.531,2015
+KC Royals,Herk Robinson,35610000,0.447,1998
+KC Royals,Herk Robinson,16557000,0.398,1999
+KC Royals,Herk Robinson/Allard Baird,23433000,0.475,2000
+KC Royals,Allard Baird,35643000,0.401,2001
+KC Royals,Allard Baird,47257000,0.383,2002
+KC Royals,Allard Baird,40518000,0.512,2003
+KC Royals,Allard Baird,47609000,0.358,2004
+KC Royals,Allard Baird,36881000,0.346,2005
+KC Royals,Allard Baird/Dayton Moore,47294000,0.383,2006
+KC Royals,Dayton Moore,67116500,0.426,2007
+KC Royals,Dayton Moore,58245500,0.463,2008
+KC Royals,Dayton Moore,70908333,0.401,2009
+KC Royals,Dayton Moore,72267710,0.414,2010
+KC Royals,Dayton Moore,36126400,0.438,2011
+KC Royals,Dayton Moore,60916225,0.444,2012
+KC Royals,Dayton Moore,81491725,0.531,2013
+KC Royals,Dayton Moore,92034345,0.549,2014
+KC Royals,Dayton Moore,126560340,0.586,2015
+LA Angels,Bill Bavasi,48389000,0.525,1998
+LA Angels,Bill Bavasi,49868167,0.432,1999
+LA Angels,Bill Stoneman,51464167,0.506,2000
+LA Angels,Bill Stoneman,46568180,0.463,2001
+LA Angels,Bill Stoneman,61721667,0.611,2002
+LA Angels,Bill Stoneman,79031667,0.475,2003
+LA Angels,Bill Stoneman,101084667,0.568,2004
+LA Angels,Bill Stoneman,95017822,0.586,2005
+LA Angels,Bill Stoneman,103472000,0.549,2006
+LA Angels,Bill Stoneman/Tony Reagins,109251333,0.58,2007
+LA Angels,Tony Reagins,119216333,0.617,2008
+LA Angels,Tony Reagins,113709000,0.599,2009
+LA Angels,Tony Reagins,105013667,0.494,2010
+LA Angels,Tony Reagins,138998524,0.531,2011
+LA Angels,Jerry Dipoto,154485166,0.549,2012
+LA Angels,Jerry Dipoto,127896250,0.481,2013
+LA Angels,Jerry Dipoto,155692000,0.605,2014
+LA Angels,Jerry Dipoto,151348162,0.525,2015
+LA Dodgers,Fred Claire/Tommy Lasorda,62806667,0.512,1998
+LA Dodgers,Kevin Malone,71115786,0.475,1999
+LA Dodgers,Kevin Malone,88124286,0.531,2000
+LA Dodgers,Kevin Malone/David Wallace,108980952,0.531,2001
+LA Dodgers,Dan Evans,94850952,0.568,2002
+LA Dodgers,Dan Evans,105872620,0.525,2003
+LA Dodgers,Paul DePodesta,89694342,0.574,2004
+LA Dodgers,Paul DePodesta,81029500,0.438,2005
+LA Dodgers,Ned Colletti,98447187,0.543,2006
+LA Dodgers,Ned Colletti,108454524,0.506,2007
+LA Dodgers,Ned Colletti,118588536,0.519,2008
+LA Dodgers,Ned Colletti,100458101,0.586,2009
+LA Dodgers,Ned Colletti,94945517,0.494,2010
+LA Dodgers,Ned Colletti,103788990,0.509,2011
+LA Dodgers,Ned Colletti,95143575,0.531,2012
+LA Dodgers,Ned Colletti,216597577,0.568,2013
+LA Dodgers,Ned Colletti,235295219,0.58,2014
+LA Dodgers,Ned Colletti,301735080,0.568,2015
+Miami Marlins,Dave Dombrowski,15141000,0.333,1998
+Miami Marlins,Dave Dombrowski,15150000,0.395,1999
+Miami Marlins,Dave Dombrowski,20072000,0.491,2000
+Miami Marlins,Dave Dombrowski,35504167,0.469,2001
+Miami Marlins,Larry Beinfest,41979917,0.488,2002
+Miami Marlins,Larry Beinfest,49050000,0.562,2003
+Miami Marlins,Larry Beinfest,42118042,0.512,2004
+Miami Marlins,Larry Beinfest,60375961,0.512,2005
+Miami Marlins,Larry Beinfest,14998500,0.481,2006
+Miami Marlins,Larry Beinfest,30507000,0.438,2007
+Miami Marlins,Mike Hill,21811500,0.522,2008
+Miami Marlins,Mike Hill,36814000,0.537,2009
+Miami Marlins,Mike Hill,55641500,0.494,2010
+Miami Marlins,Mike Hill,56944000,0.444,2011
+Miami Marlins,Mike Hill,118078000,0.426,2012
+Miami Marlins,Mike Hill,36341900,0.383,2013
+Miami Marlins,Dan Jennings,47565400,0.475,2014
+Miami Marlins,Dan Jennings,63590525,0.438,2015
+Milwaukee Brewers,Sal Bando,31897903,0.457,1998
+Milwaukee Brewers,Sal Bando/Dean Taylor,42927395,0.46,1999
+Milwaukee Brewers,Dean Taylor,36505333,0.451,2000
+Milwaukee Brewers,Dean Taylor,43089333,0.42,2001
+Milwaukee Brewers,Dean Taylor,50287833,0.346,2002
+Milwaukee Brewers,Douglas Melvin,40627000,0.42,2003
+Milwaukee Brewers,Douglas Melvin,27518500,0.416,2004
+Milwaukee Brewers,Douglas Melvin,40234833,0.5,2005
+Milwaukee Brewers,Douglas Melvin,57568333,0.463,2006
+Milwaukee Brewers,Douglas Melvin,70986500,0.512,2007
+Milwaukee Brewers,Douglas Melvin,80937499,0.556,2008
+Milwaukee Brewers,Douglas Melvin,80257502,0.494,2009
+Milwaukee Brewers,Douglas Melvin,81108279,0.475,2010
+Milwaukee Brewers,Douglas Melvin,85497333,0.593,2011
+Milwaukee Brewers,Douglas Melvin,97653944,0.512,2012
+Milwaukee Brewers,Douglas Melvin,82976944,0.457,2013
+Milwaukee Brewers,Douglas Melvin,103844806,0.506,2014
+Milwaukee Brewers,Douglas Melvin,94010873,0.42,2015
+Minnesota Twins,Terry Ryan,24527500,0.432,1998
+Minnesota Twins,Terry Ryan,16345000,0.394,1999
+Minnesota Twins,Terry Ryan,16519500,0.426,2000
+Minnesota Twins,Terry Ryan,24350000,0.525,2001
+Minnesota Twins,Terry Ryan,40225000,0.584,2002
+Minnesota Twins,Terry Ryan,55505000,0.556,2003
+Minnesota Twins,Terry Ryan,53585000,0.568,2004
+Minnesota Twins,Terry Ryan,56615000,0.512,2005
+Minnesota Twins,Terry Ryan,63396006,0.593,2006
+Minnesota Twins,Terry Ryan,71439500,0.488,2007
+Minnesota Twins,Bill Smith,56932766,0.54,2008
+Minnesota Twins,Bill Smith,65299267,0.534,2009
+Minnesota Twins,Bill Smith,97559167,0.58,2010
+Minnesota Twins,Bill Smith,112737000,0.389,2011
+Minnesota Twins,Terry Ryan,94085000,0.407,2012
+Minnesota Twins,Terry Ryan,75802500,0.407,2013
+Minnesota Twins,Terry Ryan,85776500,0.432,2014
+Minnesota Twins,Terry Ryan,106431818,0.512,2015
+Montreal Expos,Jim Beattie,8317000,0.401,1998
+Montreal Expos,Jim Beattie,16413000,0.42,1999
+Montreal Expos,Jim Beattie,34807833,0.414,2000
+Montreal Expos,Jim Beattie/Larry Beinfest,34774500,0.42,2001
+Montreal Expos,Omar Minaya,38670500,0.512,2002
+Montreal Expos,Omar Minaya,51948500,0.512,2003
+Montreal Expos,Omar Minaya,43197500,0.414,2004
+NY Mets,Steve Phillips,58660665,0.543,1998
+NY Mets,Steve Phillips,71506427,0.595,1999
+NY Mets,Steve Phillips,79509776,0.58,2000
+NY Mets,Steve Phillips,93174428,0.506,2001
+NY Mets,Steve Phillips,94633593,0.466,2002
+NY Mets,Steve Phillips,117176429,0.41,2003
+NY Mets,Jim Duquette,100629303,0.438,2004
+NY Mets,Omar Minaya,104770139,0.512,2005
+NY Mets,Omar Minaya,101084963,0.599,2006
+NY Mets,Omar Minaya,115231663,0.543,2007
+NY Mets,Omar Minaya,137793376,0.549,2008
+NY Mets,Omar Minaya,135773988,0.432,2009
+NY Mets,Omar Minaya,132701445,0.488,2010
+NY Mets,Sandy Alderson,120147310,0.475,2011
+NY Mets,Sandy Alderson,93353983,0.457,2012
+NY Mets,Sandy Alderson,73396649,0.457,2013
+NY Mets,Sandy Alderson,89051758,0.488,2014
+NY Mets,Sandy Alderson,115641550,0.556,2015
+NY Yankees,Brian Cashman,65663698,0.704,1998
+NY Yankees,Brian Cashman,88180712,0.605,1999
+NY Yankees,Brian Cashman,92538260,0.54,2000
+NY Yankees,Brian Cashman,109791893,0.594,2001
+NY Yankees,Brian Cashman,125928583,0.64,2002
+NY Yankees,Brian Cashman,152749814,0.623,2003
+NY Yankees,Brian Cashman,182835513,0.623,2004
+NY Yankees,Brian Cashman,205938439,0.586,2005
+NY Yankees,Brian Cashman,194663079,0.599,2006
+NY Yankees,Brian Cashman,189639045,0.58,2007
+NY Yankees,Brian Cashman,209081577,0.549,2008
+NY Yankees,Brian Cashman,201449289,0.636,2009
+NY Yankees,Brian Cashman,206333389,0.586,2010
+NY Yankees,Brian Cashman,201689030,0.599,2011
+NY Yankees,Brian Cashman,197962289,0.586,2012
+NY Yankees,Brian Cashman,228835490,0.525,2013
+NY Yankees,Brian Cashman,203812506,0.519,2014
+NY Yankees,Brian Cashman,221256867,0.537,2015
+Oakland Athletics,Billy Beane,22463500,0.457,1998
+Oakland Athletics,Billy Beane,24175333,0.537,1999
+Oakland Athletics,Billy Beane,31971333,0.565,2000
+Oakland Athletics,Billy Beane,33810750,0.63,2001
+Oakland Athletics,Billy Beane,39679746,0.636,2002
+Oakland Athletics,Billy Beane,50260834,0.593,2003
+Oakland Athletics,Billy Beane,59825167,0.562,2004
+Oakland Athletics,Billy Beane,55869262,0.543,2005
+Oakland Athletics,Billy Beane,62243079,0.574,2006
+Oakland Athletics,Billy Beane,79366940,0.469,2007
+Oakland Athletics,Billy Beane,47967126,0.466,2008
+Oakland Athletics,Billy Beane,62310000,0.463,2009
+Oakland Athletics,Billy Beane,51654900,0.5,2010
+Oakland Athletics,Billy Beane,66536500,0.457,2011
+Oakland Athletics,Billy Beane,55372500,0.58,2012
+Oakland Athletics,Billy Beane,60664500,0.593,2013
+Oakland Athletics,Billy Beane,83401400,0.543,2014
+Oakland Athletics,Billy Beane,80376830,0.42,2015
+Philadelphia Phillies,Ed Wade,28622500,0.463,1998
+Philadelphia Phillies,Ed Wade,30568167,0.475,1999
+Philadelphia Phillies,Ed Wade,47308000,0.401,2000
+Philadelphia Phillies,Ed Wade,41664167,0.531,2001
+Philadelphia Phillies,Ed Wade,57955000,0.497,2002
+Philadelphia Phillies,Ed Wade,70780000,0.531,2003
+Philadelphia Phillies,Ed Wade,93219167,0.531,2004
+Philadelphia Phillies,Ed Wade,95337908,0.543,2005
+Philadelphia Phillies,Pat Gillick,88273333,0.525,2006
+Philadelphia Phillies,Pat Gillick,89428213,0.549,2007
+Philadelphia Phillies,Pat Gillick,98269880,0.568,2008
+Philadelphia Phillies,Ruben Amaro Jr.,113004048,0.574,2009
+Philadelphia Phillies,Ruben Amaro Jr.,141927381,0.599,2010
+Philadelphia Phillies,Ruben Amaro Jr.,172976381,0.63,2011
+Philadelphia Phillies,Ruben Amaro Jr.,174538938,0.5,2012
+Philadelphia Phillies,Ruben Amaro Jr.,165385714,0.451,2013
+Philadelphia Phillies,Ruben Amaro Jr.,180052723,0.451,2014
+Philadelphia Phillies,Ruben Amaro Jr.,141722639,0.389,2015
+Pittsburgh Pirates,Cam Bonifay,13695000,0.426,1998
+Pittsburgh Pirates,Cam Bonifay,24167667,0.484,1999
+Pittsburgh Pirates,Cam Bonifay,28928333,0.426,2000
+Pittsburgh Pirates,Cam Bonifay/David Littlefield,52698333,0.383,2001
+Pittsburgh Pirates,David Littlefield,42323598,0.447,2002
+Pittsburgh Pirates,David Littlefield,54812429,0.463,2003
+Pittsburgh Pirates,David Littlefield,32227929,0.447,2004
+Pittsburgh Pirates,David Littlefield,38138000,0.414,2005
+Pittsburgh Pirates,David Littlefield,46717750,0.414,2006
+Pittsburgh Pirates,David Littlefield,38537833,0.42,2007
+Pittsburgh Pirates,Neal Huntington,48689783,0.414,2008
+Pittsburgh Pirates,Neal Huntington,48743000,0.385,2009
+Pittsburgh Pirates,Neal Huntington,34943000,0.352,2010
+Pittsburgh Pirates,Neal Huntington,46047000,0.444,2011
+Pittsburgh Pirates,Neal Huntington,63431999,0.488,2012
+Pittsburgh Pirates,Neal Huntington,79555000,0.58,2013
+Pittsburgh Pirates,Neal Huntington,78111667,0.543,2014
+Pittsburgh Pirates,Neal Huntington,99435606,0.605,2015
+San Diego Padres,Kevin Towers,53066166,0.605,1998
+San Diego Padres,Kevin Towers,45832180,0.457,1999
+San Diego Padres,Kevin Towers,54821000,0.469,2000
+San Diego Padres,Kevin Towers,38333117,0.488,2001
+San Diego Padres,Kevin Towers,41425000,0.407,2002
+San Diego Padres,Kevin Towers,47928000,0.395,2003
+San Diego Padres,Kevin Towers,54639503,0.537,2004
+San Diego Padres,Kevin Towers,62888192,0.506,2005
+San Diego Padres,Kevin Towers,69896141,0.543,2006
+San Diego Padres,Kevin Towers,58110567,0.546,2007
+San Diego Padres,Kevin Towers,73677616,0.389,2008
+San Diego Padres,Kevin Towers,42796700,0.463,2009
+San Diego Padres,Jed Hoyer,37799300,0.556,2010
+San Diego Padres,Jed Hoyer,45869140,0.438,2011
+San Diego Padres,Josh Byrnes,55244700,0.469,2012
+San Diego Padres,Josh Byrnes,67143600,0.469,2013
+San Diego Padres,Josh Byrnes/Omar Minaya/A.J. Preller,90094196,0.475,2014
+San Diego Padres,A.J. Preller,127463770,0.457,2015
+San Francisco Giants,Brian Sabean,48514715,0.546,1998
+San Francisco Giants,Brian Sabean,45959557,0.531,1999
+San Francisco Giants,Brian Sabean,53737826,0.599,2000
+San Francisco Giants,Brian Sabean,63332667,0.556,2001
+San Francisco Giants,Brian Sabean,78299835,0.59,2002
+San Francisco Giants,Brian Sabean,82852167,0.621,2003
+San Francisco Giants,Brian Sabean,82019167,0.562,2004
+San Francisco Giants,Brian Sabean,89487842,0.463,2005
+San Francisco Giants,Brian Sabean,90056419,0.472,2006
+San Francisco Giants,Brian Sabean,90219056,0.438,2007
+San Francisco Giants,Brian Sabean,76594500,0.444,2008
+San Francisco Giants,Brian Sabean,82161450,0.543,2009
+San Francisco Giants,Brian Sabean,97828833,0.568,2010
+San Francisco Giants,Brian Sabean,118216333,0.531,2011
+San Francisco Giants,Brian Sabean,117620683,0.58,2012
+San Francisco Giants,Brian Sabean,140264334,0.469,2013
+San Francisco Giants,Brian Sabean,154185878,0.543,2014
+San Francisco Giants,Brian Sabean,187088630,0.519,2015
+Seattle Mariners,Woody Woodward,43698136,0.472,1998
+Seattle Mariners,Woody Woodward,44396336,0.488,1999
+Seattle Mariners,Pat Gillick,58915000,0.562,2000
+Seattle Mariners,Pat Gillick,75652500,0.716,2001
+Seattle Mariners,Pat Gillick,80282668,0.574,2002
+Seattle Mariners,Pat Gillick,86959167,0.574,2003
+Seattle Mariners,Bill Bavasi,81543833,0.389,2004
+Seattle Mariners,Bill Bavasi,85883333,0.426,2005
+Seattle Mariners,Bill Bavasi,87959833,0.481,2006
+Seattle Mariners,Bill Bavasi,106460833,0.543,2007
+Seattle Mariners,Bill Bavasi,117666482,0.377,2008
+Seattle Mariners,Jack Zduriencik,98904167,0.525,2009
+Seattle Mariners,Jack Zduriencik,98376667,0.377,2010
+Seattle Mariners,Jack Zduriencik,86424600,0.414,2011
+Seattle Mariners,Jack Zduriencik,81978100,0.463,2012
+Seattle Mariners,Jack Zduriencik,72031143,0.438,2013
+Seattle Mariners,Jack Zduriencik,92081943,0.537,2014
+Seattle Mariners,Jack Zduriencik,126031265,0.469,2015
+St. Louis Cardinals,Walt Jocketty,44090854,0.512,1998
+St. Louis Cardinals,Walt Jocketty,46173195,0.466,1999
+St. Louis Cardinals,Walt Jocketty,61453863,0.586,2000
+St. Louis Cardinals,Walt Jocketty,77270855,0.574,2001
+St. Louis Cardinals,Walt Jocketty,74098267,0.599,2002
+St. Louis Cardinals,Walt Jocketty,83486666,0.525,2003
+St. Louis Cardinals,Walt Jocketty,75633517,0.648,2004
+St. Louis Cardinals,Walt Jocketty,93319842,0.617,2005
+St. Louis Cardinals,Walt Jocketty,88891371,0.516,2006
+St. Louis Cardinals,Walt Jocketty,90286823,0.481,2007
+St. Louis Cardinals,John Mozeliak,99624449,0.531,2008
+St. Louis Cardinals,John Mozeliak,88528411,0.562,2009
+St. Louis Cardinals,John Mozeliak,93540753,0.531,2010
+St. Louis Cardinals,John Mozeliak,105433572,0.556,2011
+St. Louis Cardinals,John Mozeliak,110300862,0.543,2012
+St. Louis Cardinals,John Mozeliak,115222086,0.599,2013
+St. Louis Cardinals,John Mozeliak,111020360,0.556,2014
+St. Louis Cardinals,John Mozeliak,132178951,0.617,2015
+Tampa Bay Rays,Chuck LaMar,27370000,0.389,1998
+Tampa Bay Rays,Chuck LaMar,38027500,0.426,1999
+Tampa Bay Rays,Chuck LaMar,62765129,0.429,2000
+Tampa Bay Rays,Chuck LaMar,54951602,0.383,2001
+Tampa Bay Rays,Chuck LaMar,34380000,0.342,2002
+Tampa Bay Rays,Chuck LaMar,19630000,0.389,2003
+Tampa Bay Rays,Chuck LaMar,29506667,0.435,2004
+Tampa Bay Rays,Chuck LaMar,29893567,0.414,2005
+Tampa Bay Rays,Andrew Friedman,35417967,0.377,2006
+Tampa Bay Rays,Andrew Friedman,24123500,0.407,2007
+Tampa Bay Rays,Andrew Friedman,43820597,0.599,2008
+Tampa Bay Rays,Andrew Friedman,63313035,0.519,2009
+Tampa Bay Rays,Andrew Friedman,71923471,0.593,2010
+Tampa Bay Rays,Andrew Friedman,41932171,0.562,2011
+Tampa Bay Rays,Andrew Friedman,64173500,0.556,2012
+Tampa Bay Rays,Andrew Friedman,57895272,0.564,2013
+Tampa Bay Rays,Andrew Friedman,77062891,0.475,2014
+Tampa Bay Rays,Andrew Friedman,73582652,0.494,2015
+Texas Rangers,Douglas Melvin,60519595,0.543,1998
+Texas Rangers,Douglas Melvin,81576598,0.586,1999
+Texas Rangers,Douglas Melvin,70795921,0.438,2000
+Texas Rangers,Douglas Melvin,88504421,0.451,2001
+Texas Rangers,John Hart,105302124,0.444,2002
+Texas Rangers,John Hart,103491667,0.438,2003
+Texas Rangers,John Hart,54825973,0.549,2004
+Texas Rangers,John Hart,55307258,0.488,2005
+Texas Rangers,Jon Daniels,68228662,0.494,2006
+Texas Rangers,Jon Daniels,68318675,0.463,2007
+Texas Rangers,Jon Daniels,67712326,0.488,2008
+Texas Rangers,Jon Daniels,68646023,0.537,2009
+Texas Rangers,Jon Daniels,55250545,0.556,2010
+Texas Rangers,Jon Daniels,92299265,0.593,2011
+Texas Rangers,Jon Daniels,120510974,0.574,2012
+Texas Rangers,Jon Daniels,114090100,0.558,2013
+Texas Rangers,Jon Daniels,136036172,0.414,2014
+Texas Rangers,Jon Daniels,152445607,0.543,2015
+Toronto Blue Jays,Gord Ash,34158500,0.543,1998
+Toronto Blue Jays,Gord Ash,48455333,0.519,1999
+Toronto Blue Jays,Gord Ash,46238333,0.512,2000
+Toronto Blue Jays,Gord Ash,75798500,0.494,2001
+Toronto Blue Jays,J.P. Ricciardi,76864333,0.481,2002
+Toronto Blue Jays,J.P. Ricciardi,51269000,0.531,2003
+Toronto Blue Jays,J.P. Ricciardi,50017000,0.416,2004
+Toronto Blue Jays,J.P. Ricciardi,45336500,0.494,2005
+Toronto Blue Jays,J.P. Ricciardi,71915000,0.537,2006
+Toronto Blue Jays,J.P. Ricciardi,81942800,0.512,2007
+Toronto Blue Jays,J.P. Ricciardi,97793900,0.531,2008
+Toronto Blue Jays,J.P. Ricciardi,80993657,0.463,2009
+Toronto Blue Jays,Alex Anthopoulos,62689357,0.525,2010
+Toronto Blue Jays,Alex Anthopoulos,62517800,0.5,2011
+Toronto Blue Jays,Alex Anthopoulos,75489200,0.451,2012
+Toronto Blue Jays,Alex Anthopoulos,117527800,0.457,2013
+Toronto Blue Jays,Alex Anthopoulos,132628700,0.512,2014
+Toronto Blue Jays,Alex Anthopoulos,138309664,0.574,2015
+Washington Nationals,Jim Bowden,48581500,0.5,2005
+Washington Nationals,Jim Bowden,63143000,0.438,2006
+Washington Nationals,Jim Bowden,37347500,0.451,2007
+Washington Nationals,Jim Bowden,54961000,0.366,2008
+Washington Nationals,Mike Rizzo,59328000,0.364,2009
+Washington Nationals,Mike Rizzo,61425000,0.426,2010
+Washington Nationals,Mike Rizzo,63681929,0.497,2011
+Washington Nationals,Mike Rizzo,81336143,0.605,2012
+Washington Nationals,Mike Rizzo,114056769,0.531,2013
+Washington Nationals,Mike Rizzo,134704437,0.593,2014
+Washington Nationals,Mike Rizzo,165655095,0.512,2015

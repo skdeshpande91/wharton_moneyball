@@ -1,0 +1,50 @@
+---
+title: "Problem Set 2"
+output: html_document
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = "", prompt = TRUE, collapse = TRUE, tidy=TRUE)
+```
+
+## Payroll and Winning Percentage in the MLB
+
+In lecture, Professory Wyner discussed the relationship between a team's payroll and its winning percentage.
+In particular, for each season, he computed the "relative payroll" of each team by taking its payroll and dividing it by the median of payrolls of all teams in that seaosn.
+We will replicate his analysis in the following problems using the dataset "mlb_relative_payrolls.csv", which you may download [here](data/mlb_relative_payroll.csv) if you haven't received it yet.
+
+1. Read the data in from the file and save it as a tbl called "relative_payroll"
+```{r read-payrolls}
+relative_payroll <- read_csv(file = "data/mlb_relative_payrolls.csv")
+```
+
+2. Make a histogram of team winning percentages. Play around with different binwidths. 
+```{r, eval = FALSE, echo = FALSE}
+ggplot(data = relative_payroll) +
+  geom_histogram(mapping = aes(x = Winning_Percentage, y = ..density..), binwidth = 0.01)
+```
+3. Make a histogram of the relative payrolls.
+```{r, eval = FALSE, echo = FALSE}
+ggplot(data = relative_payroll) +
+  geom_histogram(mapping = aes(x = Relative_Payroll, y = ..density..), binwidth = 0.1)
+```
+4. Make a scatterplot with relative payroll on the horizontal axis and winning percentage on the vertical axis. 
+
+```{r, eval = FALSE, echo = FALSE}
+ggplot(data = relative_payroll) +
+  geom_point(mapping = aes(x = Relative_Payroll, y = Winning_Percentage))
+```
+
+5. Without executing the code below, discuss with your group and see if you can figure out what it is doing.
+```{r, eval = FALSE}
+ggplot(data = relative_payroll) + 
+  geom_point(mapping = aes(x = Year, y = Team_Payroll))
+```
+
+6. Execute the code above. What can you say about how team payrolls have evolved over time? Make a similar plot that visualizes how *relative payrolls* have evolved over time.
+
+```{r, eval = FALSE, echo = FALSE}
+ggplot(data = relative_payroll) + 
+  geom_point(mapping = aes(x = Year, y = Relative_Payroll))
+```
+
+

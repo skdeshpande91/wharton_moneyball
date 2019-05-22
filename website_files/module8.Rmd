@@ -1,0 +1,12 @@
+---
+title: 'Module 8: Predicting Binary Outcomes'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = "", prompt = TRUE, collapse = TRUE, tidy=TRUE)
+```
+
+## Back to the Field Goal Data
+
+We will study the NFL field goal data we were working with in [Problem Set 6](ps6.html).

@@ -1,0 +1,52 @@
+---
+title: "Problem Set 1"
+output: html_document
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = "", prompt = TRUE, collapse = TRUE, tidy=TRUE)
+library(tidyverse)
+mlb_standings_2016 <- read_csv("data/mlb_standings_2016.csv")
+```
+
+
+## Pythagorean Expectation
+
+The sabermetrician Bill James introduced the concept of Pythagorean Expectation to approximate baseball teams' winning percentages.
+he found that if you took the square of the number of runs scored (RS) and divided by the sum of the squares of runs scored (RS) and runs allowed (RA), you get a pretty good estimate of a team's actual win probability.
+James' formula is:
+$$
+\text{Win %} \approx \frac{\text{RS}^2}{\text{RS}^2 + \text{RA}^2}
+$$
+In this exercise, we will assess this formula using data from the 2016 Major League Baseball Season, which is tabulated below.
+
+**Be sure to save all of your code in an R script, which you can call ''ps1.R''.**
+
+1. Using the `c()` function, create vectors called `teams`, `wins`, `losses`, `rs` and `ra` that contain the tean names, number of wins, number of losses, number of runs scored, and number of runs allowed.
+2. Name the elements of `wins`, `losses`, `rs`, and `ra` according to the team.
+3. Create a new vector called `wp.actual` containing the actual win percentages. 
+4. Create a new vector called `wp.pythag` containing the Pythagorean expectations. Which team has the smallest Pythagorean expectation? Is that the team with the smallest actual win percentage?
+5. Create a new vector called `wp.resid` containing the difference between each team's actual winning percentage and the Pythagorean expectation. These differences are known as *residuals*. If a team has a positive residual, that means that their actual win percentage exceeded what Pythagorean expectation predicted. Which team most outperformed their expected win percentage?
+<!--
+6. Create a tibble called `mlb.2016` containing columns for the team name, number of wins, number of losses, number of runs scored, number of runs allowed, actual winning percentage, Pythagorean winning percentage, and the residual.
+7. Make a histogram of the winning percentages and the pythagorean winning percentages. Comment on anything you notice abou them.
+8. Make a scatter plot with Pythagorean winning percentages on the x-axis and the actual winning percentages on the y-axis. 
+-->
+<center>
+```{r echo = FALSE, results = 'asis'}
+library(simpletable)
+#library(tidyverse)
+tablecode(mlb_standings_2016[,c("TEAM", "W", "L", "RS", "RA")], tabletype = "zebra1")
+teams <- mlb_standings_2016[,"TEAM"]
+wins <- mlb_standings_2016[,"W"]
+losses <- mlb_standings_2016[,"L"]
+rs <- mlb_standings_2016[,"RS"]
+ra <- mlb_standings_2016[,"RA"]
+names(wins) <- teams
+names(losses) <- teams
+names(rs) <- teams
+names(ra) <- teams
+wp_actual <- wins/(wins + losses)
+wp_pythag <- rs^2/(rs^2 + ra^2)
+wp_resid <- wp_actual - wp_pythag
+```
+</center>

@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Problem Set 1</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/font-awesome-5.0.13/css/fa-svg-with-js.css" rel="stylesheet" />
+<script src="site_libs/font-awesome-5.0.13/js/fontawesome-all.min.js"></script>
+<script src="site_libs/font-awesome-5.0.13/js/fa-v4-shims.min.js"></script>
+
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("show" === "show");
+});
+</script>
+
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">WMA19</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-futbol-o"></span>
+     
+    Lecture Notes
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="module1.html">Module 1</a>
+    </li>
+    <li>
+      <a href="module2.html">Module 2</a>
+    </li>
+    <li>
+      <a href="module3.html">Module 3</a>
+    </li>
+    <li>
+      <a href="module4.html">Module 4</a>
+    </li>
+    <li>
+      <a href="module5.html">Module 5</a>
+    </li>
+    <li>
+      <a href="module6.html">Module 6</a>
+    </li>
+    <li>
+      <a href="module7.html">Module 7</a>
+    </li>
+    <li>
+      <a href="module8.html">Module 8</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-dribbble"></span>
+     
+    Problem Sets
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="ps0.html">Problem Set 0</a>
+    </li>
+    <li>
+      <a href="ps1.html">Problem Set 1</a>
+    </li>
+    <li>
+      <a href="ps2.html">Problem Set 2</a>
+    </li>
+    <li>
+      <a href="ps3.html">Problem Set 3</a>
+    </li>
+    <li>
+      <a href="ps4.html">Problem Set 4</a>
+    </li>
+    <li>
+      <a href="ps5.html">Problem Set 5</a>
+    </li>
+    <li>
+      <a href="ps6.html">Problem Set 6</a>
+    </li>
+    <li>
+      <a href="ps7.html">Problem Set 7</a>
+    </li>
+    <li>
+      <a href="ps8.html">Problem Set 8</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="project_info.html">
+    <span class="fa fa-money"></span>
+     
+    Projects
+  </a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+<div class="btn-group pull-right">
+<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">Problem Set 1</h1>
+
+</div>
+
+
+<div id="pythagorean-expectation" class="section level2">
+<h2>Pythagorean Expectation</h2>
+<p>The sabermetrician Bill James introduced the concept of Pythagorean Expectation to approximate baseball teams’ winning percentages. he found that if you took the square of the number of runs scored (RS) and divided by the sum of the squares of runs scored (RS) and runs allowed (RA), you get a pretty good estimate of a team’s actual win probability. James’ formula is: <span class="math display">\[
+\text{Win %} \approx \frac{\text{RS}^2}{\text{RS}^2 + \text{RA}^2}
+\]</span> In this exercise, we will assess this formula using data from the 2016 Major League Baseball Season, which is tabulated below.</p>
+<p><strong>Be sure to save all of your code in an R script, which you can call ‘’ps1.R’’.</strong></p>
+<ol style="list-style-type: decimal">
+<li>Using the <code>c()</code> function, create vectors called <code>teams</code>, <code>wins</code>, <code>losses</code>, <code>rs</code> and <code>ra</code> that contain the tean names, number of wins, number of losses, number of runs scored, and number of runs allowed.</li>
+<li>Name the elements of <code>wins</code>, <code>losses</code>, <code>rs</code>, and <code>ra</code> according to the team.</li>
+<li>Create a new vector called <code>wp.actual</code> containing the actual win percentages.</li>
+<li>Create a new vector called <code>wp.pythag</code> containing the Pythagorean expectations. Which team has the smallest Pythagorean expectation? Is that the team with the smallest actual win percentage?</li>
+<li>Create a new vector called <code>wp.resid</code> containing the difference between each team’s actual winning percentage and the Pythagorean expectation. These differences are known as <em>residuals</em>. If a team has a positive residual, that means that their actual win percentage exceeded what Pythagorean expectation predicted. Which team most outperformed their expected win percentage? <!--
+6. Create a tibble called `mlb.2016` containing columns for the team name, number of wins, number of losses, number of runs scored, number of runs allowed, actual winning percentage, Pythagorean winning percentage, and the residual.
+7. Make a histogram of the winning percentages and the pythagorean winning percentages. Comment on anything you notice abou them.
+8. Make a scatter plot with Pythagorean winning percentages on the x-axis and the actual winning percentages on the y-axis. 
+-->
+<center>
+<style>
+table#zebra1 {font-family: 'Helvetica', 'Arial', sans-serif; font-size:16px; text-align:left; margin-bottom:25px; background-color: #FF9999;}
+table#zebra1 th {color: #444; font-size: 18px; font-weight: bold; padding: 10px 8px;}
+table#zebra1 td {color: #777;padding: 8px;}
+table#zebra1 tr:nth-child(even) { color: black; background-color: #eee;}
+table#zebra1 tr:nth-child(odd) {color: black; background-color: #fff;}
+          </style>
+<table id="zebra1" style="width:80%">
+<tr>
+<th>
+TEAM
+</th>
+<th>
+W
+</th>
+<th>
+L
+</th>
+<th>
+RS
+</th>
+<th>
+RA
+</th>
+</tr>
+<tr>
+<td data-th="TEAM">
+Chicago Cubs
+</td>
+<td data-th="W">
+103
+</td>
+<td data-th="L">
+58
+</td>
+<td data-th="RS">
+808
+</td>
+<td data-th="RA">
+556
+</td>
+</tr>
+<tr>
+<td data-th="TEAM">
+Texas Rangers
+</td>
+<td data-th="W">
+95
+</td>
+<td data-th="L">
+67
+</td>
+<td data-th="RS">
+765
+</td>
+<td data-th="RA">
+757
+</td>
+</tr>
+<tr>
+<td data-th="TEAM">
+Washington Nationals
+</td>
+<td data-th="W">
+95
+</td>
+<td data-th="L">
+67
+</td>
+<td data-th="RS">
+763
+</td>
+<td data-th="RA">
+612
+</td>
+</tr>
+<tr>
+<td data-th="TEAM">
+Cleveland Indians
+</td>
+<td data-th="W">
+94
+</td>
+<td data-th="L">
+67
+</td>
+<td data-th="RS">
+777
+</td>
+<td data-th="RA">
+676
+</td>
+</tr>
+<tr>
+<td data-th="TEAM">
+Boston Red Sox
+</td>
+<td data-th="W">
+93
+</td>
+<td data-th="L">
+69
+</td>
+<td data-th="RS">
+878
+</td>
+<td data-th="RA">
+694
+</td>
+</tr>
+<tr>
+<td data-th="TEAM">
+Los Angeles Dodgers
+</td>
+<td data-th="W">
+91
+</td>
+<td data-th="L">
+71
+</td>
+<td data-th="RS">
+725
+</td>
+<td data-th="RA">
+638
+</td>
+</tr>
+<tr>
+<td data-th="TEAM">
+Baltimore Orioles
+</td>
+<td data-th="W">
+89
+</td>
+<td data-th="L">
+73
+</td>
+<td data-th="RS">
+744
+</td>
+<td data-th="RA">
+715
+</td>
+</tr>
+<tr>
+<td data-th="TEAM">
+Toronto Blue Jays
+</td>
+<td data-th="W">
+89
+</td>
+<td data-th="L">
+73
+</td>
+<td data-th="RS">
+759
+</td>
+<td data-th="RA">
+666
+</td>
+</tr>
+<tr>
+<td data-th="TEAM">
+New York Mets
+</td>
+<td data-th="W">
+87
+</td>
+<td data-th="L">
+75
+</td>
+<td data-th="RS">
+671
+</td>
+<td data-th="RA">
+617
+</td>
+</tr>
+<tr>
+<td data-th="TEAM">
+San Francisco Giants
+</td>
+<td data-th="W">
+87
+</td>
+<td data-th="L">
+75
+</td>
+<td data-th="RS">
+715
+</td>
+<td data-th="RA">
+631
+</td>
+</tr>
+<tr>
+<td data-th="TEAM">
+Detroit Tigers
+</td>
+<td data-th="W">
+86
+</td>
+<td data-th="L">
+75
+</td>
+<td data-th="RS">
+750
+</td>
+<td data-th="RA">
+721
+</td>
+</tr>
+<tr>
+<td data-th="TEAM">
+St. Louis Cardinals
+</td>
+<td data-th="W">
+86
+</td>
+<td data-th="L">
+76
+</td>
+<td data-th="RS">
+779
+</td>
+<td data-th="RA">
+712
+</td>
+</tr>
+<tr>
+<td data-th="TEAM">
+Seattle Mariners
+</td>
+<td data-th="W">
+86
+</td>
+<td data-th="L">
+76
+</td>
+<td data-th="RS">
+768
+</td>
+<td data-th="RA">
+707
+</td>
+</tr>
+<tr>
+<td data-th="TEAM">
+New York Yankees
+</td>
+<td data-th="W">
+84
+</td>
+<td data-th="L">
+78
+</td>
+<td data-th="RS">
+680
+</td>
+<td data-th="RA">
+702
+</td>
+</tr>
+<tr>
+<td data-th="TEAM">
+Houston Astros
+</td>
+<td data-th="W">
+84
+</td>
+<td data-th="L">
+78
+</td>
+<td data-th="RS">
+724
+</td>
+<td data-th="RA">
+701
+</td>
+</tr>
+<tr>
+<td data-th="TEAM">
+Kansas City Royals
+</td>
+<td data-th="W">
+81
+</td>
+<td data-th="L">
+81
+</td>
+<td data-th="RS">
+675
+</td>
+<td data-th="RA">
+712
+</td>
+</tr>
+<tr>
+<td data-th="TEAM">
+Miami Marlins
+</td>
+<td data-th="W">
+79
+</td>
+<td data-th="L">
+82
+</td>
+<td data-th="RS">
+655
+</td>
+<td data-th="RA">
+682
+</td>
+</tr>
+<tr>
+<td data-th="TEAM">
+Pittsburgh Pirates
+</td>
+<td data-th="W">
+78
+</td>
+<td data-th="L">
+83
+</td>
+<td data-th="RS">
+729
+</td>
+<td data-th="RA">
+758
+</td>
+</tr>
+<tr>
+<td data-th="TEAM">
+Chicago White Sox
+</td>
+<td data-th="W">
+78
+</td>
+<td data-th="L">
+84
+</td>
+<td data-th="RS">
+686
+</td>
+<td data-th="RA">
+715
+</td>
+</tr>
+<tr>
+<td data-th="TEAM">
+Colorado Rockies
+</td>
+<td data-th="W">
+75
+</td>
+<td data-th="L">
+87
+</td>
+<td data-th="RS">
+845
+</td>
+<td data-th="RA">
+860
+</td>
+</tr>
+<tr>
+<td data-th="TEAM">
+Los Angeles Angels
+</td>
+<td data-th="W">
+74
+</td>
+<td data-th="L">
+88
+</td>
+<td data-th="RS">
+717
+</td>
+<td data-th="RA">
+727
+</td>
+</tr>
+<tr>
+<td data-th="TEAM">
+Milwaukee Brewers
+</td>
+<td data-th="W">
+73
+</td>
+<td data-th="L">
+89
+</td>
+<td data-th="RS">
+671
+</td>
+<td data-th="RA">
+733
+</td>
+</tr>
+<tr>
+<td data-th="TEAM">
+Philadelphia Phillies
+</td>
+<td data-th="W">
+71
+</td>
+<td data-th="L">
+91
+</td>
+<td data-th="RS">
+610
+</td>
+<td data-th="RA">
+796
+</td>
+</tr>
+<tr>
+<td data-th="TEAM">
+Arizona Diamondbacks
+</td>
+<td data-th="W">
+69
+</td>
+<td data-th="L">
+93
+</td>
+<td data-th="RS">
+752
+</td>
+<td data-th="RA">
+890
+</td>
+</tr>
+<tr>
+<td data-th="TEAM">
+Oakland Athletics
+</td>
+<td data-th="W">
+69
+</td>
+<td data-th="L">
+93
+</td>
+<td data-th="RS">
+653
+</td>
+<td data-th="RA">
+761
+</td>
+</tr>
+<tr>
+<td data-th="TEAM">
+Atlanta Braves
+</td>
+<td data-th="W">
+68
+</td>
+<td data-th="L">
+93
+</td>
+<td data-th="RS">
+649
+</td>
+<td data-th="RA">
+779
+</td>
+</tr>
+<tr>
+<td data-th="TEAM">
+Tampa Bay Rays
+</td>
+<td data-th="W">
+68
+</td>
+<td data-th="L">
+94
+</td>
+<td data-th="RS">
+672
+</td>
+<td data-th="RA">
+713
+</td>
+</tr>
+<tr>
+<td data-th="TEAM">
+San Diego Padres
+</td>
+<td data-th="W">
+68
+</td>
+<td data-th="L">
+94
+</td>
+<td data-th="RS">
+686
+</td>
+<td data-th="RA">
+770
+</td>
+</tr>
+<tr>
+<td data-th="TEAM">
+Cincinnati Reds
+</td>
+<td data-th="W">
+68
+</td>
+<td data-th="L">
+94
+</td>
+<td data-th="RS">
+716
+</td>
+<td data-th="RA">
+854
+</td>
+</tr>
+<tr>
+<td data-th="TEAM">
+Minnesota Twins
+</td>
+<td data-th="W">
+59
+</td>
+<td data-th="L">
+103
+</td>
+<td data-th="RS">
+722
+</td>
+<td data-th="RA">
+889
+</td>
+</tr>
+</table></li>
+</ol>
+<pre><code>Warning: Must use a character vector as names.
+This warning is displayed once per session.</code></pre>
+</center>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

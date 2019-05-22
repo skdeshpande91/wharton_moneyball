@@ -1,0 +1,19 @@
+---
+title: "Project Ideas"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = "", prompt = TRUE, collapse = TRUE, tidy=TRUE, fig.align = "center")
+```
+
+You and your project team will take a "deep dive" into a large sports dataset using the tools you have learned during the R course.
+On the last day of the program, you and your team will make a short presentation to the rest of the camp. 
+
+While you and your team have a lot of freedom to analyze a datset of your choosing, we've put together a few possible projects to get your thinking.
+
+* [Revisiting the Pythagorean Expectation Formula](pythag_project.html): Try to improve on the original Pythagorean expectation formula for the four major American sports.
+
+* [A Pythagorean Points Formula](pythag_points_project.html): Try to devise a formula to predict the number of points scored by an English soccer team as a function of the number of goals for and goals again. *Note*: you can do this project using data from the NHL too!
+
+* [Distance-to-Nearest-Defender](nba_dist_def.html): How does the distance to the nearest defender affect the chances of a basketball player making a shot? 

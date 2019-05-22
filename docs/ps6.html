@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Problem Set 6</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/font-awesome-5.0.13/css/fa-svg-with-js.css" rel="stylesheet" />
+<script src="site_libs/font-awesome-5.0.13/js/fontawesome-all.min.js"></script>
+<script src="site_libs/font-awesome-5.0.13/js/fa-v4-shims.min.js"></script>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+pre, code { background-color: #f8f8f8; }
+code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code > span.dt { color: #204a87; } /* DataType */
+code > span.dv { color: #0000cf; } /* DecVal */
+code > span.bn { color: #0000cf; } /* BaseN */
+code > span.fl { color: #0000cf; } /* Float */
+code > span.ch { color: #4e9a06; } /* Char */
+code > span.st { color: #4e9a06; } /* String */
+code > span.co { color: #8f5902; font-style: italic; } /* Comment */
+code > span.ot { color: #8f5902; } /* Other */
+code > span.al { color: #ef2929; } /* Alert */
+code > span.fu { color: #000000; } /* Function */
+code > span.er { color: #a40000; font-weight: bold; } /* Error */
+code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #000000; } /* SpecialChar */
+code > span.vs { color: #4e9a06; } /* VerbatimString */
+code > span.ss { color: #4e9a06; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #000000; } /* Variable */
+code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code > span.ex { } /* Extension */
+code > span.at { color: #c4a000; } /* Attribute */
+code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+div.sourceCode {
+  overflow-x: visible;
+}
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("show" === "show");
+});
+</script>
+
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">WMA19</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-futbol-o"></span>
+     
+    Lecture Notes
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="module1.html">Module 1</a>
+    </li>
+    <li>
+      <a href="module2.html">Module 2</a>
+    </li>
+    <li>
+      <a href="module3.html">Module 3</a>
+    </li>
+    <li>
+      <a href="module4.html">Module 4</a>
+    </li>
+    <li>
+      <a href="module5.html">Module 5</a>
+    </li>
+    <li>
+      <a href="module6.html">Module 6</a>
+    </li>
+    <li>
+      <a href="module7.html">Module 7</a>
+    </li>
+    <li>
+      <a href="module8.html">Module 8</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-dribbble"></span>
+     
+    Problem Sets
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="ps0.html">Problem Set 0</a>
+    </li>
+    <li>
+      <a href="ps1.html">Problem Set 1</a>
+    </li>
+    <li>
+      <a href="ps2.html">Problem Set 2</a>
+    </li>
+    <li>
+      <a href="ps3.html">Problem Set 3</a>
+    </li>
+    <li>
+      <a href="ps4.html">Problem Set 4</a>
+    </li>
+    <li>
+      <a href="ps5.html">Problem Set 5</a>
+    </li>
+    <li>
+      <a href="ps6.html">Problem Set 6</a>
+    </li>
+    <li>
+      <a href="ps7.html">Problem Set 7</a>
+    </li>
+    <li>
+      <a href="ps8.html">Problem Set 8</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="project_info.html">
+    <span class="fa fa-money"></span>
+     
+    Projects
+  </a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+<div class="btn-group pull-right">
+<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">Problem Set 6</h1>
+
+</div>
+
+
+<p>In <a href="module6.html">Module 6</a>, we started building a model for predicting a baseball player’s 2015 batting average using his 2014 batting average. We found that some models, even though they fit the data quite well, appeared to <em>overfit</em> and may not predict future observations well. We will switch gears a little bit and discuss how to diagnose overfit issues using data on field goals in the NFL.</p>
+<div id="training-and-testing-paradigm" class="section level3">
+<h3>Training and Testing Paradigm</h3>
+<p>Suppose we have fit a whole bunch of models to a given dataset. How should we choose which model is the best? One strategy might be to see how well the models predict the data we used to fit them. While this seems intuitive, we saw in <a href="module6.html">Module 6</a> that it is possible to “over-learn” the patterns in this training data.</p>
+<p>A common alternative is to instead split our original dataset into two parts: a <em>training</em> set and a <em>testing</em> set. We fit all of our models on the training set and then see how well they predict the values in the testing set. <!-- need to include more descriptions here --></p>
+</div>
+<div id="field-goal-success-in-the-nfl" class="section level2">
+<h2>Field Goal Success in the NFL</h2>
+<p>The file “nfl_fg_train.csv” contains a large dataset about field goals attempted in the NFL between 2005 and 2015. We will train several models of field goal success with this data and then evaluate their predictive performance using the data contained in “nfl_fg_test.csv”.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">library</span>(tidyverse)
+&gt;<span class="st"> </span>fg_train &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/nfl_fg_train.csv&quot;</span>)
+Parsed with column specification:
+<span class="kw">cols</span>(
+  <span class="dt">Team =</span> <span class="kw">col_character</span>(),
+  <span class="dt">Year =</span> <span class="kw">col_integer</span>(),
+  <span class="dt">GameMinute =</span> <span class="kw">col_integer</span>(),
+  <span class="dt">Kicker =</span> <span class="kw">col_character</span>(),
+  <span class="dt">Distance =</span> <span class="kw">col_integer</span>(),
+  <span class="dt">ScoreDiff =</span> <span class="kw">col_integer</span>(),
+  <span class="dt">Grass =</span> <span class="kw">col_logical</span>(),
+  <span class="dt">Success =</span> <span class="kw">col_integer</span>()
+)</code></pre></div>
+<ol style="list-style-type: decimal">
+<li><p>The simplest forecast for field goal success probability is the overall average success rate. This forecast does not differentiate between players or attempt to adjust for distance or other game contexts. Add a new column to <code>fg_train</code> called “phat_all” which contains the overall average field goal suceess rate. This may be computed by taking the average of the column “Success”.</p></li>
+<li><p>Overall, kickers just over 83% of their attempts. However, we know that there are some truly elite kickers (e.g. the Cowboys’ Dan Bailey) who make well over 83% of their attempts. Instead of forecasting field goal success probabilites with the overall average, we could instead use compute each individual kicker’s conversion rate. Using <code>group_by()</code> and <code>mutate()</code>, add a column to <code>fg_train</code> called “phat_kicker” which contains each kicker’s field goal conversion rate. Be sure to <code>ungroup()</code> the tbl when you’re done!</p></li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>fg_train &lt;-<span class="st"> </span>
++<span class="st">   </span>fg_train %&gt;%<span class="st"> </span>
++<span class="st">   </span><span class="kw">group_by</span>(Kicker) %&gt;%
++<span class="st">   </span><span class="kw">mutate</span>(<span class="dt">phat_kicker =</span> <span class="kw">mean</span>(Success)) %&gt;%
++<span class="st">   </span><span class="kw">ungroup</span>()</code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li>Intuitive, distance is one of the main determinants of whether a kicker makes a field goal. We will use the <code>cut()</code> function to bin the data according to distance and then compute the conversion rate (averaged over all kickers) within each bin. In our dataset, the shortest field goal attempt was 18 yards and the longest was 76. We will begin by binning our data into 10 yard increments, 10 – 20, 20 – 30, …, 70 – 80. We then save the bin label in a column called “Dist_10” and the predictions in a column called “phat_dist_10”.</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>fg_train &lt;-
++<span class="st">   </span>fg_train %&gt;%
++<span class="st">   </span><span class="kw">mutate</span>(<span class="dt">Dist_10 =</span> <span class="kw">cut</span>(Distance, <span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">10</span>, <span class="dt">to =</span> <span class="dv">80</span>, <span class="dt">by =</span> <span class="dv">10</span>))) %&gt;%
++<span class="st">   </span><span class="kw">group_by</span>(Dist_10) %&gt;%
++<span class="st">   </span><span class="kw">mutate</span>(<span class="dt">phat_dist_10 =</span> <span class="kw">mean</span>(Success)) %&gt;%
++<span class="st">   </span><span class="kw">ungroup</span>()</code></pre></div>
+<p>Create a scatter plot of distance and phat_dist_10. Since there are many attempts from certain yardages, use alpha-blending (see <a href="module2.html">Module 2</a> for a refresher on this!) to change the transparency of the points according to their frequency. Do these predictions make sense intuitively?</p>
+<ol start="4" style="list-style-type: decimal">
+<li><p>Using very similar code as in Question 3, bin the Distance into 5-yard increments, saving the bin labels in a column called “Dist_5”. Add a column to <code>fg_train()</code> that compute the overall conversion rate within each of these 5-yard bins. Call this column “phat_dist_5”.</p></li>
+<li><p>Repeat Question 4 but using 2 yard increments. Save the bin labels in a column called “Dist_2” and the probability forecasts in a column called “phat_dist_2”. When plotting phat_dist_2 against distance, what do you notice?</p></li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>fg_train &lt;-
++<span class="st">   </span>fg_train %&gt;%
++<span class="st">   </span><span class="kw">mutate</span>(<span class="dt">Dist_2 =</span> <span class="kw">cut</span>(Distance, <span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">10</span>, <span class="dt">to =</span> <span class="dv">80</span>, <span class="dt">by =</span> <span class="dv">2</span>))) %&gt;%
++<span class="st">   </span><span class="kw">group_by</span>(Dist_2) %&gt;%
++<span class="st">   </span><span class="kw">mutate</span>(<span class="dt">phat_dist_2 =</span> <span class="kw">mean</span>(Success)) %&gt;%
++<span class="st">   </span><span class="kw">ungroup</span>()</code></pre></div>
+<ol start="6" style="list-style-type: decimal">
+<li>We now have several predictive models of field goal success: phat_all, phat_kicker, phat_dist_10, phat_dist_5, and phat_dist_2. Recall from <a href="module6.html">Module 6</a> that to assess how well we are predicting a continuous outcome, we could use the RMSE. When predicting a binary outcome, we have a few more options. To set the stage, let let <span class="math inline">\(y_{i}\)</span> be the outcome of the <span class="math inline">\(i^{\text{th}}\)</span> observation and let <span class="math inline">\(\hat{p}_{i}\)</span> be the forecasted probability that <span class="math inline">\(y_{i} = 1.\)</span></li>
+</ol>
+<p>The <a href="https://en.wikipedia.org/wiki/Brier_score">Brier Score</a> is defined as <span class="math display">\[
+BS = \frac{1}{n}\sum_{i = 1}^{n}{(y_{i} - \hat{p}_{i})^{2}}
+\]</span> Looking at the formula, we see that the Brier score is just the mean square error of our forecasts. Using code that is very nearly identical to that used to compute RSME in <a href="module6.html">Module 6</a>, compute the Brier score of each of our prediction models.</p>
+<pre><code># A tibble: 1 x 5
+  phat_all phat_kicker phat_dist_10 phat_dist_5 phat_dist_2
+     &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;
+1    0.140       0.138        0.125       0.123       0.123</code></pre>
+<p>Which model has the lowest Brier score? Do you think this model over-fits the data?</p>
+<ol start="7" style="list-style-type: decimal">
+<li>Before assessing how well our models predict <em>out-of-sample</em>, it will be useful to create tbl’s that summarize each model’s forecasts. For instance, when we divided the data by kickers, we need not have multiple rows recording the same prediction for each kicker. Instead, we can create a tbl called <code>phat_kicker</code> which has one row per kicker and two columns, one for the kicker and one for the associated forecast:</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>phat_kicker &lt;-<span class="st"> </span>
++<span class="st">   </span>fg_train %&gt;%
++<span class="st">   </span><span class="kw">group_by</span>(Kicker) %&gt;%
++<span class="st">   </span><span class="kw">summarize</span>(<span class="dt">phat_kicker =</span> <span class="kw">mean</span>(Success))</code></pre></div>
+<p>Create similar tbls for phat_dist_10, phat_dist_5, and phat_dist_2.</p>
+<ol start="8" style="list-style-type: decimal">
+<li>The file “nfl_fg_test.csv” contains additional data on more field goals kicked between 2005 and 2015. Since we have not used the data in this file to train our models, we can get a sense of the <em>out-of-sample</em> predictive performance of our models by looking at how well they predict these field goals. We first load the data into a tbl called <code>fg_test</code>.</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>fg_test &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/nfl_fg_test.csv&quot;</span>)
+Parsed with column specification:
+<span class="kw">cols</span>(
+  <span class="dt">Team =</span> <span class="kw">col_character</span>(),
+  <span class="dt">Year =</span> <span class="kw">col_integer</span>(),
+  <span class="dt">GameMinute =</span> <span class="kw">col_integer</span>(),
+  <span class="dt">Kicker =</span> <span class="kw">col_character</span>(),
+  <span class="dt">Distance =</span> <span class="kw">col_integer</span>(),
+  <span class="dt">ScoreDiff =</span> <span class="kw">col_integer</span>(),
+  <span class="dt">Grass =</span> <span class="kw">col_logical</span>(),
+  <span class="dt">Success =</span> <span class="kw">col_integer</span>()
+)</code></pre></div>
+<p>Using <code>mutate()</code> and <code>cut()</code>, add columns “Dist_10”, “Dist_5”, and “Dist_2” to <code>fg_test</code> that bin the data into 10-yard, 5-yard, and 2-yard increments.</p>
+<ol start="9" style="list-style-type: decimal">
+<li>We are now ready to add our model’s forecasts to <code>fg_test</code>. For instance, we can add the forecast from “phat_all”, which is just the overall conversion rate averaged over all kickers.</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>fg_test &lt;-
++<span class="st">   </span>fg_test %&gt;%
++<span class="st">   </span><span class="kw">mutate</span>(<span class="dt">phat_all =</span> <span class="kw">mean</span>(fg_train[[<span class="st">&quot;Success&quot;</span>]]))</code></pre></div>
+<p>Notice that instead of computing the mean of the column “Success” from <code>fg_test</code>, we are computing the mean from <code>fg_train</code>.</p>
+<ol start="10" style="list-style-type: decimal">
+<li>Joining is a powerful technique to combine data from two different tables based on a <em>key</em>. The key is what enables us to match rows between the tables. For instance, to add the forecasts from “phat_kicker” to the tbl <code>fg_test</code> we can work row-by-row. First, for each field goal in <code>fg_test</code>, we identify the kicker who attempted the field goal. Then we can go over to the tbl <code>phat_kicker</code> and find the row corresponding to that kicker. We can then take that kicker’s forecast from <code>phat_kicker</code> and append it to the row in <code>fg_test.</code> What we have just described is what is known as an “inner join”. In this situation, the key was the Kicker. The code to carry out these operations is given below</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>fg_test &lt;-
++<span class="st">   </span>fg_test %&gt;%
++<span class="st">   </span><span class="kw">inner_join</span>(phat_kicker, <span class="dt">by =</span> <span class="st">&quot;Kicker&quot;</span>)</code></pre></div>
+<p>To verify that we have successfully performed this join, we can print out a few rows of <code>fg_test</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">select</span>(fg_test, Kicker, Success, phat_kicker)
+<span class="co"># A tibble: 1,682 x 3</span>
+   Kicker  Success phat_kicker
+   &lt;chr&gt;<span class="st">     </span><span class="er">&lt;</span>int&gt;<span class="st">       </span><span class="er">&lt;</span>dbl&gt;
+<span class="st"> </span><span class="dv">1</span> Akers         <span class="dv">1</span>       <span class="fl">0.788</span>
+ <span class="dv">2</span> Akers         <span class="dv">1</span>       <span class="fl">0.788</span>
+ <span class="dv">3</span> Bironas       <span class="dv">1</span>       <span class="fl">0.850</span>
+ <span class="dv">4</span> Bironas       <span class="dv">1</span>       <span class="fl">0.850</span>
+ <span class="dv">5</span> Bironas       <span class="dv">1</span>       <span class="fl">0.850</span>
+ <span class="dv">6</span> Brien         <span class="dv">0</span>       <span class="fl">0.333</span>
+ <span class="dv">7</span> Brown         <span class="dv">0</span>       <span class="fl">0.829</span>
+ <span class="dv">8</span> Brown         <span class="dv">1</span>       <span class="fl">0.829</span>
+ <span class="dv">9</span> Brown         <span class="dv">1</span>       <span class="fl">0.829</span>
+<span class="dv">10</span> Brown         <span class="dv">1</span>       <span class="fl">0.829</span>
+<span class="co"># … with 1,672 more rows</span></code></pre></div>
+<p>Let’s unpack the inner join code line-by-line: in the first two lines, we are telling R that we want to over-write <code>fg_test</code>. Next, we pipe <code>fg_test</code> to the function <code>inner_join</code>, which takes two more arguments. The last argument <code>by = &quot;Kicker&quot;</code> tells the function that the key we want to use is the kicker. The first argument <code>phat_kicker</code> tells the function where the additional data corresponding to each key value is.</p>
+<ol start="11" style="list-style-type: decimal">
+<li><p>Mimic the code shown in Question 10 to add columns for <code>fg_test</code> for the remaining three predictive models: “phat_dist_10”, “phat_dist_5”, and “phat_dist_2”.</p></li>
+<li><p>Compute the out-of-sample Brier scores for each of our models. Which has the best out-of-sample performance?</p></li>
+</ol>
+<pre><code># A tibble: 1 x 5
+  phat_all phat_kicker phat_dist_10 phat_dist_5 phat_dist_2
+     &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;
+1    0.134       0.133        0.120       0.118       0.118</code></pre>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

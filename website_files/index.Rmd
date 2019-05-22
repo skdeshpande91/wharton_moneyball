@@ -1,0 +1,34 @@
+---
+title: "Wharton Moneyball Academy"
+---
+
+## Overview
+
+Welcome to the webpage for the 2019 Wharton Moneyball Academy course on data analysis in R.
+In this course, you will learn the tools necessary to apply the concepts you learn in Prof. Wyner's class while analyzing real sports datasets using the R programming language.
+
+The instructors will spend the first hour or so of each class introducing new R functionality and programming concepts.
+After that, you'll have a chance to try out these concepts with several exercises, which we will review at the end of class.
+
+Please bookmark this site and check back regularly before the program starts for updates!
+
+<!--
+During the second week of the program, you and your teammates will have time to work on an open-ended project and take a ``deep dive'' into one of several data sets.
+A list of tentative projects can be found on the [Projects](project_info.html) page. 
+On the last day, you and your team will present your findings to the rest of the camp. 
+During the second week, you and your project team will have more time to work on your project (details below!) in the afternoon class and in the evening. 
+
+-->
+
+## Before you Arrive
+
+We know that y'all are very excited about the program and we've come up with a [short assignment](ps0.html) for you to work on before you arrive.
+[Problem Set 0](ps0.html) contains instructions for downloading and installing R and RStudio, which you should do prior to arrival. 
+It also contains a very brief introduction to the R programming language with some simple exercises, and several questions that will motivate the concepts you'll be exploring in Prof. Wyner's class. 
+Don't worry if you don't finish working your way through these exercises before you arrive.
+On the first night (Sunday July 8), you'll meet with your project team and RTA to discuss them. 
+As we approach the start of camp, please check back for periodic updates to the site. 
+
+## About the Instructors
+
+Sameer Deshpande completed his PhD in Statistics at Wharton. He is broadly interested in Bayesian statistics. Before coming to Wharton, he studied math at MIT. He loves all Dallas sports teams, but is especially passionate about the Cowboys.

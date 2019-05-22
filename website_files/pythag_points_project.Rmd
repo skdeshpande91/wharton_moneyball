@@ -1,0 +1,58 @@
+---
+title: "Pythagorean Points in English Football"
+
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = "", prompt = TRUE, collapse = TRUE, tidy=TRUE, fig.align = "center")
+```
+
+## Overview
+
+Recall from [Problem Set 1](ps1.html) the Pythagorean Expectation formula was introduced by Bill James to estimate how many games a baseball team is ``expected'' to win, based on the number of runs they scored and the number of runs they give up.
+For sports like baseball, basketball, and American football, win-loss records determine playoff seedings.
+In low-scoring sports like soccer (i.e. the other football) and ice hockey, more important than the number of games won is the number of *points* scored.
+Since tie games (or "draws") are not that unusual, each team is awarded 1 point in the event of a tie and 3 points are awarded to a winner.
+In this project, we will try to devise a Pythagorean-style formula for the number of points scored in English football.
+
+We will use data from the 1950 season all the way up to the 2015 season. 
+The file "data/english_football_train.csv" contains a random subset of 75% of the full dataset.
+We will use this data to train several different models to forecast the number of points each team has scored. 
+The file "data/english_football_test.csv" contains the remaining 25% of the data, which we will use to assess each of the models.
+Finally, the file "data/english_football_full.csv" contains the full dataset. We will only use this dataset to present our final results. 
+
+
+**Exercise** Load the training, testing, and full datasets into tbls names `england_train`, `england_test`, and `england_full`.
+
+## Some simple formulas
+
+A naive attempt to get "Pythagorean Poitns" would be to take the Pythagorean expected win percentage, multiply it by the number of games (to get an ``expected number of games wons''), and then multiply that by 3:
+$$
+\text{Pythag. Points} = \text{Pythag. Win Percentage} \times \text{num. games} \times 3
+$$
+where
+$$
+\text{Pythag. Win Percentage} = \frac{\text{GF}^{2}}{\text{GF}^{2} + \text{GA}^{2}}
+$$
+
+**Exercise** Add a column to `england_train` and `england_test` containing the forecast points from this formula. Call this column "points_0".
+
+One problem with this formula is that not every match awards a total of 3 points.
+Whenever teams tie (draw), the total number of points that are allocated is 2 (one to each team).
+Instead of multiplying by 3 points per match, we ought to multiply by a average number of points allocated per game:
+$$
+\text{ppg} = 3 \times \frac{\text{Wins}}{\text{Num. Games}} + 2 \times \frac{\text{Draws}}{\text{Num. Games}}
+$$
+To compute the average number of points per game, we should use all of the data (contained in the tbl `england_full`). 
+
+**Exercise** Add a column called "points_ppg" to `england_train` and `england_test` containing the new forecasts. Compute the training and testing RMSE for "points_ppg" and 
+
+## Next Steps:
+
+On balance, there's no reason for us to use the exponent 2 in the Pythagorean Expectation formula. Using our updated Pythagorean points formula (that uses `ppg`), try a few different exponents ranging from 0.5 to 2. 
+Find the best exponent using the training -- testing paradigm for predicting the number of points scored.
+
+You can also consider a linear model that tries to predict the number of points scored using the ratio $\frac{\text{GF - GA}}{{\text{GF + GA}}.$
+
+

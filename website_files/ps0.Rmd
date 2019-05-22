@@ -1,0 +1,59 @@
+---
+title: "Problem Set 0"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+This problem set contains instruction for setting up your computer for the data analysis course, a short introduction to using R, and some questions to think about before you arrive.
+
+## Setting Up Your System
+
+
+This summer, you'll be learning how to analyze data using R.
+R is a free, open-source software environment for statistical computing with several built-in functions for organizing, analyzing, and visualizing data. 
+What separates R from programs like Excel, JMP, STATA, and Minitab is the ability for programmers, scientists, and statisticians to extend R's basic functionality, and implement the latest algorithms and methods for analyzing massive and complex data. This extensibility has made R the de facto software standard in the academic statistics community and is driving the rapid adoption of R in the data analysis endeavors of several major corporations and government agencies like Bank of America, Facebook, the F.D.A., the New York Times, and Twitter.
+
+R uses a command line interface, which means that you interact with the software by typing in some commands and hitting Enter/Return to execute those commands.
+This is in marked contrast to most other software that you're probably accustomed to and makes learning R a little bit more challenging.
+To make our lifes a bit easier, we will use an integraded development environment (IDE) for R, known as RStudio.
+
+### Installing R and RStudio
+
+So that we can jump right into working with data on the first day, we'd like for you to install R and RStudio onto your computer before you arrive. 
+You can install R by going to [this website](https://cloud.r-project.org) and following the links there, depending on your operating system. 
+If you have a Mac, you will be taken to a new page and about halfway down there will be a download link for a .pkg file. Download that and open that file; this should launch the installer.
+If you have a Windows machine, you will be taken to a new page and at the top there should be a link to download R 3.3.0 for Windows. Download the executable and run the installer.
+Once you download R, you can install RStudio by going [here](http://www.rstudio.com/products/rstudio/download/) and downloading the appropriate installer for your operating system.
+**Be sure to download RStudio Desktop (open source license).** 
+Do not download the commercial version and do not download RStudio Server.
+
+### Creating a Working Directory
+
+During this course, you will be writing code to analyze different data sets as well as generating lots of output. 
+The working directory is the place where R will save any output you generate.
+For the purpose of this course, you should keep all of your work (including the datasets we give you) in one place.
+So that everyone is on the same page, go to your Desktop and create a new folder called Moneyball.
+
+## Getting Started With R
+
+Now that you've installed R and RStudio, why not start playing around with it?
+Check out the [Getting Started in R](getting_started.html) page for a brief introduction to R and some exercises.
+If you can work your way through them befor you get to camp, great! 
+But don't worry if you can't, there'll be plenty of time once you get here to go over them with your RTA and project team. 
+
+## Discussion Questions
+
+On the first night of the camp (Sunday July 8), you'll have a chance to meet with your project team and RTA and get to know them.
+To get the discussion started, we'd like you to think about the following questions.
+
+1. In the 2016-17 NBA regular season, Stephen Curry's field goal percentage was 46.8%. DeAndre Jordan's field goal percentage was 71.7%. One could argue, then, that Jordan is a much better shooter than Curry; after all, he makes a much higher percentage of shots. What is wrong with this argument (if anything)?
+
+2. The racehorse Secretariat won the Belmont Stakes by a total of 31 lengths. Ted Williams hit .406 in the 1941 baseball season. Which do you think was a more unusual outcome? How can we begin to compare the two events? 
+
+
+
+

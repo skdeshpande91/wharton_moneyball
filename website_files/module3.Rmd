@@ -1,0 +1,272 @@
+---
+title: "Module 3: Wrangling Data"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = "", prompt = TRUE, collapse = TRUE, tidy=TRUE, fig.align = "center")
+```
+
+<!--
+Wrangling Data with dplyr
+
+  1. Arrange
+  2. Filter
+  3. Mutate
+  4. Summarise
+  5. Select
+-->
+
+We will be using tools containined in the dplyr() package, which is already loaded when we load the tidyverse.
+There are five main functions in dplyr corresponding to the most common things you'll want to do with your data.
+We will learn each of these.
+
+- Reorder the rows with `arrange()`
+- Identify observations satisfying certain conditions with `filter()`
+- Creating new variables that are functions of existing variables with `mutate()`
+- Picking a subset of variables by names with `select()`
+- Generating simple summaries of the data with `summarise()`
+
+
+### Arranging Data
+
+In [Module 2](module2.html), we looked at NBA shooting data over 20 seasons. 
+When we visualized this data, we noticed that there were some players who took very few of a certain type of shot.
+In order to verify this, we could try sorting our tbl according to the number of field goals attemped.
+We'll start by loading the NBA shooting data again into a tbl called `raw_shooting` (the reasons for this naming convention will be clearer soon).
+
+```{r}
+library(tidyverse)
+raw_shooting <- read_csv(file = "data/nba_shooting.csv")
+```
+
+The `arrange()` function works by taking a tbl and a set of column names and sorting the data according to the values in these columns.
+```{r arrange-fga}
+arrange(raw_shooting, FGA)
+```
+We see now that there were two players who attempted only one field goal.
+We could instead sort the data according to FGA but in descending order, using `desc()`:
+
+```{r arrange-desc-fga}
+arrange(raw_shooting, desc(FGA))
+```
+
+When we specify more than one column, `arrange()` uses each additional column name to break ties in the values of preceding columns
+```{r arrange-fga-tpa-fta}
+arrange(raw_shooting, FGA, TPA, FTA)
+```
+
+### Filtering Data
+
+When we start computing advanced statistics like effective field goal percentage and true shooting percentage, we probably don't want to consider those players for whom we have very little data.
+For instance, we probably do not want to include the players who took a very limited number of shots in any one season in our analysis.
+The function `filter()` is used to pull out subsets of observations that satisfy some logical condition like "FGA > 100" or "FGA > 100 and FTA > 50".
+
+To make such comparisons in R, we have the following operators available at our disposal:
+
+* `==` for "equal to"
+* `!=` for "not equal to"
+* `<` and `<=` for "less than" and "less than or equal to"
+* `>` and `>=` for "greater than" and "greater than or equal to"
+* `&`, `|`, `!` for "AND" and "OR" and "NOT"
+The code below filter out all of the players with at least 100 field goals in a single season
+```{r filter-fga}
+filter(raw_shooting, FGA > 100)
+```
+
+When we run this code, you'll notice that R prints out a tbl with 6,385 rows.
+However, it has not removed the players with fewer than 100 field goals from the original tbl `raw_shooting`.
+In fact, dplyr functions never modify their input but work by creating a copy and modifying that.
+So if we wanted to be able to use the tbl consisting of just those players with a least 100 field goal attempts, we will need to save this modified copy of `raw_shooting` as a new tbl.
+Arranging this new tbl verifies that all observations contained in it have at least 100 field goals attempts.
+
+```{r new-data}
+new_data <- filter(raw_shooting, FGA >= 100)
+arrange(new_data, FGA)
+```
+
+We can also filter on more complicated conditions constructed using the AND, OR, and NOT operators: `&`, `|`, and `!`.
+For instance, to filter observations with at least 100 field goal attempts OR 50 three point attempts, we would do
+```{r filter-or}
+filter(raw_shooting, FGA >= 100 | TPA >= 50)
+```
+
+We may combine these constraints by enclosing them in parantheses.
+```{r filter-complex}
+filter(raw_shooting, (FGA >= 100 & TPA >= 50) | (FGP >= 0.45 & FGP <= 0.5))
+```
+
+What if we wanted to pull out the observations corresponding to the 2015-16 and 2014-15 season.
+We could do something like `filter(raw_shooting, (SEASON == 2016) | (SEASON == 2015))`, which would be perfectly fine.
+However, what if we wanted data from 1998-99, 2011-12, and 2015-16? 
+Typing a lot of expressions like `SEASON == ...` would be rather tedious.
+The `%in%` operator lets us avoid this tedium: 
+```{r filter-in}
+filter(raw_shooting, SEASON %in% c(1999, 2012, 2016))
+```
+
+We could also filter out data from the two lockout-shortened seasons, 1998-99 and 2011-12 using a combination of the NOT `!` operator and `%in%`.
+```{r filter-not-in}
+filter(raw_shooting, !SEASON %in% c(1999, 2012))
+```
+
+For the remainder of this module, we will focus on the players who attempted at least 100 field goals, 100 free throws, 50 three pointers in the non-lockout seasons. 
+
+```{r nba-shooting-orig}
+nba_shooting_orig <- filter(raw_shooting, FGA >= 100 & FTA >= 100 & TPA >= 50 & !SEASON %in% c(1999, 2012))
+nba_shooting_orig
+```
+
+### Creating New Variables from Old
+
+In [Module 1](module1.html), we computed effective field goal percentage (eFGP), points scored (PTS), and true shooting percentage (TSP) from vectors containing the number of made and attempted field goals, three pointers, and free throws.
+Now that we have substantially more data stored in our tbl `nba_shooting_orig`, we would like to compute these statistics for all of the players and add new columns for them.
+We do this with `mutate()`.
+```{r eFGP}
+mutate(nba_shooting_orig, eFGP = (FGM + 0.5*TPM)/FGA)
+```
+
+When we run the code above, we find that R prints out a tbl whose very last column is eFGP.
+However, if we try to print out `nba_shooting_orig` we no longer see this column!
+This is because dplyr functions never modify their input but work by creating a copy and modifying that.
+So if we wanted a new tbl that contains eFGP, we need to save it directly:
+```{r nba-shooting-2}
+nba_shooting_2 <- mutate(nba_shooting_orig, eFGP = (FGM + 0.5*TPM)/FGA)
+nba_shooting_2
+```
+
+We now have a new tbl in our environment called `nba_shooting_2` and this new tbl now has a column for eFGP.
+Recall that the formulas for points scored (PTS) and true shooting percentage (TSP):
+$$
+\text{PTS} = \text{FTM} + 2\times \text{FGM} + \text{TPM}
+$$
+$$
+\text{TSP} = \frac{\text{PTS}}{2\times(\text{FGA} + 0.44\times \text{FTA})}
+$$
+We can add both of them to our tbl using `mutate()`:
+```{r}
+nba_shooting_3 <- mutate(nba_shooting_2, PTS = FTM + 2*FGM + TPM)
+nba_shooting_4 <- mutate(nba_shooting_3, TSP = PTS/(2 * (FGA + 0.44 * FTA)))
+```
+
+Compared to `nba_shooting_orig`, the tbl `nba_shooting_4` now has three additional columns for eFGP, PTS, and TPS.
+In order to create this tbl, we created two intermdiate tbls, `nba_shooting_2` and `nba_shooting_3`.
+These are somewhat useless now, since any analyses we would want to do with them could be done using the richer dataset in `nba_shooting_4`.
+
+To get rid of these objects, we can use the `rm()` function:
+```{r}
+rm(nba_shooting_2, nba_shooting_3)
+```
+`rm()` works by deleting the objects whose names are specified within the parantheses and separated by parantheses.
+
+
+If you're thinking that it was somewhat inefficient to create the two intermediate tbls `nba_shooting_2` and `nba_shooting_3` in order to arrive at `nba_shooting_4`, you're correct.
+It turns out that we could have done it all in one shot, as follows:
+```{r nba-shooting, tidy=FALSE}
+nba_shooting <- mutate(nba_shooting_orig, 
+                         eFGP = (FGM + 0.5*TPM)/FGA,
+                         PTS = FTM + 2*FGM + TPM,
+                         TSP = PTS/(2 * (FGA + 0.44 * FTA)))
+```
+You'll notice in this code that we have separated each variable we're creating onto its own line.
+This helps make the code readable. 
+
+When we print both `nba_shooting_4` and `nba_shooting`, we see that the first ten rows are identical.
+To verify that the remaining 2,413 rows are identical, we can use R's `identical()` function:
+```{r identical}
+identical(nba_shooting, nba_shooting_4)
+```
+
+#### Creating Categorical Variables
+
+So far, we have used `mutate()` to compute numeric or continuous variables.
+Often in an analysis, however, we may want to *bin* these values into smaller buckets or categories. 
+For instance, we may rather arbitrarily classify players based on their three-point shooting prowess as follows:
+
+* Hopeless: TPP < 20%
+* Below Average: 20% <= TPP < 30%
+* Average: 30% <= TPP < 35%
+* Above Average: 35% < TPP < 40%
+* Elite: TPP > 40% 
+
+In order to add a column to `nba_shooting` that includes these classifications, we can use the `case_when()` function
+```{r case-when, tidy = FALSE}
+nba_shooting <- mutate(nba_shooting,
+                       Classification = case_when(
+                         TPP < 0.2 ~  "Hopeless",
+                         0.2 <= TPP & TPP < 0.3 ~ "Below Average",
+                         0.3 <= TPP & TPP < 0.35 ~  "Average",
+                         0.35 <= TPP & TPP < 0.4 ~ "Above Average",
+                         0.4 <= TPP ~ "Elite"))
+```
+
+Let's take a minute to unpack the code above.
+Within `mutate()`, we have started like we always did, with the name of the new variable on the left hand side of an equal sign.
+Then we called the `case_when()` function.
+Within this function, we have a new line for each of the values of the new variable ``Classification''.
+On each line we have an expression with a twiddle (`~`).
+On the left of the `~`, we have put a logical expression and on the right we have written the value of ``Clasification''.
+
+### Summarizing Individual Columns
+
+Among eligible players, what was the average field goal percentage in the 2015-16 season?
+To answer this, we can use `filter()` to create a new tbl containing the data only for this season.
+Then we can use the dplyr verb `summarize()` as follows:
+
+```{r}
+nba_shooting_2016 <- filter(nba_shooting, SEASON == 2016)
+summarize(nba_shooting_2016, FGP = mean(FGP))
+summarize(nba_shooting_2016, FGP = mean(FGP), TPP = mean(TPP), FTP = mean(FTP))
+```
+
+In the first example, we compute the average field goal percentage and in the second example, we compute the average field goal, three point, and free throw percentages.
+Of course, we are not limited to computing just the mean.
+The following functions are quite useful for summarizing several aspects of the distribution of the variables in our dataset:
+
+* Center: `mean()`, `median()`
+* Spread: `sd()`, `IQR()`
+* Range: `min()`, `max()`
+* Count: `n()`, `n_distinct()`
+
+We will have much more to say about `summarize()` in [Module 4](module4.html) when we discuss grouped manipulations.
+<!-- Need some examples here -->
+
+### Selecting Columns
+
+Oftentimes, the dataset you load into R contains many, many more columns than you need.
+We can use `select()` to pull out the columns we want to use in our subsequent analyses.
+For instance, we may want to only focus on the columns SEASON, FGP, TPP, FTP, eFGP, PTS, and TSP and ignore the rest of the columns.
+```{r select}
+select(nba_shooting, PLAYER, SEASON, FGP, TPP, FTP, eFGP, PTS, TSP)
+```
+
+## Saving our work
+
+By this point, the `nba_shooting` tbl has much more information in it than the original data file we read in.
+While we can always re-run the commands used to produce this tbl from our script, when data analyses become more complicated, it is helpful to save these objects.
+R has its own special file format for efficiently saving data on your computer.
+
+We will use the `save()` command.
+```{r save}
+save(nba_shooting, file = "data/nba_shooting.RData")
+```
+
+When we want to *load* the data back into R, we can use the `load()` function
+```{r load}
+load("data/nba_shooting.RData")
+```
+
+## Thinking Ahead for Tomorrow
+
+Up to this point, we have only used the dplyr verbs `mutate()`, `filter()`, and `arrange()` one at a time. 
+What if we wanted to do something a bit more complicated like: 
+
+1. Remove players from the lockout season who had fewer than 100 field goal attempts, fewer than 100 free throw attempts, or fewer than 50 three point attempts
+2. Arrange them according to their three point percentage.
+3. Add a classification of their three point shooting ability (as we did above with `case_when()`)
+4. Compute the mean field goal percentage of all of the players within each of these categories. That is, separately compute the mean field goal percentage of the "Elite" three point shooters, the "Above Average" three point shooters, etc. 
+
+Using what we have already learned, you could accomplish steps 1 -- 3 by creating lots of temporary tbls. 
+In [Module 4](module4.html), we will learn how to string together several dplyr verbs to perform the above tasks without having to create temporary tbls. 
+We will also learn how to perform grouped calculations.
+<!-- need to include some more examples here -->
