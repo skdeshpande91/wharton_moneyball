@@ -22,12 +22,14 @@ During the second week, you and your project team will have more time to work on
 
 ## Before you Arrive
 
-We know that y'all are very excited about the program and we've come up with a [short assignment](ps0.html) for you to work on before you arrive.
+We know that y'all are very excited about the program and we've come up with a[short assignment](ps0.html) for you to work on before you arrive.
 [Problem Set 0](ps0.html) contains instructions for downloading and installing R and RStudio, which you should do prior to arrival. 
 It also contains a very brief introduction to the R programming language with some simple exercises, and several questions that will motivate the concepts you'll be exploring in Prof. Wyner's class. 
 Don't worry if you don't finish working your way through these exercises before you arrive.
-On the first night (Sunday July 8), you'll meet with your project team and RTA to discuss them. 
+On the first night (Sunday July 7), you'll meet with your project team and RTA to discuss them. 
 As we approach the start of camp, please check back for periodic updates to the site. 
+
+**Note**: For the purposes of this course, you will need to bring a laptop. Tablets and ChromeBooks may not have sufficient computing power to run RStudio
 
 ## About the Instructors
 
