@@ -1,0 +1,11 @@
+---
+  title: "Lecture 1: R Basics & the tidyverse "
+output: html_document
+---
+  
+  
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = "", prompt = TRUE, collapse = TRUE, tidy=TRUE, fig.align = "center")
+#library(tidyverse)
+```
+

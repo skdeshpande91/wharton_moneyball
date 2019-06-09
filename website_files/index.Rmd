@@ -6,30 +6,44 @@ title: "Wharton Moneyball Academy"
 
 Welcome to the webpage for the 2019 Wharton Moneyball Academy course on data analysis in R.
 In this course, you will learn the tools necessary to apply the concepts you learn in Prof. Wyner's class while analyzing real sports datasets using the R programming language.
+Please bookmark this site and check back regularly before the program starts for updates.
+Below, you will find important information about setting up your system and installing the necessary software, as well as a brief schedule for the course.
 
-The instructors will spend the first hour or so of each class introducing new R functionality and programming concepts.
-After that, you'll have a chance to try out these concepts with several exercises, which we will review at the end of class.
+## Before You Arrive
 
-Please bookmark this site and check back regularly before the program starts for updates!
+This summer, you'll be learning how to analyze data using R.
+R is a free, open-source software environment for statistical computing with several built-in functions for organizing, analyzing, and visualizing data. 
+What separates R from programs like Excel, JMP, STATA, and Minitab is the ability for programmers, scientists, and statisticians to extend R's basic functionality, and implement the latest algorithms and methods for analyzing massive and complex data. This extensibility has made R the de facto software standard in the academic statistics community and is driving the rapid adoption of R in the data analysis endeavors of several major corporations and government agencies like Bank of America, Facebook, the F.D.A., the New York Times, and Twitter.
 
-<!--
-During the second week of the program, you and your teammates will have time to work on an open-ended project and take a ``deep dive'' into one of several data sets.
-A list of tentative projects can be found on the [Projects](project_info.html) page. 
-On the last day, you and your team will present your findings to the rest of the camp. 
-During the second week, you and your project team will have more time to work on your project (details below!) in the afternoon class and in the evening. 
+R uses a command line interface, which means that you interact with the software by typing in some commands and hitting Enter/Return to execute those commands.
+This is in marked contrast to most other software that you're probably accustomed to and makes learning R a little bit more challenging.
+To make our lifes a bit easier, we will use an integraded development environment (IDE) for R, known as RStudio.
 
--->
+**So that we can start analyzing data right away, we'd like you to install R and RStudio before the first class**
+This can be done prior to arriving at the program or on the first night (Sunday July 7) with your project group and RTA. 
+Instructions for installing R and RStudio, as well as setting up your computer for the class are available [here](installation.html)
+**Note: tablets and chromebooks may not have sufficient computing power to run R and RStudio. We highly recommend bringing a laptop**
 
-## Before you Arrive
 
-We know that y'all are very excited about the program and we've come up with a[short assignment](ps0.html) for you to work on before you arrive.
-[Problem Set 0](ps0.html) contains instructions for downloading and installing R and RStudio, which you should do prior to arrival. 
+
+
+We know that you are very excited about the program and we're similarly excited to start working together.
+We've come up with [a really short assignment](ps0.html) for you to work on before you arrive.
+[Problem Set 0](ps0.html) contains instructions for downloading and installing R and RStudio, which you should do prior to arrival.
 It also contains a very brief introduction to the R programming language with some simple exercises, and several questions that will motivate the concepts you'll be exploring in Prof. Wyner's class. 
 Don't worry if you don't finish working your way through these exercises before you arrive.
 On the first night (Sunday July 7), you'll meet with your project team and RTA to discuss them. 
 As we approach the start of camp, please check back for periodic updates to the site. 
 
-**Note**: For the purposes of this course, you will need to bring a laptop. Tablets and ChromeBooks may not have sufficient computing power to run RStudio
+
+## Daily Schedule
+
+Each day, the instructors will be spend the first hour or so of each class introducing new R functionality and programming concepts.
+The notes for each lecture will be available on this website (see under the Lecture Notes tab in the menu at the top).
+These notes will contains worked out code examples and explanations.
+After the first hour of lecturing, you will have a chance to work on problem sets with your project team and RTA that will review and reinforce the material presented in that day's lecture.
+
+
 
 ## About the Instructors
 

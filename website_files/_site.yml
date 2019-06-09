@@ -9,43 +9,13 @@ navbar:
     - text: Lecture Notes
       icon: fa-futbol-o
       menu:
-       - text: "Module 1"
-         href: module1.html
-       - text: "Module 2"
-         href: module2.html
-       - text: "Module 3"
-         href: module3.html
-       - text: "Module 4"
-         href: module4.html
-       - text: "Module 5"
-         href: module5.html
-       - text: "Module 6"
-         href: module6.html
-       - text: "Module 7"
-         href: module7.html
-       - text: "Module 8"
-         href: module8.html
+       - text: "Lecture 1"
+         href: lecture1.html
     - text: "Problem Sets"
       icon: fa-dribbble
       menu:
        - text: "Problem Set 0"
          href: ps0.html
-       - text: "Problem Set 1"
-         href: ps1.html
-       - text: "Problem Set 2"
-         href: ps2.html
-       - text: "Problem Set 3"
-         href: ps3.html
-       - text: "Problem Set 4"
-         href: ps4.html
-       - text: "Problem Set 5"
-         href: ps5.html
-       - text: "Problem Set 6"
-         href: ps6.html
-       - text: "Problem Set 7"
-         href: ps7.html
-       - text: "Problem Set 8"
-         href: ps8.html
     - text: "Projects"
       icon: fa-money
       href: "project_info.html"

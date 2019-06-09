@@ -1,0 +1,42 @@
+---
+title: "Installing R and RStudio"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+## Installing R and RStudio
+
+So that we can jump right into working with data on the first day, we'd like for you to install R and RStudio onto your computer before you arrive. 
+You can install R by going to [this website](https://cloud.r-project.org) and following the links there, depending on your operating system. 
+If you have a Mac, you will be taken to a new page and about halfway down there will be a download link for a .pkg file. Download that and open that file; this should launch the installer.
+If you have a Windows machine, you will be taken to a new page and at the top there should be a link to download R 3.6.0 for Windows. Download the executable and run the installer.
+Once you download R, you can install RStudio by going [here](http://www.rstudio.com/products/rstudio/download/) and downloading the appropriate installer for your operating system.
+**Be sure to download RStudio Desktop (open source license). Do not download the commercial version and do not download RStudio Server.**
+
+### Creating a Working Directory
+
+During this course, you will be writing code to analyze different data sets as well as generating lots of output. 
+The working directory is the place where R will save any output you generate.
+For the purpose of this course, you should keep all of your work in one place.
+So that everyone is on the same page, go to your Desktop and create a new folder called Moneyball.
+
+## Getting Started With R
+
+Now that you've installed R and RStudio, why not start playing around with it?
+We've put together a really short [problem set](ps0.html) that will give you a brief introduction R and contains a few exercises.
+If you can work your way through [Problem Set 0](ps0.html) before you get to camp, great!
+But don't worry if you can't -- there will be plenty of time once you get here to go over them with your RTA and project team. 
+Check out the [Problem Set 0](ps0.html) page for a brief introduction to R and some exercises.
+<!--
+## Discussion Questions
+
+On the first night of the camp (Sunday July 7), you'll have a chance to meet with your project team and RTA and get to know them.
+To get the discussion started, we'd like you to think about the following questions.
+
+1. In the 2016-17 NBA regular season, Stephen Curry's field goal percentage was 46.8%. DeAndre Jordan's field goal percentage was 71.7%. One could argue, then, that Jordan is a much better shooter than Curry; after all, he makes a much higher percentage of shots. What is wrong with this argument (if anything)?
+
+2. The racehorse Secretariat won the Belmont Stakes by a total of 31 lengths. Ted Williams hit .406 in the 1941 baseball season. Which do you think was a more unusual outcome? How can we begin to compare the two events? 
+
+-->

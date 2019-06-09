@@ -1,5 +1,5 @@
 ---
-title: "Problem Set 0"
+title: ""
 output: html_document
 ---
 
@@ -8,52 +8,85 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-This problem set contains instruction for setting up your computer for the data analysis course, a short introduction to using R, and some questions to think about before you arrive.
-
-## Setting Up Your System
-
-
-This summer, you'll be learning how to analyze data using R.
-R is a free, open-source software environment for statistical computing with several built-in functions for organizing, analyzing, and visualizing data. 
-What separates R from programs like Excel, JMP, STATA, and Minitab is the ability for programmers, scientists, and statisticians to extend R's basic functionality, and implement the latest algorithms and methods for analyzing massive and complex data. This extensibility has made R the de facto software standard in the academic statistics community and is driving the rapid adoption of R in the data analysis endeavors of several major corporations and government agencies like Bank of America, Facebook, the F.D.A., the New York Times, and Twitter.
-
-R uses a command line interface, which means that you interact with the software by typing in some commands and hitting Enter/Return to execute those commands.
-This is in marked contrast to most other software that you're probably accustomed to and makes learning R a little bit more challenging.
-To make our lifes a bit easier, we will use an integraded development environment (IDE) for R, known as RStudio.
-
-### Installing R and RStudio
-
-So that we can jump right into working with data on the first day, we'd like for you to install R and RStudio onto your computer before you arrive. 
-You can install R by going to [this website](https://cloud.r-project.org) and following the links there, depending on your operating system. 
-If you have a Mac, you will be taken to a new page and about halfway down there will be a download link for a .pkg file. Download that and open that file; this should launch the installer.
-If you have a Windows machine, you will be taken to a new page and at the top there should be a link to download R 3.3.0 for Windows. Download the executable and run the installer.
-Once you download R, you can install RStudio by going [here](http://www.rstudio.com/products/rstudio/download/) and downloading the appropriate installer for your operating system.
-**Be sure to download RStudio Desktop (open source license).** 
-Do not download the commercial version and do not download RStudio Server.
-
-### Creating a Working Directory
-
-During this course, you will be writing code to analyze different data sets as well as generating lots of output. 
-The working directory is the place where R will save any output you generate.
-For the purpose of this course, you should keep all of your work (including the datasets we give you) in one place.
-So that everyone is on the same page, go to your Desktop and create a new folder called Moneyball.
-
-## Getting Started With R
-
-Now that you've installed R and RStudio, why not start playing around with it?
-Check out the [Getting Started in R](getting_started.html) page for a brief introduction to R and some exercises.
-If you can work your way through them befor you get to camp, great! 
-But don't worry if you can't, there'll be plenty of time once you get here to go over them with your RTA and project team. 
-
-## Discussion Questions
-
-On the first night of the camp (Sunday July 7), you'll have a chance to meet with your project team and RTA and get to know them.
-To get the discussion started, we'd like you to think about the following questions.
-
-1. In the 2016-17 NBA regular season, Stephen Curry's field goal percentage was 46.8%. DeAndre Jordan's field goal percentage was 71.7%. One could argue, then, that Jordan is a much better shooter than Curry; after all, he makes a much higher percentage of shots. What is wrong with this argument (if anything)?
-
-2. The racehorse Secretariat won the Belmont Stakes by a total of 31 lengths. Ted Williams hit .406 in the 1941 baseball season. Which do you think was a more unusual outcome? How can we begin to compare the two events? 
+<!--This problem set contains instruction for setting up your computer for the data analysis course, a short introduction to using R, and some questions to think about before you arrive.-->
 
 
 
+## Basic Usage
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = "", prompt = TRUE, collapse = TRUE, tidy=TRUE)
+```
+When you open RStudio for the first time, it should open up a new window that looks something like this:
+<img src = "figures/RStudio_screenshot.png" width="1024" height="900">
 
+The RStudio window is divided into three panes. For now, we will focus only on the big pane on the left, the **Console** pane.
+At the top of the **Console** pane, there is a bit of introductory text that shows the version of R that we are using and the license. 
+Below that, you should see a `>`, which is the *R prompt*.
+As we mentioned earlier, at its core, R uses a command-line interface which means that you interact with the software by typing commands and hitting <kbd>Enter</kbd> or <kbd>Return</kbd>.
+
+The simplest thing we can do is to use R as a calculator.
+For instance, we can type `2 + 3 * (6 - 4)^5` after the `>` and then hit <kbd>Enter</kbd>.
+Below, is a code-chunk showing the output of typing `2 + 3 * (6 - 4)^5` after the `>` and then hitting <kdb>Enter</kbd>.
+Throughout the course, you should try to replicate the code and output in these code chunks. 
+
+We see that R returns the value of the expression $2 + 3 \times (6 - 4)^5$ immediately underneath and the answer is preceded by a [1]. 
+For now, don't worry about this ``[1]''; we'll return to it later.
+```{r}
+2 + 3 * (6 - 4)^5
+```
+
+Like any scientific calculator, R comes with a number of built-in functions
+```{r}
+sqrt(4)
+log(10)
+cos(pi)
+```
+
+
+## Assignment
+When you enter expressions like those above, R evaluates them, prints them, and then immediately discards them. Oftentimes, however, you'll want to store a value as a named variable and use it in subsequent calculations. For instance, let's say that we want to store the value of $2 + 3\times (6 - 4)^5$ as $x$ and then compute the following: $1/x, x + 1,$ and $\sqrt{x}.$
+To *assign* the value of the expression `2 + 3*(6 - 4)^5` to the variable `x` we use the *assignment operator* `<-`. 
+The assignment operator evaluates the expression immediately to the right of it and stores that value in an object whose name is whatever text came to the left of the operator. 
+```{r}
+x <- 2 + 3*(6-4)^5
+```
+Now when we execute this expression, R does not auotmatically print anything like it did in an earlier example.
+However, if you look closely at the **Environment** pane (top right-hand side of the RStudio window), you'll see that it now lists x and its value 98. 
+<img src = "figures/RStudio_assignment_screenshot.png" width="1024" height="900">
+
+This pane will show every variable that we have defined. As we start creating more and more variables, this list will be really helpful to keep track of what we've defined. 
+Now that we have created the variable x, we can use the symbol ``x'' in more expressions.
+For example, we can compute $1/x, x + 1,$ and $\sqrt{x}$ as follows:
+```{r}
+x
+1/x
+x + 1
+sqrt(x)
+round(3.14159, digits = 2)
+round(3.14159, digits = 4)
+round(sqrt(x), digits = 4)
+```
+
+In the last three examples, we used the function `round()`, which takes 2 arguments (entered inside the parantheses). The first argument is the number that we want to round and the second argument (following the comma) is the number of digits to which we want to round the first argument. 
+This is our first example of a multi-argument function and we'll be seeing a lot more of them later on.
+In the last example above, we didn't give `round` an explicit number to round.
+Instead, R first evaluated `sqrt(x)` and then rounded it.
+R follows the conventional order of operations, in that it evaluates the inner-most expression first and then works its way out.
+
+If we try to evaluate an expression using the name of a variable that we haven't defined yet, R will throw an error.
+For instance, in the code below, if we try to add 5 to a previously undeclared variable, we get an error.
+```{r error=TRUE}
+y + 5
+```
+
+## Exercises
+
+Before you
+
+
+1. Save the value of `8/5 + 3^3` as a new variable `y`.
+2. Save the values of `y/x` as a new variable `z`.
+3. Compute the square root of `x`, `y` and `z`.
+4. Round these values to 3 decimal points. 
+
+If you've finished these exercises, and would like to keep playing with R, you can check out the [first day's R Lecture](lecture1.html).

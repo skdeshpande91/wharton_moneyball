@@ -73,6 +73,10 @@ y + 5
 
 
 ## Exercises
+
+Before you
+
+
 1. Save the value of `8/5 + 3^3` as a new variable `y`.
 2. Save the values of `y/x` as a new variable `z`.
 3. Compute the square root of `x`, `y` and `z`.
