@@ -2,51 +2,41 @@
 title: "Problem Set 1"
 output: html_document
 ---
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, comment = "", prompt = TRUE, collapse = TRUE, tidy=TRUE)
+
+```{r ps1-setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
-mlb_standings_2016 <- read_csv("data/mlb_standings_2016.csv")
 ```
 
+Welcome to Problem Set 1.
+In this problem set, we're going to continue working with the tbl containing NBA shooting statistics that we saw in [Lecture 1](lecture1.html).
 
-## Pythagorean Expectation
 
-The sabermetrician Bill James introduced the concept of Pythagorean Expectation to approximate baseball teams' winning percentages.
-he found that if you took the square of the number of runs scored (RS) and divided by the sum of the squares of runs scored (RS) and runs allowed (RA), you get a pretty good estimate of a team's actual win probability.
-James' formula is:
+
+1. Before starting each problem set, we'd like you to take a few minutes to review the lecture notes from today's lecture. See if you can understand what the code in each code block is doing. In particular, working with someone from your group, try to explain what is happening within each code block from the lecture.
+
+2. Close and re-open RStudio. Navigate to your working directory and load the tidyverse. 
+
+3. Following along with the code from Lecture 1, read-in the dataset `nba_shooting_small` and add columns for field goal percentage (FGP), three point percentage (TPP), and free throw percentage (FTP).
+
+4. One criticism of FGP is that it treats 2-point shots the same as 3-point shots.
+As a result, the league leader in FGP is usually a center whose shots mostly come from near the rim.
+[effective Field Goal Percentage](https://en.wikipedia.org/wiki/Effective_field_goal_percentage) is a statistic that adjusts FGP to account for the fact that a made 3-point shots is worth 50% more than a made 2-point shot. 
+The formula for eFGP is
+$$ \text{eFGP} = \frac{\text{FGM} + 0.5 \times \text{TPM}}{\text{FGA}}.$$
+Add a new column to the tbl containing eFGP.
+
+5. Add a new column to the tbl that records the number of points scored
 $$
-\text{Win %} \approx \frac{\text{RS}^2}{\text{RS}^2 + \text{RA}^2}
+\text{PTS} = \text{FTM} + 2 \times \text{FGM} + \text{TPM}
 $$
-In this exercise, we will assess this formula using data from the 2016 Major League Baseball Season, which is tabulated below.
+Remember, FGM records the number of 2-point shots made as well as the number of 3-point shots made.
 
-**Be sure to save all of your code in an R script, which you can call ''ps1.R''.**
+6. Both field goal percentage and effective field goal percentage totally ignore free throws.
+One metric that accounts for all field goals, three pointers, and free throws is [true shooting percentage](https://en.wikipedia.org/wiki/True_shooting_percentage), whose formula is given by
+$$
+\text{TSP} = \frac{\text{PTS}}{2\times(\text{FGA} + 0.44\times \text{FTA})}.
+$$
+Add another column to the tbl for TSP
+7. Arrange your tbl so that the players are sorted in increasing order of true shooting percentage. Which player is the best?
 
-1. Using the `c()` function, create vectors called `teams`, `wins`, `losses`, `rs` and `ra` that contain the tean names, number of wins, number of losses, number of runs scored, and number of runs allowed.
-2. Name the elements of `wins`, `losses`, `rs`, and `ra` according to the team.
-3. Create a new vector called `wp.actual` containing the actual win percentages. 
-4. Create a new vector called `wp.pythag` containing the Pythagorean expectations. Which team has the smallest Pythagorean expectation? Is that the team with the smallest actual win percentage?
-5. Create a new vector called `wp.resid` containing the difference between each team's actual winning percentage and the Pythagorean expectation. These differences are known as *residuals*. If a team has a positive residual, that means that their actual win percentage exceeded what Pythagorean expectation predicted. Which team most outperformed their expected win percentage?
-<!--
-6. Create a tibble called `mlb.2016` containing columns for the team name, number of wins, number of losses, number of runs scored, number of runs allowed, actual winning percentage, Pythagorean winning percentage, and the residual.
-7. Make a histogram of the winning percentages and the pythagorean winning percentages. Comment on anything you notice abou them.
-8. Make a scatter plot with Pythagorean winning percentages on the x-axis and the actual winning percentages on the y-axis. 
--->
-<center>
-```{r echo = FALSE, results = 'asis'}
-library(simpletable)
-#library(tidyverse)
-tablecode(mlb_standings_2016[,c("TEAM", "W", "L", "RS", "RA")], tabletype = "zebra1")
-teams <- mlb_standings_2016[,"TEAM"]
-wins <- mlb_standings_2016[,"W"]
-losses <- mlb_standings_2016[,"L"]
-rs <- mlb_standings_2016[,"RS"]
-ra <- mlb_standings_2016[,"RA"]
-names(wins) <- teams
-names(losses) <- teams
-names(rs) <- teams
-names(ra) <- teams
-wp_actual <- wins/(wins + losses)
-wp_pythag <- rs^2/(rs^2 + ra^2)
-wp_resid <- wp_actual - wp_pythag
-```
-</center>
