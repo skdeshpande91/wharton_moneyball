@@ -6,19 +6,18 @@ navbar:
     - text:
       icon: fa-home
       href: index.html
-    - text: Lecture Notes
+    - text: "Lecture Notes"
       icon: fa-futbol-o
       menu:
-       - text: "Lecture 1"
-         href: lecture1.html
+        - text: "Lecture 1"
+          href: lecture1.html
     - text: "Problem Sets"
       icon: fa-dribbble
       menu:
-       - text: "Problem Set 0"
-         href: ps0.html
-    - text: "Projects"
-      icon: fa-money
-      href: "project_info.html"
+        - text: "Problem Set 0"
+          href: ps0.html
+        - text: "Problem Set 1"
+          href: ps1.html
 output:
   html_document:
     theme: cerulean

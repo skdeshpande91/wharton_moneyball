@@ -48,3 +48,7 @@ After the first hour of lecturing, you will have a chance to work on problem set
 ## About the Instructors
 
 Sameer Deshpande completed his PhD in Statistics at Wharton. He is broadly interested in Bayesian statistics. Before coming to Wharton, he studied math at MIT. He loves all Dallas sports teams, but is especially passionate about the Cowboys.
+
+
+## Test stuff
+Check out [lecture 1](lecture1.html)

@@ -3,7 +3,7 @@ title: "Installing R and RStudio"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
+```{r install-setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 ## Installing R and RStudio
@@ -28,7 +28,6 @@ Now that you've installed R and RStudio, why not start playing around with it?
 We've put together a really short [problem set](ps0.html) that will give you a brief introduction R and contains a few exercises.
 If you can work your way through [Problem Set 0](ps0.html) before you get to camp, great!
 But don't worry if you can't -- there will be plenty of time once you get here to go over them with your RTA and project team. 
-Check out the [Problem Set 0](ps0.html) page for a brief introduction to R and some exercises.
 <!--
 ## Discussion Questions
 

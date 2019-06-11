@@ -26,6 +26,52 @@
 <script src="site_libs/font-awesome-5.0.13/js/fa-v4-shims.min.js"></script>
 
 
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+pre, code { background-color: #f8f8f8; }
+code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code > span.dt { color: #204a87; } /* DataType */
+code > span.dv { color: #0000cf; } /* DecVal */
+code > span.bn { color: #0000cf; } /* BaseN */
+code > span.fl { color: #0000cf; } /* Float */
+code > span.ch { color: #4e9a06; } /* Char */
+code > span.st { color: #4e9a06; } /* String */
+code > span.co { color: #8f5902; font-style: italic; } /* Comment */
+code > span.ot { color: #8f5902; } /* Other */
+code > span.al { color: #ef2929; } /* Alert */
+code > span.fu { color: #000000; } /* Function */
+code > span.er { color: #a40000; font-weight: bold; } /* Error */
+code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #000000; } /* SpecialChar */
+code > span.vs { color: #4e9a06; } /* VerbatimString */
+code > span.ss { color: #4e9a06; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #000000; } /* Variable */
+code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code > span.ex { } /* Extension */
+code > span.at { color: #c4a000; } /* Attribute */
+code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+div.sourceCode {
+  overflow-x: visible;
+}
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
 
 
 <style type="text/css">
@@ -191,28 +237,7 @@ $(document).ready(function () {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="module1.html">Module 1</a>
-    </li>
-    <li>
-      <a href="module2.html">Module 2</a>
-    </li>
-    <li>
-      <a href="module3.html">Module 3</a>
-    </li>
-    <li>
-      <a href="module4.html">Module 4</a>
-    </li>
-    <li>
-      <a href="module5.html">Module 5</a>
-    </li>
-    <li>
-      <a href="module6.html">Module 6</a>
-    </li>
-    <li>
-      <a href="module7.html">Module 7</a>
-    </li>
-    <li>
-      <a href="module8.html">Module 8</a>
+      <a href="lecture1.html">Lecture 1</a>
     </li>
   </ul>
 </li>
@@ -231,35 +256,7 @@ $(document).ready(function () {
     <li>
       <a href="ps1.html">Problem Set 1</a>
     </li>
-    <li>
-      <a href="ps2.html">Problem Set 2</a>
-    </li>
-    <li>
-      <a href="ps3.html">Problem Set 3</a>
-    </li>
-    <li>
-      <a href="ps4.html">Problem Set 4</a>
-    </li>
-    <li>
-      <a href="ps5.html">Problem Set 5</a>
-    </li>
-    <li>
-      <a href="ps6.html">Problem Set 6</a>
-    </li>
-    <li>
-      <a href="ps7.html">Problem Set 7</a>
-    </li>
-    <li>
-      <a href="ps8.html">Problem Set 8</a>
-    </li>
   </ul>
-</li>
-<li>
-  <a href="project_info.html">
-    <span class="fa fa-money"></span>
-     
-    Projects
-  </a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -286,31 +283,57 @@ $(document).ready(function () {
 </div>
 
 
-<p>This problem set contains instruction for setting up your computer for the data analysis course, a short introduction to using R, and some questions to think about before you arrive.</p>
-<div id="setting-up-your-system" class="section level2">
-<h2>Setting Up Your System</h2>
-<p>This summer, you’ll be learning how to analyze data using R. R is a free, open-source software environment for statistical computing with several built-in functions for organizing, analyzing, and visualizing data. What separates R from programs like Excel, JMP, STATA, and Minitab is the ability for programmers, scientists, and statisticians to extend R’s basic functionality, and implement the latest algorithms and methods for analyzing massive and complex data. This extensibility has made R the de facto software standard in the academic statistics community and is driving the rapid adoption of R in the data analysis endeavors of several major corporations and government agencies like Bank of America, Facebook, the F.D.A., the New York Times, and Twitter.</p>
-<p>R uses a command line interface, which means that you interact with the software by typing in some commands and hitting Enter/Return to execute those commands. This is in marked contrast to most other software that you’re probably accustomed to and makes learning R a little bit more challenging. To make our lifes a bit easier, we will use an integraded development environment (IDE) for R, known as RStudio.</p>
-<div id="installing-r-and-rstudio" class="section level3">
-<h3>Installing R and RStudio</h3>
-<p>So that we can jump right into working with data on the first day, we’d like for you to install R and RStudio onto your computer before you arrive. You can install R by going to <a href="https://cloud.r-project.org">this website</a> and following the links there, depending on your operating system. If you have a Mac, you will be taken to a new page and about halfway down there will be a download link for a .pkg file. Download that and open that file; this should launch the installer. If you have a Windows machine, you will be taken to a new page and at the top there should be a link to download R 3.3.0 for Windows. Download the executable and run the installer. Once you download R, you can install RStudio by going <a href="http://www.rstudio.com/products/rstudio/download/">here</a> and downloading the appropriate installer for your operating system. <strong>Be sure to download RStudio Desktop (open source license).</strong> Do not download the commercial version and do not download RStudio Server.</p>
+<p>Please try to work through this first problem set</p>
+<div id="basic-usage" class="section level2">
+<h2>Basic Usage</h2>
+<p>When you open RStudio for the first time, it should open up a new window that looks something like this: <img src = "figures/RStudio_screenshot.png" width="1024" height="900"></p>
+<p>The RStudio window is divided into three panes. For now, we will focus only on the big pane on the left, the <strong>Console</strong> pane. At the top of the <strong>Console</strong> pane, there is a bit of introductory text that shows the version of R that we are using and the license. Below that, you should see a <code>&gt;</code>, which is the <em>R prompt</em>. As we mentioned earlier, at its core, R uses a command-line interface which means that you interact with the software by typing commands and hitting <kbd>Enter</kbd> or <kbd>Return</kbd>.</p>
+<p>The simplest thing we can do is to use R as a calculator. For instance, we can type <code>2 + 3 * (6 - 4)^5</code> after the <code>&gt;</code> and then hit <kbd>Enter</kbd>. Below, is a code-chunk showing the output of typing <code>2 + 3 * (6 - 4)^5</code> after the <code>&gt;</code> and then hitting <kdb>Enter</kbd>. Throughout the course, you should try to replicate the code and output in these code chunks.</p>
+<p>We see that R returns the value of the expression <span class="math inline">\(2 + 3 \times (6 - 4)^5\)</span> immediately underneath and the answer is preceded by a [1]. For now, don’t worry about this ``[1]’’; we’ll return to it later.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> +<span class="st"> </span><span class="dv">3</span> *<span class="st"> </span>(<span class="dv">6</span> -<span class="st"> </span><span class="dv">4</span>)^<span class="dv">5</span></code></pre></div>
+<pre><code>## [1] 98</code></pre>
+<p>Like any scientific calculator, R comes with a number of built-in functions</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sqrt</span>(<span class="dv">4</span>)</code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">log</span>(<span class="dv">10</span>)</code></pre></div>
+<pre><code>## [1] 2.302585</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cos</span>(pi)</code></pre></div>
+<pre><code>## [1] -1</code></pre>
 </div>
-<div id="creating-a-working-directory" class="section level3">
-<h3>Creating a Working Directory</h3>
-<p>During this course, you will be writing code to analyze different data sets as well as generating lots of output. The working directory is the place where R will save any output you generate. For the purpose of this course, you should keep all of your work (including the datasets we give you) in one place. So that everyone is on the same page, go to your Desktop and create a new folder called Moneyball.</p>
+<div id="assignment" class="section level2">
+<h2>Assignment</h2>
+<p>When you enter expressions like those above, R evaluates them, prints them, and then immediately discards them. Oftentimes, however, you’ll want to store a value as a named variable and use it in subsequent calculations. For instance, let’s say that we want to store the value of <span class="math inline">\(2 + 3\times (6 - 4)^5\)</span> as <span class="math inline">\(x\)</span> and then compute the following: <span class="math inline">\(1/x, x + 1,\)</span> and <span class="math inline">\(\sqrt{x}.\)</span> To <em>assign</em> the value of the expression <code>2 + 3*(6 - 4)^5</code> to the variable <code>x</code> we use the <em>assignment operator</em> <code>&lt;-</code>. The assignment operator evaluates the expression immediately to the right of it and stores that value in an object whose name is whatever text came to the left of the operator.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">2</span> +<span class="st"> </span><span class="dv">3</span>*(<span class="dv">6-4</span>)^<span class="dv">5</span></code></pre></div>
+<p>Now when we execute this expression, R does not auotmatically print anything like it did in an earlier example. However, if you look closely at the <strong>Environment</strong> pane (top right-hand side of the RStudio window), you’ll see that it now lists x and its value 98. <img src = "figures/RStudio_assignment_screenshot.png" width="1024" height="900"></p>
+<p>This pane will show every variable that we have defined. As we start creating more and more variables, this list will be really helpful to keep track of what we’ve defined. Now that we have created the variable x, we can use the symbol ``x’’ in more expressions. For example, we can compute <span class="math inline">\(1/x, x + 1,\)</span> and <span class="math inline">\(\sqrt{x}\)</span> as follows:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x</code></pre></div>
+<pre><code>## [1] 98</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span>/x</code></pre></div>
+<pre><code>## [1] 0.01020408</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x +<span class="st"> </span><span class="dv">1</span></code></pre></div>
+<pre><code>## [1] 99</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sqrt</span>(x)</code></pre></div>
+<pre><code>## [1] 9.899495</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="fl">3.14159</span>, <span class="dt">digits =</span> <span class="dv">2</span>)</code></pre></div>
+<pre><code>## [1] 3.14</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="fl">3.14159</span>, <span class="dt">digits =</span> <span class="dv">4</span>)</code></pre></div>
+<pre><code>## [1] 3.1416</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="kw">sqrt</span>(x), <span class="dt">digits =</span> <span class="dv">4</span>)</code></pre></div>
+<pre><code>## [1] 9.8995</code></pre>
+<p>In the last three examples, we used the function <code>round()</code>, which takes 2 arguments (entered inside the parantheses). The first argument is the number that we want to round and the second argument (following the comma) is the number of digits to which we want to round the first argument. This is our first example of a multi-argument function and we’ll be seeing a lot more of them later on. In the last example above, we didn’t give <code>round</code> an explicit number to round. Instead, R first evaluated <code>sqrt(x)</code> and then rounded it. R follows the conventional order of operations, in that it evaluates the inner-most expression first and then works its way out.</p>
+<p>If we try to evaluate an expression using the name of a variable that we haven’t defined yet, R will throw an error. For instance, in the code below, if we try to add 5 to a previously undeclared variable, we get an error.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y +<span class="st"> </span><span class="dv">5</span></code></pre></div>
+<pre><code>## Error in eval(expr, envir, enclos): object &#39;y&#39; not found</code></pre>
 </div>
-</div>
-<div id="getting-started-with-r" class="section level2">
-<h2>Getting Started With R</h2>
-<p>Now that you’ve installed R and RStudio, why not start playing around with it? Check out the <a href="getting_started.html">Getting Started in R</a> page for a brief introduction to R and some exercises. If you can work your way through them befor you get to camp, great! But don’t worry if you can’t, there’ll be plenty of time once you get here to go over them with your RTA and project team.</p>
-</div>
-<div id="discussion-questions" class="section level2">
-<h2>Discussion Questions</h2>
-<p>On the first night of the camp (Sunday July 7), you’ll have a chance to meet with your project team and RTA and get to know them. To get the discussion started, we’d like you to think about the following questions.</p>
+<div id="exercises" class="section level2">
+<h2>Exercises</h2>
 <ol style="list-style-type: decimal">
-<li><p>In the 2016-17 NBA regular season, Stephen Curry’s field goal percentage was 46.8%. DeAndre Jordan’s field goal percentage was 71.7%. One could argue, then, that Jordan is a much better shooter than Curry; after all, he makes a much higher percentage of shots. What is wrong with this argument (if anything)?</p></li>
-<li><p>The racehorse Secretariat won the Belmont Stakes by a total of 31 lengths. Ted Williams hit .406 in the 1941 baseball season. Which do you think was a more unusual outcome? How can we begin to compare the two events?</p></li>
+<li>Save the value of <code>8/5 + 3^3</code> as a new variable <code>y</code>.</li>
+<li>Save the values of <code>y/x</code> as a new variable <code>z</code>.</li>
+<li>Compute the square root of <code>x</code>, <code>y</code> and <code>z</code>.</li>
+<li>Round these values to 3 decimal points.</li>
 </ol>
+<p>If you’ve finished these exercises and would like to keep playing with R, you can check out the <a href="lecture1.html">first day’s R Lecture</a>.</p>
 </div>
 
 
