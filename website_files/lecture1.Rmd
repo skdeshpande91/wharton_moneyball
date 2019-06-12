@@ -171,18 +171,77 @@ We use the function `mutate()` to add a column to our tbl.
 mutate(nba_shooting_small, FGP = FGA/FGM)
 ```
 
+The syntax for `mutate()` looks kind of similar to `arrange()`: the first argument tells R what tbl we want to manipulate and the second argument tells R how to compute FGP.
 As expected, when we run this command, R returns a tbl with a new column containing the field goal percentage for each of these 10 players.
-However, just like with `arrange()`, if we just call `mutate()` R will not add the new column to our existing data frame.
+Just like with `arrange()`, if we call `mutate()` by itself, R will not add the new column to our existing data frame.
 In order to permanently add a column for field goal percentages to `nba_shooting_small`, we're going to need to use the assignment operator.
 
-In the following code block, we are going to create several temporary tbl as we add field goal percentage (FGP), three point percentage (TPP), and free throw percentage (FTP) to our tbl.
+It turns out that we can add *multiple* columns to a tbl at once by passing more arguments to `mutate()`, one for each column we wish to define.
 ```{r mutate-fgp-2}
-nba_shooting_small <- mutate(nba_shooting_small, FGP = FGM/FGA)
-nba_shooting_small
-nba_shooting_small <- mutate(nba_shooting_small, TPP = TPM/TPA)
-nba_shooting_small
-nba_shooting_small <- mutate(nba_shooting_small, FTP = FTM/FTA)
-nba_shooting_small
+mutate(nba_shooting_small, FGP = FGA/FGM, TPP = TPM/TPA, FTP = FTM/FTA)
 ```
 
-In [Problem Set 1](ps1.html), you are going to add several more shooting metrics to this tbl.
+## A quick digression: R Scripts
+
+Up to this point, we have been working strictly within the R console, proceeding line-by-line.
+In the previous code block, we tried to add three columns to our tbl and the mutate call got a little bit over-whelming.
+Imagine trying to add five or six more columns simultaneously!
+As our commands become more and more complex, you'll find that using the console can get pretty cramped.
+And if you make a mistake in entering your code, you'll get an error and have to start all over again.
+Plus, when we start a new session of R Studio, the console is cleared. 
+How can we save the commands we typed into R? We do so using an **R Script**. 
+
+An R Script is a file type which R recognizes as storing R commands and is saved as a .R file. 
+R Scripts are useful as we can edit our code before sending it to be run in the console. 
+
+We can start a new R Script by clicking on the top left symbol in R Studio and selecting "R Script".
+
+![](figures/lecture1_fig1.png)
+
+The untitled R Script will then appear in the top left hand box of R Studio.
+
+![](figures/lecture1_fig2.png)
+
+In the R Script, type the following:
+
+```{}
+2 * 3
+x <- 4
+sqrt(x)
+```
+
+
+Now our code is just sitting in the R Script. To run the code (that is, evalutate it in the console) we click the "Run" button in the top right of the script. This will run one line of code at a time - whichever line the cursor is on. Place your cursor on the first line and click "Run". Observe how `2 * 3` now appears in the console, as well as the output `6`.
+
+![](figures/lecture1_fig3.png)
+
+If we want to run multiple lines at once, we highlight them all and click "Run".
+
+![](figures/lecture1_fig4.png)
+
+Note in the above that we had to run `x <- 4` before `sqrt(x)`. We need to define our variables first and run this code in the console before performing calculations with those variables. The console can't "see" the script unless you run the code in the script. 
+
+One very nice thing about RStudio's script editor is that it will highlight syntax errors with a red squiggly line and a red cross in the sidebar.
+If you move your mouse over the line, a pop-up will appear that can help you diagnose the potential problem.
+
+Another advantage of R scripts is that you can add comments to your code, which are preceded by the pound sign / hash sign #. 
+Comments are useful because they allow you to explain what your code is doing.
+**Throughout the rest of this course, we will be working almost exclusively with R scripts rather than directly entering commands into the console.**
+
+
+## Back to the NBA data
+
+One huge advantage with working with R script is the ability to separate commands onto multiple lines.
+For instance, to add columns for FGP, FTP, and TPP to our tbl, we can write the following in our script window.
+```{r multiline-syntax, include=FALSE}
+nba_shooting_small <-
+  mutate(nba_shooting_small,
+         FGP = FGM/FGA,
+         TPP = TPM/TPA,
+         FTP = FTM/FTA)
+```
+Notice how we have separated our command into multiple lines.
+This makes our script much easier to read.
+While it seems a bit cumbersome to write our code like this now, it will make our code much easier to read when we start to string multiple manipulations together using the pipe operator `%>%`, which we will meet in [Lecture 2](lecture2.html). 
+
+

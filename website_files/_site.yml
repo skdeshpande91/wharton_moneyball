@@ -11,6 +11,8 @@ navbar:
       menu:
         - text: "Lecture 1"
           href: lecture1.html
+        - text: "Lecture 2"
+          href: lecture2.html
     - text: "Problem Sets"
       icon: fa-dribbble
       menu:

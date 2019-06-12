@@ -193,6 +193,9 @@ $(document).ready(function () {
     <li>
       <a href="lecture1.html">Lecture 1</a>
     </li>
+    <li>
+      <a href="lecture2.html">Lecture 2</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -237,20 +240,35 @@ $(document).ready(function () {
 </div>
 
 
-<p>Welcome to Problem Set 1. In this problem set, we’re going to continue working with the tbl containing NBA shooting statistics that we saw in <a href="lecture1.html">Lecture 1</a>.</p>
+<p>Welcome to Problem Set 1. This problem set contains two parts. In the first part, you will write an R script that replicates our work with the tbl containing NBA shooting statistics that we saw in <a href="lecture1.html">Lecture 1</a>. In the second part, you will begin working with a much larger dataset that we will explore in greater detail in <a href="lecture2.html">Lecture 2</a>. <strong>It is important that you finish the first part completely before moving on to the second part</strong></p>
+<div id="review-of-lecture-1" class="section level2">
+<h2>Review of Lecture 1:</h2>
 <ol style="list-style-type: decimal">
-<li><p>Before starting each problem set, we’d like you to take a few minutes to review the lecture notes from today’s lecture. See if you can understand what the code in each code block is doing. In particular, working with someone from your group, try to explain what is happening within each code block from the lecture.</p></li>
-<li><p>Close and re-open RStudio. Navigate to your working directory and load the tidyverse.</p></li>
-<li><p>Following along with the code from Lecture 1, read-in the dataset <code>nba_shooting_small</code> and add columns for field goal percentage (FGP), three point percentage (TPP), and free throw percentage (FTP).</p></li>
-<li><p>One criticism of FGP is that it treats 2-point shots the same as 3-point shots. As a result, the league leader in FGP is usually a center whose shots mostly come from near the rim. <a href="https://en.wikipedia.org/wiki/Effective_field_goal_percentage">effective Field Goal Percentage</a> is a statistic that adjusts FGP to account for the fact that a made 3-point shots is worth 50% more than a made 2-point shot. The formula for eFGP is <span class="math display">\[ \text{eFGP} = \frac{\text{FGM} + 0.5 \times \text{TPM}}{\text{FGA}}.\]</span> Add a new column to the tbl containing eFGP.</p></li>
+<li><p>Take a few minutes to read through the online notes for <a href="lecture1.html">Lecture 1</a>. Without doing any coding, see if you can understand what the code in each code block is doing. In particular, working with another member from your team, try to explain in words what is happening within each code block.</p></li>
+<li><p>Close and re-open RStudio. Navigate to your working directory.</p></li>
+<li><p>Create a new R script and save it as “ps1_review.R” in the “scripts/” folder within your working directory. In your script, write the following on the first line: <code>library(tidyverse)</code>.</p></li>
+<li><p>Following along with the notes in Lecture 1, in your newly created script, write code that (i) reads in the dataset “nba_shooting_small.csv” and (ii) adds columns for field goal percentage (FGP), three point percentage (TPP), and free throw percentage (FTP). <strong>Do not run any part of your script.</strong></p></li>
+<li><p>Compare the script you have written with someone else in your group. See if your codes are similar. Then have your RTA or an instructor come and execute the script. If it runs without error and produces the correct output, you can proceed onto Part 2 of this problem set. Otherwise, you will need to go back and edit your script.</p></li>
+</ol>
+</div>
+<div id="looking-ahead-to-tomorrow" class="section level2">
+<h2>Looking ahead to tomorrow</h2>
+<p>Up to this point, we have been working with a really small dataset. We’re now going to dive into a much larger analysis of NBA shooting statistics for all players between the 1996-97 season and the 2015-16 season. This data is stored in the “data/” folder of your working directory in the CSV file “nba_shooting.csv”.</p>
+<ol style="list-style-type: decimal">
+<li><p>In the R console (<strong>and not in an R script</strong>) enter the command <code>rm(list = ls())</code>. This will clear your environment.</p></li>
+<li><p>Create a new R script and save it as “ps1_preview.R” in the “scripts/” folder within your working directory. Similarly to what you did in the previous part, write <code>library(tidyverse)</code> as the first line of the script.</p></li>
+<li><p>Read in the dataset using <code>read_csv()</code>. Save it as a tbl called <code>nba_shooting.</code></p></li>
+<li><p>Add columns to the tbl containing field goal percentage (FGP), three point percentage (TPP), and (FTP). You should write the code to do this in your R Script and then go ahead execute the code.</p></li>
+<li><p>One criticism of FGP is that it treats 2-point shots the same as 3-point shots. As a result, the league leader in FGP is usually a center whose shots mostly come from near the rim. <a href="https://en.wikipedia.org/wiki/Effective_field_goal_percentage">effective Field Goal Percentage</a> is a statistic that adjusts FGP to account for the fact that a made 3-point shots is worth 50% more than a made 2-point shot. The formula for eFGP is <span class="math display">\[ \text{eFGP} = \frac{\text{FGM} + 0.5 \times \text{TPM}}{\text{FGA}}.\]</span> Write another line of code to your script which will add a column for eFGP to your</p></li>
 <li><p>Add a new column to the tbl that records the number of points scored <span class="math display">\[
 \text{PTS} = \text{FTM} + 2 \times \text{FGM} + \text{TPM}
 \]</span> Remember, FGM records the number of 2-point shots made as well as the number of 3-point shots made.</p></li>
-<li>Both field goal percentage and effective field goal percentage totally ignore free throws. One metric that accounts for all field goals, three pointers, and free throws is <a href="https://en.wikipedia.org/wiki/True_shooting_percentage">true shooting percentage</a>, whose formula is given by <span class="math display">\[
+<li><p>Both field goal percentage and effective field goal percentage totally ignore free throws. One metric that accounts for all field goals, three pointers, and free throws is <a href="https://en.wikipedia.org/wiki/True_shooting_percentage">true shooting percentage</a>, whose formula is given by <span class="math display">\[
 \text{TSP} = \frac{\text{PTS}}{2\times(\text{FGA} + 0.44\times \text{FTA})}.
-\]</span> Add another column to the tbl for TSP</li>
-<li><p>Arrange your tbl so that the players are sorted in increasing order of true shooting percentage. Which player is the best?</p></li>
+\]</span> Add another column to the tbl for TSP</p></li>
+<li><p>Arrange your tbl so that the players are sorted in increasing order of true shooting percentage. Which player has the best true shooting percentage?</p></li>
 </ol>
+</div>
 
 
 
