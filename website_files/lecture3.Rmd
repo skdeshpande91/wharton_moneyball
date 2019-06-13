@@ -11,30 +11,34 @@ library(tidyverse)
 ## Introduction
 <!-- Original graphic is on pg 18 of Adi's Lecture 3 -->
 
-In Module 3 of Prof. Wyner's lectures, you saw a graph of Earned Run Average (ERA) against year. 
+In Prof. Wyner's lectures, you saw a graph of Earned Run Average (ERA) against year. 
 Also shown was a line connecting the average ERA in each year.
 
 ![](figures/lecture3_era.png)
 
 In order to create this figure we need to be able to compute the mean ERA in each year.
-In the previous exercises, you computed average statistics on a yearly basis by first filtering a tibble and computing the mean of the statistic each time.
-This was already quite tedious when you did it with the NBA shooting data spanning the 20 years from 1996 to 2016.
-Imagine trying to do that for each year between 1876 and 2015! 
-Luckily there is an easier way in dpylr.
+In [Lecture 2](lecture2.html), we computed average statistics for a single NBA season in two steps.
+First, we used `filter()` to create a new tbl containing only the data from that particular season.
+Then we used `summarize()` to compute the desired averages.
+To compute the mean ERA in each season, we certainly could proceed in a similar way.
+But this would be incredibly tedious.
+Luckily there is an easier way in dplyr.
 
 In order to reproduce this image, we will work with the [Lahman Baseball Database](http://www.seanlahman.com/baseball-database.html).
 As it turns out, there is an R package that includes the entire database (up until the 2016 season).
 We will load that into R along with the tidyverse packages when we begin our analysis. 
 
 
-In [Problem Set 3](ps3.html), you filtered a tibble and then selected a subset of columns in two steps: first you filtered and saved the the result as a temporary tibble.
-Then you passed that to `select()`. 
+## Piping
 
-We could have done this one step using the pipe operator `%>%`, which allows you to neatly chain together several operations that are applied to the dataset sequentially.
+Data analysis can usually be described as set of functions or operations being applied to a dataset in sequence. 
+In [Problem Set 2](ps2.html), `filter()` and `select()` were applied in sequence to the tbl `hitting_qualified`. 
+Each of these functions takes a tbl as an input and returns a different tbl as an output. 
+More complex data analysis tasks often require sequences of several operations on the dataset. 
+Given what we have learned so far, it would appear that the analyst has two options: (1) save a temporary tbl after each function application and apply the next function to the temporary tbl or (2) "nest" all of the functions together.
+Below is an example of what these two strategies look like:
 
-Data analysis can usually be described as set of functions or operations being applied to a dataset in sequence; In [Problem Set 3](ps3.html), `filter()` and `select()` were applied in sequence to the tibble `hitting_qualified`. Each of these functions takes a tibble as an input and returns a different tibble as an output. More complex data analysis tasks often require sequences of several operations on the dataset. Without the use of `%>%`, the analyst usually has two options: (1) save a temporary tibble after each function application and apply the next function to the temporary tibble or (2) "nest" all your functions together. Here's an example of what these two strategies look like in code:
-
-```{r,eval = FALSE}
+```{r multiple-functions-options,eval = FALSE}
 # An Example: Applying func_1(), func_2(), and func_3() sequentially to a tibble named dat.
 
 # Strategy 1
@@ -45,29 +49,34 @@ dat_final <- func_3(dat_2)
 # Strategy 2
 dat_final <- func_3(func_2(func_1(dat)))
 ```
-Both are hard to read and the first strategy is particularly prone to errors as you have introduced several temporary tibbles with the same name plus a numeral suffix -- it's very easy to make mistakes like `dat_2 <- func_2(dat)` or `dat_final <- func_2(dat_2)`, especially if you are copying-and-pasting lines and then changing suffixes. The second strategy is ugly because we're generally not used to reading things from inside-out or right-to-left. It becomes especially problematic when each function has many additional arguments.
+Both are hard to read and the first strategy is particularly prone to errors as you have introduce several temporary tibbles with the same name plus a numeric suffix -- it's very easy to make mistakes like `dat_2 <- func_2(dat)` or `dat_final <- func_2(dat_2)`, especially if you are copying-and-pasting lines and then changing suffixes. 
+The second strategy is ugly because we're generally not used to reading things from inside-out or right-to-left. 
+It becomes especially problematic when each function has many additional arguments.
 
+Luckily there's another option -- the pipe operator `%>%`.
 Here is what the same example looks like using the pipe:
 
 ```{r,eval = FALSE}
-dat_final <- dat %>% func_1() %>% func_2() %>% func_3()
+dat_final <- 
+  dat %>% 
+  func_1() %>% 
+  func_2() %>% 
+  func_3()
 ```
-Let's focus on the action to the right of the assignment operator. The tibble gets "piped" into the first function, which pipes its output to the next function, and so on. You can think of this as your analysis "pipeline." The sequence of analysis flows naturally from left-to-right and puts the emphasis on the actions being carried out by the analyst (i.e. the functions) and the final output rather than a bunch of temporary tibbles that may not be of much interest. If you have more than ten steps in your pipeline or you want to save intermediate tibbles because they themselves are objects of interest in your analysis, then some combination of pipes and the first strategy descrived above is probably your best bet.
 
-<!--Before jumping directly into the data, we need to discuss piping.-->
+Let's break down what's happening on the right-hand side of the assignment operator.
+First, R "pipes" the tbl `dat` into into the function function `func_1()`.
+Then it pipes the result of evaluating `func_1(dat)` into `func_2()` and so on and so forth.
+One way to understand the pipe operator is to think of your analysis as a "pipeline".
+The sequence of analysis flow naturally top-to-bottom and puts the emphasis on the *actions* being carried out by the analyst (i.e. the functions) and the final output rather than a bunch of temporary tbl's that may not be of much interest.
 
-
-<!-- Discuss piping here. -->
-
-### Piping conventions, examples and advanced usage.
-
-Some conventions for formatting when using the pipe `%>%` can be found [here](http://style.tidyverse.org/pipes.html). A detailed example and some advanced "special" pipes such as `%<>%`, `%$%` and `%T>$` can be found [here](http://r4ds.had.co.nz/pipes.html).
-
+There are several conventions for formating code when using the pipe. 
+See [here](http://style.tidyverse.org/pipes.html) and [here](http://r4ds.had.co.nz/pipes.html) for much more information and for some advanced "special" pipes.
 
 ## The Lahman Baseball Database
 <!-- Short description of the Lahman database can go here. We have to convert things to a tibble, using as_tibble(). -->
 
-In this module, we will use data from a baseball data maintained by [Sean Lahman](http://www.seanlahman.com).
+As mentioned above, we will use data from a baseball data maintained by [Sean Lahman](http://www.seanlahman.com).
 This database contains pitching, hitting, and fielding statistics from Major League Baseball from 1871 to 2016. 
 The data is available as an R package, which we will need to install and load.
 To install the package, we need to run the following in our console
@@ -76,7 +85,7 @@ install.packages("Lahman")
 ```
 
 Once the package is installed, we can load it into R along with the tidyverse packages:
-```{r}
+```{r load-lahman}
 library(tidyverse)
 library(Lahman)
 ```
@@ -93,7 +102,7 @@ For this exercise, we will only want to focus on ERA and also focus only on thos
 Unfortuntaely, the Lahman pitching dataset does not contain the number of innings pitched (IP).
 Instead, it has a column called ``IPouts'', which is the number of outs pitched and whose formula is $\text{IPOuts} = 3 \times \text{IP}.$
 
-Using the pipe and the dplyr verbs we learned in [Module 3](module3.htm), we will create a new tibble called `pitching` which contains all players who pitched at least 150 innings, played in either the AL or the NL and which contains only the columns corresponding the player, year, team, league, innings pitched, and ERA.
+Using the pipe and the dplyr verbs we learned in [Lecture 2](lecture2.html), we will create a new tibble called `pitching` which contains all players who pitched at least 150 innings, played in either the AL or the NL and which contains only the columns corresponding the player, year, team, league, innings pitched, and ERA.
 
 ```{r pitching, tidy = FALSE}
 pitching <- 
@@ -183,7 +192,7 @@ pitching_summary <-
   summarize(mean = mean(ERA), sd = sd(ERA))
 ```
 
-In [Module 3](module3.html), we listed a few useful functions to be used within `summarize()`.
+In [Lecture 2](lecture2.html), we listed a few useful functions to be used within `summarize()`.
 One of them, `n()`, returns counts and is especially useful when used on a grouped tibble. We can, for instance, count the number of pitchers in our dataset within each year using `n()`.
 ```{r, tidy = FALSE}
 pitching %>% 

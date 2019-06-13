@@ -13,6 +13,8 @@ navbar:
           href: lecture1.html
         - text: "Lecture 2"
           href: lecture2.html
+        - text: "Lecture 3"
+          href: lecture3.html
     - text: "Problem Sets"
       icon: fa-dribbble
       menu:
@@ -20,6 +22,10 @@ navbar:
           href: ps0.html
         - text: "Problem Set 1"
           href: ps1.html
+        - text: "Problem Set 2"
+          href: ps2.html
+        - text: "Problem Set 3"
+          href: ps3.html
 output:
   html_document:
     theme: cerulean

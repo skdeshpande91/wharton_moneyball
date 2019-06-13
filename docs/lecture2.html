@@ -11,7 +11,7 @@
 
 
 
-<title>Lecture 2:</title>
+<title>Lecture 2: Visualization and More Data Wrangling</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -242,6 +242,9 @@ $(document).ready(function () {
     <li>
       <a href="lecture2.html">Lecture 2</a>
     </li>
+    <li>
+      <a href="lecture3.html">Lecture 3</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -258,6 +261,12 @@ $(document).ready(function () {
     </li>
     <li>
       <a href="ps1.html">Problem Set 1</a>
+    </li>
+    <li>
+      <a href="ps2.html">Problem Set 2</a>
+    </li>
+    <li>
+      <a href="ps3.html">Problem Set 3</a>
     </li>
   </ul>
 </li>
@@ -281,7 +290,7 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Lecture 2:</h1>
+<h1 class="title toc-ignore">Lecture 2: Visualization and More Data Wrangling</h1>
 
 </div>
 
@@ -498,7 +507,7 @@ Warning:<span class="st"> </span>Removed <span class="dv">5346</span> rows conta
     FGP   TPP   FTP
   &lt;dbl&gt;<span class="st"> </span><span class="er">&lt;</span>dbl&gt;<span class="st"> </span><span class="er">&lt;</span>dbl&gt;
 <span class="dv">1</span> <span class="fl">0.438</span> <span class="fl">0.346</span> <span class="fl">0.790</span></code></pre></div>
-<p>In the first example, we compute the average field goal percentage and in the second example, we compute the average field goal, three point, and free throw percentages. Of course, we are not limited to computing just the mean. The following functions are quite useful for summarizing several aspects of the distribution of the variables in our dataset:</p>
+<p>In the first line, we compute the average field goal percentage and in the second example, we compute the average field goal, three point, and free throw percentages. Of course, we are not limited to computing just the mean. The following functions are quite useful for summarizing several aspects of the distribution of the variables in our dataset:</p>
 <ul>
 <li>Center: <code>mean()</code>, <code>median()</code></li>
 <li>Spread: <code>sd()</code>, <code>IQR()</code></li>
@@ -533,6 +542,17 @@ Warning:<span class="st"> </span>Removed <span class="dv">5346</span> rows conta
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">save</span>(nba_shooting, <span class="dt">file =</span> <span class="st">&quot;data/nba_shooting.RData&quot;</span>)</code></pre></div>
 <p>When we want to <em>load</em> the data back into R, we can use the <code>load()</code> function</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">load</span>(<span class="st">&quot;data/nba_shooting.RData&quot;</span>)</code></pre></div>
+</div>
+<div id="thinking-ahead-for-tomorrow" class="section level2">
+<h2>Thinking Ahead for Tomorrow</h2>
+<p>Up to this point, we have only used the dplyr verbs <code>mutate()</code>, <code>filter()</code>, and <code>arrange()</code> one at a time. What if we wanted to do something a bit more complicated like:</p>
+<ol style="list-style-type: decimal">
+<li>Remove players from the lockout season who had fewer than 100 field goal attempts, fewer than 100 free throw attempts, or fewer than 50 three point attempts</li>
+<li>Arrange them according to their three point percentage.</li>
+<li>Add a classification of their three point shooting ability (as we did above with <code>case_when()</code>)</li>
+<li>Compute the mean field goal percentage of all of the players within each of these categories. That is, separately compute the mean field goal percentage of the “Elite” three point shooters, the “Above Average” three point shooters, etc.</li>
+</ol>
+<p>In <a href="lecture3.html">Lecture 3</a>, we will learn how to string together several dplyr verbs to perform the above tasks. We will also learn how to perform grouped calculations.</p>
 </div>
 
 

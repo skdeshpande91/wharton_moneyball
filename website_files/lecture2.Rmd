@@ -245,7 +245,7 @@ summarize(nba_shooting_2016, FGP = mean(FGP))
 summarize(nba_shooting_2016, FGP = mean(FGP), TPP = mean(TPP), FTP = mean(FTP))
 ```
 
-In the first example, we compute the average field goal percentage and in the second example, we compute the average field goal, three point, and free throw percentages.
+In the first line, we compute the average field goal percentage and in the second example, we compute the average field goal, three point, and free throw percentages.
 Of course, we are not limited to computing just the mean.
 The following functions are quite useful for summarizing several aspects of the distribution of the variables in our dataset:
 
