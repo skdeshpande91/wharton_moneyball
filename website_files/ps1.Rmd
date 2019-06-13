@@ -14,7 +14,7 @@ In the first part, you will write an R script that replicates our work with the 
 In the second part, you will begin working with a much larger dataset that we will explore in greater detail in [Lecture 2](lecture2.html).
 **It is important that you finish the first part completely before moving on to the second part**
 
-## Review of Lecture 1:
+## Part 1: Review of Lecture 1
 
 1. Take a few minutes to read through the online notes for [Lecture 1](lecture1.html). Without doing any coding, see if you can understand what the code in each code block is doing. In particular, working with another member from your team, try to explain in words what is happening within each code block.
 
@@ -26,7 +26,7 @@ In the second part, you will begin working with a much larger dataset that we wi
 
 5. Compare the script you have written with someone else in your group. See if your codes are similar. Then have your RTA or an instructor come and execute the script. If it runs without error and produces the correct output, you can proceed onto Part 2 of this problem set. Otherwise, you will need to go back and edit your script.
 
-## Looking ahead to tomorrow
+## Part 2: Looking ahead to tomorrow
 
 Up to this point, we have been working with a really small dataset.
 We're now going to dive into a much larger analysis of NBA shooting statistics for all players between the 1996-97 season and the 2015-16 season.

@@ -1,0 +1,173 @@
+---
+title: "Problem Set 2"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+## Review Lecture 2 Notes
+
+Please spend a few minutes reading through the notes from [Lecture 2](lecture2.html). 
+Like in [Problem Set 1](ps1.html), you should go through each code block with someone in your group and see if you can both explain to each other what all of the code does.
+
+## Payroll and Winning Percentage in the MLB
+
+In lecture, Professory Wyner discussed the relationship between a team's payroll and its winning percentage.
+In particular, for each season, he computed the "relative payroll" of each team by taking its payroll and dividing it by the median of payrolls of all teams in that seaosn.
+We will replicate his analysis in the following problems using the dataset "mlb_relative_payrolls.csv", which you can find in the "data/" folder of your working directory.
+You should save all of the code for this analysis in an R script called "ps2_mlb_payroll.R".
+
+1. Read the data in from the file and save it as a tbl called "relative_payroll"
+```{r read-payrolls}
+relative_payroll <- read_csv(file = "data/mlb_relative_payrolls.csv")
+```
+
+2. Make a histogram of team winning percentages. Play around with different binwidths. 
+```{r, eval = FALSE, echo = FALSE}
+ggplot(data = relative_payroll) +
+  geom_histogram(mapping = aes(x = Winning_Percentage, y = ..density..), binwidth = 0.01)
+```
+3. Make a histogram of the relative payrolls.
+```{r, eval = FALSE, echo = FALSE}
+ggplot(data = relative_payroll) +
+  geom_histogram(mapping = aes(x = Relative_Payroll, y = ..density..), binwidth = 0.1)
+```
+4. Make a scatterplot with relative payroll on the horizontal axis and winning percentage on the vertical axis. 
+
+```{r, eval = FALSE, echo = FALSE}
+ggplot(data = relative_payroll) +
+  geom_point(mapping = aes(x = Relative_Payroll, y = Winning_Percentage))
+```
+
+5. Without executing the code below, discuss with your group and see if you can figure out what it is doing.
+```{r, eval = FALSE}
+ggplot(data = relative_payroll) + 
+  geom_point(mapping = aes(x = Year, y = Team_Payroll))
+```
+
+6. Execute the code above. What can you say about how team payrolls have evolved over time? Make a similar plot that visualizes how *relative payrolls* have evolved over time.
+
+```{r, eval = FALSE, echo = FALSE}
+ggplot(data = relative_payroll) + 
+  geom_point(mapping = aes(x = Year, y = Relative_Payroll))
+```
+
+
+## MLB Batting Statistics
+
+In this problem set, we will gain more experience using the dplyr verbs we learned in [Module 3](module3.htlm) to analyze batting statistics of MLB players with at least 502.2 plate appearances.
+All of the data is contained in the file "data/hitting_qualified.csv". 
+You should write save all of the code for this analyses in an R script called "ps2_mlb_batting.R".
+
+1. Load the data into a tibble called `hitting_qualified` using `read_csv()`.
+```{r hitting_qualified, echo=FALSE}
+hitting_qualified <- read_csv("data/hitting_qualified.csv")
+```
+
+The columns of this dataset include
+
+* `playerID`: the player's ID code
+* `yearID`: Year
+* `stint`: the player's stint (order of appearances within a season)
+* `teamID`: the player's team
+* `lgID`: the player's league
+* `G`: the number of Games the player played in that year
+* `AB`: number of At Bats of that player in that year
+* `PA`: number of plate appearances by the player that year
+* `R`: number of Runs the player made in that year
+* `H`: number of Hits the player had in that year
+* `X2B`: number of Doubles (hits on which the batter reached second base safely)
+* `X3B`: number of Triples (hits on which the batter reached third base safely)
+* `HR`: number of Homeruns the player made that year
+* `RBI`: number of Runs Batted In the player made that year
+* `SB`: number of Bases Stolen by the player in that year
+* `CS`: number of times a player was Caught Stealing that year
+* `BB`: Base on Balls
+* `SO`: number of Strikeouts the player had that year
+* `IBB` Intentional walks
+* `HBP`: Hit by pitch
+* `SH`: Sacrifice hits
+* `SF` Sacrifice flies
+* `GIDP` Grounded into double plays
+
+2. Use `arrange()` to find out the first and last season for which we have data. *Hint: you may need to use `desc()` as well.*
+
+3. Use `summarize()` to find out the first and last season for which we have data. *Hint, you only need one line of code to do this*
+
+4. When you print out `hitting_qualified` you'll notice that some columns were read in as characters and not integers or numerics. This can happen sometimes whenever the original csv file has missing values. In this case, the columns IBB, HBP, SH, SF, and GIDP were read in as characters. We want to *convert* these to integers. We can do this using `mutate()` and the function `as.integer()`.
+
+```{r as-integer}
+hitting_qualified <- mutate(hitting_qualified,
+                            IBB = as.integer(IBB),
+                            HBP = as.integer(HBP),
+                            SH = as.integer(SH),
+                            SF = as.integer(SF),
+                            GIDP = as.integer(GIDP))
+```
+
+5. Let's take a look at some of the columns we just converted:
+```{r}
+select(hitting_qualified, playerID, yearID, AB, IBB, HBP, SH, SF, GIDP)
+```
+You'll notice that a lot of these columns contain `NA` values, which indicates that some of these values are missing. This make sense, since a lot of these statistics were not recorded in the early years of baseball. A popular convention for dealing with these missing statistics is to **impute** the missing values with 0. That is, for instance, every place we see an `NA` we need to replace it with a 0. We can do that with `mutate()` and `replace_na()` function as follows.
+```{r replace-na}
+hitting_qualified <- replace_na(hitting_qualified, 
+                                list(IBB = 0, HBP = 0, SH = 0, SF = 0, GIDP = 0))
+```
+We will discuss the syntax for `replace_na()` later in lecture.
+
+6. Use `mutate()` to add a column for the number of singles, which can be computed as $\text{X1B} = \text{H} - \text{X2B} - \text{X3B} - \text{HR}$.
+
+```{r singles}
+hitting_qualified <- mutate(hitting_qualified, X1B = H - X2B - X3B - HR)
+```
+
+7. The variable BB includes as a subset all intentional walks (IBB). Use `mutate()` to add a column to `hitting_qualified` that counts the number of *un-intentional walks* (uBB). Be sure to save the resulting tibble as `hitting_qualified`.
+```{r uBB, echo = FALSE}
+hitting_qualified <- mutate(hitting_qualified, uBB = BB - IBB)
+```
+
+8. Use `mutate()` to add columns for the following offensive statistics, whose formulae are given below. We have also included links to pages on [Fangraphs](htpps://www.fangraphs.com) that define and discuss each of these statistics.
+
+* [Walk Percentage](https://www.fangraphs.com/library/offense/rate-stats/) (BBP):
+$$
+\text{BBP} = \frac{\text{BB}}{\text{PA}}
+$$
+* [Strike-out Percentage](https://www.fangraphs.com/library/offense/rate-stats/) (KP): 
+$$\text{KP} = \frac{\text{SO}}{\text{PA}}$$
+
+* [On-Base Percentage](https://www.fangraphs.com/library/offense/obp/) (OBP): 
+$$\text{OBP} = \frac{\text{H} + \text{BB} + \text{HBP}}{\text{AB} + \text{BB} + \text{HBP} + \text{SF}}$$
+* Slugging (SLG): 
+$$
+\text{SLG} = \frac{\text{X1B} + 2 \times \text{X2B} + 3\times \text{X3B} + 4\times \text{HR}}{\text{AB}}
+$$
+
+* [On-Base Plus Slugging](https://www.fangraphs.com/library/offense/ops/) (OPS): 
+$$\text{OPS} = \text{OBP} + \text{SLG}$$
+* [weighted On-Base Average](https://www.fangraphs.com/library/offense/woba/) (wOBA): We will use the 2013 weights which can be found [here](https://www.fangraphs.com/guts.aspx?type=cn)
+$$
+\text{wOBA} = \frac{0.687 \times \text{uBB} + 0.718 \times \text{HBP} + 0.881 \times \text{X1B} + 1.256 \times \text{X2B} + 1.594 \times \text{X3B} + 2.065 \times \text{HR}}{\text{AB} + \text{uBB} + \text{SF} + \text{HBP}}
+$$
+```{r batting-stats, tidy = FALSE}
+hitting_qualified <- mutate(hitting_qualified,
+                  BBP = BB/PA,
+                  KP = SO/PA,
+                  OBP = (H + BB + HBP)/(AB + BB + HBP + SF),
+                  SLG = (X1B + 2*X2B + 3*X3B + 4*HR)/AB,
+                  OPS = OBP + SLG,
+                  wOBA = (0.687 * uBB + 0.718 * HBP + 0.81 * X1B + 1.256 * X2B + 
+                            1.594 * X3B+ 2.065 * HR)/(AB + uBB + SF + HBP))
+```
+
+7. For most of the statistics in the previous question, [Fangraphs](htpps://www.fangraphs.com) has defined rating scales (to see these ratings, click on the linked page for each statistic in Question 6 and scroll down to the "Context" section of the page). Use `mutate()` and `case_when()` to add the ratings for walk percentage (BBP), strike-out percentage (KP), on-base percentage (OBP), on-base plus slugging (OPS), and wOBA. Call the columns "BBP_rating", "KP_rating", "OBP_rating", "OPS_rating", and "wOBA_rating." 
+
+8. Use `filter()` to subset the players who played between 2000 and 2015. Call the new tbl `tmp_batting`.
+
+9. Use `select()` to create a tibble called `batting_recent` containing all players who played between 2000 and 2015 with the following columns: playerID, yearID, teamID, lgID, and all of the statistics and rankings created in Problems 6 and 7. 
+
+10. Explore the distribution of some of the batting statistics introduced in problem 6 using the tbl `batting_recent` using histograms. Then explore the relationship between some of these statistics with scatterplots. 
+

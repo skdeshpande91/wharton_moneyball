@@ -1,5 +1,5 @@
 ---
-title: 'Lecture 2:'
+title: 'Lecture 2: Visualization and More Data Wrangling'
 output: html_document
 ---
 
@@ -281,4 +281,17 @@ When we want to *load* the data back into R, we can use the `load()` function
 load("data/nba_shooting.RData")
 ```
 
+
+## Thinking Ahead for Tomorrow
+
+Up to this point, we have only used the dplyr verbs `mutate()`, `filter()`, and `arrange()` one at a time. 
+What if we wanted to do something a bit more complicated like: 
+
+1. Remove players from the lockout season who had fewer than 100 field goal attempts, fewer than 100 free throw attempts, or fewer than 50 three point attempts
+2. Arrange them according to their three point percentage.
+3. Add a classification of their three point shooting ability (as we did above with `case_when()`)
+4. Compute the mean field goal percentage of all of the players within each of these categories. That is, separately compute the mean field goal percentage of the "Elite" three point shooters, the "Above Average" three point shooters, etc. 
+
+In [Lecture 3](lecture3.html), we will learn how to string together several dplyr verbs to perform the above tasks. 
+We will also learn how to perform grouped calculations.
 
