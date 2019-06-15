@@ -24,17 +24,17 @@ Unfortunately, some statistics like hit-by-pitch (HBP) were not recorded in the 
 In the tbl, these missing values are designated `NA`.
 To see some of these, we can run the following code:
 ```{r}
-Batting %>% 
+batting %>% 
   select(playerID, yearID, teamID, AB, BB, HBP, SH, SF, IBB, GIDP)
 ```
 
 A common convention for dealing with the missing values when computing $\text{PA}$ is to replace the `NA` with a `0`.
 To do this, we can use the function `replace_na()` within a pipe as follows. 
 ```{r, tidy = FALSE}
-Batting <- 
+batting <- 
   batting %>% 
   replace_na(list(IBB = 0, HBP = 0, SH = 0, SF = 0, GIDP = 0))
-Batting %>% select(playerID, yearID, teamID, AB, BB, HBP, SH, SF, IBB)
+batting %>% select(playerID, yearID, teamID, AB, BB, HBP, SH, SF, IBB)
 
 ```
 The syntax for `replace_na()` is a bit involved but the basic idea is you have to specify the value you want to replace each `NA`.
@@ -50,7 +50,7 @@ When using `replace_na()` it is very important to remember to include the `list(
 
 ```{r, echo = FALSE, tidy = FALSE}
 batting <-
-  Batting %>%
+  batting %>%
   replace_na(list(HBP = 0, SH = 0, SF = 0, IBB = 0)) %>%
   mutate(PA = AB + BB + HBP + SH + SF,
          X1B = H - X2B - X3B - HR,
@@ -201,7 +201,7 @@ mlb_payrolls %>%
 
 Without running the code, work with your teammates to see if you can figure out what the code below is doing.
 
-```{r, tidy = FALSE}
+```{r ps3-challenge, tidy = FALSE}
 batting_2014_2015 <-
   batting %>%
   filter(yearID %in% c(2014, 2015)) %>%
@@ -211,5 +211,5 @@ batting_2014_2015 <-
   arrange(playerID)
 ```
 
-2. Run the code above and save the tbl `batting_2014_2015.RData` to the file "data/batting_2014_2015.RData". We will return to this dataset in [Module 6](module6.html).
+2. Run the code above and save the tbl `batting_2014_2015.RData` to the file "data/batting_2014_2015.RData". We will return to this dataset in [Lecture 4](lecture4.html).
 <!-- We probably need to melt data here -->

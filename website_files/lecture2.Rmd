@@ -91,7 +91,7 @@ ggplot(data = raw_shooting) +
 Just like the code used to produce the histograms above, we began by calling `ggplot(data = nba_shooting)`.
 Now, however, instead of calling `geom_histogram()` we are calling `geom_point()`.
 This tells R that instead of a histogram, we want to plot the data using points.
-We will learn much more about the different ``geom'' objects available in ggplot2 in Lecture 4. 
+We will learn much more about the different "geom" objects available in ggplot2 in Lecture 4. 
 Since we are plotting multiple variables, we need to tell R to which axis each variable is mapped.
 This is exactly what`mapping = aes(x = FGP, y = FTP)` does. 
 

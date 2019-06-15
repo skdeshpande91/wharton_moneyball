@@ -1,5 +1,5 @@
 ---
-title: "Lecture 3: Piping and Grouped Comparisons"
+title: "Lecture 3: Piping & Grouped Comparisons"
 output: html_document
 ---
 

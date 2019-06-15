@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Problem Set 4</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/font-awesome-5.0.13/css/fa-svg-with-js.css" rel="stylesheet" />
+<script src="site_libs/font-awesome-5.0.13/js/fontawesome-all.min.js"></script>
+<script src="site_libs/font-awesome-5.0.13/js/fa-v4-shims.min.js"></script>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+pre, code { background-color: #f8f8f8; }
+code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code > span.dt { color: #204a87; } /* DataType */
+code > span.dv { color: #0000cf; } /* DecVal */
+code > span.bn { color: #0000cf; } /* BaseN */
+code > span.fl { color: #0000cf; } /* Float */
+code > span.ch { color: #4e9a06; } /* Char */
+code > span.st { color: #4e9a06; } /* String */
+code > span.co { color: #8f5902; font-style: italic; } /* Comment */
+code > span.ot { color: #8f5902; } /* Other */
+code > span.al { color: #ef2929; } /* Alert */
+code > span.fu { color: #000000; } /* Function */
+code > span.er { color: #a40000; font-weight: bold; } /* Error */
+code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #000000; } /* SpecialChar */
+code > span.vs { color: #4e9a06; } /* VerbatimString */
+code > span.ss { color: #4e9a06; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #000000; } /* Variable */
+code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code > span.ex { } /* Extension */
+code > span.at { color: #c4a000; } /* Attribute */
+code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+div.sourceCode {
+  overflow-x: visible;
+}
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("show" === "show");
+});
+</script>
+
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">WMA19</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-futbol-o"></span>
+     
+    Lecture Notes
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="lecture1.html">Lecture 1</a>
+    </li>
+    <li>
+      <a href="lecture2.html">Lecture 2</a>
+    </li>
+    <li>
+      <a href="lecture3.html">Lecture 3</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-dribbble"></span>
+     
+    Problem Sets
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="ps0.html">Problem Set 0</a>
+    </li>
+    <li>
+      <a href="ps1.html">Problem Set 1</a>
+    </li>
+    <li>
+      <a href="ps2.html">Problem Set 2</a>
+    </li>
+    <li>
+      <a href="ps3.html">Problem Set 3</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+<div class="btn-group pull-right">
+<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">Problem Set 4</h1>
+
+</div>
+
+
+<div id="review" class="section level2">
+<h2>Review</h2>
+<p>We understand that it’s been quite a busy week and that we’ve thrown a ton of material your way. We’d like you to take some time today and this weekend to go through the notes of the first four lectures and first three problem sets carefully with your team and RTA.</p>
+</div>
+<div id="visualizing-the-strike-zone" class="section level2">
+<h2>Visualizing the Strike Zone</h2>
+<p>In this part, we will continue to use heatmaps (introduced briefly in <a href="lecture2.html">Lecture 2</a>) to explore the strike zone in baseball. We will focus on data collected by PITCHf/x. At a high-level, PITCHf/x consists of a set of cameras installed at every ballpark which tracks the motion of each pitch. For more information about the system, check out this <a href="http://baseball.physics.illinois.edu/FastPFXGuide.pdf">article by Mike Fast</a> The data collected by PITCHf/x is then transmitted to the MLB Gameday application along with contextual information about the pitch. The <a href="data/pitchfx_2015.csv">data</a> contains the measurements from the PITCHf/x system recorded in 2015.</p>
+<ol style="list-style-type: decimal">
+<li>Read the data into a tbl called `pitches’.</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">library</span>(tidyverse)
+&gt;<span class="st"> </span>pitches &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/pitchfx_2015.csv&quot;</span>)
+Parsed with column specification:
+<span class="kw">cols</span>(
+  <span class="dt">Description =</span> <span class="kw">col_character</span>(),
+  <span class="dt">X =</span> <span class="kw">col_double</span>(),
+  <span class="dt">Z =</span> <span class="kw">col_double</span>(),
+  <span class="dt">COUNT =</span> <span class="kw">col_character</span>(),
+  <span class="dt">P_HAND =</span> <span class="kw">col_character</span>(),
+  <span class="dt">B_HAND =</span> <span class="kw">col_character</span>()
+)</code></pre></div>
+<p>The columns are: * <code>Description</code>: Records the outcome of the pitch (Called Strike, Swinging Strike, Foul, etc.) * <code>X</code> and <code>Z</code>: the horizontal and vertical coordinates of the pitch in inches. Note that the center of home plate corresponds to <code>X = 0</code>. Note that the <code>X</code> coordinate are recorded from the catcher’s perspective, with negative values on the left and positive values on the right. In this coordinate system, a right-handed batter will line up to the left (i.e. negative <code>X</code> values). * <code>COUNT</code>: The ball-strike count for each pitch * <code>P_HAND</code> and <code>B_HAND</code>: the handedness of the batter and pitcher.</p>
+<ol start="2" style="list-style-type: decimal">
+<li><p>To visualize the strike zone, we are going to want to filter out only the called strikes and balls. Moreover, it will be helpful to convert the Description to numeric values (1 for called strikes, 0 for balls). Use the pipe operator, <code>filter()</code>, <code>mutate()</code>, and <code>case_when()</code> to create a new tbl <code>called_pitches</code> containing only the called strike and balls and that includes a new column “Call” whose value is 0 for balls and 1 for called strike.</p></li>
+<li><p>To get started, we will create a plot and then add to it sequentially:</p></li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>g &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> called_pitches)</code></pre></div>
+<ol start="4" style="list-style-type: decimal">
+<li>To estimate the probability of a called strike given the pitch location, we will use a strategy similar to what we used to make heatmaps in <a href="module2.html">Module 2</a>. Essentially, we divide the plane into several small rectangular bins and compute the proportion of called strikes within each bin. To compute this, we use the <code>stat_summary_2d()</code> function, which takes three aesthetics:</li>
+</ol>
+<ul>
+<li>x: variable on the horizontal axis</li>
+<li>y: variable on vertical axis</li>
+<li>z: variable that is passed to the summary function.</li>
+</ul>
+<p>By default, <code>stat_summary_2d()</code> divides the plane into rectangles based on the aesthetics x and y, and then computes the average value of z for observations in the bin. We can add this layer to our plot <code>g</code> as follows and obtain the following plot</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>g &lt;-<span class="st"> </span>g +<span class="st"> </span><span class="kw">stat_summary_2d</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> X, <span class="dt">y =</span> Z, <span class="dt">z =</span> Call))
+&gt;<span class="st"> </span>g</code></pre></div>
+<p><img src="ps4_files/figure-html/stat-summary-2d-1.png" width="384" style="display: block; margin: auto;" /></p>
+<ol start="5" style="list-style-type: decimal">
+<li>You’ll notice in the plot above that <code>stat_summary_2d()</code> has added a legend to our plot. However, the title of the legend is a somewhat non-informative. The color scheme does not distinguish between different values particularly well.</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>g &lt;-<span class="st"> </span>g +<span class="st"> </span><span class="kw">scale_fill_distiller</span>(<span class="st">&quot;P(Called Strike)&quot;</span>, <span class="dt">palette =</span> <span class="st">&quot;RdBu&quot;</span>)
+&gt;<span class="st"> </span>g</code></pre></div>
+<p><img src="ps4_files/figure-html/rdbu-1.png" width="384" style="display: block; margin: auto;" /></p>
+<ol start="6" style="list-style-type: decimal">
+<li>According to the official rule book, the strike zone is a rectangular region that spans the width of home plate and extends vertically from the batter’s knee to the middle of his chest. From the plot above, we see that the region in which the strike zone probability is higher than 90% is definitely not rectangular. To better visualize the discrepancy, we can add another layer to plot which delimits an approximation of the rule book strike zone. The code below does just that. The <code>xmin</code> and <code>xmax</code> arguments give the horizontal limits of the strike zone (in this case, the coordinates of the edges of the strike zone) and the <code>ymin</code> and <code>ymax</code> arguments are the average vertical limits measured by PITCHf/x. <strong>Note: these values were pre-computed using a much larger dataset</strong></li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>g &lt;-<span class="st"> </span>g +<span class="st"> </span><span class="kw">annotate</span>(<span class="st">&quot;rect&quot;</span>, <span class="dt">xmin =</span> -<span class="fl">8.5</span>, <span class="dt">xmax =</span> <span class="fl">8.5</span>, <span class="dt">ymin =</span> <span class="dv">19</span>, <span class="dt">ymax =</span> <span class="fl">41.5</span>, <span class="dt">alpha =</span> <span class="dv">0</span>, 
++<span class="st">     </span><span class="dt">color =</span> <span class="st">&quot;black&quot;</span>)</code></pre></div>
+<p>We can additionally make the plot a bit more attractive visually as follows:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>g &lt;-<span class="st"> </span>g +<span class="st"> </span><span class="kw">theme_classic</span>()
+&gt;<span class="st"> </span>g &lt;-<span class="st"> </span>g +<span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.x =</span> <span class="kw">element_blank</span>())
+&gt;<span class="st"> </span>g &lt;-<span class="st"> </span>g +<span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.y =</span> <span class="kw">element_blank</span>())
+&gt;<span class="st"> </span>g &lt;-<span class="st"> </span>g +<span class="st"> </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Estimated Strike Zone&quot;</span>)
+&gt;<span class="st"> </span>g</code></pre></div>
+<p><img src="ps4_files/figure-html/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="nba-team-shooting-statistics" class="section level2">
+<h2>NBA Team Shooting Statistics</h2>
+<p>The file “nba_boxscore.csv” lists detailed box score information about every NBA player in every season ranging from 1996–97 season and 2015-16 season. We will look at team shooting statistics over this 20-season span.</p>
+<ol style="list-style-type: decimal">
+<li>Load the data into a tbl called <code>raw_boxscore</code>.</li>
+</ol>
+<pre><code>Parsed with column specification:
+cols(
+  .default = col_integer(),
+  Player = col_character(),
+  Pos = col_character(),
+  Tm = col_character()
+)
+See spec(...) for full column specifications.</code></pre>
+<p>The column “Tm” lists the team on which each player played. We can look at the relative frequencies of the teams using the <code>table()</code> function. This function takes a vector and returns the frequencies of each unique value.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">table</span>(raw_boxscore[[<span class="st">&quot;Tm&quot;</span>]])
+
+ ATL  BOS  BRK  CHA  CHH  CHI  CHO  CLE  DAL  DEN  DET  GSW  HOU  IND  LAC 
+ <span class="dv">347</span>  <span class="dv">350</span>   <span class="dv">72</span>  <span class="dv">183</span>  <span class="dv">101</span>  <span class="dv">335</span>   <span class="dv">34</span>  <span class="dv">359</span>  <span class="dv">356</span>  <span class="dv">354</span>  <span class="dv">321</span>  <span class="dv">355</span>  <span class="dv">359</span>  <span class="dv">319</span>  <span class="dv">347</span> 
+ LAL  MEM  MIA  MIL  MIN  NJN  NOH  NOK  NOP  NYK  OKC  ORL  PHI  PHO  POR 
+ <span class="dv">319</span>  <span class="dv">271</span>  <span class="dv">348</span>  <span class="dv">337</span>  <span class="dv">328</span>  <span class="dv">298</span>  <span class="dv">161</span>   <span class="dv">34</span>   <span class="dv">63</span>  <span class="dv">345</span>  <span class="dv">144</span>  <span class="dv">340</span>  <span class="dv">352</span>  <span class="dv">348</span>  <span class="dv">338</span> 
+ SAC  SAS  SEA  TOR  TOT  UTA  VAN  WAS  WSB 
+ <span class="dv">332</span>  <span class="dv">342</span>  <span class="dv">195</span>  <span class="dv">366</span> <span class="dv">1047</span>  <span class="dv">309</span>   <span class="dv">80</span>  <span class="dv">333</span>   <span class="dv">15</span> </code></pre></div>
+<p>Looking at the list of teams you may see a few that you don’t recognize. For instance, there are 15 players listed as playing on “WSB”. We can use <code>filter()</code> to take a closer look at these players</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">filter</span>(raw_boxscore, Tm ==<span class="st"> &quot;WSB&quot;</span>)
+<span class="co"># A tibble: 15 x 22</span>
+   Season Player Pos     Age Tm        G    GS    MP   FGM   FGA   TPM
+    &lt;int&gt;<span class="st"> </span><span class="er">&lt;</span>chr&gt;<span class="st">  </span><span class="er">&lt;</span>chr&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>chr&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;
+<span class="st"> </span><span class="dv">1</span>   <span class="dv">1997</span> Ashra… PF       <span class="dv">25</span> WSB      <span class="dv">31</span>     <span class="dv">0</span>   <span class="dv">144</span>    <span class="dv">12</span>    <span class="dv">40</span>     <span class="dv">1</span>
+ <span class="dv">2</span>   <span class="dv">1997</span> Calbe… SG       <span class="dv">25</span> WSB      <span class="dv">79</span>    <span class="dv">79</span>  <span class="dv">2411</span>   <span class="dv">369</span>   <span class="dv">730</span>     <span class="dv">4</span>
+ <span class="dv">3</span>   <span class="dv">1997</span> Matt … C        <span class="dv">27</span> WSB       <span class="dv">5</span>     <span class="dv">0</span>     <span class="dv">7</span>     <span class="dv">1</span>     <span class="dv">3</span>     <span class="dv">0</span>
+ <span class="dv">4</span>   <span class="dv">1997</span> Harve… PF       <span class="dv">31</span> WSB      <span class="dv">78</span>    <span class="dv">25</span>  <span class="dv">1604</span>   <span class="dv">129</span>   <span class="dv">314</span>    <span class="dv">28</span>
+ <span class="dv">5</span>   <span class="dv">1997</span> Juwan… SF       <span class="dv">23</span> WSB      <span class="dv">82</span>    <span class="dv">82</span>  <span class="dv">3324</span>   <span class="dv">638</span>  <span class="dv">1313</span>     <span class="dv">0</span>
+ <span class="dv">6</span>   <span class="dv">1997</span> Jaren… SG       <span class="dv">29</span> WSB      <span class="dv">75</span>     <span class="dv">0</span>  <span class="dv">1133</span>   <span class="dv">134</span>   <span class="dv">329</span>    <span class="dv">53</span>
+ <span class="dv">7</span>   <span class="dv">1997</span> Tim L… SG       <span class="dv">30</span> WSB      <span class="dv">15</span>     <span class="dv">0</span>   <span class="dv">182</span>    <span class="dv">15</span>    <span class="dv">48</span>     <span class="dv">8</span>
+ <span class="dv">8</span>   <span class="dv">1997</span> Gheor… C        <span class="dv">25</span> WSB      <span class="dv">73</span>    <span class="dv">69</span>  <span class="dv">1849</span>   <span class="dv">327</span>   <span class="dv">541</span>     <span class="dv">0</span>
+ <span class="dv">9</span>   <span class="dv">1997</span> Tracy… SF       <span class="dv">25</span> WSB      <span class="dv">82</span>     <span class="dv">1</span>  <span class="dv">1814</span>   <span class="dv">288</span>   <span class="dv">678</span>   <span class="dv">106</span>
+<span class="dv">10</span>   <span class="dv">1997</span> Gaylo… SG       <span class="dv">27</span> WSB       <span class="dv">1</span>     <span class="dv">0</span>     <span class="dv">6</span>     <span class="dv">1</span>     <span class="dv">3</span>     <span class="dv">0</span>
+<span class="dv">11</span>   <span class="dv">1997</span> Rod S… PG       <span class="dv">30</span> WSB      <span class="dv">82</span>    <span class="dv">81</span>  <span class="dv">2997</span>   <span class="dv">515</span>  <span class="dv">1105</span>    <span class="dv">13</span>
+<span class="dv">12</span>   <span class="dv">1997</span> Ben W… PF       <span class="dv">22</span> WSB      <span class="dv">34</span>     <span class="dv">0</span>   <span class="dv">197</span>    <span class="dv">16</span>    <span class="dv">46</span>     <span class="dv">0</span>
+<span class="dv">13</span>   <span class="dv">1997</span> Chris… PF       <span class="dv">23</span> WSB      <span class="dv">72</span>    <span class="dv">72</span>  <span class="dv">2806</span>   <span class="dv">604</span>  <span class="dv">1167</span>    <span class="dv">60</span>
+<span class="dv">14</span>   <span class="dv">1997</span> Chris… PG       <span class="dv">25</span> WSB      <span class="dv">82</span>     <span class="dv">1</span>  <span class="dv">1117</span>   <span class="dv">139</span>   <span class="dv">330</span>    <span class="dv">58</span>
+<span class="dv">15</span>   <span class="dv">1997</span> Loren… C        <span class="dv">27</span> WSB      <span class="dv">19</span>     <span class="dv">0</span>   <span class="dv">264</span>    <span class="dv">20</span>    <span class="dv">31</span>     <span class="dv">0</span>
+<span class="co"># … with 11 more variables: TPA &lt;int&gt;, FTM &lt;int&gt;, FTA &lt;int&gt;, ORB &lt;int&gt;,</span>
+<span class="co">#   DRB &lt;int&gt;, AST &lt;int&gt;, STL &lt;int&gt;, BLK &lt;int&gt;, TOV &lt;int&gt;, PF &lt;int&gt;,</span>
+<span class="co">#   PTS &lt;int&gt;</span></code></pre></div>
+<p>These fifteen players during the 1996-97 season on the Washington Bullets, which was renamed the Washington Wizards at the end of that season. There are a few other examples: VAN refers to the Vancouver Grizzlies who moved to Memphis and CHH refers to the original Charlotte Hornets franchise, which ultimately relocated to New Orleans.</p>
+<p>One of the teams listed is “TOT”. This does not refer any specific team. Instead these rows record the <em>total</em> statistics recorded by a player if he played for multiple teams in a single season. For the purposes of understanding how team shooting statistics changed over time, we will not want to include these rows in our analysis.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Use <code>filter()</code>, <code>group_by()</code>, <code>summary()</code>, and <code>mutate()</code> to create a new tbl called <code>team_boxscore</code> that does the following:</li>
+</ol>
+<ul>
+<li>removes the rows corresponding to player totals (i.e. <code>Tm == &quot;TOT&quot;</code>)</li>
+<li>groups the tbl according to Season and Tm. <strong>Note: it is important to group on season first and team second </strong></li>
+<li>Computes the total number of made and attempted field goals, three pointers, and free throws, along with points scored by each team in each season.</li>
+<li>Adds a column for team field goal percentage (FGP), three point percentage (TPP), and free throw percentages (FTP).</li>
+<li>Ungroup the resulting tbl</li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li>Use <code>filter()</code> to create a new tbl called <code>reduced_boxscore</code> that pulls out the rows of <code>team_boxscore</code> corresponding to the following teams: BOS, CLE, DAL, DET, GSW, LAL, MIA, and SAS. Then create a plot of these teams’ three point percentage in each season. Be sure to color the points according to the team. What patterns do you notice?</li>
+</ol>
+</div>
+<div id="work-with-new-data" class="section level2">
+<h2>Work with new data</h2>
+<p>Once you finish reviewing the material from earlier this week, we’d like you to use some of the tools we introduced in <a href="lecture4.html">Lecture 4</a> to read in new data into R. Then, using the skills you’ve learned in the first four lectures, we’d like to you do some type of analysis with this data. It doesn’t need to be sophisticated – even making a few interesting visualizations or computing some interesting summaries is enough. We just want you to get some practice working with some data that you’ve collected yourselves!</p>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
