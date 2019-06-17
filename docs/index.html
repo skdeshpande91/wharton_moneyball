@@ -21,9 +21,8 @@
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <script src="site_libs/navigation-1.1/codefolding.js"></script>
-<link href="site_libs/font-awesome-5.0.13/css/fa-svg-with-js.css" rel="stylesheet" />
-<script src="site_libs/font-awesome-5.0.13/js/fontawesome-all.min.js"></script>
-<script src="site_libs/font-awesome-5.0.13/js/fa-v4-shims.min.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 
 
@@ -56,9 +55,7 @@ h6 {
 </style>
 
 
-</head>
 
-<body>
 
 <style type = "text/css">
 .main-container {
@@ -83,6 +80,9 @@ img {
 button.code-folding-btn:focus {
   outline: none;
 }
+summary {
+  display: list-item;
+}
 </style>
 
 
@@ -97,7 +97,6 @@ body {
   padding-top: 56px;
   margin-top: -56px;
 }
-
 .section h2 {
   padding-top: 56px;
   margin-top: -56px;
@@ -117,6 +116,43 @@ body {
 .section h6 {
   padding-top: 56px;
   margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
 }
 </style>
 
@@ -138,13 +174,71 @@ $(document).ready(function () {
 });
 </script>
 
-
-<div class="container-fluid main-container">
-
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
 });
 </script>
 
@@ -159,6 +253,14 @@ $(document).ready(function () {
 </script>
 
 
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
 
 
 
@@ -233,6 +335,20 @@ $(document).ready(function () {
     </li>
   </ul>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-bar-chart"></span>
+     
+    Training Camp
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="tc_lecture1.html">Lecture 1</a>
+    </li>
+  </ul>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         
@@ -260,22 +376,24 @@ $(document).ready(function () {
 
 <div id="overview" class="section level2">
 <h2>Overview</h2>
-<p>Welcome to the webpage for the 2019 Wharton Moneyball Academy course on data analysis in R. In this course, you will learn the tools necessary to apply the concepts you learn in Prof. Wyner’s class while analyzing real sports datasets using the R programming language. Please bookmark this site and check back regularly before the program starts for updates. Below, you will find important information about setting up your system and installing the necessary software, as well as a brief schedule for the course.</p>
+<p>Welcome to the webpage for the 2019 Wharton Moneyball Academy / Training Camp course on data analysis in R. In this course, you will learn the tools necessary to apply the concepts you learn in Prof. Wyner’s class while analyzing real sports datasets using the R programming language. Please bookmark this site and check back regularly before the program starts for updates. Below, you will find important information about setting up your system and installing the necessary software, as well as a brief schedule for the course.</p>
 </div>
 <div id="before-you-arrive" class="section level2">
 <h2>Before You Arrive</h2>
 <p>This summer, you’ll be learning how to analyze data using R. R is a free, open-source software environment for statistical computing with several built-in functions for organizing, analyzing, and visualizing data. What separates R from programs like Excel, JMP, STATA, and Minitab is the ability for programmers, scientists, and statisticians to extend R’s basic functionality, and implement the latest algorithms and methods for analyzing massive and complex data. This extensibility has made R the de facto software standard in the academic statistics community and is driving the rapid adoption of R in the data analysis endeavors of several major corporations and government agencies like Bank of America, Facebook, the F.D.A., the New York Times, and Twitter.</p>
 <p>R uses a command line interface, which means that you interact with the software by typing in some commands and hitting Enter/Return to execute those commands. This is in marked contrast to most other software that you’re probably accustomed to and makes learning R a little bit more challenging. To make our lifes a bit easier, we will use an integraded development environment (IDE) for R, known as RStudio.</p>
-<p><strong>So that we can start analyzing data right away, we’d like you to install R and RStudio before the first class</strong> This can be done prior to arriving at the program or on the first night (Sunday July 7) with your project group and RTA. Instructions for installing R and RStudio, as well as setting up your computer for the class are available <a href="installation.html">here</a> <strong>Note: tablets and chromebooks may not have sufficient computing power to run R and RStudio. We highly recommend bringing a laptop</strong></p>
-<p>We know that you are very excited about the program and we’re similarly excited to start working together. We’ve come up with <a href="ps0.html">a really short assignment</a> for you to work on before you arrive. <a href="ps0.html">Problem Set 0</a> contains instructions for downloading and installing R and RStudio, which you should do prior to arrival. It also contains a very brief introduction to the R programming language with some simple exercises, and several questions that will motivate the concepts you’ll be exploring in Prof. Wyner’s class. Don’t worry if you don’t finish working your way through these exercises before you arrive. On the first night (Sunday July 7), you’ll meet with your project team and RTA to discuss them. As we approach the start of camp, please check back for periodic updates to the site.</p>
+<p><strong>So that we can start analyzing data right away, we’d like you to install R and RStudio before the first class</strong> This can be done prior to arriving at the program or on the first night (Sunday July 7 for Academy, Sunday July 21 for Training Camp) with your project group and RTA. Instructions for installing R and RStudio, as well as setting up your computer for the class are available <a href="installation.html">here</a> <strong>Note: tablets and chromebooks may not have sufficient computing power to run R and RStudio. We highly recommend bringing a laptop</strong></p>
+<p>We know that you are very excited about the program and we’re similarly excited to start working together. We’ve come up with <a href="ps0.html">a really short assignment</a> for you to work on before you arrive. <a href="ps0.html">Problem Set 0</a> contains instructions for downloading and installing R and RStudio, which you should do prior to arrival. It also contains a very brief introduction to the R programming language with some simple exercises, and several questions that will motivate the concepts you’ll be exploring in Prof. Wyner’s class. Don’t worry if you don’t finish working your way through these exercises before you arrive. On the first night (Sunday July 7 for Academy or 21 for Training Camp), you’ll meet with your project team and RTA to discuss them. As we approach the start of camp, please check back for periodic updates to the site.</p>
 </div>
 <div id="daily-schedule" class="section level2">
 <h2>Daily Schedule</h2>
 <p>Each day, the instructors will be spend the first hour or so of each class introducing new R functionality and programming concepts. The notes for each lecture will be available on this website (see under the Lecture Notes tab in the menu at the top). These notes will contains worked out code examples and explanations. After the first hour of lecturing, you will have a chance to work on problem sets with your project team and RTA that will review and reinforce the material presented in that day’s lecture.</p>
+<p><strong>For Training Camp students:</strong> all lecture and problem sets will be available on this website under the Training Camp tab in the menu at the top.</p>
 </div>
 <div id="about-the-instructors" class="section level2">
 <h2>About the Instructors</h2>
 <p>Sameer Deshpande completed his PhD in Statistics at Wharton. He is broadly interested in Bayesian statistics. Before coming to Wharton, he studied math at MIT. He loves all Dallas sports teams, but is especially passionate about the Cowboys.</p>
+<p>Ron Yurko is entering his third year as a PhD student in Statistics &amp; Data Science at Carnegie Mellon University. Previously, he interned with the Pittsburgh Pirates and worked in finance as a quantitative analyst. As a Pittsburgh native, he of course roots for the Penguins and Steelers but is primarily burdened with being a lifelong Pirates fan.</p>
 </div>
 <div id="test-stuff" class="section level2">
 <h2>Test stuff</h2>

@@ -4,7 +4,7 @@ title: "Wharton Moneyball Academy"
 
 ## Overview
 
-Welcome to the webpage for the 2019 Wharton Moneyball Academy course on data analysis in R.
+Welcome to the webpage for the 2019 Wharton Moneyball Academy / Training Camp course on data analysis in R.
 In this course, you will learn the tools necessary to apply the concepts you learn in Prof. Wyner's class while analyzing real sports datasets using the R programming language.
 Please bookmark this site and check back regularly before the program starts for updates.
 Below, you will find important information about setting up your system and installing the necessary software, as well as a brief schedule for the course.
@@ -20,7 +20,7 @@ This is in marked contrast to most other software that you're probably accustome
 To make our lifes a bit easier, we will use an integraded development environment (IDE) for R, known as RStudio.
 
 **So that we can start analyzing data right away, we'd like you to install R and RStudio before the first class**
-This can be done prior to arriving at the program or on the first night (Sunday July 7) with your project group and RTA. 
+This can be done prior to arriving at the program or on the first night (Sunday July 7 for Academy, Sunday July 21 for Training Camp) with your project group and RTA. 
 Instructions for installing R and RStudio, as well as setting up your computer for the class are available [here](installation.html)
 **Note: tablets and chromebooks may not have sufficient computing power to run R and RStudio. We highly recommend bringing a laptop**
 
@@ -32,7 +32,7 @@ We've come up with [a really short assignment](ps0.html) for you to work on befo
 [Problem Set 0](ps0.html) contains instructions for downloading and installing R and RStudio, which you should do prior to arrival.
 It also contains a very brief introduction to the R programming language with some simple exercises, and several questions that will motivate the concepts you'll be exploring in Prof. Wyner's class. 
 Don't worry if you don't finish working your way through these exercises before you arrive.
-On the first night (Sunday July 7), you'll meet with your project team and RTA to discuss them. 
+On the first night (Sunday July 7 for Academy or 21 for Training Camp), you'll meet with your project team and RTA to discuss them. 
 As we approach the start of camp, please check back for periodic updates to the site. 
 
 
@@ -43,11 +43,15 @@ The notes for each lecture will be available on this website (see under the Lect
 These notes will contains worked out code examples and explanations.
 After the first hour of lecturing, you will have a chance to work on problem sets with your project team and RTA that will review and reinforce the material presented in that day's lecture.
 
+**For Training Camp students:** all lecture and problem sets will be available on this 
+website under the Training Camp tab in the menu at the top.
 
 
 ## About the Instructors
 
 Sameer Deshpande completed his PhD in Statistics at Wharton. He is broadly interested in Bayesian statistics. Before coming to Wharton, he studied math at MIT. He loves all Dallas sports teams, but is especially passionate about the Cowboys.
+
+Ron Yurko is entering his third year as a PhD student in Statistics & Data Science at Carnegie Mellon University. Previously, he interned with the Pittsburgh Pirates and worked in finance as a quantitative analyst. As a Pittsburgh native, he of course roots for the Penguins and Steelers but is primarily burdened with being a lifelong Pirates fan. 
 
 
 ## Test stuff

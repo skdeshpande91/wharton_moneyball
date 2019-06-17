@@ -29,14 +29,22 @@ We can do this in several ways.
 So far we have seen only the most basic of R's functionality. 
 Arguable, one of the things that makes R so powerful is the ease with which users are able to define their own functions and release them to the public.
 As [Hadley Wickhamn](http://hadley.nz) defines them, "[R] packages are fundamental units of reproducible code. They include reusable R functions, the documentation that describes how to use them, and sample data." 
-As of July 8, 2018, there are 12,725 packages available from the [Comprehensive R Archive Network](https://cran.r-project.org). 
+As of July 8, 2018, there are 12,725 packages available from the [Comprehensive R Archive Network (CRAN)](https://cran.r-project.org). 
 The scope of these packages is vast: there are some designed for scraping data from the web, pre-processing data to get it into an analyzable format, performing standard and specialized statistical analyses, and to publish your results.
 People have also released packages tailored to very specific applications like analyzing baseball data.
 There are also some more whimsical packages, like one that allow you to display your favorite [XKCD](https://xkcd.com) comic strip! 
 
 For the rest of the course, we will be working within the [``tidyverse''](https://www.tidyverse.org/), which consists of several R packages for data manipulation, exploration, and visualization. 
 They are all based on a common design philosophy, mostly developed by Hadley Wickham (whose name you will encounter a lot as you grain more experience with R). 
-To load all of these packages, you can run the code
+To access all of these packages, you first need to install them (if you have not already) with the following code:
+```{r install-tidyverse, eval = FALSE}
+install.packages("tidyverse")
+```
+The `install.packages()` function is one way of installing packages in R. You can also
+click on the Packages tab in your RStudio view and then click on Install to type in
+the package you want to install.
+
+Now with the `tidyverse` suite of packages installed, we can load them with the following code:
 ```{r load-tidyverse, eval=FALSE}
 library(tidyverse)
 ```

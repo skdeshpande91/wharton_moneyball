@@ -32,6 +32,11 @@ navbar:
           href: ps3.html
         - text: "Problem Set 4"
           href: ps4.html
+    - text: "Training Camp"
+      icon: fa-bar-chart
+      menu:
+        - text: "Lecture 1"
+          href: tc_lecture1.html
 output:
   html_document:
     theme: cerulean
