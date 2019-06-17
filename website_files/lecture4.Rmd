@@ -295,7 +295,7 @@ installing the remaining packages used below.
 
 Created by [Bill Petti, the `baseballr` package](http://billpetti.github.io/baseballr/) has 
 become a popular resource for accessing baseball data from variety of resources, such as 
-[FanGraphs](https://www.fangraphs.com/) and (Baseball-Reference)[https://www.baseball-reference.com/]
+[FanGraphs](https://www.fangraphs.com/) and [Baseball-Reference](https://www.baseball-reference.com/)
 directly into `R`. One of the best features of the `baseballr` package is the 
 functionality it provides us for directly accessing the publicly available 
 pitch-by-pitch and Statcast data available from [baseball-savant](https://baseballsavant.mlb.com/).
