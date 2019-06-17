@@ -34,7 +34,7 @@ The scope of these packages is vast: there are some designed for scraping data f
 People have also released packages tailored to very specific applications like analyzing baseball data.
 There are also some more whimsical packages, like one that allow you to display your favorite [XKCD](https://xkcd.com) comic strip! 
 
-For the rest of the course, we will be working within the [``tidyverse''](https://www.tidyverse.org/), which consists of several `R` packages for data manipulation, exploration, and visualization. 
+For the rest of the course, we will be working within the [`tidyverse`](https://www.tidyverse.org/), which consists of several `R` packages for data manipulation, exploration, and visualization. 
 They are all based on a common design philosophy, mostly developed by Hadley Wickham (whose name you will encounter a lot as you grain more experience with `R`). 
 To access all of these packages, you first need to install them (if you have not already) with the following code:
 ```{r install-tidyverse, eval = FALSE}
