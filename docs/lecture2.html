@@ -21,104 +21,52 @@
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <script src="site_libs/navigation-1.1/codefolding.js"></script>
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.0.13/css/fa-svg-with-js.css" rel="stylesheet" />
+<script src="site_libs/font-awesome-5.0.13/js/fontawesome-all.min.js"></script>
+<script src="site_libs/font-awesome-5.0.13/js/fa-v4-shims.min.js"></script>
 
 
 <style type="text/css">code{white-space: pre;}</style>
-<style type="text/css" data-origin="pandoc">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  { background-color: #f8f8f8; }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ef2929; } /* Alert */
-code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #c4a000; } /* Attribute */
-code span.bn { color: #0000cf; } /* BaseN */
-code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4e9a06; } /* Char */
-code span.cn { color: #000000; } /* Constant */
-code span.co { color: #8f5902; font-style: italic; } /* Comment */
-code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
-code span.dt { color: #204a87; } /* DataType */
-code span.dv { color: #0000cf; } /* DecVal */
-code span.er { color: #a40000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #0000cf; } /* Float */
-code span.fu { color: #000000; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
-code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
-code span.ot { color: #8f5902; } /* Other */
-code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-code span.sc { color: #000000; } /* SpecialChar */
-code span.ss { color: #4e9a06; } /* SpecialString */
-code span.st { color: #4e9a06; } /* String */
-code span.va { color: #000000; } /* Variable */
-code span.vs { color: #4e9a06; } /* VerbatimString */
-code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
-
-.sourceCode .row {
-  width: 100%;
-}
-.sourceCode {
-  overflow-x: auto;
-}
-.code-folding-btn {
-  margin-right: -30px;
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+pre, code { background-color: #f8f8f8; }
+code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code > span.dt { color: #204a87; } /* DataType */
+code > span.dv { color: #0000cf; } /* DecVal */
+code > span.bn { color: #0000cf; } /* BaseN */
+code > span.fl { color: #0000cf; } /* Float */
+code > span.ch { color: #4e9a06; } /* Char */
+code > span.st { color: #4e9a06; } /* String */
+code > span.co { color: #8f5902; font-style: italic; } /* Comment */
+code > span.ot { color: #8f5902; } /* Other */
+code > span.al { color: #ef2929; } /* Alert */
+code > span.fu { color: #000000; } /* Function */
+code > span.er { color: #a40000; font-weight: bold; } /* Error */
+code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #000000; } /* SpecialChar */
+code > span.vs { color: #4e9a06; } /* VerbatimString */
+code > span.ss { color: #4e9a06; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #000000; } /* Variable */
+code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code > span.ex { } /* Extension */
+code > span.at { color: #c4a000; } /* Attribute */
+code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+div.sourceCode {
+  overflow-x: visible;
 }
 </style>
-<script>
-// apply pandoc div.sourceCode style to pre.sourceCode instead
-(function() {
-  var sheets = document.styleSheets;
-  for (var i = 0; i < sheets.length; i++) {
-    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
-    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
-    for (var j = 0; j < rules.length; j++) {
-      var rule = rules[j];
-      // check if there is a div.sourceCode rule
-      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
-      var style = rule.style.cssText;
-      // check if color or background-color is set
-      if (rule.style.color === '' || rule.style.backgroundColor === '') continue;
-      // replace div.sourceCode by a pre.sourceCode rule
-      sheets[i].deleteRule(j);
-      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
-    }
-  }
-})();
-</script>
 <style type="text/css">
   pre:not([class]) {
     background-color: white;
@@ -154,7 +102,9 @@ h6 {
 </style>
 
 
+</head>
 
+<body>
 
 <style type = "text/css">
 .main-container {
@@ -179,9 +129,6 @@ img {
 button.code-folding-btn:focus {
   outline: none;
 }
-summary {
-  display: list-item;
-}
 </style>
 
 
@@ -196,6 +143,7 @@ body {
   padding-top: 56px;
   margin-top: -56px;
 }
+
 .section h2 {
   padding-top: 56px;
   margin-top: -56px;
@@ -215,43 +163,6 @@ body {
 .section h6 {
   padding-top: 56px;
   margin-top: -56px;
-}
-.dropdown-submenu {
-  position: relative;
-}
-.dropdown-submenu>.dropdown-menu {
-  top: 0;
-  left: 100%;
-  margin-top: -6px;
-  margin-left: -1px;
-  border-radius: 0 6px 6px 6px;
-}
-.dropdown-submenu:hover>.dropdown-menu {
-  display: block;
-}
-.dropdown-submenu>a:after {
-  display: block;
-  content: " ";
-  float: right;
-  width: 0;
-  height: 0;
-  border-color: transparent;
-  border-style: solid;
-  border-width: 5px 0 5px 5px;
-  border-left-color: #cccccc;
-  margin-top: 5px;
-  margin-right: -10px;
-}
-.dropdown-submenu:hover>a:after {
-  border-left-color: #ffffff;
-}
-.dropdown-submenu.pull-left {
-  float: none;
-}
-.dropdown-submenu.pull-left>.dropdown-menu {
-  left: -100%;
-  margin-left: 10px;
-  border-radius: 6px 0 6px 6px;
 }
 </style>
 
@@ -273,71 +184,13 @@ $(document).ready(function () {
 });
 </script>
 
+
+<div class="container-fluid main-container">
+
 <!-- tabsets -->
-
-<style type="text/css">
-.tabset-dropdown > .nav-tabs {
-  display: inline-table;
-  max-height: 500px;
-  min-height: 44px;
-  overflow-y: auto;
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
-  font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
-  font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
-}
-
-.tabset-dropdown > .nav-tabs > li.active {
-  display: block;
-}
-
-.tabset-dropdown > .nav-tabs > li > a,
-.tabset-dropdown > .nav-tabs > li > a:focus,
-.tabset-dropdown > .nav-tabs > li > a:hover {
-  border: none;
-  display: inline-block;
-  border-radius: 4px;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
-  display: block;
-  float: none;
-}
-
-.tabset-dropdown > .nav-tabs > li {
-  display: none;
-}
-</style>
-
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
 });
 </script>
 
@@ -352,14 +205,6 @@ $(document).ready(function () {
 </script>
 
 
-
-
-</head>
-
-<body>
-
-
-<div class="container-fluid main-container">
 
 
 
@@ -474,38 +319,38 @@ $(document).ready(function () {
 
 
 <p>We’re going to pick up right where we left off yesterday in <a href="ps1.html">Problem Set 1</a>, where you wrote a script to create a tbl containg several shooting statistics for NBA players between the 1996-97 season and the 2015-16 season. Your script should look something like what is the code block below. For reasons that will become clear shortly, we are going to call our tbl <code>raw_shooting</code>.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw">library</span>(tidyverse)</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="op">&gt;</span><span class="st"> </span>raw_shooting &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="dt">file =</span> <span class="st">&quot;data/nba_shooting.csv&quot;</span>)</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3">Parsed with column specification<span class="op">:</span></a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw">cols</span>(</a>
-<a class="sourceLine" id="cb1-5" data-line-number="5">  <span class="dt">PLAYER =</span> <span class="kw">col_character</span>(),</a>
-<a class="sourceLine" id="cb1-6" data-line-number="6">  <span class="dt">SEASON =</span> <span class="kw">col_double</span>(),</a>
-<a class="sourceLine" id="cb1-7" data-line-number="7">  <span class="dt">FGM =</span> <span class="kw">col_double</span>(),</a>
-<a class="sourceLine" id="cb1-8" data-line-number="8">  <span class="dt">FGA =</span> <span class="kw">col_double</span>(),</a>
-<a class="sourceLine" id="cb1-9" data-line-number="9">  <span class="dt">TPM =</span> <span class="kw">col_double</span>(),</a>
-<a class="sourceLine" id="cb1-10" data-line-number="10">  <span class="dt">TPA =</span> <span class="kw">col_double</span>(),</a>
-<a class="sourceLine" id="cb1-11" data-line-number="11">  <span class="dt">FTM =</span> <span class="kw">col_double</span>(),</a>
-<a class="sourceLine" id="cb1-12" data-line-number="12">  <span class="dt">FTA =</span> <span class="kw">col_double</span>()</a>
-<a class="sourceLine" id="cb1-13" data-line-number="13">)</a>
-<a class="sourceLine" id="cb1-14" data-line-number="14"><span class="op">&gt;</span><span class="st"> </span>raw_shooting &lt;-<span class="st"> </span><span class="kw">mutate</span>(raw_shooting, <span class="dt">FGP =</span> FGM<span class="op">/</span>FGA, <span class="dt">TPP =</span> TPM<span class="op">/</span>TPA, <span class="dt">FTP =</span> FTM<span class="op">/</span>FTA, </a>
-<a class="sourceLine" id="cb1-15" data-line-number="15"><span class="op">+</span><span class="st">     </span><span class="dt">eFGP =</span> (FGM <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span> <span class="op">*</span><span class="st"> </span>TPM)<span class="op">/</span>(FGA), <span class="dt">PTS =</span> FTM <span class="op">+</span><span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>FGM <span class="op">+</span><span class="st"> </span>TPM, <span class="dt">TSP =</span> PTS<span class="op">/</span>(<span class="dv">2</span> <span class="op">*</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb1-16" data-line-number="16"><span class="op">+</span><span class="st">         </span>(FGA <span class="op">+</span><span class="st"> </span><span class="fl">0.44</span> <span class="op">*</span><span class="st"> </span>FTA)))</a>
-<a class="sourceLine" id="cb1-17" data-line-number="17"><span class="op">&gt;</span><span class="st"> </span>nba_shooting &lt;-<span class="st"> </span><span class="kw">arrange</span>(raw_shooting, <span class="kw">desc</span>(TSP))</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">library</span>(tidyverse)
+&gt;<span class="st"> </span>raw_shooting &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="dt">file =</span> <span class="st">&quot;data/nba_shooting.csv&quot;</span>)
+Parsed with column specification:
+<span class="kw">cols</span>(
+  <span class="dt">PLAYER =</span> <span class="kw">col_character</span>(),
+  <span class="dt">SEASON =</span> <span class="kw">col_integer</span>(),
+  <span class="dt">FGM =</span> <span class="kw">col_integer</span>(),
+  <span class="dt">FGA =</span> <span class="kw">col_integer</span>(),
+  <span class="dt">TPM =</span> <span class="kw">col_integer</span>(),
+  <span class="dt">TPA =</span> <span class="kw">col_integer</span>(),
+  <span class="dt">FTM =</span> <span class="kw">col_integer</span>(),
+  <span class="dt">FTA =</span> <span class="kw">col_integer</span>()
+)
+&gt;<span class="st"> </span>raw_shooting &lt;-<span class="st"> </span><span class="kw">mutate</span>(raw_shooting, <span class="dt">FGP =</span> FGM/FGA, <span class="dt">TPP =</span> TPM/TPA, <span class="dt">FTP =</span> FTM/FTA, 
++<span class="st">     </span><span class="dt">eFGP =</span> (FGM +<span class="st"> </span><span class="fl">0.5</span> *<span class="st"> </span>TPM)/(FGA), <span class="dt">PTS =</span> FTM +<span class="st"> </span><span class="dv">2</span> *<span class="st"> </span>FGM +<span class="st"> </span>TPM, <span class="dt">TSP =</span> PTS/(<span class="dv">2</span> *<span class="st"> </span>
++<span class="st">         </span>(FGA +<span class="st"> </span><span class="fl">0.44</span> *<span class="st"> </span>FTA)))
+&gt;<span class="st"> </span>nba_shooting &lt;-<span class="st"> </span><span class="kw">arrange</span>(raw_shooting, <span class="kw">desc</span>(TSP))</code></pre></div>
 <p>We will use visualization to answer some questions about the data. Specifically, we will study the distribution of the individual columns as well as try to understand the relationship between pairs of variables. For instance, is a player’s free throw percentage predictive of his three point percentage?</p>
 <p>To produce graphics throughout this course, we will use ggplot2, which is a package contained in the tidyverse. At a very high level, ggplot2 works by layering graphics, adding different features one on top of another. You can learn much much more about ggplot2 <a href="https://ggplot2.tidyverse.org">here</a>. We will cover some of the more advanced functionality of ggplot2 in</p>
 <div id="histograms" class="section level3">
 <h3>Histograms</h3>
 <p>As you saw in Prof. Wyner’s lectures, histograms are a powerful way to describe a single dataset.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> raw_shooting) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> FGP), <span class="dt">bins =</span> <span class="dv">5</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> raw_shooting) +<span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> FGP), <span class="dt">bins =</span> <span class="dv">5</span>)</code></pre></div>
 <p><img src="lecture2_files/figure-html/fgp-histogram-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>The first bit of the code above, <code>ggplot(data = nba_shooting)</code> tells R to create a coordinate system to which can add additional layers. It also tells R that the data to be plotted is coming from the tibble <code>nba_shooting</code>. The next part of the code, <code>+ geom_histogram(mapping = aes(FGP), bins = 5)</code> tells R to <em>add</em> a layer to the blank plot, in this case a histogram of field goal percentage that uses 5 bins. The first argument is the mapping, which defines how each variable in our dataset is mapped to visual components of the graph (the <em>aesthetics</em>) In the case of a histogram, we really only need to tell R that the variable we want to visualize goes on the horizontal (x) axis. To improve readability, we have divided the code to produce the historgram over two lines. <strong>It is very important when using ggplot to have the + sign at the end of the line.</strong></p>
 <p>In the code above, we also told R how many bins into which to divide the data. We can vary the number of bins to get a higher-resolution view of our data. For instance, we can use 50 bins: <img src="lecture2_files/figure-html/unnamed-chunk-1-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Instead of specifying the number of bins, which can sometimes be difficult, we could instead specify the width of the bins. For instance, we could split our data into bins of width 0.05 as follows:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> raw_shooting) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> FGP), <span class="dt">binwidth =</span> <span class="fl">0.05</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> raw_shooting) +<span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> FGP), <span class="dt">binwidth =</span> <span class="fl">0.05</span>)</code></pre></div>
 <p><img src="lecture2_files/figure-html/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>It is often preferable to use a density histogram instead of a frequency histogram. This is because the areas of the density histogram boxes always sums to 1 no matter how much data you have.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> raw_shooting) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> FGP, <span class="dt">y =</span> ..density..), </a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="op">+</span><span class="st">     </span><span class="dt">bins =</span> <span class="dv">50</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> raw_shooting) +<span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> FGP, <span class="dt">y =</span> ..density..), 
++<span class="st">     </span><span class="dt">bins =</span> <span class="dv">50</span>)</code></pre></div>
 <p><img src="lecture2_files/figure-html/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" /> Visually, the histograms look identical but now the vertical (y) axis has a different scale.</p>
 <!--**Exercise** Make histograms of FGA, FTA, TPA, FTP, and TPP. Comment on the differences-->
 </div>
@@ -513,26 +358,26 @@ $(document).ready(function () {
 <h3>Visualizing bivariate data</h3>
 <p>While examining one variable (i.e. column of our data table) is useful, we are often more interested in understanding the relationships between multiple variables. For instance, how do you think a player’s free throw percentage (FTP) is related to his field goal percentage (FGP)?</p>
 <p>To make a scatterplot in R, we can run the following code. Notice that it is very similar to the code used to make histograms, but with a few important differences</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> raw_shooting) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> FGP, <span class="dt">y =</span> FTP))</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> raw_shooting) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> FGP, <span class="dt">y =</span> FTP))</code></pre></div>
 <p><img src="lecture2_files/figure-html/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Just like the code used to produce the histograms above, we began by calling <code>ggplot(data = nba_shooting)</code>. Now, however, instead of calling <code>geom_histogram()</code> we are calling <code>geom_point()</code>. This tells R that instead of a histogram, we want to plot the data using points. We will learn much more about the different “geom” objects available in ggplot2 in Lecture 4. Since we are plotting multiple variables, we need to tell R to which axis each variable is mapped. This is exactly what<code>mapping = aes(x = FGP, y = FTP)</code> does.</p>
 <p>Immediately, we notice a few things about the figure. First, we see what appears to be a big black cloud of points in the middle of the plotting region. This is a result of R trying to plot lots and lots of data points in a small region of the plane. Additionally, we find a few rather interesting data points, corresponding to players who have never made a field goal but are perfect free throw shooters and to players who have never missed a field goal but have made only 50% of their free throws. A major drawback of this scatterplot is its inability to show the relative density of points. That is, does the point at (1.00, 0.50) correspond to a single player or does it correspond to multiple ones?</p>
 <p>One way to address this is to use <em>alpha-blending</em> to change the transparency of each point. When there are many points plotted in the same region, that region will appear darker.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> raw_shooting) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> FGP, <span class="dt">y =</span> FTP), <span class="dt">alpha =</span> <span class="fl">0.1</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> raw_shooting) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> FGP, <span class="dt">y =</span> FTP), <span class="dt">alpha =</span> <span class="fl">0.1</span>)</code></pre></div>
 <p><img src="lecture2_files/figure-html/scatterplot-alpha-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Now we can start to distinguish the number of players represented by each point. The fact that the point at (0.00, 0.50) is much darker than the point at (0.00, 1.00) indicates that there are more players who missed every one of their field goal attempts and made 50% of their free throws than players who missed every field goal but made every free throw.</p>
 <p>To get an even better idea, we can make a <em>heatmap</em>, which you can think of as a two-dimensional analog of a histogram. To form a heatmap, you start by dividing the plane into lots of evenly-sized two-dimensional bins and counting the number of datapoints within each bin. You then color the bin according to the count. While you can conceptually make the bins any shape you want, there are two popular conventions: rectangular binning and hexagonal binning. For the purposes of this course, we will focus on rectangular binning, using the <code>geom_bin2d()</code> function.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> raw_shooting) <span class="op">+</span><span class="st"> </span><span class="kw">geom_bin2d</span>(<span class="kw">aes</span>(<span class="dt">x =</span> FGP, <span class="dt">y =</span> FTP))</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> raw_shooting) +<span class="st"> </span><span class="kw">geom_bin2d</span>(<span class="kw">aes</span>(<span class="dt">x =</span> FGP, <span class="dt">y =</span> FTP))</code></pre></div>
 <p><img src="lecture2_files/figure-html/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>We can increase the number of bins to get a much more high-resolution view of our data.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> raw_shooting) <span class="op">+</span><span class="st"> </span><span class="kw">geom_bin2d</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> FGP, <span class="dt">y =</span> FTP), <span class="dt">bins =</span> <span class="dv">100</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> raw_shooting) +<span class="st"> </span><span class="kw">geom_bin2d</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> FGP, <span class="dt">y =</span> FTP), <span class="dt">bins =</span> <span class="dv">100</span>)</code></pre></div>
 <p><img src="lecture2_files/figure-html/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Now we are starting to get some sense that there are some outliers in our data. We can confirm this visually in another way</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> raw_shooting) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> FGA, <span class="dt">y =</span> FGP), <span class="dt">alpha =</span> <span class="fl">0.1</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> raw_shooting) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> FGA, <span class="dt">y =</span> FGP), <span class="dt">alpha =</span> <span class="fl">0.1</span>)</code></pre></div>
 <p><img src="lecture2_files/figure-html/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Sometimes, we don’t want to look at the entire range of the data and only want to plot a smaller window. We can do this by changing the x and y limits of the plotting region</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> raw_shooting) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> FGA, <span class="dt">y =</span> FGP)) <span class="op">+</span><span class="st"> </span><span class="kw">xlim</span>(<span class="dv">0</span>, <span class="dv">200</span>)</a>
-<a class="sourceLine" id="cb10-2" data-line-number="2">Warning<span class="op">:</span><span class="st"> </span>Removed <span class="dv">5346</span> rows containing missing <span class="kw">values</span> (geom_point).</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> raw_shooting) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> FGA, <span class="dt">y =</span> FGP)) +<span class="st"> </span><span class="kw">xlim</span>(<span class="dv">0</span>, <span class="dv">200</span>)
+Warning:<span class="st"> </span>Removed <span class="dv">5346</span> rows containing missing <span class="kw">values</span> (geom_point).</code></pre></div>
 <p><img src="lecture2_files/figure-html/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="filtering" class="section level2">
@@ -546,110 +391,110 @@ $(document).ready(function () {
 <li><code>&gt;</code> and <code>&gt;=</code> for “greater than” and “greater than or equal to”</li>
 <li><code>&amp;</code>, <code>|</code>, <code>!</code> for “AND” and “OR” and “NOT” The code below filter out all of the players with at least 100 field goals in a single season</li>
 </ul>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw">filter</span>(raw_shooting, FGA <span class="op">&gt;</span><span class="st"> </span><span class="dv">100</span>)</a>
-<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="co"># A tibble: 6,295 x 14</span></a>
-<a class="sourceLine" id="cb11-3" data-line-number="3">   PLAYER SEASON   FGM   FGA   TPM   TPA   FTM   FTA   FGP   TPP   FTP</a>
-<a class="sourceLine" id="cb11-4" data-line-number="4">   <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st">   </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span></a>
-<a class="sourceLine" id="cb11-5" data-line-number="5"><span class="st"> </span><span class="dv">1</span> Steph…   <span class="dv">2016</span>   <span class="dv">805</span>  <span class="dv">1597</span>   <span class="dv">402</span>   <span class="dv">887</span>   <span class="dv">363</span>   <span class="dv">400</span> <span class="fl">0.504</span> <span class="fl">0.453</span> <span class="fl">0.908</span></a>
-<a class="sourceLine" id="cb11-6" data-line-number="6"> <span class="dv">2</span> James…   <span class="dv">2016</span>   <span class="dv">710</span>  <span class="dv">1617</span>   <span class="dv">236</span>   <span class="dv">657</span>   <span class="dv">720</span>   <span class="dv">837</span> <span class="fl">0.439</span> <span class="fl">0.359</span> <span class="fl">0.860</span></a>
-<a class="sourceLine" id="cb11-7" data-line-number="7"> <span class="dv">3</span> Kevin…   <span class="dv">2016</span>   <span class="dv">698</span>  <span class="dv">1381</span>   <span class="dv">186</span>   <span class="dv">480</span>   <span class="dv">447</span>   <span class="dv">498</span> <span class="fl">0.505</span> <span class="fl">0.388</span> <span class="fl">0.898</span></a>
-<a class="sourceLine" id="cb11-8" data-line-number="8"> <span class="dv">4</span> DeMar…   <span class="dv">2016</span>   <span class="dv">601</span>  <span class="dv">1332</span>    <span class="dv">70</span>   <span class="dv">210</span>   <span class="dv">476</span>   <span class="dv">663</span> <span class="fl">0.451</span> <span class="fl">0.333</span> <span class="fl">0.718</span></a>
-<a class="sourceLine" id="cb11-9" data-line-number="9"> <span class="dv">5</span> LeBro…   <span class="dv">2016</span>   <span class="dv">737</span>  <span class="dv">1416</span>    <span class="dv">87</span>   <span class="dv">282</span>   <span class="dv">359</span>   <span class="dv">491</span> <span class="fl">0.520</span> <span class="fl">0.309</span> <span class="fl">0.731</span></a>
-<a class="sourceLine" id="cb11-10" data-line-number="10"> <span class="dv">6</span> Damia…   <span class="dv">2016</span>   <span class="dv">618</span>  <span class="dv">1474</span>   <span class="dv">229</span>   <span class="dv">610</span>   <span class="dv">414</span>   <span class="dv">464</span> <span class="fl">0.419</span> <span class="fl">0.375</span> <span class="fl">0.892</span></a>
-<a class="sourceLine" id="cb11-11" data-line-number="11"> <span class="dv">7</span> Antho…   <span class="dv">2016</span>   <span class="dv">560</span>  <span class="dv">1137</span>    <span class="dv">35</span>   <span class="dv">108</span>   <span class="dv">326</span>   <span class="dv">430</span> <span class="fl">0.493</span> <span class="fl">0.324</span> <span class="fl">0.758</span></a>
-<a class="sourceLine" id="cb11-12" data-line-number="12"> <span class="dv">8</span> Russe…   <span class="dv">2016</span>   <span class="dv">656</span>  <span class="dv">1444</span>   <span class="dv">101</span>   <span class="dv">341</span>   <span class="dv">465</span>   <span class="dv">573</span> <span class="fl">0.454</span> <span class="fl">0.296</span> <span class="fl">0.812</span></a>
-<a class="sourceLine" id="cb11-13" data-line-number="13"> <span class="dv">9</span> DeMar…   <span class="dv">2016</span>   <span class="dv">614</span>  <span class="dv">1377</span>    <span class="dv">47</span>   <span class="dv">139</span>   <span class="dv">555</span>   <span class="dv">653</span> <span class="fl">0.446</span> <span class="fl">0.338</span> <span class="fl">0.850</span></a>
-<a class="sourceLine" id="cb11-14" data-line-number="14"><span class="dv">10</span> Paul …   <span class="dv">2016</span>   <span class="dv">605</span>  <span class="dv">1448</span>   <span class="dv">210</span>   <span class="dv">565</span>   <span class="dv">454</span>   <span class="dv">528</span> <span class="fl">0.418</span> <span class="fl">0.372</span> <span class="fl">0.860</span></a>
-<a class="sourceLine" id="cb11-15" data-line-number="15"><span class="co"># … with 6,285 more rows, and 3 more variables: eFGP &lt;dbl&gt;, PTS &lt;dbl&gt;,</span></a>
-<a class="sourceLine" id="cb11-16" data-line-number="16"><span class="co">#   TSP &lt;dbl&gt;</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">filter</span>(raw_shooting, FGA &gt;<span class="st"> </span><span class="dv">100</span>)
+<span class="co"># A tibble: 6,295 x 14</span>
+   PLAYER SEASON   FGM   FGA   TPM   TPA   FTM   FTA   FGP   TPP   FTP
+   &lt;chr&gt;<span class="st">   </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>dbl&gt;<span class="st"> </span><span class="er">&lt;</span>dbl&gt;<span class="st"> </span><span class="er">&lt;</span>dbl&gt;
+<span class="st"> </span><span class="dv">1</span> Steph…   <span class="dv">2016</span>   <span class="dv">805</span>  <span class="dv">1597</span>   <span class="dv">402</span>   <span class="dv">887</span>   <span class="dv">363</span>   <span class="dv">400</span> <span class="fl">0.504</span> <span class="fl">0.453</span> <span class="fl">0.908</span>
+ <span class="dv">2</span> James…   <span class="dv">2016</span>   <span class="dv">710</span>  <span class="dv">1617</span>   <span class="dv">236</span>   <span class="dv">657</span>   <span class="dv">720</span>   <span class="dv">837</span> <span class="fl">0.439</span> <span class="fl">0.359</span> <span class="fl">0.860</span>
+ <span class="dv">3</span> Kevin…   <span class="dv">2016</span>   <span class="dv">698</span>  <span class="dv">1381</span>   <span class="dv">186</span>   <span class="dv">480</span>   <span class="dv">447</span>   <span class="dv">498</span> <span class="fl">0.505</span> <span class="fl">0.388</span> <span class="fl">0.898</span>
+ <span class="dv">4</span> DeMar…   <span class="dv">2016</span>   <span class="dv">601</span>  <span class="dv">1332</span>    <span class="dv">70</span>   <span class="dv">210</span>   <span class="dv">476</span>   <span class="dv">663</span> <span class="fl">0.451</span> <span class="fl">0.333</span> <span class="fl">0.718</span>
+ <span class="dv">5</span> LeBro…   <span class="dv">2016</span>   <span class="dv">737</span>  <span class="dv">1416</span>    <span class="dv">87</span>   <span class="dv">282</span>   <span class="dv">359</span>   <span class="dv">491</span> <span class="fl">0.520</span> <span class="fl">0.309</span> <span class="fl">0.731</span>
+ <span class="dv">6</span> Damia…   <span class="dv">2016</span>   <span class="dv">618</span>  <span class="dv">1474</span>   <span class="dv">229</span>   <span class="dv">610</span>   <span class="dv">414</span>   <span class="dv">464</span> <span class="fl">0.419</span> <span class="fl">0.375</span> <span class="fl">0.892</span>
+ <span class="dv">7</span> Antho…   <span class="dv">2016</span>   <span class="dv">560</span>  <span class="dv">1137</span>    <span class="dv">35</span>   <span class="dv">108</span>   <span class="dv">326</span>   <span class="dv">430</span> <span class="fl">0.493</span> <span class="fl">0.324</span> <span class="fl">0.758</span>
+ <span class="dv">8</span> Russe…   <span class="dv">2016</span>   <span class="dv">656</span>  <span class="dv">1444</span>   <span class="dv">101</span>   <span class="dv">341</span>   <span class="dv">465</span>   <span class="dv">573</span> <span class="fl">0.454</span> <span class="fl">0.296</span> <span class="fl">0.812</span>
+ <span class="dv">9</span> DeMar…   <span class="dv">2016</span>   <span class="dv">614</span>  <span class="dv">1377</span>    <span class="dv">47</span>   <span class="dv">139</span>   <span class="dv">555</span>   <span class="dv">653</span> <span class="fl">0.446</span> <span class="fl">0.338</span> <span class="fl">0.850</span>
+<span class="dv">10</span> Paul …   <span class="dv">2016</span>   <span class="dv">605</span>  <span class="dv">1448</span>   <span class="dv">210</span>   <span class="dv">565</span>   <span class="dv">454</span>   <span class="dv">528</span> <span class="fl">0.418</span> <span class="fl">0.372</span> <span class="fl">0.860</span>
+<span class="co"># … with 6,285 more rows, and 3 more variables: eFGP &lt;dbl&gt;, PTS &lt;dbl&gt;,</span>
+<span class="co">#   TSP &lt;dbl&gt;</span></code></pre></div>
 <p>When we run this code, you’ll notice that R prints out a tbl with 6,295 rows.</p>
 <p>We can also filter on more complicated conditions constructed using the AND, OR, and NOT operators: <code>&amp;</code>, <code>|</code>, and <code>!</code>. For instance, to filter observations with at least 100 field goal attempts OR 50 three point attempts, we would do</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw">filter</span>(raw_shooting, FGA <span class="op">&gt;=</span><span class="st"> </span><span class="dv">100</span> <span class="op">|</span><span class="st"> </span>TPA <span class="op">&gt;=</span><span class="st"> </span><span class="dv">50</span>)</a>
-<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="co"># A tibble: 6,328 x 14</span></a>
-<a class="sourceLine" id="cb12-3" data-line-number="3">   PLAYER SEASON   FGM   FGA   TPM   TPA   FTM   FTA   FGP   TPP   FTP</a>
-<a class="sourceLine" id="cb12-4" data-line-number="4">   <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st">   </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span></a>
-<a class="sourceLine" id="cb12-5" data-line-number="5"><span class="st"> </span><span class="dv">1</span> Steph…   <span class="dv">2016</span>   <span class="dv">805</span>  <span class="dv">1597</span>   <span class="dv">402</span>   <span class="dv">887</span>   <span class="dv">363</span>   <span class="dv">400</span> <span class="fl">0.504</span> <span class="fl">0.453</span> <span class="fl">0.908</span></a>
-<a class="sourceLine" id="cb12-6" data-line-number="6"> <span class="dv">2</span> James…   <span class="dv">2016</span>   <span class="dv">710</span>  <span class="dv">1617</span>   <span class="dv">236</span>   <span class="dv">657</span>   <span class="dv">720</span>   <span class="dv">837</span> <span class="fl">0.439</span> <span class="fl">0.359</span> <span class="fl">0.860</span></a>
-<a class="sourceLine" id="cb12-7" data-line-number="7"> <span class="dv">3</span> Kevin…   <span class="dv">2016</span>   <span class="dv">698</span>  <span class="dv">1381</span>   <span class="dv">186</span>   <span class="dv">480</span>   <span class="dv">447</span>   <span class="dv">498</span> <span class="fl">0.505</span> <span class="fl">0.388</span> <span class="fl">0.898</span></a>
-<a class="sourceLine" id="cb12-8" data-line-number="8"> <span class="dv">4</span> DeMar…   <span class="dv">2016</span>   <span class="dv">601</span>  <span class="dv">1332</span>    <span class="dv">70</span>   <span class="dv">210</span>   <span class="dv">476</span>   <span class="dv">663</span> <span class="fl">0.451</span> <span class="fl">0.333</span> <span class="fl">0.718</span></a>
-<a class="sourceLine" id="cb12-9" data-line-number="9"> <span class="dv">5</span> LeBro…   <span class="dv">2016</span>   <span class="dv">737</span>  <span class="dv">1416</span>    <span class="dv">87</span>   <span class="dv">282</span>   <span class="dv">359</span>   <span class="dv">491</span> <span class="fl">0.520</span> <span class="fl">0.309</span> <span class="fl">0.731</span></a>
-<a class="sourceLine" id="cb12-10" data-line-number="10"> <span class="dv">6</span> Damia…   <span class="dv">2016</span>   <span class="dv">618</span>  <span class="dv">1474</span>   <span class="dv">229</span>   <span class="dv">610</span>   <span class="dv">414</span>   <span class="dv">464</span> <span class="fl">0.419</span> <span class="fl">0.375</span> <span class="fl">0.892</span></a>
-<a class="sourceLine" id="cb12-11" data-line-number="11"> <span class="dv">7</span> Antho…   <span class="dv">2016</span>   <span class="dv">560</span>  <span class="dv">1137</span>    <span class="dv">35</span>   <span class="dv">108</span>   <span class="dv">326</span>   <span class="dv">430</span> <span class="fl">0.493</span> <span class="fl">0.324</span> <span class="fl">0.758</span></a>
-<a class="sourceLine" id="cb12-12" data-line-number="12"> <span class="dv">8</span> Russe…   <span class="dv">2016</span>   <span class="dv">656</span>  <span class="dv">1444</span>   <span class="dv">101</span>   <span class="dv">341</span>   <span class="dv">465</span>   <span class="dv">573</span> <span class="fl">0.454</span> <span class="fl">0.296</span> <span class="fl">0.812</span></a>
-<a class="sourceLine" id="cb12-13" data-line-number="13"> <span class="dv">9</span> DeMar…   <span class="dv">2016</span>   <span class="dv">614</span>  <span class="dv">1377</span>    <span class="dv">47</span>   <span class="dv">139</span>   <span class="dv">555</span>   <span class="dv">653</span> <span class="fl">0.446</span> <span class="fl">0.338</span> <span class="fl">0.850</span></a>
-<a class="sourceLine" id="cb12-14" data-line-number="14"><span class="dv">10</span> Paul …   <span class="dv">2016</span>   <span class="dv">605</span>  <span class="dv">1448</span>   <span class="dv">210</span>   <span class="dv">565</span>   <span class="dv">454</span>   <span class="dv">528</span> <span class="fl">0.418</span> <span class="fl">0.372</span> <span class="fl">0.860</span></a>
-<a class="sourceLine" id="cb12-15" data-line-number="15"><span class="co"># … with 6,318 more rows, and 3 more variables: eFGP &lt;dbl&gt;, PTS &lt;dbl&gt;,</span></a>
-<a class="sourceLine" id="cb12-16" data-line-number="16"><span class="co">#   TSP &lt;dbl&gt;</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">filter</span>(raw_shooting, FGA &gt;=<span class="st"> </span><span class="dv">100</span> |<span class="st"> </span>TPA &gt;=<span class="st"> </span><span class="dv">50</span>)
+<span class="co"># A tibble: 6,328 x 14</span>
+   PLAYER SEASON   FGM   FGA   TPM   TPA   FTM   FTA   FGP   TPP   FTP
+   &lt;chr&gt;<span class="st">   </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>dbl&gt;<span class="st"> </span><span class="er">&lt;</span>dbl&gt;<span class="st"> </span><span class="er">&lt;</span>dbl&gt;
+<span class="st"> </span><span class="dv">1</span> Steph…   <span class="dv">2016</span>   <span class="dv">805</span>  <span class="dv">1597</span>   <span class="dv">402</span>   <span class="dv">887</span>   <span class="dv">363</span>   <span class="dv">400</span> <span class="fl">0.504</span> <span class="fl">0.453</span> <span class="fl">0.908</span>
+ <span class="dv">2</span> James…   <span class="dv">2016</span>   <span class="dv">710</span>  <span class="dv">1617</span>   <span class="dv">236</span>   <span class="dv">657</span>   <span class="dv">720</span>   <span class="dv">837</span> <span class="fl">0.439</span> <span class="fl">0.359</span> <span class="fl">0.860</span>
+ <span class="dv">3</span> Kevin…   <span class="dv">2016</span>   <span class="dv">698</span>  <span class="dv">1381</span>   <span class="dv">186</span>   <span class="dv">480</span>   <span class="dv">447</span>   <span class="dv">498</span> <span class="fl">0.505</span> <span class="fl">0.388</span> <span class="fl">0.898</span>
+ <span class="dv">4</span> DeMar…   <span class="dv">2016</span>   <span class="dv">601</span>  <span class="dv">1332</span>    <span class="dv">70</span>   <span class="dv">210</span>   <span class="dv">476</span>   <span class="dv">663</span> <span class="fl">0.451</span> <span class="fl">0.333</span> <span class="fl">0.718</span>
+ <span class="dv">5</span> LeBro…   <span class="dv">2016</span>   <span class="dv">737</span>  <span class="dv">1416</span>    <span class="dv">87</span>   <span class="dv">282</span>   <span class="dv">359</span>   <span class="dv">491</span> <span class="fl">0.520</span> <span class="fl">0.309</span> <span class="fl">0.731</span>
+ <span class="dv">6</span> Damia…   <span class="dv">2016</span>   <span class="dv">618</span>  <span class="dv">1474</span>   <span class="dv">229</span>   <span class="dv">610</span>   <span class="dv">414</span>   <span class="dv">464</span> <span class="fl">0.419</span> <span class="fl">0.375</span> <span class="fl">0.892</span>
+ <span class="dv">7</span> Antho…   <span class="dv">2016</span>   <span class="dv">560</span>  <span class="dv">1137</span>    <span class="dv">35</span>   <span class="dv">108</span>   <span class="dv">326</span>   <span class="dv">430</span> <span class="fl">0.493</span> <span class="fl">0.324</span> <span class="fl">0.758</span>
+ <span class="dv">8</span> Russe…   <span class="dv">2016</span>   <span class="dv">656</span>  <span class="dv">1444</span>   <span class="dv">101</span>   <span class="dv">341</span>   <span class="dv">465</span>   <span class="dv">573</span> <span class="fl">0.454</span> <span class="fl">0.296</span> <span class="fl">0.812</span>
+ <span class="dv">9</span> DeMar…   <span class="dv">2016</span>   <span class="dv">614</span>  <span class="dv">1377</span>    <span class="dv">47</span>   <span class="dv">139</span>   <span class="dv">555</span>   <span class="dv">653</span> <span class="fl">0.446</span> <span class="fl">0.338</span> <span class="fl">0.850</span>
+<span class="dv">10</span> Paul …   <span class="dv">2016</span>   <span class="dv">605</span>  <span class="dv">1448</span>   <span class="dv">210</span>   <span class="dv">565</span>   <span class="dv">454</span>   <span class="dv">528</span> <span class="fl">0.418</span> <span class="fl">0.372</span> <span class="fl">0.860</span>
+<span class="co"># … with 6,318 more rows, and 3 more variables: eFGP &lt;dbl&gt;, PTS &lt;dbl&gt;,</span>
+<span class="co">#   TSP &lt;dbl&gt;</span></code></pre></div>
 <p>We may combine these constraints by enclosing them in parantheses.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw">filter</span>(raw_shooting, (FGA <span class="op">&gt;=</span><span class="st"> </span><span class="dv">100</span> <span class="op">&amp;</span><span class="st"> </span>TPA <span class="op">&gt;=</span><span class="st"> </span><span class="dv">50</span>) <span class="op">|</span><span class="st"> </span>(FGP <span class="op">&gt;=</span><span class="st"> </span><span class="fl">0.45</span> <span class="op">&amp;</span><span class="st"> </span>FGP <span class="op">&lt;=</span><span class="st"> </span><span class="fl">0.5</span>))</a>
-<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="co"># A tibble: 4,837 x 14</span></a>
-<a class="sourceLine" id="cb13-3" data-line-number="3">   PLAYER SEASON   FGM   FGA   TPM   TPA   FTM   FTA   FGP   TPP   FTP</a>
-<a class="sourceLine" id="cb13-4" data-line-number="4">   <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st">   </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span></a>
-<a class="sourceLine" id="cb13-5" data-line-number="5"><span class="st"> </span><span class="dv">1</span> Steph…   <span class="dv">2016</span>   <span class="dv">805</span>  <span class="dv">1597</span>   <span class="dv">402</span>   <span class="dv">887</span>   <span class="dv">363</span>   <span class="dv">400</span> <span class="fl">0.504</span> <span class="fl">0.453</span> <span class="fl">0.908</span></a>
-<a class="sourceLine" id="cb13-6" data-line-number="6"> <span class="dv">2</span> James…   <span class="dv">2016</span>   <span class="dv">710</span>  <span class="dv">1617</span>   <span class="dv">236</span>   <span class="dv">657</span>   <span class="dv">720</span>   <span class="dv">837</span> <span class="fl">0.439</span> <span class="fl">0.359</span> <span class="fl">0.860</span></a>
-<a class="sourceLine" id="cb13-7" data-line-number="7"> <span class="dv">3</span> Kevin…   <span class="dv">2016</span>   <span class="dv">698</span>  <span class="dv">1381</span>   <span class="dv">186</span>   <span class="dv">480</span>   <span class="dv">447</span>   <span class="dv">498</span> <span class="fl">0.505</span> <span class="fl">0.388</span> <span class="fl">0.898</span></a>
-<a class="sourceLine" id="cb13-8" data-line-number="8"> <span class="dv">4</span> DeMar…   <span class="dv">2016</span>   <span class="dv">601</span>  <span class="dv">1332</span>    <span class="dv">70</span>   <span class="dv">210</span>   <span class="dv">476</span>   <span class="dv">663</span> <span class="fl">0.451</span> <span class="fl">0.333</span> <span class="fl">0.718</span></a>
-<a class="sourceLine" id="cb13-9" data-line-number="9"> <span class="dv">5</span> LeBro…   <span class="dv">2016</span>   <span class="dv">737</span>  <span class="dv">1416</span>    <span class="dv">87</span>   <span class="dv">282</span>   <span class="dv">359</span>   <span class="dv">491</span> <span class="fl">0.520</span> <span class="fl">0.309</span> <span class="fl">0.731</span></a>
-<a class="sourceLine" id="cb13-10" data-line-number="10"> <span class="dv">6</span> Damia…   <span class="dv">2016</span>   <span class="dv">618</span>  <span class="dv">1474</span>   <span class="dv">229</span>   <span class="dv">610</span>   <span class="dv">414</span>   <span class="dv">464</span> <span class="fl">0.419</span> <span class="fl">0.375</span> <span class="fl">0.892</span></a>
-<a class="sourceLine" id="cb13-11" data-line-number="11"> <span class="dv">7</span> Antho…   <span class="dv">2016</span>   <span class="dv">560</span>  <span class="dv">1137</span>    <span class="dv">35</span>   <span class="dv">108</span>   <span class="dv">326</span>   <span class="dv">430</span> <span class="fl">0.493</span> <span class="fl">0.324</span> <span class="fl">0.758</span></a>
-<a class="sourceLine" id="cb13-12" data-line-number="12"> <span class="dv">8</span> Russe…   <span class="dv">2016</span>   <span class="dv">656</span>  <span class="dv">1444</span>   <span class="dv">101</span>   <span class="dv">341</span>   <span class="dv">465</span>   <span class="dv">573</span> <span class="fl">0.454</span> <span class="fl">0.296</span> <span class="fl">0.812</span></a>
-<a class="sourceLine" id="cb13-13" data-line-number="13"> <span class="dv">9</span> DeMar…   <span class="dv">2016</span>   <span class="dv">614</span>  <span class="dv">1377</span>    <span class="dv">47</span>   <span class="dv">139</span>   <span class="dv">555</span>   <span class="dv">653</span> <span class="fl">0.446</span> <span class="fl">0.338</span> <span class="fl">0.850</span></a>
-<a class="sourceLine" id="cb13-14" data-line-number="14"><span class="dv">10</span> Paul …   <span class="dv">2016</span>   <span class="dv">605</span>  <span class="dv">1448</span>   <span class="dv">210</span>   <span class="dv">565</span>   <span class="dv">454</span>   <span class="dv">528</span> <span class="fl">0.418</span> <span class="fl">0.372</span> <span class="fl">0.860</span></a>
-<a class="sourceLine" id="cb13-15" data-line-number="15"><span class="co"># … with 4,827 more rows, and 3 more variables: eFGP &lt;dbl&gt;, PTS &lt;dbl&gt;,</span></a>
-<a class="sourceLine" id="cb13-16" data-line-number="16"><span class="co">#   TSP &lt;dbl&gt;</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">filter</span>(raw_shooting, (FGA &gt;=<span class="st"> </span><span class="dv">100</span> &amp;<span class="st"> </span>TPA &gt;=<span class="st"> </span><span class="dv">50</span>) |<span class="st"> </span>(FGP &gt;=<span class="st"> </span><span class="fl">0.45</span> &amp;<span class="st"> </span>FGP &lt;=<span class="st"> </span><span class="fl">0.5</span>))
+<span class="co"># A tibble: 4,837 x 14</span>
+   PLAYER SEASON   FGM   FGA   TPM   TPA   FTM   FTA   FGP   TPP   FTP
+   &lt;chr&gt;<span class="st">   </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>dbl&gt;<span class="st"> </span><span class="er">&lt;</span>dbl&gt;<span class="st"> </span><span class="er">&lt;</span>dbl&gt;
+<span class="st"> </span><span class="dv">1</span> Steph…   <span class="dv">2016</span>   <span class="dv">805</span>  <span class="dv">1597</span>   <span class="dv">402</span>   <span class="dv">887</span>   <span class="dv">363</span>   <span class="dv">400</span> <span class="fl">0.504</span> <span class="fl">0.453</span> <span class="fl">0.908</span>
+ <span class="dv">2</span> James…   <span class="dv">2016</span>   <span class="dv">710</span>  <span class="dv">1617</span>   <span class="dv">236</span>   <span class="dv">657</span>   <span class="dv">720</span>   <span class="dv">837</span> <span class="fl">0.439</span> <span class="fl">0.359</span> <span class="fl">0.860</span>
+ <span class="dv">3</span> Kevin…   <span class="dv">2016</span>   <span class="dv">698</span>  <span class="dv">1381</span>   <span class="dv">186</span>   <span class="dv">480</span>   <span class="dv">447</span>   <span class="dv">498</span> <span class="fl">0.505</span> <span class="fl">0.388</span> <span class="fl">0.898</span>
+ <span class="dv">4</span> DeMar…   <span class="dv">2016</span>   <span class="dv">601</span>  <span class="dv">1332</span>    <span class="dv">70</span>   <span class="dv">210</span>   <span class="dv">476</span>   <span class="dv">663</span> <span class="fl">0.451</span> <span class="fl">0.333</span> <span class="fl">0.718</span>
+ <span class="dv">5</span> LeBro…   <span class="dv">2016</span>   <span class="dv">737</span>  <span class="dv">1416</span>    <span class="dv">87</span>   <span class="dv">282</span>   <span class="dv">359</span>   <span class="dv">491</span> <span class="fl">0.520</span> <span class="fl">0.309</span> <span class="fl">0.731</span>
+ <span class="dv">6</span> Damia…   <span class="dv">2016</span>   <span class="dv">618</span>  <span class="dv">1474</span>   <span class="dv">229</span>   <span class="dv">610</span>   <span class="dv">414</span>   <span class="dv">464</span> <span class="fl">0.419</span> <span class="fl">0.375</span> <span class="fl">0.892</span>
+ <span class="dv">7</span> Antho…   <span class="dv">2016</span>   <span class="dv">560</span>  <span class="dv">1137</span>    <span class="dv">35</span>   <span class="dv">108</span>   <span class="dv">326</span>   <span class="dv">430</span> <span class="fl">0.493</span> <span class="fl">0.324</span> <span class="fl">0.758</span>
+ <span class="dv">8</span> Russe…   <span class="dv">2016</span>   <span class="dv">656</span>  <span class="dv">1444</span>   <span class="dv">101</span>   <span class="dv">341</span>   <span class="dv">465</span>   <span class="dv">573</span> <span class="fl">0.454</span> <span class="fl">0.296</span> <span class="fl">0.812</span>
+ <span class="dv">9</span> DeMar…   <span class="dv">2016</span>   <span class="dv">614</span>  <span class="dv">1377</span>    <span class="dv">47</span>   <span class="dv">139</span>   <span class="dv">555</span>   <span class="dv">653</span> <span class="fl">0.446</span> <span class="fl">0.338</span> <span class="fl">0.850</span>
+<span class="dv">10</span> Paul …   <span class="dv">2016</span>   <span class="dv">605</span>  <span class="dv">1448</span>   <span class="dv">210</span>   <span class="dv">565</span>   <span class="dv">454</span>   <span class="dv">528</span> <span class="fl">0.418</span> <span class="fl">0.372</span> <span class="fl">0.860</span>
+<span class="co"># … with 4,827 more rows, and 3 more variables: eFGP &lt;dbl&gt;, PTS &lt;dbl&gt;,</span>
+<span class="co">#   TSP &lt;dbl&gt;</span></code></pre></div>
 <p>What if we wanted to pull out the observations corresponding to the 2015-16 and 2014-15 season. We could do something like <code>filter(raw_shooting, (SEASON == 2016) | (SEASON == 2015))</code>, which would be perfectly fine. However, what if we wanted data from 1998-99, 2011-12, and 2015-16? Typing a lot of expressions like <code>SEASON == ...</code> would be rather tedious. The <code>%in%</code> operator lets us avoid this tedium:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw">filter</span>(raw_shooting, SEASON <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">1999</span>, <span class="dv">2012</span>, <span class="dv">2016</span>))</a>
-<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="co"># A tibble: 1,150 x 14</span></a>
-<a class="sourceLine" id="cb14-3" data-line-number="3">   PLAYER SEASON   FGM   FGA   TPM   TPA   FTM   FTA   FGP   TPP   FTP</a>
-<a class="sourceLine" id="cb14-4" data-line-number="4">   <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st">   </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span></a>
-<a class="sourceLine" id="cb14-5" data-line-number="5"><span class="st"> </span><span class="dv">1</span> Steph…   <span class="dv">2016</span>   <span class="dv">805</span>  <span class="dv">1597</span>   <span class="dv">402</span>   <span class="dv">887</span>   <span class="dv">363</span>   <span class="dv">400</span> <span class="fl">0.504</span> <span class="fl">0.453</span> <span class="fl">0.908</span></a>
-<a class="sourceLine" id="cb14-6" data-line-number="6"> <span class="dv">2</span> James…   <span class="dv">2016</span>   <span class="dv">710</span>  <span class="dv">1617</span>   <span class="dv">236</span>   <span class="dv">657</span>   <span class="dv">720</span>   <span class="dv">837</span> <span class="fl">0.439</span> <span class="fl">0.359</span> <span class="fl">0.860</span></a>
-<a class="sourceLine" id="cb14-7" data-line-number="7"> <span class="dv">3</span> Kevin…   <span class="dv">2016</span>   <span class="dv">698</span>  <span class="dv">1381</span>   <span class="dv">186</span>   <span class="dv">480</span>   <span class="dv">447</span>   <span class="dv">498</span> <span class="fl">0.505</span> <span class="fl">0.388</span> <span class="fl">0.898</span></a>
-<a class="sourceLine" id="cb14-8" data-line-number="8"> <span class="dv">4</span> DeMar…   <span class="dv">2016</span>   <span class="dv">601</span>  <span class="dv">1332</span>    <span class="dv">70</span>   <span class="dv">210</span>   <span class="dv">476</span>   <span class="dv">663</span> <span class="fl">0.451</span> <span class="fl">0.333</span> <span class="fl">0.718</span></a>
-<a class="sourceLine" id="cb14-9" data-line-number="9"> <span class="dv">5</span> LeBro…   <span class="dv">2016</span>   <span class="dv">737</span>  <span class="dv">1416</span>    <span class="dv">87</span>   <span class="dv">282</span>   <span class="dv">359</span>   <span class="dv">491</span> <span class="fl">0.520</span> <span class="fl">0.309</span> <span class="fl">0.731</span></a>
-<a class="sourceLine" id="cb14-10" data-line-number="10"> <span class="dv">6</span> Damia…   <span class="dv">2016</span>   <span class="dv">618</span>  <span class="dv">1474</span>   <span class="dv">229</span>   <span class="dv">610</span>   <span class="dv">414</span>   <span class="dv">464</span> <span class="fl">0.419</span> <span class="fl">0.375</span> <span class="fl">0.892</span></a>
-<a class="sourceLine" id="cb14-11" data-line-number="11"> <span class="dv">7</span> Antho…   <span class="dv">2016</span>   <span class="dv">560</span>  <span class="dv">1137</span>    <span class="dv">35</span>   <span class="dv">108</span>   <span class="dv">326</span>   <span class="dv">430</span> <span class="fl">0.493</span> <span class="fl">0.324</span> <span class="fl">0.758</span></a>
-<a class="sourceLine" id="cb14-12" data-line-number="12"> <span class="dv">8</span> Russe…   <span class="dv">2016</span>   <span class="dv">656</span>  <span class="dv">1444</span>   <span class="dv">101</span>   <span class="dv">341</span>   <span class="dv">465</span>   <span class="dv">573</span> <span class="fl">0.454</span> <span class="fl">0.296</span> <span class="fl">0.812</span></a>
-<a class="sourceLine" id="cb14-13" data-line-number="13"> <span class="dv">9</span> DeMar…   <span class="dv">2016</span>   <span class="dv">614</span>  <span class="dv">1377</span>    <span class="dv">47</span>   <span class="dv">139</span>   <span class="dv">555</span>   <span class="dv">653</span> <span class="fl">0.446</span> <span class="fl">0.338</span> <span class="fl">0.850</span></a>
-<a class="sourceLine" id="cb14-14" data-line-number="14"><span class="dv">10</span> Paul …   <span class="dv">2016</span>   <span class="dv">605</span>  <span class="dv">1448</span>   <span class="dv">210</span>   <span class="dv">565</span>   <span class="dv">454</span>   <span class="dv">528</span> <span class="fl">0.418</span> <span class="fl">0.372</span> <span class="fl">0.860</span></a>
-<a class="sourceLine" id="cb14-15" data-line-number="15"><span class="co"># … with 1,140 more rows, and 3 more variables: eFGP &lt;dbl&gt;, PTS &lt;dbl&gt;,</span></a>
-<a class="sourceLine" id="cb14-16" data-line-number="16"><span class="co">#   TSP &lt;dbl&gt;</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">filter</span>(raw_shooting, SEASON %in%<span class="st"> </span><span class="kw">c</span>(<span class="dv">1999</span>, <span class="dv">2012</span>, <span class="dv">2016</span>))
+<span class="co"># A tibble: 1,150 x 14</span>
+   PLAYER SEASON   FGM   FGA   TPM   TPA   FTM   FTA   FGP   TPP   FTP
+   &lt;chr&gt;<span class="st">   </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>dbl&gt;<span class="st"> </span><span class="er">&lt;</span>dbl&gt;<span class="st"> </span><span class="er">&lt;</span>dbl&gt;
+<span class="st"> </span><span class="dv">1</span> Steph…   <span class="dv">2016</span>   <span class="dv">805</span>  <span class="dv">1597</span>   <span class="dv">402</span>   <span class="dv">887</span>   <span class="dv">363</span>   <span class="dv">400</span> <span class="fl">0.504</span> <span class="fl">0.453</span> <span class="fl">0.908</span>
+ <span class="dv">2</span> James…   <span class="dv">2016</span>   <span class="dv">710</span>  <span class="dv">1617</span>   <span class="dv">236</span>   <span class="dv">657</span>   <span class="dv">720</span>   <span class="dv">837</span> <span class="fl">0.439</span> <span class="fl">0.359</span> <span class="fl">0.860</span>
+ <span class="dv">3</span> Kevin…   <span class="dv">2016</span>   <span class="dv">698</span>  <span class="dv">1381</span>   <span class="dv">186</span>   <span class="dv">480</span>   <span class="dv">447</span>   <span class="dv">498</span> <span class="fl">0.505</span> <span class="fl">0.388</span> <span class="fl">0.898</span>
+ <span class="dv">4</span> DeMar…   <span class="dv">2016</span>   <span class="dv">601</span>  <span class="dv">1332</span>    <span class="dv">70</span>   <span class="dv">210</span>   <span class="dv">476</span>   <span class="dv">663</span> <span class="fl">0.451</span> <span class="fl">0.333</span> <span class="fl">0.718</span>
+ <span class="dv">5</span> LeBro…   <span class="dv">2016</span>   <span class="dv">737</span>  <span class="dv">1416</span>    <span class="dv">87</span>   <span class="dv">282</span>   <span class="dv">359</span>   <span class="dv">491</span> <span class="fl">0.520</span> <span class="fl">0.309</span> <span class="fl">0.731</span>
+ <span class="dv">6</span> Damia…   <span class="dv">2016</span>   <span class="dv">618</span>  <span class="dv">1474</span>   <span class="dv">229</span>   <span class="dv">610</span>   <span class="dv">414</span>   <span class="dv">464</span> <span class="fl">0.419</span> <span class="fl">0.375</span> <span class="fl">0.892</span>
+ <span class="dv">7</span> Antho…   <span class="dv">2016</span>   <span class="dv">560</span>  <span class="dv">1137</span>    <span class="dv">35</span>   <span class="dv">108</span>   <span class="dv">326</span>   <span class="dv">430</span> <span class="fl">0.493</span> <span class="fl">0.324</span> <span class="fl">0.758</span>
+ <span class="dv">8</span> Russe…   <span class="dv">2016</span>   <span class="dv">656</span>  <span class="dv">1444</span>   <span class="dv">101</span>   <span class="dv">341</span>   <span class="dv">465</span>   <span class="dv">573</span> <span class="fl">0.454</span> <span class="fl">0.296</span> <span class="fl">0.812</span>
+ <span class="dv">9</span> DeMar…   <span class="dv">2016</span>   <span class="dv">614</span>  <span class="dv">1377</span>    <span class="dv">47</span>   <span class="dv">139</span>   <span class="dv">555</span>   <span class="dv">653</span> <span class="fl">0.446</span> <span class="fl">0.338</span> <span class="fl">0.850</span>
+<span class="dv">10</span> Paul …   <span class="dv">2016</span>   <span class="dv">605</span>  <span class="dv">1448</span>   <span class="dv">210</span>   <span class="dv">565</span>   <span class="dv">454</span>   <span class="dv">528</span> <span class="fl">0.418</span> <span class="fl">0.372</span> <span class="fl">0.860</span>
+<span class="co"># … with 1,140 more rows, and 3 more variables: eFGP &lt;dbl&gt;, PTS &lt;dbl&gt;,</span>
+<span class="co">#   TSP &lt;dbl&gt;</span></code></pre></div>
 <p>We could also filter out data from the two lockout-shortened seasons, 1998-99 and 2011-12 using a combination of the NOT <code>!</code> operator and <code>%in%</code>.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw">filter</span>(raw_shooting, <span class="op">!</span>SEASON <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">1999</span>, <span class="dv">2012</span>))</a>
-<a class="sourceLine" id="cb15-2" data-line-number="2"><span class="co"># A tibble: 6,721 x 14</span></a>
-<a class="sourceLine" id="cb15-3" data-line-number="3">   PLAYER SEASON   FGM   FGA   TPM   TPA   FTM   FTA   FGP   TPP   FTP</a>
-<a class="sourceLine" id="cb15-4" data-line-number="4">   <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st">   </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span></a>
-<a class="sourceLine" id="cb15-5" data-line-number="5"><span class="st"> </span><span class="dv">1</span> Steph…   <span class="dv">2016</span>   <span class="dv">805</span>  <span class="dv">1597</span>   <span class="dv">402</span>   <span class="dv">887</span>   <span class="dv">363</span>   <span class="dv">400</span> <span class="fl">0.504</span> <span class="fl">0.453</span> <span class="fl">0.908</span></a>
-<a class="sourceLine" id="cb15-6" data-line-number="6"> <span class="dv">2</span> James…   <span class="dv">2016</span>   <span class="dv">710</span>  <span class="dv">1617</span>   <span class="dv">236</span>   <span class="dv">657</span>   <span class="dv">720</span>   <span class="dv">837</span> <span class="fl">0.439</span> <span class="fl">0.359</span> <span class="fl">0.860</span></a>
-<a class="sourceLine" id="cb15-7" data-line-number="7"> <span class="dv">3</span> Kevin…   <span class="dv">2016</span>   <span class="dv">698</span>  <span class="dv">1381</span>   <span class="dv">186</span>   <span class="dv">480</span>   <span class="dv">447</span>   <span class="dv">498</span> <span class="fl">0.505</span> <span class="fl">0.388</span> <span class="fl">0.898</span></a>
-<a class="sourceLine" id="cb15-8" data-line-number="8"> <span class="dv">4</span> DeMar…   <span class="dv">2016</span>   <span class="dv">601</span>  <span class="dv">1332</span>    <span class="dv">70</span>   <span class="dv">210</span>   <span class="dv">476</span>   <span class="dv">663</span> <span class="fl">0.451</span> <span class="fl">0.333</span> <span class="fl">0.718</span></a>
-<a class="sourceLine" id="cb15-9" data-line-number="9"> <span class="dv">5</span> LeBro…   <span class="dv">2016</span>   <span class="dv">737</span>  <span class="dv">1416</span>    <span class="dv">87</span>   <span class="dv">282</span>   <span class="dv">359</span>   <span class="dv">491</span> <span class="fl">0.520</span> <span class="fl">0.309</span> <span class="fl">0.731</span></a>
-<a class="sourceLine" id="cb15-10" data-line-number="10"> <span class="dv">6</span> Damia…   <span class="dv">2016</span>   <span class="dv">618</span>  <span class="dv">1474</span>   <span class="dv">229</span>   <span class="dv">610</span>   <span class="dv">414</span>   <span class="dv">464</span> <span class="fl">0.419</span> <span class="fl">0.375</span> <span class="fl">0.892</span></a>
-<a class="sourceLine" id="cb15-11" data-line-number="11"> <span class="dv">7</span> Antho…   <span class="dv">2016</span>   <span class="dv">560</span>  <span class="dv">1137</span>    <span class="dv">35</span>   <span class="dv">108</span>   <span class="dv">326</span>   <span class="dv">430</span> <span class="fl">0.493</span> <span class="fl">0.324</span> <span class="fl">0.758</span></a>
-<a class="sourceLine" id="cb15-12" data-line-number="12"> <span class="dv">8</span> Russe…   <span class="dv">2016</span>   <span class="dv">656</span>  <span class="dv">1444</span>   <span class="dv">101</span>   <span class="dv">341</span>   <span class="dv">465</span>   <span class="dv">573</span> <span class="fl">0.454</span> <span class="fl">0.296</span> <span class="fl">0.812</span></a>
-<a class="sourceLine" id="cb15-13" data-line-number="13"> <span class="dv">9</span> DeMar…   <span class="dv">2016</span>   <span class="dv">614</span>  <span class="dv">1377</span>    <span class="dv">47</span>   <span class="dv">139</span>   <span class="dv">555</span>   <span class="dv">653</span> <span class="fl">0.446</span> <span class="fl">0.338</span> <span class="fl">0.850</span></a>
-<a class="sourceLine" id="cb15-14" data-line-number="14"><span class="dv">10</span> Paul …   <span class="dv">2016</span>   <span class="dv">605</span>  <span class="dv">1448</span>   <span class="dv">210</span>   <span class="dv">565</span>   <span class="dv">454</span>   <span class="dv">528</span> <span class="fl">0.418</span> <span class="fl">0.372</span> <span class="fl">0.860</span></a>
-<a class="sourceLine" id="cb15-15" data-line-number="15"><span class="co"># … with 6,711 more rows, and 3 more variables: eFGP &lt;dbl&gt;, PTS &lt;dbl&gt;,</span></a>
-<a class="sourceLine" id="cb15-16" data-line-number="16"><span class="co">#   TSP &lt;dbl&gt;</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">filter</span>(raw_shooting, !SEASON %in%<span class="st"> </span><span class="kw">c</span>(<span class="dv">1999</span>, <span class="dv">2012</span>))
+<span class="co"># A tibble: 6,721 x 14</span>
+   PLAYER SEASON   FGM   FGA   TPM   TPA   FTM   FTA   FGP   TPP   FTP
+   &lt;chr&gt;<span class="st">   </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>dbl&gt;<span class="st"> </span><span class="er">&lt;</span>dbl&gt;<span class="st"> </span><span class="er">&lt;</span>dbl&gt;
+<span class="st"> </span><span class="dv">1</span> Steph…   <span class="dv">2016</span>   <span class="dv">805</span>  <span class="dv">1597</span>   <span class="dv">402</span>   <span class="dv">887</span>   <span class="dv">363</span>   <span class="dv">400</span> <span class="fl">0.504</span> <span class="fl">0.453</span> <span class="fl">0.908</span>
+ <span class="dv">2</span> James…   <span class="dv">2016</span>   <span class="dv">710</span>  <span class="dv">1617</span>   <span class="dv">236</span>   <span class="dv">657</span>   <span class="dv">720</span>   <span class="dv">837</span> <span class="fl">0.439</span> <span class="fl">0.359</span> <span class="fl">0.860</span>
+ <span class="dv">3</span> Kevin…   <span class="dv">2016</span>   <span class="dv">698</span>  <span class="dv">1381</span>   <span class="dv">186</span>   <span class="dv">480</span>   <span class="dv">447</span>   <span class="dv">498</span> <span class="fl">0.505</span> <span class="fl">0.388</span> <span class="fl">0.898</span>
+ <span class="dv">4</span> DeMar…   <span class="dv">2016</span>   <span class="dv">601</span>  <span class="dv">1332</span>    <span class="dv">70</span>   <span class="dv">210</span>   <span class="dv">476</span>   <span class="dv">663</span> <span class="fl">0.451</span> <span class="fl">0.333</span> <span class="fl">0.718</span>
+ <span class="dv">5</span> LeBro…   <span class="dv">2016</span>   <span class="dv">737</span>  <span class="dv">1416</span>    <span class="dv">87</span>   <span class="dv">282</span>   <span class="dv">359</span>   <span class="dv">491</span> <span class="fl">0.520</span> <span class="fl">0.309</span> <span class="fl">0.731</span>
+ <span class="dv">6</span> Damia…   <span class="dv">2016</span>   <span class="dv">618</span>  <span class="dv">1474</span>   <span class="dv">229</span>   <span class="dv">610</span>   <span class="dv">414</span>   <span class="dv">464</span> <span class="fl">0.419</span> <span class="fl">0.375</span> <span class="fl">0.892</span>
+ <span class="dv">7</span> Antho…   <span class="dv">2016</span>   <span class="dv">560</span>  <span class="dv">1137</span>    <span class="dv">35</span>   <span class="dv">108</span>   <span class="dv">326</span>   <span class="dv">430</span> <span class="fl">0.493</span> <span class="fl">0.324</span> <span class="fl">0.758</span>
+ <span class="dv">8</span> Russe…   <span class="dv">2016</span>   <span class="dv">656</span>  <span class="dv">1444</span>   <span class="dv">101</span>   <span class="dv">341</span>   <span class="dv">465</span>   <span class="dv">573</span> <span class="fl">0.454</span> <span class="fl">0.296</span> <span class="fl">0.812</span>
+ <span class="dv">9</span> DeMar…   <span class="dv">2016</span>   <span class="dv">614</span>  <span class="dv">1377</span>    <span class="dv">47</span>   <span class="dv">139</span>   <span class="dv">555</span>   <span class="dv">653</span> <span class="fl">0.446</span> <span class="fl">0.338</span> <span class="fl">0.850</span>
+<span class="dv">10</span> Paul …   <span class="dv">2016</span>   <span class="dv">605</span>  <span class="dv">1448</span>   <span class="dv">210</span>   <span class="dv">565</span>   <span class="dv">454</span>   <span class="dv">528</span> <span class="fl">0.418</span> <span class="fl">0.372</span> <span class="fl">0.860</span>
+<span class="co"># … with 6,711 more rows, and 3 more variables: eFGP &lt;dbl&gt;, PTS &lt;dbl&gt;,</span>
+<span class="co">#   TSP &lt;dbl&gt;</span></code></pre></div>
 <p>For the remainder of this module, we will focus on the players who attempted at least 100 field goals, 100 free throws, 50 three pointers in the non-lockout seasons.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span>nba_shooting &lt;-<span class="st"> </span><span class="kw">filter</span>(raw_shooting, (FGA <span class="op">&gt;=</span><span class="st"> </span><span class="dv">100</span> <span class="op">&amp;</span><span class="st"> </span>FTA <span class="op">&gt;=</span><span class="st"> </span><span class="dv">100</span> <span class="op">&amp;</span><span class="st"> </span>TPA <span class="op">&gt;=</span><span class="st"> </span><span class="dv">50</span> <span class="op">&amp;</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb16-2" data-line-number="2"><span class="op">+</span><span class="st">     </span><span class="op">!</span>SEASON <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">1999</span>, <span class="dv">2012</span>)))</a>
-<a class="sourceLine" id="cb16-3" data-line-number="3"><span class="op">&gt;</span><span class="st"> </span>nba_shooting</a>
-<a class="sourceLine" id="cb16-4" data-line-number="4"><span class="co"># A tibble: 2,254 x 14</span></a>
-<a class="sourceLine" id="cb16-5" data-line-number="5">   PLAYER SEASON   FGM   FGA   TPM   TPA   FTM   FTA   FGP   TPP   FTP</a>
-<a class="sourceLine" id="cb16-6" data-line-number="6">   <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st">   </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span></a>
-<a class="sourceLine" id="cb16-7" data-line-number="7"><span class="st"> </span><span class="dv">1</span> Steph…   <span class="dv">2016</span>   <span class="dv">805</span>  <span class="dv">1597</span>   <span class="dv">402</span>   <span class="dv">887</span>   <span class="dv">363</span>   <span class="dv">400</span> <span class="fl">0.504</span> <span class="fl">0.453</span> <span class="fl">0.908</span></a>
-<a class="sourceLine" id="cb16-8" data-line-number="8"> <span class="dv">2</span> James…   <span class="dv">2016</span>   <span class="dv">710</span>  <span class="dv">1617</span>   <span class="dv">236</span>   <span class="dv">657</span>   <span class="dv">720</span>   <span class="dv">837</span> <span class="fl">0.439</span> <span class="fl">0.359</span> <span class="fl">0.860</span></a>
-<a class="sourceLine" id="cb16-9" data-line-number="9"> <span class="dv">3</span> Kevin…   <span class="dv">2016</span>   <span class="dv">698</span>  <span class="dv">1381</span>   <span class="dv">186</span>   <span class="dv">480</span>   <span class="dv">447</span>   <span class="dv">498</span> <span class="fl">0.505</span> <span class="fl">0.388</span> <span class="fl">0.898</span></a>
-<a class="sourceLine" id="cb16-10" data-line-number="10"> <span class="dv">4</span> DeMar…   <span class="dv">2016</span>   <span class="dv">601</span>  <span class="dv">1332</span>    <span class="dv">70</span>   <span class="dv">210</span>   <span class="dv">476</span>   <span class="dv">663</span> <span class="fl">0.451</span> <span class="fl">0.333</span> <span class="fl">0.718</span></a>
-<a class="sourceLine" id="cb16-11" data-line-number="11"> <span class="dv">5</span> LeBro…   <span class="dv">2016</span>   <span class="dv">737</span>  <span class="dv">1416</span>    <span class="dv">87</span>   <span class="dv">282</span>   <span class="dv">359</span>   <span class="dv">491</span> <span class="fl">0.520</span> <span class="fl">0.309</span> <span class="fl">0.731</span></a>
-<a class="sourceLine" id="cb16-12" data-line-number="12"> <span class="dv">6</span> Damia…   <span class="dv">2016</span>   <span class="dv">618</span>  <span class="dv">1474</span>   <span class="dv">229</span>   <span class="dv">610</span>   <span class="dv">414</span>   <span class="dv">464</span> <span class="fl">0.419</span> <span class="fl">0.375</span> <span class="fl">0.892</span></a>
-<a class="sourceLine" id="cb16-13" data-line-number="13"> <span class="dv">7</span> Antho…   <span class="dv">2016</span>   <span class="dv">560</span>  <span class="dv">1137</span>    <span class="dv">35</span>   <span class="dv">108</span>   <span class="dv">326</span>   <span class="dv">430</span> <span class="fl">0.493</span> <span class="fl">0.324</span> <span class="fl">0.758</span></a>
-<a class="sourceLine" id="cb16-14" data-line-number="14"> <span class="dv">8</span> Russe…   <span class="dv">2016</span>   <span class="dv">656</span>  <span class="dv">1444</span>   <span class="dv">101</span>   <span class="dv">341</span>   <span class="dv">465</span>   <span class="dv">573</span> <span class="fl">0.454</span> <span class="fl">0.296</span> <span class="fl">0.812</span></a>
-<a class="sourceLine" id="cb16-15" data-line-number="15"> <span class="dv">9</span> DeMar…   <span class="dv">2016</span>   <span class="dv">614</span>  <span class="dv">1377</span>    <span class="dv">47</span>   <span class="dv">139</span>   <span class="dv">555</span>   <span class="dv">653</span> <span class="fl">0.446</span> <span class="fl">0.338</span> <span class="fl">0.850</span></a>
-<a class="sourceLine" id="cb16-16" data-line-number="16"><span class="dv">10</span> Paul …   <span class="dv">2016</span>   <span class="dv">605</span>  <span class="dv">1448</span>   <span class="dv">210</span>   <span class="dv">565</span>   <span class="dv">454</span>   <span class="dv">528</span> <span class="fl">0.418</span> <span class="fl">0.372</span> <span class="fl">0.860</span></a>
-<a class="sourceLine" id="cb16-17" data-line-number="17"><span class="co"># … with 2,244 more rows, and 3 more variables: eFGP &lt;dbl&gt;, PTS &lt;dbl&gt;,</span></a>
-<a class="sourceLine" id="cb16-18" data-line-number="18"><span class="co">#   TSP &lt;dbl&gt;</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>nba_shooting &lt;-<span class="st"> </span><span class="kw">filter</span>(raw_shooting, (FGA &gt;=<span class="st"> </span><span class="dv">100</span> &amp;<span class="st"> </span>FTA &gt;=<span class="st"> </span><span class="dv">100</span> &amp;<span class="st"> </span>TPA &gt;=<span class="st"> </span><span class="dv">50</span> &amp;<span class="st"> </span>
++<span class="st">     </span>!SEASON %in%<span class="st"> </span><span class="kw">c</span>(<span class="dv">1999</span>, <span class="dv">2012</span>)))
+&gt;<span class="st"> </span>nba_shooting
+<span class="co"># A tibble: 2,254 x 14</span>
+   PLAYER SEASON   FGM   FGA   TPM   TPA   FTM   FTA   FGP   TPP   FTP
+   &lt;chr&gt;<span class="st">   </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>dbl&gt;<span class="st"> </span><span class="er">&lt;</span>dbl&gt;<span class="st"> </span><span class="er">&lt;</span>dbl&gt;
+<span class="st"> </span><span class="dv">1</span> Steph…   <span class="dv">2016</span>   <span class="dv">805</span>  <span class="dv">1597</span>   <span class="dv">402</span>   <span class="dv">887</span>   <span class="dv">363</span>   <span class="dv">400</span> <span class="fl">0.504</span> <span class="fl">0.453</span> <span class="fl">0.908</span>
+ <span class="dv">2</span> James…   <span class="dv">2016</span>   <span class="dv">710</span>  <span class="dv">1617</span>   <span class="dv">236</span>   <span class="dv">657</span>   <span class="dv">720</span>   <span class="dv">837</span> <span class="fl">0.439</span> <span class="fl">0.359</span> <span class="fl">0.860</span>
+ <span class="dv">3</span> Kevin…   <span class="dv">2016</span>   <span class="dv">698</span>  <span class="dv">1381</span>   <span class="dv">186</span>   <span class="dv">480</span>   <span class="dv">447</span>   <span class="dv">498</span> <span class="fl">0.505</span> <span class="fl">0.388</span> <span class="fl">0.898</span>
+ <span class="dv">4</span> DeMar…   <span class="dv">2016</span>   <span class="dv">601</span>  <span class="dv">1332</span>    <span class="dv">70</span>   <span class="dv">210</span>   <span class="dv">476</span>   <span class="dv">663</span> <span class="fl">0.451</span> <span class="fl">0.333</span> <span class="fl">0.718</span>
+ <span class="dv">5</span> LeBro…   <span class="dv">2016</span>   <span class="dv">737</span>  <span class="dv">1416</span>    <span class="dv">87</span>   <span class="dv">282</span>   <span class="dv">359</span>   <span class="dv">491</span> <span class="fl">0.520</span> <span class="fl">0.309</span> <span class="fl">0.731</span>
+ <span class="dv">6</span> Damia…   <span class="dv">2016</span>   <span class="dv">618</span>  <span class="dv">1474</span>   <span class="dv">229</span>   <span class="dv">610</span>   <span class="dv">414</span>   <span class="dv">464</span> <span class="fl">0.419</span> <span class="fl">0.375</span> <span class="fl">0.892</span>
+ <span class="dv">7</span> Antho…   <span class="dv">2016</span>   <span class="dv">560</span>  <span class="dv">1137</span>    <span class="dv">35</span>   <span class="dv">108</span>   <span class="dv">326</span>   <span class="dv">430</span> <span class="fl">0.493</span> <span class="fl">0.324</span> <span class="fl">0.758</span>
+ <span class="dv">8</span> Russe…   <span class="dv">2016</span>   <span class="dv">656</span>  <span class="dv">1444</span>   <span class="dv">101</span>   <span class="dv">341</span>   <span class="dv">465</span>   <span class="dv">573</span> <span class="fl">0.454</span> <span class="fl">0.296</span> <span class="fl">0.812</span>
+ <span class="dv">9</span> DeMar…   <span class="dv">2016</span>   <span class="dv">614</span>  <span class="dv">1377</span>    <span class="dv">47</span>   <span class="dv">139</span>   <span class="dv">555</span>   <span class="dv">653</span> <span class="fl">0.446</span> <span class="fl">0.338</span> <span class="fl">0.850</span>
+<span class="dv">10</span> Paul …   <span class="dv">2016</span>   <span class="dv">605</span>  <span class="dv">1448</span>   <span class="dv">210</span>   <span class="dv">565</span>   <span class="dv">454</span>   <span class="dv">528</span> <span class="fl">0.418</span> <span class="fl">0.372</span> <span class="fl">0.860</span>
+<span class="co"># … with 2,244 more rows, and 3 more variables: eFGP &lt;dbl&gt;, PTS &lt;dbl&gt;,</span>
+<span class="co">#   TSP &lt;dbl&gt;</span></code></pre></div>
 </div>
 <div id="creating-categorical-variables" class="section level2">
 <h2>Creating Categorical Variables</h2>
@@ -662,29 +507,29 @@ $(document).ready(function () {
 <li>Elite: TPP &gt; 40%</li>
 </ul>
 <p>In order to add a column to <code>nba_shooting</code> that includes these classifications, we can use the <code>case_when()</code> function</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span>nba_shooting &lt;-<span class="st"> </span><span class="kw">mutate</span>(nba_shooting,</a>
-<a class="sourceLine" id="cb17-2" data-line-number="2"><span class="op">+</span><span class="st">                        </span><span class="dt">Classification =</span> <span class="kw">case_when</span>(</a>
-<a class="sourceLine" id="cb17-3" data-line-number="3"><span class="op">+</span><span class="st">                          </span>TPP <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.2</span> <span class="op">~</span><span class="st">  &quot;Hopeless&quot;</span>,</a>
-<a class="sourceLine" id="cb17-4" data-line-number="4"><span class="op">+</span><span class="st">                          </span><span class="fl">0.2</span> <span class="op">&lt;=</span><span class="st"> </span>TPP <span class="op">&amp;</span><span class="st"> </span>TPP <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.3</span> <span class="op">~</span><span class="st"> &quot;Below Average&quot;</span>,</a>
-<a class="sourceLine" id="cb17-5" data-line-number="5"><span class="op">+</span><span class="st">                          </span><span class="fl">0.3</span> <span class="op">&lt;=</span><span class="st"> </span>TPP <span class="op">&amp;</span><span class="st"> </span>TPP <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.35</span> <span class="op">~</span><span class="st">  &quot;Average&quot;</span>,</a>
-<a class="sourceLine" id="cb17-6" data-line-number="6"><span class="op">+</span><span class="st">                          </span><span class="fl">0.35</span> <span class="op">&lt;=</span><span class="st"> </span>TPP <span class="op">&amp;</span><span class="st"> </span>TPP <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.4</span> <span class="op">~</span><span class="st"> &quot;Above Average&quot;</span>,</a>
-<a class="sourceLine" id="cb17-7" data-line-number="7"><span class="op">+</span><span class="st">                          </span><span class="fl">0.4</span> <span class="op">&lt;=</span><span class="st"> </span>TPP <span class="op">~</span><span class="st"> &quot;Elite&quot;</span>))</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>nba_shooting &lt;-<span class="st"> </span><span class="kw">mutate</span>(nba_shooting,
++<span class="st">                        </span><span class="dt">Classification =</span> <span class="kw">case_when</span>(
++<span class="st">                          </span>TPP &lt;<span class="st"> </span><span class="fl">0.2</span> ~<span class="st">  &quot;Hopeless&quot;</span>,
++<span class="st">                          </span><span class="fl">0.2</span> &lt;=<span class="st"> </span>TPP &amp;<span class="st"> </span>TPP &lt;<span class="st"> </span><span class="fl">0.3</span> ~<span class="st"> &quot;Below Average&quot;</span>,
++<span class="st">                          </span><span class="fl">0.3</span> &lt;=<span class="st"> </span>TPP &amp;<span class="st"> </span>TPP &lt;<span class="st"> </span><span class="fl">0.35</span> ~<span class="st">  &quot;Average&quot;</span>,
++<span class="st">                          </span><span class="fl">0.35</span> &lt;=<span class="st"> </span>TPP &amp;<span class="st"> </span>TPP &lt;<span class="st"> </span><span class="fl">0.4</span> ~<span class="st"> &quot;Above Average&quot;</span>,
++<span class="st">                          </span><span class="fl">0.4</span> &lt;=<span class="st"> </span>TPP ~<span class="st"> &quot;Elite&quot;</span>))</code></pre></div>
 <p>Let’s take a minute to unpack the code above. Within <code>mutate()</code>, we have started like we always did, with the name of the new variable on the left hand side of an equal sign. Then we called the <code>case_when()</code> function. Within this function, we have a new line for each of the values of the new variable <code>Classification''. On each line we have an expression with a twiddle (`~`). On the left of the `~`, we have put a logical expression and on the right we have written the value of</code>Clasification’’.</p>
 </div>
 <div id="summarizing-individual-columns" class="section level2">
 <h2>Summarizing Individual Columns</h2>
 <p>Among eligible players, what was the average field goal percentage in the 2015-16 season? To answer this, we can use <code>filter()</code> to create a new tbl containing the data only for this season. Then we can use the dplyr verb <code>summarize()</code> as follows:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span>nba_shooting_<span class="dv">2016</span> &lt;-<span class="st"> </span><span class="kw">filter</span>(nba_shooting, SEASON <span class="op">==</span><span class="st"> </span><span class="dv">2016</span>)</a>
-<a class="sourceLine" id="cb18-2" data-line-number="2"><span class="op">&gt;</span><span class="st"> </span><span class="kw">summarize</span>(nba_shooting_<span class="dv">2016</span>, <span class="dt">FGP =</span> <span class="kw">mean</span>(FGP))</a>
-<a class="sourceLine" id="cb18-3" data-line-number="3"><span class="co"># A tibble: 1 x 1</span></a>
-<a class="sourceLine" id="cb18-4" data-line-number="4">    FGP</a>
-<a class="sourceLine" id="cb18-5" data-line-number="5">  <span class="op">&lt;</span>dbl<span class="op">&gt;</span></a>
-<a class="sourceLine" id="cb18-6" data-line-number="6"><span class="dv">1</span> <span class="fl">0.438</span></a>
-<a class="sourceLine" id="cb18-7" data-line-number="7"><span class="op">&gt;</span><span class="st"> </span><span class="kw">summarize</span>(nba_shooting_<span class="dv">2016</span>, <span class="dt">FGP =</span> <span class="kw">mean</span>(FGP), <span class="dt">TPP =</span> <span class="kw">mean</span>(TPP), <span class="dt">FTP =</span> <span class="kw">mean</span>(FTP))</a>
-<a class="sourceLine" id="cb18-8" data-line-number="8"><span class="co"># A tibble: 1 x 3</span></a>
-<a class="sourceLine" id="cb18-9" data-line-number="9">    FGP   TPP   FTP</a>
-<a class="sourceLine" id="cb18-10" data-line-number="10">  <span class="op">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span></a>
-<a class="sourceLine" id="cb18-11" data-line-number="11"><span class="dv">1</span> <span class="fl">0.438</span> <span class="fl">0.346</span> <span class="fl">0.790</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>nba_shooting_2016 &lt;-<span class="st"> </span><span class="kw">filter</span>(nba_shooting, SEASON ==<span class="st"> </span><span class="dv">2016</span>)
+&gt;<span class="st"> </span><span class="kw">summarize</span>(nba_shooting_2016, <span class="dt">FGP =</span> <span class="kw">mean</span>(FGP))
+<span class="co"># A tibble: 1 x 1</span>
+    FGP
+  &lt;dbl&gt;
+<span class="dv">1</span> <span class="fl">0.438</span>
+&gt;<span class="st"> </span><span class="kw">summarize</span>(nba_shooting_2016, <span class="dt">FGP =</span> <span class="kw">mean</span>(FGP), <span class="dt">TPP =</span> <span class="kw">mean</span>(TPP), <span class="dt">FTP =</span> <span class="kw">mean</span>(FTP))
+<span class="co"># A tibble: 1 x 3</span>
+    FGP   TPP   FTP
+  &lt;dbl&gt;<span class="st"> </span><span class="er">&lt;</span>dbl&gt;<span class="st"> </span><span class="er">&lt;</span>dbl&gt;
+<span class="dv">1</span> <span class="fl">0.438</span> <span class="fl">0.346</span> <span class="fl">0.790</span></code></pre></div>
 <p>In the first line, we compute the average field goal percentage and in the second example, we compute the average field goal, three point, and free throw percentages. Of course, we are not limited to computing just the mean. The following functions are quite useful for summarizing several aspects of the distribution of the variables in our dataset:</p>
 <ul>
 <li>Center: <code>mean()</code>, <code>median()</code></li>
@@ -696,30 +541,30 @@ $(document).ready(function () {
 <div id="selecting-columns" class="section level3">
 <h3>Selecting Columns</h3>
 <p>Oftentimes, the dataset you load into R contains many, many more columns than you need. We can use <code>select()</code> to pull out the columns we want to use in our subsequent analyses. For instance, we may want to only focus on the columns SEASON, FGP, TPP, FTP, eFGP, PTS, and TSP and ignore the rest of the columns.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw">select</span>(nba_shooting, PLAYER, SEASON, FGP, TPP, FTP, eFGP, PTS, TSP)</a>
-<a class="sourceLine" id="cb19-2" data-line-number="2"><span class="co"># A tibble: 2,254 x 8</span></a>
-<a class="sourceLine" id="cb19-3" data-line-number="3">   PLAYER            SEASON   FGP   TPP   FTP  eFGP   PTS   TSP</a>
-<a class="sourceLine" id="cb19-4" data-line-number="4">   <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st">              </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span></a>
-<a class="sourceLine" id="cb19-5" data-line-number="5"><span class="st"> </span><span class="dv">1</span> Stephen Curry       <span class="dv">2016</span> <span class="fl">0.504</span> <span class="fl">0.453</span> <span class="fl">0.908</span> <span class="fl">0.630</span>  <span class="dv">2375</span> <span class="fl">0.670</span></a>
-<a class="sourceLine" id="cb19-6" data-line-number="6"> <span class="dv">2</span> James Harden        <span class="dv">2016</span> <span class="fl">0.439</span> <span class="fl">0.359</span> <span class="fl">0.860</span> <span class="fl">0.512</span>  <span class="dv">2376</span> <span class="fl">0.598</span></a>
-<a class="sourceLine" id="cb19-7" data-line-number="7"> <span class="dv">3</span> Kevin Durant        <span class="dv">2016</span> <span class="fl">0.505</span> <span class="fl">0.388</span> <span class="fl">0.898</span> <span class="fl">0.573</span>  <span class="dv">2029</span> <span class="fl">0.634</span></a>
-<a class="sourceLine" id="cb19-8" data-line-number="8"> <span class="dv">4</span> DeMarcus Cousins    <span class="dv">2016</span> <span class="fl">0.451</span> <span class="fl">0.333</span> <span class="fl">0.718</span> <span class="fl">0.477</span>  <span class="dv">1748</span> <span class="fl">0.538</span></a>
-<a class="sourceLine" id="cb19-9" data-line-number="9"> <span class="dv">5</span> LeBron James        <span class="dv">2016</span> <span class="fl">0.520</span> <span class="fl">0.309</span> <span class="fl">0.731</span> <span class="fl">0.551</span>  <span class="dv">1920</span> <span class="fl">0.588</span></a>
-<a class="sourceLine" id="cb19-10" data-line-number="10"> <span class="dv">6</span> Damian Lillard      <span class="dv">2016</span> <span class="fl">0.419</span> <span class="fl">0.375</span> <span class="fl">0.892</span> <span class="fl">0.497</span>  <span class="dv">1879</span> <span class="fl">0.560</span></a>
-<a class="sourceLine" id="cb19-11" data-line-number="11"> <span class="dv">7</span> Anthony Davis       <span class="dv">2016</span> <span class="fl">0.493</span> <span class="fl">0.324</span> <span class="fl">0.758</span> <span class="fl">0.508</span>  <span class="dv">1481</span> <span class="fl">0.558</span></a>
-<a class="sourceLine" id="cb19-12" data-line-number="12"> <span class="dv">8</span> Russell Westbrook   <span class="dv">2016</span> <span class="fl">0.454</span> <span class="fl">0.296</span> <span class="fl">0.812</span> <span class="fl">0.489</span>  <span class="dv">1878</span> <span class="fl">0.554</span></a>
-<a class="sourceLine" id="cb19-13" data-line-number="13"> <span class="dv">9</span> DeMar DeRozan       <span class="dv">2016</span> <span class="fl">0.446</span> <span class="fl">0.338</span> <span class="fl">0.850</span> <span class="fl">0.463</span>  <span class="dv">1830</span> <span class="fl">0.550</span></a>
-<a class="sourceLine" id="cb19-14" data-line-number="14"><span class="dv">10</span> Paul George         <span class="dv">2016</span> <span class="fl">0.418</span> <span class="fl">0.372</span> <span class="fl">0.860</span> <span class="fl">0.490</span>  <span class="dv">1874</span> <span class="fl">0.558</span></a>
-<a class="sourceLine" id="cb19-15" data-line-number="15"><span class="co"># … with 2,244 more rows</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">select</span>(nba_shooting, PLAYER, SEASON, FGP, TPP, FTP, eFGP, PTS, TSP)
+<span class="co"># A tibble: 2,254 x 8</span>
+   PLAYER            SEASON   FGP   TPP   FTP  eFGP   PTS   TSP
+   &lt;chr&gt;<span class="st">              </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>dbl&gt;<span class="st"> </span><span class="er">&lt;</span>dbl&gt;<span class="st"> </span><span class="er">&lt;</span>dbl&gt;<span class="st"> </span><span class="er">&lt;</span>dbl&gt;<span class="st"> </span><span class="er">&lt;</span>dbl&gt;<span class="st"> </span><span class="er">&lt;</span>dbl&gt;
+<span class="st"> </span><span class="dv">1</span> Stephen Curry       <span class="dv">2016</span> <span class="fl">0.504</span> <span class="fl">0.453</span> <span class="fl">0.908</span> <span class="fl">0.630</span>  <span class="dv">2375</span> <span class="fl">0.670</span>
+ <span class="dv">2</span> James Harden        <span class="dv">2016</span> <span class="fl">0.439</span> <span class="fl">0.359</span> <span class="fl">0.860</span> <span class="fl">0.512</span>  <span class="dv">2376</span> <span class="fl">0.598</span>
+ <span class="dv">3</span> Kevin Durant        <span class="dv">2016</span> <span class="fl">0.505</span> <span class="fl">0.388</span> <span class="fl">0.898</span> <span class="fl">0.573</span>  <span class="dv">2029</span> <span class="fl">0.634</span>
+ <span class="dv">4</span> DeMarcus Cousins    <span class="dv">2016</span> <span class="fl">0.451</span> <span class="fl">0.333</span> <span class="fl">0.718</span> <span class="fl">0.477</span>  <span class="dv">1748</span> <span class="fl">0.538</span>
+ <span class="dv">5</span> LeBron James        <span class="dv">2016</span> <span class="fl">0.520</span> <span class="fl">0.309</span> <span class="fl">0.731</span> <span class="fl">0.551</span>  <span class="dv">1920</span> <span class="fl">0.588</span>
+ <span class="dv">6</span> Damian Lillard      <span class="dv">2016</span> <span class="fl">0.419</span> <span class="fl">0.375</span> <span class="fl">0.892</span> <span class="fl">0.497</span>  <span class="dv">1879</span> <span class="fl">0.560</span>
+ <span class="dv">7</span> Anthony Davis       <span class="dv">2016</span> <span class="fl">0.493</span> <span class="fl">0.324</span> <span class="fl">0.758</span> <span class="fl">0.508</span>  <span class="dv">1481</span> <span class="fl">0.558</span>
+ <span class="dv">8</span> Russell Westbrook   <span class="dv">2016</span> <span class="fl">0.454</span> <span class="fl">0.296</span> <span class="fl">0.812</span> <span class="fl">0.489</span>  <span class="dv">1878</span> <span class="fl">0.554</span>
+ <span class="dv">9</span> DeMar DeRozan       <span class="dv">2016</span> <span class="fl">0.446</span> <span class="fl">0.338</span> <span class="fl">0.850</span> <span class="fl">0.463</span>  <span class="dv">1830</span> <span class="fl">0.550</span>
+<span class="dv">10</span> Paul George         <span class="dv">2016</span> <span class="fl">0.418</span> <span class="fl">0.372</span> <span class="fl">0.860</span> <span class="fl">0.490</span>  <span class="dv">1874</span> <span class="fl">0.558</span>
+<span class="co"># … with 2,244 more rows</span></code></pre></div>
 </div>
 </div>
 <div id="saving-our-work" class="section level2">
 <h2>Saving our work</h2>
 <p>By this point, the <code>nba_shooting</code> tbl has much more information in it than the original data file we read in. While we can always re-run the commands used to produce this tbl from our script, when data analyses become more complicated, it is helpful to save these objects. R has its own special file format for efficiently saving data on your computer.</p>
 <p>We will use the <code>save()</code> command.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw">save</span>(nba_shooting, <span class="dt">file =</span> <span class="st">&quot;data/nba_shooting.RData&quot;</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">save</span>(nba_shooting, <span class="dt">file =</span> <span class="st">&quot;data/nba_shooting.RData&quot;</span>)</code></pre></div>
 <p>When we want to <em>load</em> the data back into R, we can use the <code>load()</code> function</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw">load</span>(<span class="st">&quot;data/nba_shooting.RData&quot;</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">load</span>(<span class="st">&quot;data/nba_shooting.RData&quot;</span>)</code></pre></div>
 </div>
 <div id="thinking-ahead-for-tomorrow" class="section level2">
 <h2>Thinking Ahead for Tomorrow</h2>

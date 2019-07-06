@@ -258,7 +258,7 @@ updates following the end of each season). As an example, let's access the Teams
 dataset, use a `group_by` operation to calculate the number of strikeouts each
 year since 1871, and plot the line over time:
 
-```{r}
+```{r, tidy=FALSE}
 data("Teams")
 Teams %>%
   group_by(yearID) %>%
@@ -384,7 +384,7 @@ raptors_shots <- read_csv("data/raptors_shots.csv")
 Using this shot data, we can view the all shot attempts by the Raptors throughout
 the season colored by whether or not they made the shot.
 
-```{r}
+```{r, tidy=FALSE}
 raptors_shots %>%
   ggplot(aes(x = locationX, y = locationY,
              color = isShotMade)) +
@@ -430,7 +430,7 @@ to offensive performance higher values meaning better performance.
 The following code uses this data to create offensive and defensive summaries that
 we will join together to plot:
 
-```{r}
+```{r, tidy=FALSE}
 offense_epa_18 <- pbp_2018 %>%
   filter(!is.na(posteam)) %>%
   group_by(posteam) %>%
@@ -460,7 +460,7 @@ install.packages("ggimages")
 Next we access the images as a dataset, and join it together to the offense
 and defense summaries before creating our chart:
 
-```{r}
+```{r, tidy=FALSE}
 library(ggimage)
 nfl_logos_df <- read_csv("https://raw.githubusercontent.com/statsbylopez/BlogPosts/master/nfl_teamlogos.csv")
 

@@ -1,0 +1,29 @@
+---
+title: "Problem Set 5"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = "", prompt = TRUE, collapse = TRUE, tidy=FALSE)
+library(tidyverse)
+```
+<!--
+## Pythagorean Expectation in English Football
+
+The sabermetrician Bill James introduced the concept of Pythagorean Expectation to approximate baseball teams' winning percentages.
+he found that if you took the square of the number of runs scored (RS) and divided by the sum of the squares of runs scored (RS) and runs allowed (RA), you get a pretty good estimate of a team's actual win probability.
+James' formula is:
+$$
+\text{Win %} \approx \frac{\text{RS}^2}{\text{RS}^2 + \text{RA}^2}
+$$
+
+In this problem set, we will try to extend this formula to predict the win percentage for English Premeire Leagues using data spanning the time period 1950 -- 2015.
+This data is contained in 'data/english_football_results.csv'.
+
+
+1. Read the data into a tbl called `epl`. The tbl should have columns
+
+
+2. Add a column or win percentage
+-->
+
