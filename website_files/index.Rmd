@@ -49,10 +49,12 @@ website under the Training Camp tab in the menu at the top.
 
 ## About the Instructors
 
-Sameer Deshpande completed his PhD in Statistics at Wharton. He is broadly interested in Bayesian statistics. Before coming to Wharton, he studied math at MIT. He loves all Dallas sports teams, but is especially passionate about the Cowboys.
+Cecilia Balocchi is a 5th year PhD student in Statistics at Wharton.
+
+Sameer Deshpande completed his PhD in Statistics at Wharton in 2018 and is currently a post-doctoral associate at MIT. He is broadly interested in Bayesian statistics.  He loves all Dallas sports teams, but is especially passionate about the Cowboys.
+
+Matteo Sordello is a 4th year PhD student in Statistics at Wharton, currently working on optimization problems. Originally from Italy, he supports Juventus and all of the Italian beach volleyball teams.
 
 Ron Yurko is entering his third year as a PhD student in Statistics & Data Science at Carnegie Mellon University. Previously, he interned with the Pittsburgh Pirates and worked in finance as a quantitative analyst. As a Pittsburgh native, he of course roots for the Penguins and Steelers but is primarily burdened with being a lifelong Pirates fan. 
 
-
-## Test stuff
-Check out [lecture 1](lecture1.html)
+Kat Wilson is a first year PhD student studying Quantitative Methods at UPenn. After teaching computer science courses with an educational technology company in Austin, TX, Kat pursued a Masters degree in Quant Methods at UT Austin, and is excited to continue this research at Penn. In her spare time, Kat loves reading, playing guitar, running marathons, and also rooting for the the New York Jets and Notre Dame football teams every fall.

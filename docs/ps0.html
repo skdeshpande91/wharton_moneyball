@@ -251,6 +251,12 @@ $(document).ready(function () {
     <li>
       <a href="lecture5.html">Lecture 5</a>
     </li>
+    <li>
+      <a href="lecture6.html">Lecture 6</a>
+    </li>
+    <li>
+      <a href="lecture7.html">Lecture 7</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -358,7 +364,14 @@ $(document).ready(function () {
 <p>In the last three examples, we used the function <code>round()</code>, which takes 2 arguments (entered inside the parantheses). The first argument is the number that we want to round and the second argument (following the comma) is the number of digits to which we want to round the first argument. This is our first example of a multi-argument function and we’ll be seeing a lot more of them later on. In the last example above, we didn’t give <code>round</code> an explicit number to round. Instead, R first evaluated <code>sqrt(x)</code> and then rounded it. R follows the conventional order of operations, in that it evaluates the inner-most expression first and then works its way out.</p>
 <p>If we try to evaluate an expression using the name of a variable that we haven’t defined yet, R will throw an error. For instance, in the code below, if we try to add 5 to a previously undeclared variable, we get an error.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y +<span class="st"> </span><span class="dv">5</span></code></pre></div>
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;y&#39; not found</code></pre>
+<pre><code>##  [1] 5.596900 5.059829 5.047764 5.060890 5.521040 5.078748 5.962378
+##  [8] 5.286117 5.110335 5.000812 5.149910 5.008091 5.188819 5.717184
+## [15] 5.172531 5.455073 5.182802 5.217490 5.392570 5.286812 5.134524
+## [22] 5.155720 5.464999 5.846415 5.316295 5.385886 5.002641 5.687766
+## [29] 5.439158 5.825299 5.007712 5.220549 5.152612 5.000214 5.406799
+## [36] 5.269715 5.357011 5.232691 5.968848 5.377862 5.011378 5.085739
+## [43] 5.141640 5.059360 5.115913 5.000016 5.125450 5.000901 5.262290
+## [50] 5.281876</code></pre>
 </div>
 <div id="exercises" class="section level2">
 <h2>Exercises</h2>

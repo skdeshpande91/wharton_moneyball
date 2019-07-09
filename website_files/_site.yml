@@ -19,6 +19,10 @@ navbar:
           href: lecture4.html
         - text: "Lecture 5"
           href: lecture5.html
+        - text: "Lecture 6"
+          href: lecture6.html
+        - text: "Lecture 7"
+          href: lecture7.html
     - text: "Problem Sets"
       icon: fa-dribbble
       menu:

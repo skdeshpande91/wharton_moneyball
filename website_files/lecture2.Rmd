@@ -11,7 +11,7 @@ library(tidyverse)
 We're going to pick up right where we left off yesterday in [Problem Set 1](ps1.html), where you wrote a script to create a tbl containg several shooting statistics for NBA players between the 1996-97 season and the 2015-16 season.
 Your script should look something like what is the code block below.
 For reasons that will become clear shortly, we are going to call our tbl `raw_shooting`. 
-```{r ps2-create-tbl}
+```{r ps2-create-tbl, tidy=FALSE}
 library(tidyverse)
 raw_shooting <- read_csv(file = "data/nba_shooting.csv")
 raw_shooting <-
@@ -39,7 +39,7 @@ You can learn much much more about ggplot2 [here](https://ggplot2.tidyverse.org)
 
 As you saw in Prof. Wyner's lectures, histograms are a powerful way to describe a single dataset.
 
-```{r fgp-histogram}
+```{r fgp-histogram, tidy = FALSE}
 ggplot(data = raw_shooting) + 
   geom_histogram(mapping = aes(x = FGP), bins = 5)
 ```

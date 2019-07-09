@@ -1,0 +1,17 @@
+---
+title: 'Lecture 8: Logistic Regression'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+
+## Regression with multiple predictors
+
+Up to this point, all of the regression models we have built involves predicting either a continuous or binary outcome using a single predictor variable. 
+For instance, in [Lecture 6](lecture6.html), we tried to predict a continuous outcome (batting average in 2015) using a single predictor (batting average in 2014).
+Above, we predicted whether an NFL kicker would make a field goal 

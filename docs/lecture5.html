@@ -11,7 +11,7 @@
 
 
 
-<title>Lecture 5: Tidy Data &amp; Regression Introduction</title>
+<title>Lecture 5: Advanced Visualization and Other Data Sources</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -251,6 +251,12 @@ $(document).ready(function () {
     <li>
       <a href="lecture5.html">Lecture 5</a>
     </li>
+    <li>
+      <a href="lecture6.html">Lecture 6</a>
+    </li>
+    <li>
+      <a href="lecture7.html">Lecture 7</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -313,133 +319,267 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Lecture 5: Tidy Data &amp; Regression Introduction</h1>
+<h1 class="title toc-ignore">Lecture 5: Advanced Visualization and Other Data Sources</h1>
 
 </div>
 
 
-<div id="tidy-data" class="section level2">
-<h2>Tidy Data</h2>
-<p>Before we jump into any analysis, we wanted to start by discussing the notion of “tidy data”. <!-- Paraphrase some of the stuff in Hadley's article perhaps? --></p>
-<p>To make the above discussion much more concrete, let’s go back to the dataset we created at the end of <a href="ps4.html">Problem Set 4</a>. Each line of this tbl is a “player-season”. Printing out the tbl, we see that there is a separate row for each “player-season”.</p>
+<p>In <a href="lecture2.html">Lecture 2</a>, we saw that visualization using ggplot could provide important insights into large datasets. Today, we will learn more about ggplot and use what we have learned to study the relationship between batting averages in consecutive seasons.</p>
+<div id="visualizing-the-diving-dataset" class="section level2">
+<h2>Visualizing the Diving Dataset</h2>
+<p>In this course, we will be using the package ggplot2 for all of our data visualization. The <code>gg</code> stands for “grammar of graphics”, a framework for data visualization. This framework separates the process of visualization into different components: data, aesthetic mappings, and geometric objects. These components are then added together (or layered) to produce the final graph. We’re going to illustrate these components using the diving dataset from Prof. Wyner’s lecture.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">library</span>(tidyverse)
-&gt;<span class="st"> </span><span class="kw">load</span>(<span class="st">&quot;data/batting_2014_2015.RData&quot;</span>)
-&gt;<span class="st"> </span>batting_2014_2015
-<span class="co"># A tibble: 140 x 3</span>
-<span class="co"># Groups:   playerID [70]</span>
-   playerID  yearID    BA
-   &lt;chr&gt;<span class="st">      </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>dbl&gt;
-<span class="st"> </span><span class="dv">1</span> abreujo02   <span class="dv">2014</span> <span class="fl">0.317</span>
- <span class="dv">2</span> abreujo02   <span class="dv">2015</span> <span class="fl">0.290</span>
- <span class="dv">3</span> altuvjo01   <span class="dv">2014</span> <span class="fl">0.341</span>
- <span class="dv">4</span> altuvjo01   <span class="dv">2015</span> <span class="fl">0.313</span>
- <span class="dv">5</span> andruel01   <span class="dv">2014</span> <span class="fl">0.263</span>
- <span class="dv">6</span> andruel01   <span class="dv">2015</span> <span class="fl">0.258</span>
- <span class="dv">7</span> aybarer01   <span class="dv">2014</span> <span class="fl">0.278</span>
- <span class="dv">8</span> aybarer01   <span class="dv">2015</span> <span class="fl">0.270</span>
- <span class="dv">9</span> bautijo02   <span class="dv">2014</span> <span class="fl">0.286</span>
-<span class="dv">10</span> bautijo02   <span class="dv">2015</span> <span class="fl">0.250</span>
-<span class="co"># … with 130 more rows</span></code></pre></div>
-<p>In order to study the relationship between a player’s 2014 batting average and his 2015 batting average, it will be more convenient to store the data as below.</p>
-<pre><code># A tibble: 70 x 3
-# Groups:   playerID [70]
-   playerID  `2014` `2015`
-   &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt;
- 1 abreujo02  0.317  0.290
- 2 altuvjo01  0.341  0.313
- 3 andruel01  0.263  0.258
- 4 aybarer01  0.278  0.270
- 5 bautijo02  0.286  0.250
- 6 beltrad01  0.324  0.287
- 7 blackch02  0.288  0.287
- 8 bogaexa01  0.240  0.320
- 9 brantmi02  0.327  0.310
-10 braunry02  0.266  0.285
-# … with 60 more rows</code></pre>
-<p>In this format, we have a row for each player and two columns for his batting averages, one for 2014 and one for 2015. In order to convert our tbl into this format, we use <em>spreading</em>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>batting_2014_2015 &lt;-<span class="st"> </span>batting_2014_2015 %&gt;%<span class="st"> </span><span class="kw">spread</span>(yearID, BA)</code></pre></div>
-<p>When we print out <code>batting_2014_2015</code> now, we notice that it is a grouped tbl. Before proceeding we will need to remove this grouping</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>batting_2014_2015 &lt;-<span class="st"> </span>batting_2014_2015 %&gt;%<span class="st"> </span><span class="kw">ungroup</span>()</code></pre></div>
-<p>Notice that the column names of the tbl are now “2014” and “2015”. We can rename these column names</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>batting_2014_2015 &lt;-<span class="st"> </span>batting_2014_2015 %&gt;%<span class="st"> </span><span class="kw">rename</span>(<span class="dt">BA_2014 =</span> <span class="st">`</span><span class="dt">2014</span><span class="st">`</span>, <span class="dt">BA_2015 =</span> <span class="st">`</span><span class="dt">2015</span><span class="st">`</span>)</code></pre></div>
+&gt;<span class="st"> </span>diving &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/diving.csv&quot;</span>)</code></pre></div>
+<div id="components-of-a-plot" class="section level3">
+<h3>Components of a Plot</h3>
+<p>The first step in any data visualization is to tell R in which tbl the data we want to plot lives. This is done using the <code>ggplot()</code> function. Notice that we are <em>assigning</em> the plot to a new variable, <code>diving_hist</code>. Later, we will <em>add</em> layers to the plot using the <code>+</code> operator.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>diving_hist &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> diving)</code></pre></div>
+<p>Aesthetics map the data to the properties of the plot. Examples include:</p>
+<ul>
+<li><code>x</code>: the variable that will be on the x-axis</li>
+<li><code>y</code>: the variable that will be on the y-axis</li>
+<li><code>color</code>: the variable that categorizes data by color</li>
+<li><code>shape</code>: the variable that categorizes data by shape</li>
+</ul>
+<p>You can define the <code>aes</code> in the <code>ggplot</code> call, which will then be used for all later layers, or you can define the <code>aes</code> in the <code>geom</code> (see below), which will only apply to that <code>geom</code>. Geometric objects, or <code>geoms</code>, determine the type of plot that will be created. Examples include:</p>
+<ul>
+<li><code>geom_point()</code>: creates a scatterplot</li>
+<li><code>geom_histogram()</code>: creates a histogram</li>
+<li><code>geom_line()</code>: creates a line</li>
+<li><code>geom_boxplot()</code>: creates a boxplot</li>
+</ul>
 </div>
-<div id="predicting-batting-averages" class="section level2">
-<h2>Predicting Batting Averages</h2>
-<p>Imagine there’s one more player who played in both 2014 and 2015 but who is not in our dataset. Without knowing anything else about the player, how could we predict their 2015 batting average using the data that we have? The simplest thing (and as it turns out the best thing) to do in this case is to use the overall mean of the 2015 batting averages in our dataset to predict the batting average of this extra player.</p>
-<p>Now what if we also told you this extra player’s 2014 batting average? Can we improve on this simple prediction? In this section, we will propose several different ways of predicting 2015 batting average using 2014 batting average. In order to pick the best one, we can assess how well each method predicts the actual 2015 batting averages in our tbl. We will add columns to our tbl containing these predictions. To get things started, let’s add a column containing the overall mean of the 2015 batting averages. It turns out that this mean is 0.273, whereas the mean 2014 batting average is 0.272.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>batting_2014_2015 &lt;-<span class="st"> </span>batting_2014_2015 %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">yhat_0 =</span> <span class="kw">mean</span>(BA_2015))</code></pre></div>
-<p>If the 2014 batting average had no predictive power at all, then this overall mean will be the best prediction model possible, given what data we have. Plotting the 2015 batting averages against the 2014 batting averages allows us to assess visually whether there is any relationship between the two variables. We have added dashed red horizontal and vertical lines at the overall means of the 2014 and 2015 data, respectively.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">ggplot</span>(batting_2014_2015) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> BA_2014, <span class="dt">y =</span> BA_2015), <span class="dt">col =</span> <span class="st">&quot;black&quot;</span>, 
-+<span class="st">     </span><span class="dt">shape =</span> <span class="dv">16</span>, <span class="dt">size =</span> <span class="fl">0.9</span>) +<span class="st"> </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="fl">0.273</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">lty =</span> <span class="dv">2</span>) +<span class="st"> </span>
-+<span class="st">     </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="fl">0.272</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">lty =</span> <span class="dv">2</span>)</code></pre></div>
-<p><img src="lecture5_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
-<p>It certainly looks like there is a relationship! So it’s at least plausible that if we use the 2014 batting averages to make predictions for 2015, we can do better than relying on just the average of the 2015 averages.</p>
-<p>Looking carefully at the plot, we see that people with most players with below average batting averages in 2014 tended to also have below average batting averages in 2015. Similarly, most players with above average batting averages in 2014 tended to have above average batting averages in 2015.</p>
-<p>One way to improve on the simple prediction above would be as follows:</p>
-<ol style="list-style-type: decimal">
-<li>Divide the players into two groups, one for those with above average BA in 2014 and one for those with below average BA in 2014.</li>
-<li>Average the 2015 BA within each of these groups and use these averages as the prediction for each member of the group.</li>
-</ol>
-<p>In order to do this, we will need to augment our tbl <code>batting_2014_2015</code> with a column indicating to which group each player belongs. Then we can pass this column to <code>group_by()</code> and compute the average BA_2015 within each group. To create the column indicating group membership, we will use the powerful <code>cut()</code> function, which divides the range of a numerical vector into intervals and recodes the numerical values according to which interval they fall.</p>
-<p>The following code chunk does precisely that with two more steps: once we have made our predictions, we ungroup the tbl and we can drop the column indicating the interval in which our observation falls.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>batting_2014_2015 &lt;-<span class="st"> </span>batting_2014_2015 %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">bins =</span> <span class="kw">cut</span>(BA_2014, <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="fl">0.15</span>, 
-+<span class="st">     </span><span class="fl">0.272</span>, <span class="fl">0.4</span>))) %&gt;%<span class="st"> </span><span class="kw">group_by</span>(bins) %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">yhat_1 =</span> <span class="kw">mean</span>(BA_2015)) %&gt;%<span class="st"> </span>
-+<span class="st">     </span><span class="kw">ungroup</span>() %&gt;%<span class="st"> </span><span class="kw">select</span>(-bins)</code></pre></div>
-<p>When we run this code and print out our tbl, we see that there is a new column called “yhat_1” that contains our new predictions. Before proceeding, we should talk a bit about the syntax use in <code>cut()</code>. The first argument is the variable we want to discretize. The next argument, <code>breaks =</code> is a vector that tells R where the endpoints of these intervals are. These are often called “cut points” In this particular case, we wanted to divide the players into those with below average batting averages in 2014 and above average batting averages in 2015. The first element of the cut point vector, 0.15 is much less than the smallest BA_2014 value, whereas the second elements, 0.272, is the overall mean of the BA_2014 values. The last element, 0.40 is much greater than the largest BA_2014 value.</p>
-<p>Now that we have two different ways of predicting 2015 batting averages, let us see how they compare, visually.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">ggplot</span>(batting_2014_2015) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> BA_2014, <span class="dt">y =</span> BA_2015), <span class="dt">col =</span> <span class="st">&quot;black&quot;</span>, 
-+<span class="st">     </span><span class="dt">shape =</span> <span class="dv">16</span>, <span class="dt">size =</span> <span class="fl">0.9</span>) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> BA_2014, <span class="dt">y =</span> yhat_0), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, 
-+<span class="st">     </span><span class="dt">shape =</span> <span class="dv">3</span>, <span class="dt">size =</span> <span class="fl">0.75</span>) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> BA_2014, <span class="dt">y =</span> yhat_1), <span class="dt">col =</span> <span class="st">&quot;green&quot;</span>, 
-+<span class="st">     </span><span class="dt">shape =</span> <span class="dv">15</span>, <span class="dt">size =</span> <span class="fl">0.75</span>)</code></pre></div>
-<p><img src="lecture5_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
-<p>Visually it appears that the green squares (corresponding to yhat_1) are a bit closer to the actual values than the red crosses (corresponding to yhat_0). This would suggest that dividing the players into the two bins according to their 2014 batting average and using the average BA_2015 value within each bin as our forecast was better than using the overall average BA_2015 value for all players.</p>
-<p>Of course, we can continue with this line of reasoning and divide the players into even more bins. When we do that, instead of hand-coding the vector of cut points, we can use the function <code>seq()</code> which generates a vector of equally spaced numbers. To demonstrate, suppose we wanted to divide the interval [0,1] into 10 equally sized intervals: (0,0.1], (0.1, 0.2], …, (0.9, 1]. To get the vector of cutpoints, we need to tell <code>seq()</code> either how many points we wanted or the spacing between the points:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">1</span>, <span class="dt">length =</span> <span class="dv">11</span>)
- [<span class="dv">1</span>] <span class="fl">0.0</span> <span class="fl">0.1</span> <span class="fl">0.2</span> <span class="fl">0.3</span> <span class="fl">0.4</span> <span class="fl">0.5</span> <span class="fl">0.6</span> <span class="fl">0.7</span> <span class="fl">0.8</span> <span class="fl">0.9</span> <span class="fl">1.0</span>
-&gt;<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">1</span>, <span class="dt">by =</span> <span class="fl">0.1</span>)
- [<span class="dv">1</span>] <span class="fl">0.0</span> <span class="fl">0.1</span> <span class="fl">0.2</span> <span class="fl">0.3</span> <span class="fl">0.4</span> <span class="fl">0.5</span> <span class="fl">0.6</span> <span class="fl">0.7</span> <span class="fl">0.8</span> <span class="fl">0.9</span> <span class="fl">1.0</span></code></pre></div>
-<p>So let’s say we wanted to divde the 2014 batting averages into intervals of length 0.05 and predict 2015 batting averages using the average BA_2015 values within the resulting bins. We could run</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>batting_2014_2015 &lt;-<span class="st"> </span>batting_2014_2015 %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">bins =</span> <span class="kw">cut</span>(BA_2014, <span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dt">from =</span> <span class="fl">0.15</span>, 
-+<span class="st">     </span><span class="dt">to =</span> <span class="fl">0.4</span>, <span class="dt">by =</span> <span class="fl">0.05</span>))) %&gt;%<span class="st"> </span><span class="kw">group_by</span>(bins) %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">yhat_2 =</span> <span class="kw">mean</span>(BA_2015)) %&gt;%<span class="st"> </span>
-+<span class="st">     </span><span class="kw">ungroup</span>() %&gt;%<span class="st"> </span><span class="kw">select</span>(-bins)</code></pre></div>
-<p>We can also visualize our new predictions, this time with blue triangles</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">ggplot</span>(batting_2014_2015) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> BA_2014, <span class="dt">y =</span> BA_2015), <span class="dt">shape =</span> <span class="dv">16</span>, 
-+<span class="st">     </span><span class="dt">size =</span> <span class="fl">0.9</span>) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> BA_2014, <span class="dt">y =</span> yhat_0), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">shape =</span> <span class="dv">3</span>, 
-+<span class="st">     </span><span class="dt">size =</span> <span class="fl">0.75</span>) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> BA_2014, <span class="dt">y =</span> yhat_1), <span class="dt">col =</span> <span class="st">&quot;green&quot;</span>, <span class="dt">shape =</span> <span class="dv">15</span>, 
-+<span class="st">     </span><span class="dt">size =</span> <span class="fl">0.75</span>) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> BA_2014, <span class="dt">y =</span> yhat_2), <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">shape =</span> <span class="dv">17</span>, 
-+<span class="st">     </span><span class="dt">size =</span> <span class="fl">0.75</span>)</code></pre></div>
-<p><img src="lecture5_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-<p>It appears that we are able to perfectly predict the 2015 batting average of the player with the lowest batting average in 2014. Why do you think this was the case?</p>
-<p>Let’s add two more predictions in which we divide the 2014 batting averages into bins of length 0.005 and 0.001. The code below generates these predictions, saves them to columns called “yhat_3” and “yhat_4” in our tbl, and then adds the predictions to the plot in purple and orange.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>batting_2014_2015 &lt;-<span class="st"> </span>batting_2014_2015 %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">bins =</span> <span class="kw">cut</span>(BA_2014, <span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dt">from =</span> <span class="fl">0.15</span>, 
-+<span class="st">     </span><span class="dt">to =</span> <span class="fl">0.4</span>, <span class="dt">by =</span> <span class="fl">0.005</span>))) %&gt;%<span class="st"> </span><span class="kw">group_by</span>(bins) %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">yhat_3 =</span> <span class="kw">mean</span>(BA_2015)) %&gt;%<span class="st"> </span>
-+<span class="st">     </span><span class="kw">ungroup</span>() %&gt;%<span class="st"> </span><span class="kw">select</span>(-bins)
+<div id="putting-it-all-together" class="section level3">
+<h3>Putting it All Together</h3>
+<p>Let’s make a histogram of judge’s scores.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>diving_hist &lt;-<span class="st"> </span>diving_hist +<span class="st"> </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">x =</span> JScore), <span class="dt">binwidth =</span> <span class="fl">0.25</span>)
 &gt;<span class="st"> </span>
-<span class="er">&gt;</span><span class="st"> </span>batting_2014_2015 &lt;-<span class="st"> </span>batting_2014_2015 %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">bins =</span> <span class="kw">cut</span>(BA_2014, <span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dt">from =</span> <span class="fl">0.15</span>, 
-+<span class="st">     </span><span class="dt">to =</span> <span class="fl">0.4</span>, <span class="dt">by =</span> <span class="fl">0.001</span>))) %&gt;%<span class="st"> </span><span class="kw">group_by</span>(bins) %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">yhat_4 =</span> <span class="kw">mean</span>(BA_2015)) %&gt;%<span class="st"> </span>
-+<span class="st">     </span><span class="kw">ungroup</span>() %&gt;%<span class="st"> </span><span class="kw">select</span>(-bins)
-&gt;<span class="st"> </span>
-<span class="er">&gt;</span><span class="st"> </span><span class="kw">ggplot</span>(batting_2014_2015) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> BA_2014, <span class="dt">y =</span> BA_2015), <span class="dt">shape =</span> <span class="dv">16</span>, 
-+<span class="st">     </span><span class="dt">size =</span> <span class="fl">0.9</span>) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> BA_2014, <span class="dt">y =</span> yhat_0), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">shape =</span> <span class="dv">3</span>, 
-+<span class="st">     </span><span class="dt">size =</span> <span class="fl">0.75</span>) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> BA_2014, <span class="dt">y =</span> yhat_1), <span class="dt">col =</span> <span class="st">&quot;green&quot;</span>, <span class="dt">shape =</span> <span class="dv">15</span>, 
-+<span class="st">     </span><span class="dt">size =</span> <span class="fl">0.75</span>) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> BA_2014, <span class="dt">y =</span> yhat_2), <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">shape =</span> <span class="dv">17</span>, 
-+<span class="st">     </span><span class="dt">size =</span> <span class="fl">0.75</span>) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> BA_2014, <span class="dt">y =</span> yhat_3), <span class="dt">col =</span> <span class="st">&quot;purple&quot;</span>, 
-+<span class="st">     </span><span class="dt">shape =</span> <span class="dv">8</span>, <span class="dt">size =</span> <span class="fl">0.75</span>) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> BA_2014, <span class="dt">y =</span> yhat_4), <span class="dt">col =</span> <span class="st">&quot;orange&quot;</span>, 
-+<span class="st">     </span><span class="dt">shape =</span> <span class="dv">10</span>, <span class="dt">size =</span> <span class="fl">0.75</span>)</code></pre></div>
-<p><img src="lecture5_files/figure-html/yhat-34-1.png" width="672" /></p>
+<span class="er">&gt;</span><span class="st"> </span>diving_hist</code></pre></div>
+<p><img src="lecture5_files/figure-html/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>In the code above, we first overwrote <code>diving_hist</code> so that is now a histogram of judges’ scores where each bin had width 0.25. In the second line, we asked R to display this object. <strong>For ggplot code it is very important that the <code>+</code> goes at the end of a line, just like the pipe <code>%&gt;%</code></strong></p>
+<p>Notice that the label for the x-axis is JScore, which is the column name from the tbl. We can change the label by <em>adding</em> a layer.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>diving_hist &lt;-<span class="st"> </span>diving_hist +<span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Judge Score&quot;</span>)
+&gt;<span class="st"> </span>diving_hist</code></pre></div>
+<p><img src="lecture5_files/figure-html/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
-<div id="assessing-predictive-performance" class="section level2">
-<h2>Assessing Predictive Performance</h2>
-<p>We now have a couple of different ways of predicting BA_2015. Qualitatively, the predictions in purple (formed by binning BA_2014 into very small intervals) appear to fit the observed data better than the blue, green, and red predictions. To assess the predictions quantitatively, we often rely on the root mean square error or RMSE. This is the square root of the mean square error (MSE), which is computed by averaging the squared difference between the actual values and the predicted values.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">summarize</span>(batting_2014_2015, <span class="dt">rmse_0 =</span> <span class="kw">sqrt</span>(<span class="kw">mean</span>((BA_2015 -<span class="st"> </span>yhat_0)^<span class="dv">2</span>)), <span class="dt">rmse_1 =</span> <span class="kw">sqrt</span>(<span class="kw">mean</span>((BA_2015 -<span class="st"> </span>
-+<span class="st">     </span>yhat_1)^<span class="dv">2</span>)), <span class="dt">rmse_2 =</span> <span class="kw">sqrt</span>(<span class="kw">mean</span>((BA_2015 -<span class="st"> </span>yhat_2)^<span class="dv">2</span>)), <span class="dt">rmse_3 =</span> <span class="kw">sqrt</span>(<span class="kw">mean</span>((BA_2015 -<span class="st"> </span>
-+<span class="st">     </span>yhat_3)^<span class="dv">2</span>)), <span class="dt">rmse_4 =</span> <span class="kw">sqrt</span>(<span class="kw">mean</span>((BA_2015 -<span class="st"> </span>yhat_4)^<span class="dv">2</span>)))
-<span class="co"># A tibble: 1 x 5</span>
-  rmse_0 rmse_1 rmse_2 rmse_3 rmse_4
-   &lt;dbl&gt;<span class="st">  </span><span class="er">&lt;</span>dbl&gt;<span class="st">  </span><span class="er">&lt;</span>dbl&gt;<span class="st">  </span><span class="er">&lt;</span>dbl&gt;<span class="st">  </span><span class="er">&lt;</span>dbl&gt;
-<span class="dv">1</span> <span class="fl">0.0257</span> <span class="fl">0.0244</span> <span class="fl">0.0226</span> <span class="fl">0.0185</span> <span class="fl">0.0113</span></code></pre></div>
-<p>The RMSEs confirm what we could see visually: the purple predictions fit the data much better than the blue, green, and red predictions. Moreover we see that the predictions formed by binning into smaller intervals yielded smaller RMSEs than the predictions formed by binning into larger intervals.</p>
-<p>Despite the fact that the orange predictions are even better than the purple predictions, we notice something worrying about these two predictions: they are not monotonic. Intuitively, we would expect that players with larger 2014 batting averages have, on average, larger 2015 batting averages than players with smaller 2014 batting averages. The reason that our predictions are not monotonic is that some of the bins contain only a single data point.</p>
+<div id="facets" class="section level3">
+<h3>Facets</h3>
+<p>What if we want to separate the judges’ scores by country? We can use <em>facets</em>. Facets allow you to separate graphs by category. We do not need to redo our above code for the histogram - we only need to add a <em>facet</em> layer to our graph <code>hist</code>. The first argument of <code>facet_wrap</code> is the column of our dataset that contains the category information. Note that we need a tilde (<code>~</code>) in front of <code>JCountry</code>: later in the course we will discuss why this is needed. The second argument of <code>facet_wrap</code> specifies the number of rows for which to display the graphs.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>diving_hist &lt;-<span class="st"> </span>diving_hist +<span class="st"> </span><span class="kw">facet_wrap</span>(~JCountry, <span class="dt">nrow =</span> <span class="dv">3</span>)
+&gt;<span class="st"> </span>diving_hist</code></pre></div>
+<p><img src="lecture5_files/figure-html/unnamed-chunk-4-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>To get a sense of whether a particular country’s judges are biased, it would be useful to add a reference line at the median score over all judges and countries to each facet. We can do this with <code>geom_vline()</code>, which adds a vertical line to your plot. <em>Note</em>: <code>color</code> is not in <code>aes</code> in the above code because it is a single value. In the next example, each category has a different color, so color is in <code>aes</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>median_score &lt;-<span class="st"> </span><span class="kw">median</span>(diving[[<span class="st">&quot;JScore&quot;</span>]])
+&gt;<span class="st"> </span>diving_hist &lt;-<span class="st"> </span>diving_hist +<span class="st"> </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> median_score, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>)
+&gt;<span class="st"> </span>diving_hist</code></pre></div>
+<p><img src="lecture5_files/figure-html/unnamed-chunk-5-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="boxplots" class="section level2">
+<h2>Boxplots</h2>
+<p>Boxplots are also an important visualization tool. We now create boxplots of the judges’ scores, separated by diving round. Here we use the <code>aes</code> property <code>fill = Round</code> to color (or “fill”) the boxplots by country.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>diving_box &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> diving)
+&gt;<span class="st"> </span>diving_box &lt;-<span class="st"> </span>diving_box +<span class="st"> </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Round, <span class="dt">y =</span> JScore, <span class="dt">fill =</span> Round))
+&gt;<span class="st"> </span>diving_box &lt;-<span class="st"> </span>diving_box +<span class="st"> </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Diving scores by round&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Judge Score&quot;</span>, 
++<span class="st">     </span><span class="dt">fill =</span> <span class="st">&quot;Round&quot;</span>)
+&gt;<span class="st"> </span>diving_box</code></pre></div>
+<p><img src="lecture5_files/figure-html/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>We can also remove the unnecessary x-axis ticks and labels as the legend on the right is sufficient. We do so using the <code>theme</code> layer:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>diving_box &lt;-<span class="st"> </span>diving_box +<span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.x =</span> <span class="kw">element_blank</span>(), <span class="dt">axis.text.x =</span> <span class="kw">element_blank</span>(), 
++<span class="st">     </span><span class="dt">axis.ticks.x =</span> <span class="kw">element_blank</span>())
+&gt;<span class="st"> </span>diving_box</code></pre></div>
+<p><img src="lecture5_files/figure-html/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div id="barplots" class="section level3">
+<h3>Barplots</h3>
+<p>We can also create barplots using <code>geom_bar</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>bar &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> diving)
+&gt;<span class="st"> </span>bar &lt;-<span class="st"> </span>bar +<span class="st"> </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(<span class="dt">x =</span> JCountry, <span class="dt">fill =</span> JCountry))
+&gt;<span class="st"> </span>bar &lt;-<span class="st"> </span>bar +<span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Judge Country&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;Judge Country&quot;</span>)
+&gt;<span class="st"> </span>bar</code></pre></div>
+<p><img src="lecture5_files/figure-html/unnamed-chunk-8-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="scatterplots" class="section level3">
+<h3>Scatterplots</h3>
+<p>Now let’s turn back to scatterplots, which were introduced in <a href="module2.html">Module 2</a>. We plot judges’ score versus rank of the diver. As we expect, the higher the divers’ rank, the higher their score.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>scatter &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> diving)
+&gt;<span class="st"> </span>scatter &lt;-<span class="st"> </span>scatter +<span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Rank, <span class="dt">y =</span> JScore, <span class="dt">color =</span> Country))
+&gt;<span class="st"> </span>scatter</code></pre></div>
+<p><img src="lecture5_files/figure-html/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="lines" class="section level3">
+<h3>Lines</h3>
+<p>We can also add an <code>abline</code> to our scatterplot - that is, a line where we specify the y-intercept (<code>intercept</code>) and the slope (<code>slope</code>):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>scatter &lt;-<span class="st"> </span>scatter +<span class="st"> </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span> <span class="fl">8.1</span>, <span class="dt">slope =</span> -<span class="fl">0.1</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>)
+&gt;<span class="st"> </span>scatter</code></pre></div>
+<p><img src="lecture5_files/figure-html/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><em>Note</em>: <code>geom_abline</code> is different from <code>geom_line</code>: <code>geom_line</code> “connects the dots” between your data and so doesn’t have to be a straight line, whereas <code>geom_abline</code> draws a straight line with the specified slope and y-intercept.</p>
+<p>Other <code>geom</code> for lines are: - <code>geom_vline</code>: to add a vertical line to a plot - <code>geom_hline</code>: to add a horizontal line to a plot</p>
+</div>
+<div id="stats" class="section level3">
+<h3>Stats</h3>
+<p>We can also specify a layer using <code>stat_</code>, which stands for statistical transformation. This is useful if we want to plot a summary statistic of our data, such as a mean or median. By using a <code>stat_</code> layer, we do not have to compute this summary statistic beforehand - <code>ggplot</code> will compute the summary statistic for us and then plot the result.</p>
+<p>For example, suppose we want to plot the means of each judge’s score and provide error bars of one standard deviation on either side of the mean. We could use <code>summarize</code> and <code>group_by</code> to find the mean and standard deviations for each judge, <em>or</em> we could just use a <code>stat_</code> layer!</p>
+<p>The layer <code>stat_summary()</code> computes and then plots a user-specified summary statistic. We choose the option <code>mean_se</code> to calculate the means and standard deviations of the scores of each judge.</p>
+<p>As always, we set up the plot by calling <code>ggplot</code>, specifiying <code>data = diving</code> and then providing the <code>aes</code>. In this case, we want the judge on the <code>x</code>-axis and their scores on the <code>y</code>-axis. We then add out <code>stat_summary</code> layer.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>judges &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> diving, <span class="kw">aes</span>(<span class="dt">x =</span> Judge, <span class="dt">y =</span> JScore))
+&gt;<span class="st"> </span>judges &lt;-<span class="st"> </span>judges +<span class="st"> </span><span class="kw">stat_summary</span>(<span class="dt">fun.data =</span> mean_se)
+&gt;<span class="st"> </span>judges &lt;-<span class="st"> </span>judges +<span class="st"> </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Judge Score&quot;</span>)
+&gt;<span class="st"> </span>judges</code></pre></div>
+<p><img src="lecture5_files/figure-html/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>We can see that the judges’ names are bunched together… ideally we would want their names to be horizontal to make it easier to read. Luckily, <code>ggplot</code> has an easy fix for this!</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>judges &lt;-<span class="st"> </span>judges +<span class="st"> </span><span class="kw">coord_flip</span>()
+&gt;<span class="st"> </span>judges</code></pre></div>
+<p><img src="lecture5_files/figure-html/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="scales" class="section level3">
+<h3>Scales</h3>
+<p>Scales allow you to adjust the aesthetics or visual aspects of a plot. We return to the scatter plot of the judges’ scores vs rank of the divers. This time, we want to color the points by the difficulty of the dive.</p>
+<p>We use the layer:</p>
+<ul>
+<li><code>scale_color_distiller</code></li>
+</ul>
+<p>Above, the second word, <code>color</code>, is the <code>aes</code> we want to change. We can replace it with <code>x</code>, <code>y</code> or <code>fill</code>, depending on the <code>aes</code> we want to change.</p>
+<p>The third word is <code>distiller</code>, which we use because our <code>color</code> variable, <code>Difficulty</code>, is continuous. If it were discrete, we would write <code>brewer</code> instead.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>scatter &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> diving)
+&gt;<span class="st"> </span>scatter &lt;-<span class="st"> </span>scatter +<span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Rank, <span class="dt">y =</span> JScore, <span class="dt">color =</span> Difficulty))
+&gt;<span class="st"> </span>scatter &lt;-<span class="st"> </span>scatter +<span class="st"> </span><span class="kw">scale_color_distiller</span>(<span class="dt">palette =</span> <span class="st">&quot;OrRd&quot;</span>, <span class="dt">direction =</span> <span class="dv">1</span>)
+&gt;<span class="st"> </span>scatter</code></pre></div>
+<p><img src="lecture5_files/figure-html/unnamed-chunk-14-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Interestingly, it seems that some of the highest ranked divers perform most of the less difficult dives, but perform these easy dives very well.</p>
+<p>To further investigate, we plot a 2D histogram of Rank vs Difficulty.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>hist &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> diving)
+&gt;<span class="st"> </span>hist &lt;-<span class="st"> </span>hist +<span class="st"> </span><span class="kw">geom_bin2d</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Rank, <span class="dt">y =</span> Difficulty))
+&gt;<span class="st"> </span>hist &lt;-<span class="st"> </span>hist +<span class="st"> </span><span class="kw">scale_fill_distiller</span>(<span class="dt">palette =</span> <span class="st">&quot;Spectral&quot;</span>)
+&gt;<span class="st"> </span>hist</code></pre></div>
+<p><img src="lecture5_files/figure-html/unnamed-chunk-15-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Note that we use <code>fill</code> instead of <code>color</code> in <code>scale_fill_distiller</code> to control the fill of the histogram bins.</p>
+<p>From the 2D histogram, we can see that the higher ranked divers attempt both more difficult and less difficult dives, unlike the lower ranked divers who only attempt more difficult dives.</p>
+</div>
+<div id="colorbrewer" class="section level3">
+<h3>ColorBrewer</h3>
+<p>The palettes used in this module, including “OrRd” and “Spectral”, come from <a href="http://colorbrewer2.org/">ColorBrewer</a>. You can take a look at the website and use some of these color palettes in your plots!</p>
+</div>
+</div>
+<div id="other-data-sources" class="section level2">
+<h2>Other Data Sources</h2>
+<p>So far in this course you’ve worked with data that we had already prepared for you. It turns out that there are many R packages and tools that you can use to get data from a variety of different sources. Below, we will provide a brief walkthrough of just a few of these resources.</p>
+<div id="lahman" class="section level3">
+<h3><code>Lahman</code></h3>
+<p>The <a href="http://www.seanlahman.com/baseball-archive/statistics/">Lahman Baseball Database</a> is a popular resource created by Sean Lahman with historical data going back to 1871. Rather than having to access the database directly via complicated computing procedures, there is an R package we can install to access the data instead. The following code installs the package from the CRAN:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">install.packages</span>(<span class="st">&quot;Lahman&quot;</span>)</code></pre></div>
+<p>Next we load the package, and checkout what datasets are available:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">library</span>(Lahman)
+&gt;<span class="st"> </span><span class="kw">data</span>(<span class="dt">package =</span> <span class="st">&quot;Lahman&quot;</span>)</code></pre></div>
+<p>There is an incredible amount of data here going up through the 2018 season (it updates following the end of each season). As an example, let’s access the Teams dataset, use a <code>group_by</code> operation to calculate the number of strikeouts each year since 1871, and plot the line over time:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">data</span>(<span class="st">&quot;Teams&quot;</span>)
+&gt;<span class="st"> </span>Teams %&gt;%
++<span class="st">   </span><span class="kw">group_by</span>(yearID) %&gt;%
++<span class="st">   </span><span class="kw">summarize</span>(<span class="dt">n_so =</span> <span class="kw">sum</span>(SO, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) %&gt;%
++<span class="st">   </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> yearID, <span class="dt">y =</span> n_so)) +
++<span class="st">   </span><span class="kw">geom_line</span>() +
++<span class="st">   </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Year&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Number of strikeouts&quot;</span>,
++<span class="st">        </span><span class="dt">title =</span> <span class="st">&quot;Total number of strikeouts in each baseball season since 1871&quot;</span>,
++<span class="st">        </span><span class="dt">caption =</span> <span class="st">&quot;Data courtesy of Lahman&quot;</span>) +
++<span class="st">   </span><span class="kw">theme_bw</span>()</code></pre></div>
+<p><img src="lecture5_files/figure-html/unnamed-chunk-17-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>We can see the increasing trend over, but think about how this display could be improved to handle possible changes that have taken place in baseball.</p>
+</div>
+<div id="installing-github-packages" class="section level3">
+<h3>Installing GitHub Packages</h3>
+<p><strong>An important note to keep in mind is that most of these resources are largely still in development, this means you may face challenges with installation and use.</strong> While the vast majority of <code>R</code> packages you will commonly use are able to be installed using <code>install.packages()</code> because they are on the CRAN, there are a variety of popular <code>R</code> packages for accessing sports data that are currently only available through GitHub. In order to access these packages, we first need to install them using a package called <code>devtools</code>. The code below installs the <code>devtools</code> package:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</code></pre></div>
+<p>The <code>devtools</code> package has a function, <code>install_github</code> that we will use for installing the remaining packages used below.</p>
+</div>
+<div id="baseballr" class="section level3">
+<h3><code>baseballr</code></h3>
+<p>Created by <a href="http://billpetti.github.io/baseballr/">Bill Petti, the <code>baseballr</code> package</a> has become a popular resource for accessing baseball data from variety of resources, such as <a href="https://www.fangraphs.com/">FanGraphs</a> and <a href="https://www.baseball-reference.com/">Baseball-Reference</a> directly into <code>R</code>. One of the best features of the <code>baseballr</code> package is the functionality it provides us for directly accessing the publicly available pitch-by-pitch and Statcast data available from <a href="https://baseballsavant.mlb.com/">baseball-savant</a>.</p>
+<p>We first install the package using the <code>devtools</code> package explained above, and then load its functions:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>devtools::<span class="kw">install_github</span>(<span class="st">&quot;BillPetti/baseballr&quot;</span>)
+&gt;<span class="st"> </span><span class="kw">library</span>(baseballr)</code></pre></div>
+<p>Using the <code>baseballr</code> package we can access all pitches thrown to a hitter in the current season, giving us Statcast data like exit velocity and launch angle. We first use the <code>playerid_lookup</code> function to find the Statcast ID for the Pittsburgh Pirates (All-Star?) firstbaseman Josh Bell:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">playerid_lookup</span>(<span class="dt">last_name =</span> <span class="st">&quot;Bell&quot;</span>, <span class="dt">first_name =</span> <span class="st">&quot;Josh&quot;</span>)</code></pre></div>
+<p>This will load up a look-up table with all identifiers joining various sources together (it will take a couple minutes to run and don’t worry about the warning messages). The Josh Bell we’re interested in has the <code>mlbam_id</code> of 605137. Using this id, we can grab all pitches thrown to Bell in the current MLB season so far:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>bell_statcast_data &lt;-<span class="st"> </span><span class="kw">scrape_statcast_savant_batter</span>(<span class="dt">start_date =</span> <span class="st">&quot;2019-01-01&quot;</span>, 
++<span class="st">     </span><span class="dt">end_date =</span> <span class="st">&quot;2019-12-31&quot;</span>, <span class="dt">batterid =</span> <span class="dv">605137</span>)</code></pre></div>
+<p>This dataset contains many columns, for now we will look at the relationship between the distance traveled of Josh Bell’s batted balls (denoted by <code>type == &quot;X&quot;</code>) and the launch angle (<code>launch_angle</code>) as well as the exit velocity (<code>launch_speed</code>):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>bell_statcast_data %&gt;%<span class="st"> </span><span class="kw">filter</span>(type ==<span class="st"> &quot;X&quot;</span>) %&gt;%<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> launch_speed, 
++<span class="st">     </span><span class="dt">y =</span> launch_angle, <span class="dt">color =</span> hit_distance_sc)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span><span class="kw">scale_color_viridis_c</span>(<span class="dt">option =</span> <span class="st">&quot;A&quot;</span>) +<span class="st"> </span>
++<span class="st">     </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Exit velocity (MPH)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Launch angle (degrees)&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;Distance (feet)&quot;</span>, 
++<span class="st">         </span><span class="dt">title =</span> <span class="st">&quot;Josh Bell&#39;s launch angle, exit velocity, and distance traveled&quot;</span>, 
++<span class="st">         </span><span class="dt">caption =</span> <span class="st">&quot;Data accessed via baseballr&quot;</span>)</code></pre></div>
+<p><img src="lecture5_files/figure-html/unnamed-chunk-18-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>This is just a single example of the type of data available using <code>baseballr</code>, see the package website for more <a href="http://billpetti.github.io/baseballr/data-acquisition-functions/">data acquisition functions</a>. Additionally, the <a href="https://baseballwithr.wordpress.com/">Exploring Baseball Data with R website by Jim Albert</a> is an incredible resource with a variety of examples of learning R code all in the context of baseball data analysis.</p>
+</div>
+<div id="nbastatr" class="section level3">
+<h3><code>nbastatr</code></h3>
+<p>The <a href="http://asbcllc.com/nbastatR/"><code>nbastatr</code> package</a> created by Alex Bresler is analogous to the <code>baseballr</code> package as it provides many different functions for accessing NBA data from a variety of websites. Again to be able to use the package you need to install it from GitHub:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>devtools::<span class="kw">install_github</span>(<span class="st">&quot;abresler/nbastatR&quot;</span>)
+&gt;<span class="st"> </span><span class="kw">library</span>(nbastatR)</code></pre></div>
+<p><strong>There will likely be several messages that appear when installing this package, please let us know if you encounter any strange issues.</strong> The code below demonstrates how to get all shot attempts by the 2019 NBA champions, the Toronto Raptors, in the past season using this package:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>raptors_shots &lt;-<span class="st"> </span><span class="kw">teams_shots</span>(<span class="dt">teams =</span> <span class="st">&quot;Toronto Raptors&quot;</span>, <span class="dt">seasons =</span> <span class="kw">c</span>(<span class="dv">2019</span>))</code></pre></div>
+<p>Using this shot data, we can view the all shot attempts by the Raptors throughout the season colored by whether or not they made the shot.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>raptors_shots %&gt;%
++<span class="st">   </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> locationX, <span class="dt">y =</span> locationY,
++<span class="st">              </span><span class="dt">color =</span> isShotMade)) +
++<span class="st">   </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>) +
++<span class="st">   </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;darkorange&quot;</span>, <span class="st">&quot;darkblue&quot;</span>)) +
++<span class="st">   </span><span class="kw">theme_bw</span>() +
++<span class="st">   </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Shot attempts by Toronto Raptors in 2018-19 NBA season&quot;</span>,
++<span class="st">        </span><span class="dt">caption =</span> <span class="st">&quot;Data accessed via nbastatR&quot;</span>)</code></pre></div>
+<p><img src="lecture5_files/figure-html/unnamed-chunk-19-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>It’s apparent from this chart the effect of the three-point line of their shot selection.</p>
+</div>
+<div id="nflscrapr" class="section level3">
+<h3><code>nflscrapR</code></h3>
+<p>Created by Max Horowitz, Ron Yurko, and Sam Ventura, the <a href="https://github.com/maksimhorowitz/nflscrapR"><code>nflscrapR</code> package</a> gives R users the ability to scrape play-by-play data from the NFL in real-time during games providing expected points and win probability estimates. Just like the <code>baseballr</code> and <code>nbastatR</code> packages, the <code>nflscrapR</code> package must be installed from GitHub:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>devtools::<span class="kw">install_github</span>(<span class="st">&quot;maksimhorowitz/nflscrapR&quot;</span>)
+&gt;<span class="st"> </span><span class="kw">library</span>(nflscrapR)</code></pre></div>
+<p>Now we can use this package to gather play-by-play data, but this can take some time to run. Instead, one of the package authors (and one of your instructors!) has already scraped <a href="https://github.com/ryurko/nflscrapR-data">all NFL data going back to the 2009 season and made it available to access on GitHub</a>. We can directly read in the play-by-play data from this past 2018 regular season using the following url in the <code>read_csv</code> function:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>pbp_2018 &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ryurko/nflscrapR-data/master/play_by_play_data/regular_season/reg_pbp_2018.csv&quot;</span>)</code></pre></div>
+<p>With this data, we can summarize the performance of all NFL teams using the expected points added (EPA) per game on offense and defense. EPA tells us how much value the team provided relative to an average baseline. The more positive the better the offensive performance. This means the more negative the value the defensive performance, so in the code chunk below we multiply the defensive values by -1 so it’s similar to offensive performance higher values meaning better performance. The following code uses this data to create offensive and defensive summaries that we will join together to plot:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>offense_epa_18 &lt;-<span class="st"> </span>pbp_2018 %&gt;%
++<span class="st">   </span><span class="kw">filter</span>(!<span class="kw">is.na</span>(posteam)) %&gt;%
++<span class="st">   </span><span class="kw">group_by</span>(posteam) %&gt;%
++<span class="st">   </span><span class="kw">summarise</span>(<span class="dt">n_games =</span> <span class="kw">length</span>(<span class="kw">unique</span>(game_id)),
++<span class="st">             </span><span class="dt">off_total_epa =</span> <span class="kw">sum</span>(epa, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) %&gt;%
++<span class="st">   </span><span class="kw">mutate</span>(<span class="dt">off_epa_per_game =</span> off_total_epa /<span class="st"> </span>n_games)
+&gt;<span class="st"> </span>
+<span class="er">&gt;</span><span class="st"> </span>defense_epa_18 &lt;-<span class="st"> </span>pbp_2018 %&gt;%
++<span class="st">   </span><span class="kw">filter</span>(!<span class="kw">is.na</span>(defteam)) %&gt;%
++<span class="st">   </span><span class="kw">group_by</span>(defteam) %&gt;%
++<span class="st">   </span><span class="kw">summarise</span>(<span class="dt">n_games =</span> <span class="kw">length</span>(<span class="kw">unique</span>(game_id)),
++<span class="st">             </span><span class="dt">def_total_epa =</span> <span class="kw">sum</span>(epa, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) %&gt;%
++<span class="st">   </span><span class="co"># This time multiply by -1, since negative values are better for defense:</span>
++<span class="st">   </span><span class="kw">mutate</span>(<span class="dt">def_epa_per_game =</span> -<span class="dv">1</span> *<span class="st"> </span>def_total_epa /<span class="st"> </span>n_games)</code></pre></div>
+<p>Now rather than displaying just points or team abbreviations, we can take advantage of files provided to use by <a href="https://statsbylopez.netlify.com/">Michael Lopez, the Director of Data and Analytics for the NFL</a>, and plot the team logos directly. This can be done using the <code>ggimage</code> package that can be installed as follows:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">install.packages</span>(<span class="st">&quot;ggimages&quot;</span>)</code></pre></div>
+<p>Next we access the images as a dataset, and join it together to the offense and defense summaries before creating our chart:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">library</span>(ggimage)
+&gt;<span class="st"> </span>nfl_logos_df &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/statsbylopez/BlogPosts/master/nfl_teamlogos.csv&quot;</span>)
+Parsed with column specification:
+<span class="kw">cols</span>(
+  <span class="dt">team =</span> <span class="kw">col_character</span>(),
+  <span class="dt">team_code =</span> <span class="kw">col_character</span>(),
+  <span class="dt">url =</span> <span class="kw">col_character</span>()
+)
+&gt;<span class="st"> </span>
+<span class="er">&gt;</span><span class="st"> </span><span class="co"># Create the data frame to be used for all of the charts:</span>
+<span class="er">&gt;</span><span class="st"> </span>offense_epa_18 %&gt;%
++<span class="st">   </span><span class="kw">inner_join</span>(defense_epa_18, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;posteam&quot;</span> =<span class="st"> &quot;defteam&quot;</span>)) %&gt;%
++<span class="st">   </span><span class="kw">left_join</span>(nfl_logos_df, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;posteam&quot;</span> =<span class="st"> &quot;team_code&quot;</span>)) %&gt;%
++<span class="st">   </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> off_epa_per_game, <span class="dt">y =</span> def_epa_per_game)) +
++<span class="st">   </span><span class="kw">geom_image</span>(<span class="kw">aes</span>(<span class="dt">image =</span> url), <span class="dt">size =</span> <span class="fl">0.05</span>) +
++<span class="st">   </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Offensive EPA per game&quot;</span>,
++<span class="st">        </span><span class="dt">y =</span> <span class="st">&quot;Defensive EPA per game&quot;</span>,
++<span class="st">        </span><span class="dt">caption =</span> <span class="st">&quot;Data accessed via nflscrapR&quot;</span>,
++<span class="st">        </span><span class="dt">title =</span> <span class="st">&quot;Offensive and defensive EPA per game for each team in 2018 NFL season&quot;</span>) +
++<span class="st">   </span><span class="co"># Add reference lines at 0</span>
++<span class="st">   </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="dv">0</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>) +
++<span class="st">   </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="dv">0</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>) +
++<span class="st">   </span><span class="kw">theme_bw</span>()</code></pre></div>
+<p><img src="lecture5_files/figure-html/unnamed-chunk-22-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>The top right displays the teams that excelled at both offense and defense, while the lower right shows teams that had the best offenses such as the Chiefs but performed poorly on defense. The lower left shows the worst overall teams, which should not come as a surprise that the Arizona Cardinals and Oakland Raiders jump out.</p>
+</div>
 </div>
 
 

@@ -251,6 +251,12 @@ $(document).ready(function () {
     <li>
       <a href="lecture5.html">Lecture 5</a>
     </li>
+    <li>
+      <a href="lecture6.html">Lecture 6</a>
+    </li>
+    <li>
+      <a href="lecture7.html">Lecture 7</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -332,16 +338,22 @@ Parsed with column specification:
   <span class="dt">FTM =</span> <span class="kw">col_integer</span>(),
   <span class="dt">FTA =</span> <span class="kw">col_integer</span>()
 )
-&gt;<span class="st"> </span>raw_shooting &lt;-<span class="st"> </span><span class="kw">mutate</span>(raw_shooting, <span class="dt">FGP =</span> FGM/FGA, <span class="dt">TPP =</span> TPM/TPA, <span class="dt">FTP =</span> FTM/FTA, 
-+<span class="st">     </span><span class="dt">eFGP =</span> (FGM +<span class="st"> </span><span class="fl">0.5</span> *<span class="st"> </span>TPM)/(FGA), <span class="dt">PTS =</span> FTM +<span class="st"> </span><span class="dv">2</span> *<span class="st"> </span>FGM +<span class="st"> </span>TPM, <span class="dt">TSP =</span> PTS/(<span class="dv">2</span> *<span class="st"> </span>
-+<span class="st">         </span>(FGA +<span class="st"> </span><span class="fl">0.44</span> *<span class="st"> </span>FTA)))
+&gt;<span class="st"> </span>raw_shooting &lt;-
++<span class="st">   </span><span class="kw">mutate</span>(raw_shooting,
++<span class="st">          </span><span class="dt">FGP =</span> FGM/FGA,
++<span class="st">          </span><span class="dt">TPP =</span> TPM/TPA,
++<span class="st">          </span><span class="dt">FTP =</span> FTM/FTA,
++<span class="st">          </span><span class="dt">eFGP =</span> (FGM +<span class="st"> </span><span class="fl">0.5</span> *<span class="st"> </span>TPM)/(FGA),
++<span class="st">          </span><span class="dt">PTS =</span> FTM +<span class="st"> </span><span class="dv">2</span> *<span class="st"> </span>FGM +<span class="st"> </span>TPM,
++<span class="st">          </span><span class="dt">TSP =</span> PTS/(<span class="dv">2</span> *<span class="st"> </span>(FGA +<span class="st"> </span><span class="fl">0.44</span> *<span class="st"> </span>FTA)))
 &gt;<span class="st"> </span>nba_shooting &lt;-<span class="st"> </span><span class="kw">arrange</span>(raw_shooting, <span class="kw">desc</span>(TSP))</code></pre></div>
 <p>We will use visualization to answer some questions about the data. Specifically, we will study the distribution of the individual columns as well as try to understand the relationship between pairs of variables. For instance, is a player’s free throw percentage predictive of his three point percentage?</p>
 <p>To produce graphics throughout this course, we will use ggplot2, which is a package contained in the tidyverse. At a very high level, ggplot2 works by layering graphics, adding different features one on top of another. You can learn much much more about ggplot2 <a href="https://ggplot2.tidyverse.org">here</a>. We will cover some of the more advanced functionality of ggplot2 in</p>
 <div id="histograms" class="section level3">
 <h3>Histograms</h3>
 <p>As you saw in Prof. Wyner’s lectures, histograms are a powerful way to describe a single dataset.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> raw_shooting) +<span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> FGP), <span class="dt">bins =</span> <span class="dv">5</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> raw_shooting) +<span class="st"> </span>
++<span class="st">   </span><span class="kw">geom_histogram</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> FGP), <span class="dt">bins =</span> <span class="dv">5</span>)</code></pre></div>
 <p><img src="lecture2_files/figure-html/fgp-histogram-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>The first bit of the code above, <code>ggplot(data = nba_shooting)</code> tells R to create a coordinate system to which can add additional layers. It also tells R that the data to be plotted is coming from the tibble <code>nba_shooting</code>. The next part of the code, <code>+ geom_histogram(mapping = aes(FGP), bins = 5)</code> tells R to <em>add</em> a layer to the blank plot, in this case a histogram of field goal percentage that uses 5 bins. The first argument is the mapping, which defines how each variable in our dataset is mapped to visual components of the graph (the <em>aesthetics</em>) In the case of a histogram, we really only need to tell R that the variable we want to visualize goes on the horizontal (x) axis. To improve readability, we have divided the code to produce the historgram over two lines. <strong>It is very important when using ggplot to have the + sign at the end of the line.</strong></p>
 <p>In the code above, we also told R how many bins into which to divide the data. We can vary the number of bins to get a higher-resolution view of our data. For instance, we can use 50 bins: <img src="lecture2_files/figure-html/unnamed-chunk-1-1.png" width="672" style="display: block; margin: auto;" /></p>
