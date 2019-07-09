@@ -778,6 +778,8 @@ Parsed with column specification:
 <h3>Creating new variables from old</h3>
 <p>While arranging our data is useful, it is not quite sufficient to determine which player is the best shooter in our dataset. Perhaps the simplest way to compare players’ shooting ability is with field goal percentage (FGP). We can compute this percentage using the formula <span class="math inline">\(\text{FGP} = \frac{\text{FGA}}{\text{FGM}}.\)</span> We use the function <code>mutate()</code> to add a column to our tbl.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">mutate</span>(nba_shooting_small, <span class="dt">FGP =</span> FGA/FGM)
+Warning:<span class="st"> </span>The <span class="st">`</span><span class="dt">printer</span><span class="st">`</span> argument is deprecated as of rlang <span class="fl">0.3.0</span>.
+This warning is displayed once per session.
 <span class="co"># A tibble: 10 x 9</span>
    PLAYER                SEASON   FGM   FGA   TPM   TPA   FTA   FTM   FGP
    &lt;chr&gt;<span class="st">                  </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>dbl&gt;

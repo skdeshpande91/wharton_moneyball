@@ -228,9 +228,9 @@ nba_shooting <- mutate(nba_shooting,
 Let's take a minute to unpack the code above.
 Within `mutate()`, we have started like we always did, with the name of the new variable on the left hand side of an equal sign.
 Then we called the `case_when()` function.
-Within this function, we have a new line for each of the values of the new variable ``Classification''.
+Within this function, we have a new line for each of the values of the new variable "Classification".
 On each line we have an expression with a twiddle (`~`).
-On the left of the `~`, we have put a logical expression and on the right we have written the value of ``Clasification''.
+On the left of the `~`, we have put a logical expression and on the right we have written the value of "Clasification."
 
 
 ## Summarizing Individual Columns
