@@ -219,3 +219,11 @@ summarise(fg_test,
           phat_dist_2 = mean( (Success - phat_dist_2)^2))
 
 ```
+
+## Looking ahead to tomorrow
+
+Tomorrow, we are going to use *logistic regression* to take the "binning-and-averaging" approach we used above to its logical extreme (i.e. what would happen if we made our bins infinitessimally small).
+In order to do that, we will want to save our tbl's `fg_train` and `fg_test`:
+```{r save-fg-tbls}
+save(fg_train, fg_test, file = "data/nfl_fg.RData")
+```

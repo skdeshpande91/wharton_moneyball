@@ -152,12 +152,14 @@ We can also use `modelr` to add predictions and residuals to our original datase
 
 ```{r}
 batting_2014_2015 <- batting_2014_2015 %>% 
-  add_predictions(fit) %>%
-  add_residuals(fit)
+  add_predictions(model = fit, type = "response", var = "pred") %>%
+  add_residuals(model = fit, var = "resid")
 batting_2014_2015
 ```
 
-We now have added columns `pred` and `resid` to our original tibble, `batting_2014_2015`.
+In `add_predictions`, we have to specify three arguments: (i) the model, which is just the output of `lm()`, (ii) the type, which will always be "response" for this course, and (iii) the name of the column we want our predictions to be stored in.
+We similarly have to specify a `model` and `var` argument in `add_residual`. 
+
 
 Using these new columns, we can create the original plot and add the residual lengths:
 

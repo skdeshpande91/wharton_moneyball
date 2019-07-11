@@ -257,6 +257,9 @@ $(document).ready(function () {
     <li>
       <a href="lecture7.html">Lecture 7</a>
     </li>
+    <li>
+      <a href="lecture8.html">Lecture 8</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -477,6 +480,11 @@ Parsed with column specification:
   phat_all phat_kicker phat_dist_10 phat_dist_5 phat_dist_2
      &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;
 1    0.134       0.133        0.120       0.118       0.118</code></pre>
+</div>
+<div id="looking-ahead-to-tomorrow" class="section level2">
+<h2>Looking ahead to tomorrow</h2>
+<p>Tomorrow, we are going to use <em>logistic regression</em> to take the “binning-and-averaging” approach we used above to its logical extreme (i.e. what would happen if we made our bins infinitessimally small). In order to do that, we will want to save our tbl’s <code>fg_train</code> and <code>fg_test</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">save</span>(fg_train, fg_test, <span class="dt">file =</span> <span class="st">&quot;data/nfl_fg.RData&quot;</span>)</code></pre></div>
 </div>
 
 

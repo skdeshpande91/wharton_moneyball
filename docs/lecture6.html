@@ -257,6 +257,9 @@ $(document).ready(function () {
     <li>
       <a href="lecture7.html">Lecture 7</a>
     </li>
+    <li>
+      <a href="lecture8.html">Lecture 8</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -387,8 +390,8 @@ $(document).ready(function () {
 <h4>Adding Predictions and Residuals</h4>
 <p>We can also use <code>modelr</code> to add predictions and residuals to our original dataset:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>batting_2014_2015 &lt;-<span class="st"> </span>batting_2014_2015 %&gt;%<span class="st"> </span>
-+<span class="st">   </span><span class="kw">add_predictions</span>(fit) %&gt;%
-+<span class="st">   </span><span class="kw">add_residuals</span>(fit)
++<span class="st">   </span><span class="kw">add_predictions</span>(<span class="dt">model =</span> fit, <span class="dt">type =</span> <span class="st">&quot;response&quot;</span>, <span class="dt">var =</span> <span class="st">&quot;pred&quot;</span>) %&gt;%
++<span class="st">   </span><span class="kw">add_residuals</span>(<span class="dt">model =</span> fit, <span class="dt">var =</span> <span class="st">&quot;resid&quot;</span>)
 &gt;<span class="st"> </span>batting_2014_2015
 <span class="co"># A tibble: 70 x 5</span>
    playerID  BA_2014 BA_2015  pred    resid
@@ -404,7 +407,7 @@ $(document).ready(function () {
  <span class="dv">9</span> brantmi02   <span class="fl">0.327</span>   <span class="fl">0.310</span> <span class="fl">0.300</span>  <span class="fl">0.0102</span> 
 <span class="dv">10</span> braunry02   <span class="fl">0.266</span>   <span class="fl">0.285</span> <span class="fl">0.270</span>  <span class="fl">0.0145</span> 
 <span class="co"># … with 60 more rows</span></code></pre></div>
-<p>We now have added columns <code>pred</code> and <code>resid</code> to our original tibble, <code>batting_2014_2015</code>.</p>
+<p>In <code>add_predictions</code>, we have to specify three arguments: (i) the model, which is just the output of <code>lm()</code>, (ii) the type, which will always be “response” for this course, and (iii) the name of the column we want our predictions to be stored in. We similarly have to specify a <code>model</code> and <code>var</code> argument in <code>add_residual</code>.</p>
 <p>Using these new columns, we can create the original plot and add the residual lengths:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>g &lt;-<span class="st"> </span><span class="kw">ggplot</span>(batting_2014_2015)
 &gt;<span class="st"> </span>g &lt;-<span class="st"> </span>g +<span class="st"> </span><span class="kw">geom_segment</span>(<span class="kw">aes</span>(<span class="dt">x =</span> BA_2014, <span class="dt">xend =</span> BA_2014, <span class="dt">y =</span> BA_2015, <span class="dt">yend =</span> pred), <span class="dt">color =</span> <span class="st">&quot;dodgerblue&quot;</span>)
@@ -419,9 +422,6 @@ $(document).ready(function () {
 <p>So far we have looked at the predicted values from our <em>training</em> data; that is, the data we used to fit our linear model. Suppose we have more players’ batting averages from 2014 but we do not have their batting averages from 2015. We can use our linear model to predict these players’ 2015 batting average using the function <code>predict</code>.</p>
 <p>In the below code, we enter the players’ 2014 batting averages as the tibble <code>new_data</code>. We then use the function <code>predict</code>. The first argument of <code>predict</code> is the fitted model, <code>fit</code>. The second argument is <code>new_data</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>new_data &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">BA_2014 =</span> <span class="kw">c</span>(<span class="fl">0.241</span>, <span class="fl">0.31</span>, <span class="fl">0.265</span>))
-Warning:<span class="st"> `</span><span class="dt">new_list_along()</span><span class="st">`</span> is deprecated as of rlang <span class="fl">0.3.0</span>.
-Please use <span class="st">`</span><span class="dt">rep_along(x, list(NULL))</span><span class="st">`</span> or <span class="st">`</span><span class="dt">rep_named(nms, list(NULL))</span><span class="st">`</span> instead.
-This warning is displayed once per session.
 &gt;<span class="st"> </span>new_pred &lt;-<span class="st"> </span><span class="kw">predict</span>(fit, new_data)
 &gt;<span class="st"> </span>new_pred
         <span class="dv">1</span>         <span class="dv">2</span>         <span class="dv">3</span> 
