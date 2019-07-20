@@ -241,7 +241,7 @@ Comments are useful because they allow you to explain what your code is doing.
 
 One huge advantage with working with `R` script is the ability to separate commands onto multiple lines.
 For instance, to add columns for FGP, FTP, and TPP to our tbl, we can write the following in our script window.
-```{r multiline-syntax, include=FALSE}
+```{r multiline-syntax, eval=FALSE}
 nba_shooting_small <-
   mutate(nba_shooting_small,
          FGP = FGM / FGA,
@@ -259,7 +259,7 @@ like `mutate` and `arrange`, then creating visuals and models, as the data analy
 The __pipe operator__ `%>%` is a convenient tool in the `tidyverse` that allows us to
 create a sequence of code to analyze data, such as the following code to arrange in
 descending order the players based on the rate of field goal attempts that are three point attempts:
-```{r pipe-example, include=FALSE}
+```{r pipe-example, eval=FALSE}
 nba_shooting_small %>%
   mutate(three_point_fg_rate = TPA / FGA) %>%
   arrange(desc(three_point_fg_rate))

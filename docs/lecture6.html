@@ -540,8 +540,7 @@ $(document).ready(function () {
 <div id="the-modelr-package" class="section level3">
 <h3>The <code>modelr</code> package</h3>
 <p><code>modelr</code> is another package that is part of the <code>tidyverse</code>. It has a number of useful functions for linear regression models.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw">library</span>(modelr)</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2">Warning<span class="op">:</span><span class="st"> </span>package <span class="st">&#39;modelr&#39;</span> was built under R version <span class="dv">3</span>.<span class="fl">5.2</span></a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw">library</span>(modelr)</a></code></pre></div>
 <p>We can use the function <code>rsquare</code> to get the square of the correlation, <span class="math inline">\(r^2\)</span>. The quantity <span class="math inline">\(r^2\)</span> is the <em>proportion of variance</em> explained by the linear model. The first argument of the <code>rsquare</code> function is the output <code>fit</code> from our linear model function <code>lm</code>. The second argument is our original dataset, <code>batting_2014_2015</code>:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw">rsquare</span>(fit, batting_<span class="dv">2014</span>_<span class="dv">2015</span>)</a>
 <a class="sourceLine" id="cb8-2" data-line-number="2">[<span class="dv">1</span>] <span class="fl">0.2429305</span></a></code></pre></div>
