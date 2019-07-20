@@ -43,6 +43,8 @@ navbar:
       menu:
         - text: "Lecture 1"
           href: tc_lecture1.html
+        - text: "Problem Set 1"
+          href: tc_ps1.html
 output:
   html_document:
     theme: cerulean

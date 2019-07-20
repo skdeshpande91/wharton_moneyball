@@ -21,52 +21,104 @@
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <script src="site_libs/navigation-1.1/codefolding.js"></script>
-<link href="site_libs/font-awesome-5.0.13/css/fa-svg-with-js.css" rel="stylesheet" />
-<script src="site_libs/font-awesome-5.0.13/js/fontawesome-all.min.js"></script>
-<script src="site_libs/font-awesome-5.0.13/js/fa-v4-shims.min.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 
 <style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-pre, code { background-color: #f8f8f8; }
-code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
-code > span.dt { color: #204a87; } /* DataType */
-code > span.dv { color: #0000cf; } /* DecVal */
-code > span.bn { color: #0000cf; } /* BaseN */
-code > span.fl { color: #0000cf; } /* Float */
-code > span.ch { color: #4e9a06; } /* Char */
-code > span.st { color: #4e9a06; } /* String */
-code > span.co { color: #8f5902; font-style: italic; } /* Comment */
-code > span.ot { color: #8f5902; } /* Other */
-code > span.al { color: #ef2929; } /* Alert */
-code > span.fu { color: #000000; } /* Function */
-code > span.er { color: #a40000; font-weight: bold; } /* Error */
-code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #000000; } /* Constant */
-code > span.sc { color: #000000; } /* SpecialChar */
-code > span.vs { color: #4e9a06; } /* VerbatimString */
-code > span.ss { color: #4e9a06; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #000000; } /* Variable */
-code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
-code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-code > span.ex { } /* Extension */
-code > span.at { color: #c4a000; } /* Attribute */
-code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
-code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
-div.sourceCode {
-  overflow-x: visible;
+<style type="text/css" data-origin="pandoc">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+
+.sourceCode .row {
+  width: 100%;
+}
+.sourceCode {
+  overflow-x: auto;
+}
+.code-folding-btn {
+  margin-right: -30px;
 }
 </style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' || rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
 <style type="text/css">
   pre:not([class]) {
     background-color: white;
@@ -102,9 +154,7 @@ h6 {
 </style>
 
 
-</head>
 
-<body>
 
 <style type = "text/css">
 .main-container {
@@ -129,6 +179,9 @@ img {
 button.code-folding-btn:focus {
   outline: none;
 }
+summary {
+  display: list-item;
+}
 </style>
 
 
@@ -143,7 +196,6 @@ body {
   padding-top: 56px;
   margin-top: -56px;
 }
-
 .section h2 {
   padding-top: 56px;
   margin-top: -56px;
@@ -163,6 +215,43 @@ body {
 .section h6 {
   padding-top: 56px;
   margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
 }
 </style>
 
@@ -184,13 +273,71 @@ $(document).ready(function () {
 });
 </script>
 
-
-<div class="container-fluid main-container">
-
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
 });
 </script>
 
@@ -205,6 +352,14 @@ $(document).ready(function () {
 </script>
 
 
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
 
 
 
@@ -300,6 +455,9 @@ $(document).ready(function () {
     <li>
       <a href="tc_lecture1.html">Lecture 1</a>
     </li>
+    <li>
+      <a href="tc_ps1.html">Problem Set 1</a>
+    </li>
   </ul>
 </li>
       </ul>
@@ -336,61 +494,61 @@ $(document).ready(function () {
 <div id="field-goal-success-in-the-nfl" class="section level2">
 <h2>Field Goal Success in the NFL</h2>
 <p>The file “nfl_fg_train.csv” contains a large dataset about field goals attempted in the NFL between 2005 and 2015. We will train several models of field goal success with this data and then evaluate their predictive performance using the data contained in “nfl_fg_test.csv”.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">library</span>(tidyverse)
-&gt;<span class="st"> </span>fg_train &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/nfl_fg_train.csv&quot;</span>)
-Parsed with column specification:
-<span class="kw">cols</span>(
-  <span class="dt">Team =</span> <span class="kw">col_character</span>(),
-  <span class="dt">Year =</span> <span class="kw">col_integer</span>(),
-  <span class="dt">GameMinute =</span> <span class="kw">col_integer</span>(),
-  <span class="dt">Kicker =</span> <span class="kw">col_character</span>(),
-  <span class="dt">Distance =</span> <span class="kw">col_integer</span>(),
-  <span class="dt">ScoreDiff =</span> <span class="kw">col_integer</span>(),
-  <span class="dt">Grass =</span> <span class="kw">col_logical</span>(),
-  <span class="dt">Success =</span> <span class="kw">col_integer</span>()
-)</code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="op">&gt;</span><span class="st"> </span>fg_train &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/nfl_fg_train.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">Parsed with column specification<span class="op">:</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw">cols</span>(</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">  <span class="dt">Team =</span> <span class="kw">col_character</span>(),</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">  <span class="dt">Year =</span> <span class="kw">col_double</span>(),</a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">  <span class="dt">GameMinute =</span> <span class="kw">col_double</span>(),</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">  <span class="dt">Kicker =</span> <span class="kw">col_character</span>(),</a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">  <span class="dt">Distance =</span> <span class="kw">col_double</span>(),</a>
+<a class="sourceLine" id="cb1-10" data-line-number="10">  <span class="dt">ScoreDiff =</span> <span class="kw">col_double</span>(),</a>
+<a class="sourceLine" id="cb1-11" data-line-number="11">  <span class="dt">Grass =</span> <span class="kw">col_logical</span>(),</a>
+<a class="sourceLine" id="cb1-12" data-line-number="12">  <span class="dt">Success =</span> <span class="kw">col_double</span>()</a>
+<a class="sourceLine" id="cb1-13" data-line-number="13">)</a></code></pre></div>
 <p>The simplest forecast for field goal success probability is the overall average success rate. This forecast does not differentiate between players or attempt to adjust for distance or other game contexts. To compute this forecast, we need to find the average of the data in the column “Success.” The code below adds a column to the tbl called “phat_all”</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>fg_train &lt;-<span class="st"> </span>
-+<span class="st">   </span>fg_train %&gt;%
-+<span class="st">   </span><span class="kw">mutate</span>(<span class="dt">phat_all =</span> <span class="kw">mean</span>(Success))</code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span>fg_train &lt;-<span class="st"> </span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="op">+</span><span class="st">   </span>fg_train <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="op">+</span><span class="st">   </span><span class="kw">mutate</span>(<span class="dt">phat_all =</span> <span class="kw">mean</span>(Success))</a></code></pre></div>
 <p>It turns out that kickers make just over 83% of their attempts. However, we know that there are some truly elite kickers (e.g. Dan Bailey, formerly of the Cowboys) who make well over 83% of their attempts. Instead of forecasting field goal success probabilites with the overall average, we could instead use compute each individual kicker’s conversion rate. This can be done using <code>group_by()</code> and <code>mutate()</code>. In the code below, we add a column to <code>fg_train</code> called “phat_kicker”, whichcontains each kicker’s individual field goal coversion rate. Notice that because we adding a grouping to carry out this computation, we need to remove the grouping using <code>ungroup()</code> when we’re done.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>fg_train &lt;-<span class="st"> </span>
-+<span class="st">   </span>fg_train %&gt;%<span class="st"> </span>
-+<span class="st">   </span><span class="kw">group_by</span>(Kicker) %&gt;%
-+<span class="st">   </span><span class="kw">mutate</span>(<span class="dt">phat_kicker =</span> <span class="kw">mean</span>(Success)) %&gt;%
-+<span class="st">   </span><span class="kw">ungroup</span>()</code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span>fg_train &lt;-<span class="st"> </span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="op">+</span><span class="st">   </span>fg_train <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="op">+</span><span class="st">   </span><span class="kw">group_by</span>(Kicker) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="op">+</span><span class="st">   </span><span class="kw">mutate</span>(<span class="dt">phat_kicker =</span> <span class="kw">mean</span>(Success)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="op">+</span><span class="st">   </span><span class="kw">ungroup</span>()</a></code></pre></div>
 <p>Intuitively, distance is one of the main determinants of whether a kicker makes a field goal. We will use the <code>cut()</code> function to bin the data according to distance and then compute the conversion rate (averaged over all kickers) within each bin. In our dataset, the shortest field goal attempt was 18 yards and the longest was 76. We will begin by binning our data into 10 yard increments, 10 – 20, 20 – 30, …, 70 – 80. We then save the bin label in a column called “Dist_10” and the predictions in a column called “phat_dist_10”.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>fg_train &lt;-
-+<span class="st">   </span>fg_train %&gt;%
-+<span class="st">   </span><span class="kw">mutate</span>(<span class="dt">Dist_10 =</span> <span class="kw">cut</span>(Distance, <span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">10</span>, <span class="dt">to =</span> <span class="dv">80</span>, <span class="dt">by =</span> <span class="dv">10</span>))) %&gt;%
-+<span class="st">   </span><span class="kw">group_by</span>(Dist_10) %&gt;%
-+<span class="st">   </span><span class="kw">mutate</span>(<span class="dt">phat_dist_10 =</span> <span class="kw">mean</span>(Success)) %&gt;%
-+<span class="st">   </span><span class="kw">ungroup</span>()</code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span>fg_train &lt;-</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="op">+</span><span class="st">   </span>fg_train <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="op">+</span><span class="st">   </span><span class="kw">mutate</span>(<span class="dt">Dist_10 =</span> <span class="kw">cut</span>(Distance, <span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">10</span>, <span class="dt">to =</span> <span class="dv">80</span>, <span class="dt">by =</span> <span class="dv">10</span>))) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="op">+</span><span class="st">   </span><span class="kw">group_by</span>(Dist_<span class="dv">10</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="op">+</span><span class="st">   </span><span class="kw">mutate</span>(<span class="dt">phat_dist_10 =</span> <span class="kw">mean</span>(Success)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="op">+</span><span class="st">   </span><span class="kw">ungroup</span>()</a></code></pre></div>
 <p>We can now look at a scatter plot of distance and our forecasts “phat_dist_10” Since there are many attempts from certain yardages, we’ll use alpha-blending (see <a href="lecture2.html">Lecture 2</a> for a refresher on this!) to change change the transparency of the points according to their frequency. It certainly looks like our predictions make some intuitive sense: the estimated probability of making a field goal decreases as the distance goes up.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>fg_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(fg_train) +
-+<span class="st">   </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Distance, <span class="dt">y =</span> phat_dist_10), <span class="dt">alpha =</span> <span class="fl">0.2</span>)
-&gt;<span class="st"> </span>fg_plot</code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span>fg_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(fg_train) <span class="op">+</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="op">+</span><span class="st">   </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Distance, <span class="dt">y =</span> phat_dist_<span class="dv">10</span>), <span class="dt">alpha =</span> <span class="fl">0.2</span>)</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="op">&gt;</span><span class="st"> </span>fg_plot</a></code></pre></div>
 <p><img src="lecture7_files/figure-html/unnamed-chunk-1-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>We could also have binned the Distance into 5-yard increments or 2-yard bins, saving the bin labels into a column called “Dist_5” or “Dist_2”, and adding a column to <code>fg_train</code> that computes the overall conversion rate within each of these 5-yard or 2-yard bins.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>fg_train &lt;-
-+<span class="st">   </span>fg_train %&gt;%
-+<span class="st">   </span><span class="kw">mutate</span>(<span class="dt">Dist_5 =</span> <span class="kw">cut</span>(Distance, <span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">10</span>, <span class="dt">to =</span> <span class="dv">80</span>, <span class="dt">by =</span> <span class="dv">5</span>))) %&gt;%
-+<span class="st">   </span><span class="kw">group_by</span>(Dist_5) %&gt;%
-+<span class="st">   </span><span class="kw">mutate</span>(<span class="dt">phat_dist_5 =</span> <span class="kw">mean</span>(Success)) %&gt;%
-+<span class="st">   </span><span class="kw">ungroup</span>()
-&gt;<span class="st"> </span>fg_train &lt;-
-+<span class="st">   </span>fg_train %&gt;%
-+<span class="st">   </span><span class="kw">mutate</span>(<span class="dt">Dist_2 =</span> <span class="kw">cut</span>(Distance, <span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">10</span>, <span class="dt">to =</span> <span class="dv">80</span>, <span class="dt">by =</span> <span class="dv">2</span>))) %&gt;%
-+<span class="st">   </span><span class="kw">group_by</span>(Dist_2) %&gt;%
-+<span class="st">   </span><span class="kw">mutate</span>(<span class="dt">phat_dist_2 =</span> <span class="kw">mean</span>(Success)) %&gt;%
-+<span class="st">   </span><span class="kw">ungroup</span>()</code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span>fg_train &lt;-</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="op">+</span><span class="st">   </span>fg_train <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="op">+</span><span class="st">   </span><span class="kw">mutate</span>(<span class="dt">Dist_5 =</span> <span class="kw">cut</span>(Distance, <span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">10</span>, <span class="dt">to =</span> <span class="dv">80</span>, <span class="dt">by =</span> <span class="dv">5</span>))) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="op">+</span><span class="st">   </span><span class="kw">group_by</span>(Dist_<span class="dv">5</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="op">+</span><span class="st">   </span><span class="kw">mutate</span>(<span class="dt">phat_dist_5 =</span> <span class="kw">mean</span>(Success)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="op">+</span><span class="st">   </span><span class="kw">ungroup</span>()</a>
+<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="op">&gt;</span><span class="st"> </span>fg_train &lt;-</a>
+<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="op">+</span><span class="st">   </span>fg_train <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="op">+</span><span class="st">   </span><span class="kw">mutate</span>(<span class="dt">Dist_2 =</span> <span class="kw">cut</span>(Distance, <span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">10</span>, <span class="dt">to =</span> <span class="dv">80</span>, <span class="dt">by =</span> <span class="dv">2</span>))) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb6-10" data-line-number="10"><span class="op">+</span><span class="st">   </span><span class="kw">group_by</span>(Dist_<span class="dv">2</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb6-11" data-line-number="11"><span class="op">+</span><span class="st">   </span><span class="kw">mutate</span>(<span class="dt">phat_dist_2 =</span> <span class="kw">mean</span>(Success)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb6-12" data-line-number="12"><span class="op">+</span><span class="st">   </span><span class="kw">ungroup</span>()</a></code></pre></div>
 <p>We can now plot our predictions based on different binning.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>fg_plot  &lt;-<span class="st"> </span>
-+<span class="st">   </span><span class="kw">ggplot</span>(fg_train) +<span class="st"> </span>
-+<span class="st">   </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Distance, <span class="dt">y =</span> phat_dist_10), <span class="dt">alpha =</span> <span class="fl">0.1</span>, <span class="dt">col =</span> <span class="st">&#39;black&#39;</span>) +
-+<span class="st">   </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Distance, <span class="dt">y =</span> phat_dist_5), <span class="dt">alpha =</span> <span class="fl">0.1</span>, <span class="dt">col =</span> <span class="st">&#39;blue&#39;</span>) +<span class="st"> </span>
-+<span class="st">   </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Distance, <span class="dt">y =</span> phat_dist_2), <span class="dt">alpha =</span> <span class="fl">0.1</span>, <span class="dt">col =</span> <span class="st">&#39;red&#39;</span>)
-&gt;<span class="st"> </span>fg_plot</code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span>fg_plot  &lt;-<span class="st"> </span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="op">+</span><span class="st">   </span><span class="kw">ggplot</span>(fg_train) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="op">+</span><span class="st">   </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Distance, <span class="dt">y =</span> phat_dist_<span class="dv">10</span>), <span class="dt">alpha =</span> <span class="fl">0.1</span>, <span class="dt">col =</span> <span class="st">&#39;black&#39;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="op">+</span><span class="st">   </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Distance, <span class="dt">y =</span> phat_dist_<span class="dv">5</span>), <span class="dt">alpha =</span> <span class="fl">0.1</span>, <span class="dt">col =</span> <span class="st">&#39;blue&#39;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="op">+</span><span class="st">   </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Distance, <span class="dt">y =</span> phat_dist_<span class="dv">2</span>), <span class="dt">alpha =</span> <span class="fl">0.1</span>, <span class="dt">col =</span> <span class="st">&#39;red&#39;</span>)</a>
+<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="op">&gt;</span><span class="st"> </span>fg_plot</a></code></pre></div>
 <p><img src="lecture7_files/figure-html/phat-dist-plot2-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Now when we binned our data into 2-yard increments, we find that our forecasts are no longer monotonic decreasing. In <a href="lecture8.html">Lecture 8</a>, we’ll address this with a more formal regression method.</p>
 </div>
@@ -400,79 +558,79 @@ Parsed with column specification:
 <p>The <a href="https://en.wikipedia.org/wiki/Brier_score">Brier Score</a> is defined as <span class="math display">\[
 BS = \frac{1}{n}\sum_{i = 1}^{n}{(y_{i} - \hat{p}_{i})^{2}}
 \]</span> Looking at the formula, we see that the Brier score is just the mean square error of our forecasts. Using code that is very nearly identical to that used to compute RSME in <a href="module6.html">Module 6</a>, we can compute the Brier score of each of our prediction models.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">summarise</span>(fg_train,
-+<span class="st">           </span><span class="dt">phat_all =</span> <span class="kw">mean</span>( (Success -<span class="st"> </span>phat_all)^<span class="dv">2</span>),
-+<span class="st">           </span><span class="dt">phat_kicker =</span> <span class="kw">mean</span>( (Success -<span class="st"> </span>phat_kicker)^<span class="dv">2</span>),
-+<span class="st">           </span><span class="dt">phat_dist_10 =</span> <span class="kw">mean</span>( (Success -<span class="st"> </span>phat_dist_10)^<span class="dv">2</span>),
-+<span class="st">           </span><span class="dt">phat_dist_5 =</span> <span class="kw">mean</span>( (Success -<span class="st"> </span>phat_dist_5)^<span class="dv">2</span>),
-+<span class="st">           </span><span class="dt">phat_dist_2 =</span> <span class="kw">mean</span>( (Success -<span class="st"> </span>phat_dist_2)^<span class="dv">2</span>))
-<span class="co"># A tibble: 1 x 5</span>
-  phat_all phat_kicker phat_dist_10 phat_dist_5 phat_dist_2
-     &lt;dbl&gt;<span class="st">       </span><span class="er">&lt;</span>dbl&gt;<span class="st">        </span><span class="er">&lt;</span>dbl&gt;<span class="st">       </span><span class="er">&lt;</span>dbl&gt;<span class="st">       </span><span class="er">&lt;</span>dbl&gt;
-<span class="dv">1</span>    <span class="fl">0.140</span>       <span class="fl">0.138</span>        <span class="fl">0.125</span>       <span class="fl">0.123</span>       <span class="fl">0.123</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw">summarise</span>(fg_train,</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="op">+</span><span class="st">           </span><span class="dt">phat_all =</span> <span class="kw">mean</span>( (Success <span class="op">-</span><span class="st"> </span>phat_all)<span class="op">^</span><span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="op">+</span><span class="st">           </span><span class="dt">phat_kicker =</span> <span class="kw">mean</span>( (Success <span class="op">-</span><span class="st"> </span>phat_kicker)<span class="op">^</span><span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="op">+</span><span class="st">           </span><span class="dt">phat_dist_10 =</span> <span class="kw">mean</span>( (Success <span class="op">-</span><span class="st"> </span>phat_dist_<span class="dv">10</span>)<span class="op">^</span><span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="op">+</span><span class="st">           </span><span class="dt">phat_dist_5 =</span> <span class="kw">mean</span>( (Success <span class="op">-</span><span class="st"> </span>phat_dist_<span class="dv">5</span>)<span class="op">^</span><span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb8-6" data-line-number="6"><span class="op">+</span><span class="st">           </span><span class="dt">phat_dist_2 =</span> <span class="kw">mean</span>( (Success <span class="op">-</span><span class="st"> </span>phat_dist_<span class="dv">2</span>)<span class="op">^</span><span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb8-7" data-line-number="7"><span class="co"># A tibble: 1 x 5</span></a>
+<a class="sourceLine" id="cb8-8" data-line-number="8">  phat_all phat_kicker phat_dist_<span class="dv">10</span> phat_dist_<span class="dv">5</span> phat_dist_<span class="dv">2</span></a>
+<a class="sourceLine" id="cb8-9" data-line-number="9">     <span class="op">&lt;</span>dbl<span class="op">&gt;</span><span class="st">       </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st">        </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st">       </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st">       </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb8-10" data-line-number="10"><span class="dv">1</span>    <span class="fl">0.140</span>       <span class="fl">0.138</span>        <span class="fl">0.125</span>       <span class="fl">0.123</span>       <span class="fl">0.123</span></a></code></pre></div>
 <p>Which model has the lowest Brier score? Do you think this model over-fits the data?</p>
 <p>Before assessing how well our models predict <em>out-of-sample</em>, it will be useful to create tbl’s that summarize each model’s forecasts. For instance, when we divided the data by kickers, we need not have multiple rows recording the same prediction for each kicker. Instead, we can create a tbl called <code>phat_kicker</code> which has one row per kicker and two columns, one for the kicker and one for the associated forecast:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>phat_kicker &lt;-<span class="st"> </span>
-+<span class="st">   </span>fg_train %&gt;%
-+<span class="st">   </span><span class="kw">group_by</span>(Kicker) %&gt;%
-+<span class="st">   </span><span class="kw">summarize</span>(<span class="dt">phat_kicker =</span> <span class="kw">mean</span>(Success))</code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span>phat_kicker &lt;-<span class="st"> </span></a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="op">+</span><span class="st">   </span>fg_train <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="op">+</span><span class="st">   </span><span class="kw">group_by</span>(Kicker) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="op">+</span><span class="st">   </span><span class="kw">summarize</span>(<span class="dt">phat_kicker =</span> <span class="kw">mean</span>(Success))</a></code></pre></div>
 <p>Create similar tbls for phat_dist_10, phat_dist_5, and phat_dist_2.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>phat_dist_10 &lt;-<span class="st"> </span>
-+<span class="st">   </span>fg_train %&gt;%
-+<span class="st">   </span><span class="kw">group_by</span>(Dist_10) %&gt;%
-+<span class="st">   </span><span class="kw">summarize</span>(<span class="dt">phat_dist_10 =</span> <span class="kw">mean</span>(Success))
-&gt;<span class="st"> </span>phat_dist_5 &lt;-<span class="st"> </span>
-+<span class="st">   </span>fg_train %&gt;%
-+<span class="st">   </span><span class="kw">group_by</span>(Dist_5) %&gt;%
-+<span class="st">   </span><span class="kw">summarize</span>(<span class="dt">phat_dist_5 =</span> <span class="kw">mean</span>(Success))
-&gt;<span class="st"> </span>phat_dist_2 &lt;-<span class="st"> </span>
-+<span class="st">   </span>fg_train %&gt;%
-+<span class="st">   </span><span class="kw">group_by</span>(Dist_2) %&gt;%
-+<span class="st">   </span><span class="kw">summarize</span>(<span class="dt">phat_dist_2 =</span> <span class="kw">mean</span>(Success))</code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span>phat_dist_<span class="dv">10</span> &lt;-<span class="st"> </span></a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="op">+</span><span class="st">   </span>fg_train <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="op">+</span><span class="st">   </span><span class="kw">group_by</span>(Dist_<span class="dv">10</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb10-4" data-line-number="4"><span class="op">+</span><span class="st">   </span><span class="kw">summarize</span>(<span class="dt">phat_dist_10 =</span> <span class="kw">mean</span>(Success))</a>
+<a class="sourceLine" id="cb10-5" data-line-number="5"><span class="op">&gt;</span><span class="st"> </span>phat_dist_<span class="dv">5</span> &lt;-<span class="st"> </span></a>
+<a class="sourceLine" id="cb10-6" data-line-number="6"><span class="op">+</span><span class="st">   </span>fg_train <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb10-7" data-line-number="7"><span class="op">+</span><span class="st">   </span><span class="kw">group_by</span>(Dist_<span class="dv">5</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb10-8" data-line-number="8"><span class="op">+</span><span class="st">   </span><span class="kw">summarize</span>(<span class="dt">phat_dist_5 =</span> <span class="kw">mean</span>(Success))</a>
+<a class="sourceLine" id="cb10-9" data-line-number="9"><span class="op">&gt;</span><span class="st"> </span>phat_dist_<span class="dv">2</span> &lt;-<span class="st"> </span></a>
+<a class="sourceLine" id="cb10-10" data-line-number="10"><span class="op">+</span><span class="st">   </span>fg_train <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb10-11" data-line-number="11"><span class="op">+</span><span class="st">   </span><span class="kw">group_by</span>(Dist_<span class="dv">2</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb10-12" data-line-number="12"><span class="op">+</span><span class="st">   </span><span class="kw">summarize</span>(<span class="dt">phat_dist_2 =</span> <span class="kw">mean</span>(Success))</a></code></pre></div>
 <p>The file “nfl_fg_test.csv” contains additional data on more field goals kicked between 2005 and 2015. Since we have not used the data in this file to train our models, we can get a sense of the <em>out-of-sample</em> predictive performance of our models by looking at how well they predict these field goals. We first load the data into a tbl called <code>fg_test</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>fg_test &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/nfl_fg_test.csv&quot;</span>)
-Parsed with column specification:
-<span class="kw">cols</span>(
-  <span class="dt">Team =</span> <span class="kw">col_character</span>(),
-  <span class="dt">Year =</span> <span class="kw">col_integer</span>(),
-  <span class="dt">GameMinute =</span> <span class="kw">col_integer</span>(),
-  <span class="dt">Kicker =</span> <span class="kw">col_character</span>(),
-  <span class="dt">Distance =</span> <span class="kw">col_integer</span>(),
-  <span class="dt">ScoreDiff =</span> <span class="kw">col_integer</span>(),
-  <span class="dt">Grass =</span> <span class="kw">col_logical</span>(),
-  <span class="dt">Success =</span> <span class="kw">col_integer</span>()
-)</code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span>fg_test &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/nfl_fg_test.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb11-2" data-line-number="2">Parsed with column specification<span class="op">:</span></a>
+<a class="sourceLine" id="cb11-3" data-line-number="3"><span class="kw">cols</span>(</a>
+<a class="sourceLine" id="cb11-4" data-line-number="4">  <span class="dt">Team =</span> <span class="kw">col_character</span>(),</a>
+<a class="sourceLine" id="cb11-5" data-line-number="5">  <span class="dt">Year =</span> <span class="kw">col_double</span>(),</a>
+<a class="sourceLine" id="cb11-6" data-line-number="6">  <span class="dt">GameMinute =</span> <span class="kw">col_double</span>(),</a>
+<a class="sourceLine" id="cb11-7" data-line-number="7">  <span class="dt">Kicker =</span> <span class="kw">col_character</span>(),</a>
+<a class="sourceLine" id="cb11-8" data-line-number="8">  <span class="dt">Distance =</span> <span class="kw">col_double</span>(),</a>
+<a class="sourceLine" id="cb11-9" data-line-number="9">  <span class="dt">ScoreDiff =</span> <span class="kw">col_double</span>(),</a>
+<a class="sourceLine" id="cb11-10" data-line-number="10">  <span class="dt">Grass =</span> <span class="kw">col_logical</span>(),</a>
+<a class="sourceLine" id="cb11-11" data-line-number="11">  <span class="dt">Success =</span> <span class="kw">col_double</span>()</a>
+<a class="sourceLine" id="cb11-12" data-line-number="12">)</a></code></pre></div>
 <p>Using <code>mutate()</code> and <code>cut()</code>, add columns “Dist_10”, “Dist_5”, and “Dist_2” to <code>fg_test</code> that bin the data into 10-yard, 5-yard, and 2-yard increments.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>fg_test &lt;-
-+<span class="st">   </span>fg_test %&gt;%
-+<span class="st">   </span><span class="kw">mutate</span>(<span class="dt">Dist_10 =</span> <span class="kw">cut</span>(Distance, <span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">10</span>, <span class="dt">to =</span> <span class="dv">80</span>, <span class="dt">by =</span> <span class="dv">10</span>)),
-+<span class="st">          </span><span class="dt">Dist_5 =</span> <span class="kw">cut</span>(Distance, <span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">10</span>, <span class="dt">to =</span> <span class="dv">80</span>, <span class="dt">by =</span> <span class="dv">5</span>)),
-+<span class="st">          </span><span class="dt">Dist_2 =</span> <span class="kw">cut</span>(Distance, <span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">10</span>, <span class="dt">to =</span> <span class="dv">80</span>, <span class="dt">by =</span> <span class="dv">2</span>)))</code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span>fg_test &lt;-</a>
+<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="op">+</span><span class="st">   </span>fg_test <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb12-3" data-line-number="3"><span class="op">+</span><span class="st">   </span><span class="kw">mutate</span>(<span class="dt">Dist_10 =</span> <span class="kw">cut</span>(Distance, <span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">10</span>, <span class="dt">to =</span> <span class="dv">80</span>, <span class="dt">by =</span> <span class="dv">10</span>)),</a>
+<a class="sourceLine" id="cb12-4" data-line-number="4"><span class="op">+</span><span class="st">          </span><span class="dt">Dist_5 =</span> <span class="kw">cut</span>(Distance, <span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">10</span>, <span class="dt">to =</span> <span class="dv">80</span>, <span class="dt">by =</span> <span class="dv">5</span>)),</a>
+<a class="sourceLine" id="cb12-5" data-line-number="5"><span class="op">+</span><span class="st">          </span><span class="dt">Dist_2 =</span> <span class="kw">cut</span>(Distance, <span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">10</span>, <span class="dt">to =</span> <span class="dv">80</span>, <span class="dt">by =</span> <span class="dv">2</span>)))</a></code></pre></div>
 <p>We are now ready to add our model’s forecasts to <code>fg_test</code>. For instance, we can add the forecast from “phat_all”, which is just the overall conversion rate averaged over all kickers.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>fg_test &lt;-
-+<span class="st">   </span>fg_test %&gt;%
-+<span class="st">   </span><span class="kw">mutate</span>(<span class="dt">phat_all =</span> <span class="kw">mean</span>(fg_train[[<span class="st">&quot;Success&quot;</span>]]))</code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span>fg_test &lt;-</a>
+<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="op">+</span><span class="st">   </span>fg_test <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb13-3" data-line-number="3"><span class="op">+</span><span class="st">   </span><span class="kw">mutate</span>(<span class="dt">phat_all =</span> <span class="kw">mean</span>(fg_train[[<span class="st">&quot;Success&quot;</span>]]))</a></code></pre></div>
 <p>Notice that instead of computing the mean of the column “Success” from <code>fg_test</code>, we are computing the mean from <code>fg_train</code>.</p>
 <p>Joining is a powerful technique to combine data from two different tables based on a <em>key</em>. The key is what enables us to match rows between the tables. For instance, to add the forecasts from “phat_kicker” to the tbl <code>fg_test</code> we can work row-by-row. First, for each field goal in <code>fg_test</code>, we identify the kicker who attempted the field goal. Then we can go over to the tbl <code>phat_kicker</code> and find the row corresponding to that kicker. We can then take that kicker’s forecast from <code>phat_kicker</code> and append it to the row in <code>fg_test.</code> What we have just described is what is known as an “inner join”. In this situation, the key was the Kicker. The code to carry out these operations is given below</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>fg_test &lt;-
-+<span class="st">   </span>fg_test %&gt;%
-+<span class="st">   </span><span class="kw">inner_join</span>(phat_kicker, <span class="dt">by =</span> <span class="st">&quot;Kicker&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span>fg_test &lt;-</a>
+<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="op">+</span><span class="st">   </span>fg_test <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb14-3" data-line-number="3"><span class="op">+</span><span class="st">   </span><span class="kw">inner_join</span>(phat_kicker, <span class="dt">by =</span> <span class="st">&quot;Kicker&quot;</span>)</a></code></pre></div>
 <p>To verify that we have successfully performed this join, we can print out a few rows of <code>fg_test</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">select</span>(fg_test, Kicker, Success, phat_kicker)
-<span class="co"># A tibble: 1,682 x 3</span>
-   Kicker  Success phat_kicker
-   &lt;chr&gt;<span class="st">     </span><span class="er">&lt;</span>int&gt;<span class="st">       </span><span class="er">&lt;</span>dbl&gt;
-<span class="st"> </span><span class="dv">1</span> Akers         <span class="dv">1</span>       <span class="fl">0.788</span>
- <span class="dv">2</span> Akers         <span class="dv">1</span>       <span class="fl">0.788</span>
- <span class="dv">3</span> Bironas       <span class="dv">1</span>       <span class="fl">0.850</span>
- <span class="dv">4</span> Bironas       <span class="dv">1</span>       <span class="fl">0.850</span>
- <span class="dv">5</span> Bironas       <span class="dv">1</span>       <span class="fl">0.850</span>
- <span class="dv">6</span> Brien         <span class="dv">0</span>       <span class="fl">0.333</span>
- <span class="dv">7</span> Brown         <span class="dv">0</span>       <span class="fl">0.829</span>
- <span class="dv">8</span> Brown         <span class="dv">1</span>       <span class="fl">0.829</span>
- <span class="dv">9</span> Brown         <span class="dv">1</span>       <span class="fl">0.829</span>
-<span class="dv">10</span> Brown         <span class="dv">1</span>       <span class="fl">0.829</span>
-<span class="co"># … with 1,672 more rows</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw">select</span>(fg_test, Kicker, Success, phat_kicker)</a>
+<a class="sourceLine" id="cb15-2" data-line-number="2"><span class="co"># A tibble: 1,682 x 3</span></a>
+<a class="sourceLine" id="cb15-3" data-line-number="3">   Kicker  Success phat_kicker</a>
+<a class="sourceLine" id="cb15-4" data-line-number="4">   <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st">     </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st">       </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb15-5" data-line-number="5"><span class="st"> </span><span class="dv">1</span> Akers         <span class="dv">1</span>       <span class="fl">0.788</span></a>
+<a class="sourceLine" id="cb15-6" data-line-number="6"> <span class="dv">2</span> Akers         <span class="dv">1</span>       <span class="fl">0.788</span></a>
+<a class="sourceLine" id="cb15-7" data-line-number="7"> <span class="dv">3</span> Bironas       <span class="dv">1</span>       <span class="fl">0.850</span></a>
+<a class="sourceLine" id="cb15-8" data-line-number="8"> <span class="dv">4</span> Bironas       <span class="dv">1</span>       <span class="fl">0.850</span></a>
+<a class="sourceLine" id="cb15-9" data-line-number="9"> <span class="dv">5</span> Bironas       <span class="dv">1</span>       <span class="fl">0.850</span></a>
+<a class="sourceLine" id="cb15-10" data-line-number="10"> <span class="dv">6</span> Brien         <span class="dv">0</span>       <span class="fl">0.333</span></a>
+<a class="sourceLine" id="cb15-11" data-line-number="11"> <span class="dv">7</span> Brown         <span class="dv">0</span>       <span class="fl">0.829</span></a>
+<a class="sourceLine" id="cb15-12" data-line-number="12"> <span class="dv">8</span> Brown         <span class="dv">1</span>       <span class="fl">0.829</span></a>
+<a class="sourceLine" id="cb15-13" data-line-number="13"> <span class="dv">9</span> Brown         <span class="dv">1</span>       <span class="fl">0.829</span></a>
+<a class="sourceLine" id="cb15-14" data-line-number="14"><span class="dv">10</span> Brown         <span class="dv">1</span>       <span class="fl">0.829</span></a>
+<a class="sourceLine" id="cb15-15" data-line-number="15"><span class="co"># … with 1,672 more rows</span></a></code></pre></div>
 <p>Let’s unpack the inner join code line-by-line: in the first two lines, we are telling R that we want to over-write <code>fg_test</code>. Next, we pipe <code>fg_test</code> to the function <code>inner_join</code>, which takes two more arguments. The last argument <code>by = &quot;Kicker&quot;</code> tells the function that the key we want to use is the kicker. The first argument <code>phat_kicker</code> tells the function where the additional data corresponding to each key value is.</p>
 <p>Mimic the code above, we can add columns for <code>fg_test</code> for the remaining three predictive models: “phat_dist_10”, “phat_dist_5”, and “phat_dist_2”.</p>
 <p>Nowe, we can compute the out-of-sample Brier scores for each of our models. Which has the best out-of-sample performance?</p>
@@ -484,7 +642,7 @@ Parsed with column specification:
 <div id="looking-ahead-to-tomorrow" class="section level2">
 <h2>Looking ahead to tomorrow</h2>
 <p>Tomorrow, we are going to use <em>logistic regression</em> to take the “binning-and-averaging” approach we used above to its logical extreme (i.e. what would happen if we made our bins infinitessimally small). In order to do that, we will want to save our tbl’s <code>fg_train</code> and <code>fg_test</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">save</span>(fg_train, fg_test, <span class="dt">file =</span> <span class="st">&quot;data/nfl_fg.RData&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw">save</span>(fg_train, fg_test, <span class="dt">file =</span> <span class="st">&quot;data/nfl_fg.RData&quot;</span>)</a></code></pre></div>
 </div>
 
 

@@ -11,7 +11,7 @@
 
 
 
-<title>Lecture 1: R basics and intro to the tidyverse</title>
+<title>Lecture 1: R Basics &amp; Into the Tidyverse</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -21,52 +21,104 @@
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <script src="site_libs/navigation-1.1/codefolding.js"></script>
-<link href="site_libs/font-awesome-5.0.13/css/fa-svg-with-js.css" rel="stylesheet" />
-<script src="site_libs/font-awesome-5.0.13/js/fontawesome-all.min.js"></script>
-<script src="site_libs/font-awesome-5.0.13/js/fa-v4-shims.min.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 
 <style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-pre, code { background-color: #f8f8f8; }
-code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
-code > span.dt { color: #204a87; } /* DataType */
-code > span.dv { color: #0000cf; } /* DecVal */
-code > span.bn { color: #0000cf; } /* BaseN */
-code > span.fl { color: #0000cf; } /* Float */
-code > span.ch { color: #4e9a06; } /* Char */
-code > span.st { color: #4e9a06; } /* String */
-code > span.co { color: #8f5902; font-style: italic; } /* Comment */
-code > span.ot { color: #8f5902; } /* Other */
-code > span.al { color: #ef2929; } /* Alert */
-code > span.fu { color: #000000; } /* Function */
-code > span.er { color: #a40000; font-weight: bold; } /* Error */
-code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #000000; } /* Constant */
-code > span.sc { color: #000000; } /* SpecialChar */
-code > span.vs { color: #4e9a06; } /* VerbatimString */
-code > span.ss { color: #4e9a06; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #000000; } /* Variable */
-code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
-code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-code > span.ex { } /* Extension */
-code > span.at { color: #c4a000; } /* Attribute */
-code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
-code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
-div.sourceCode {
-  overflow-x: visible;
+<style type="text/css" data-origin="pandoc">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+
+.sourceCode .row {
+  width: 100%;
+}
+.sourceCode {
+  overflow-x: auto;
+}
+.code-folding-btn {
+  margin-right: -30px;
 }
 </style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' || rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
 <style type="text/css">
   pre:not([class]) {
     background-color: white;
@@ -102,9 +154,7 @@ h6 {
 </style>
 
 
-</head>
 
-<body>
 
 <style type = "text/css">
 .main-container {
@@ -129,6 +179,9 @@ img {
 button.code-folding-btn:focus {
   outline: none;
 }
+summary {
+  display: list-item;
+}
 </style>
 
 
@@ -143,7 +196,6 @@ body {
   padding-top: 56px;
   margin-top: -56px;
 }
-
 .section h2 {
   padding-top: 56px;
   margin-top: -56px;
@@ -163,6 +215,43 @@ body {
 .section h6 {
   padding-top: 56px;
   margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
 }
 </style>
 
@@ -184,13 +273,71 @@ $(document).ready(function () {
 });
 </script>
 
-
-<div class="container-fluid main-container">
-
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
 });
 </script>
 
@@ -205,6 +352,14 @@ $(document).ready(function () {
 </script>
 
 
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
 
 
 
@@ -300,6 +455,9 @@ $(document).ready(function () {
     <li>
       <a href="tc_lecture1.html">Lecture 1</a>
     </li>
+    <li>
+      <a href="tc_ps1.html">Problem Set 1</a>
+    </li>
   </ul>
 </li>
       </ul>
@@ -322,7 +480,7 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Lecture 1: R basics and intro to the tidyverse</h1>
+<h1 class="title toc-ignore">Lecture 1: R Basics &amp; Into the Tidyverse</h1>
 
 </div>
 
@@ -330,23 +488,23 @@ $(document).ready(function () {
 <div id="setting-our-working-directory" class="section level2">
 <h2>Setting our working directory</h2>
 <p>The <em>working directory</em> is a really powerful concept in <code>R</code> – it is where <code>R</code> saves any output files you create during an analysis and it is the place where <code>R</code> looks for any data you want to read in. When you <a href="installation.html">installed <code>R</code> &amp; RStudio</a>, we asked you to create a folder on your Desktop called Moneyball. This will be your working directory for the duration of the course.</p>
-<p>Everytime you open RStudio, it automatically sets the working directory to some default folder on your computer. To see what that is, we’ll open RStudio and look at the console pane <!-- show console pane --></p>
+<p>Everytime you open RStudio, it automatically sets the working directory to some default folder on your computer. To see what that is, we’ll open RStudio and look at the console pane. <!-- show console pane --></p>
 <p>Once we open RStudio, before we do anything, we need to tell R to change the working directory to our Moneyball folder. We can do this in several ways. <!-- show the different ways to do this --></p>
-<p>** Important: for the next three weeks, everytime you open up RStudio, the first thing you should do is set your working directory to the Moneyball folder.**</p>
+<p>** Important: for this week, everytime you open up RStudio, the first thing you should do is set your working directory to the Moneyball folder.**</p>
 </div>
 <div id="the-tidyverse" class="section level2">
 <h2>The tidyverse</h2>
-<p>So far we have seen only the most basic of <code>R</code>’s functionality. Arguable, one of the things that makes <code>R</code> so powerful is the ease with which users are able to define their own functions and release them to the public. As <a href="http://hadley.nz">Hadley Wickhamn</a> defines them, “[<code>R</code>] packages are fundamental units of reproducible code. They include reusable <code>R</code> functions, the documentation that describes how to use them, and sample data.” As of July 8, 2018, there are 12,725 packages available from the <a href="https://cran.r-project.org">Comprehensive <code>R</code> Archive Network (CRAN)</a>. The scope of these packages is vast: there are some designed for scraping data from the web, pre-processing data to get it into an analyzable format, performing standard and specialized statistical analyses, and to publish your results. People have also released packages tailored to very specific applications like analyzing baseball data. There are also some more whimsical packages, like one that allow you to display your favorite <a href="https://xkcd.com">XKCD</a> comic strip!</p>
-<p>For the rest of the course, we will be working within the <a href="https://www.tidyverse.org/"><code>tidyverse</code></a>, which consists of several <code>R</code> packages for data manipulation, exploration, and visualization. They are all based on a common design philosophy, mostly developed by Hadley Wickham (whose name you will encounter a lot as you grain more experience with <code>R</code>). To access all of these packages, you first need to install them (if you have not already) with the following code:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</code></pre></div>
+<p>So far we have seen only the most basic of <code>R</code>’s functionality. Arguable, one of the things that makes <code>R</code> so powerful is the ease with which users are able to define their own functions and release them to the public. As <a href="http://hadley.nz">Hadley Wickham</a> defines them, “[<code>R</code>] packages are fundamental units of reproducible code. They include reusable <code>R</code> functions, the documentation that describes how to use them, and sample data.” As of July 8, 2018, there are 12,725 packages available from the <a href="https://cran.r-project.org">Comprehensive <code>R</code> Archive Network (CRAN)</a>. The scope of these packages is vast: there are some designed for scraping data from the web, pre-processing data to get it into an analyzable format, performing standard and specialized statistical analyses, and to publish your results. People have also released packages tailored to very specific applications like analyzing baseball data. There are also some more whimsical packages, like one that allow you to display your favorite <a href="https://xkcd.com">XKCD</a> comic strip!</p>
+<p>For the rest of the course, we will be working within the <a href="https://www.tidyverse.org/"><code>tidyverse</code></a>, which consists of several <code>R</code> packages for data manipulation, exploration, and visualization. They are all based on a common design philosophy, mostly developed by Hadley Wickham (whose name you will encounter a lot as you gain more experience with <code>R</code>). To access all of these packages, you first need to install them (if you have not already) with the following code:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</a></code></pre></div>
 <p>The <code>install.packages()</code> function is one way of installing packages in <code>R</code>. You can also click on the Packages tab in your RStudio view and then click on Install to type in the package you want to install.</p>
 <p>Now with the <code>tidyverse</code> suite of packages installed, we can load them with the following code:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">library</span>(tidyverse)</code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw">library</span>(tidyverse)</a></code></pre></div>
 <p>When you do that, you’ll see a lot of output to the console, most of which you can safely ignore for now.</p>
 </div>
 <div id="reading-in-tabular-data" class="section level2">
 <h2>Reading in tabular data</h2>
-<p>Almost all of the data we will encounterin this course (and in the real world) will be tabular. Each row will represent a separate observation and each column will record a particular measurement. For instance, the table below lists different statistics for several basketball players from the 2015-16 NBA regular season. The statistics are: * field goal makes (FGM) * field goal attempts (FGA) * three point makes (TPM) * three point attempts (TPA) * free throw makes (FTM) * free throw attempts (FTA)</p>
+<p>Almost all of the data we will encounter in this course (and in the real world) will be <strong>tabular</strong>. Each row will represent a separate <strong>observation</strong> and each column will record a particular <strong>variable</strong>/measurement. For instance, the table below lists different statistics for several basketball players from the 2015-16 NBA regular season. The statistics are: * field goals made (FGM) * field goal attempts (FGA) * three pointers made (TPM) * three point attempts (TPA) * free throws made (FTM) * free throw attempts (FTA)</p>
 <center>
 <style>
 table#zebra1 {font-family: 'Helvetica', 'Arial', sans-serif; font-size:16px; text-align:left; margin-bottom:25px; background-color: #FF9999;}
@@ -376,10 +534,10 @@ TPM
 TPA
 </th>
 <th>
-FTA
+FTM
 </th>
 <th>
-FTP
+FTA
 </th>
 </tr>
 <tr>
@@ -401,10 +559,10 @@ Stephen Curry
 <td data-th="TPA">
 887
 </td>
-<td data-th="FTA">
+<td data-th="FTM">
 363
 </td>
-<td data-th="FTP">
+<td data-th="FTA">
 400
 </td>
 </tr>
@@ -427,10 +585,10 @@ Damian Lillard
 <td data-th="TPA">
 610
 </td>
-<td data-th="FTA">
+<td data-th="FTM">
 414
 </td>
-<td data-th="FTP">
+<td data-th="FTA">
 464
 </td>
 </tr>
@@ -453,10 +611,10 @@ Jimmy Butler
 <td data-th="TPA">
 206
 </td>
-<td data-th="FTA">
+<td data-th="FTM">
 395
 </td>
-<td data-th="FTP">
+<td data-th="FTA">
 475
 </td>
 </tr>
@@ -479,10 +637,10 @@ James Harden
 <td data-th="TPA">
 657
 </td>
-<td data-th="FTA">
+<td data-th="FTM">
 720
 </td>
-<td data-th="FTP">
+<td data-th="FTA">
 837
 </td>
 </tr>
@@ -505,10 +663,10 @@ Kevin Durant
 <td data-th="TPA">
 480
 </td>
-<td data-th="FTA">
+<td data-th="FTM">
 447
 </td>
-<td data-th="FTP">
+<td data-th="FTA">
 498
 </td>
 </tr>
@@ -531,10 +689,10 @@ LeBron James
 <td data-th="TPA">
 282
 </td>
-<td data-th="FTA">
+<td data-th="FTM">
 359
 </td>
-<td data-th="FTP">
+<td data-th="FTA">
 491
 </td>
 </tr>
@@ -557,10 +715,10 @@ Dirk Nowitzki
 <td data-th="TPA">
 342
 </td>
-<td data-th="FTA">
+<td data-th="FTM">
 250
 </td>
-<td data-th="FTP">
+<td data-th="FTA">
 280
 </td>
 </tr>
@@ -583,10 +741,10 @@ Giannis Antetokounmpo
 <td data-th="TPA">
 110
 </td>
-<td data-th="FTA">
+<td data-th="FTM">
 296
 </td>
-<td data-th="FTP">
+<td data-th="FTA">
 409
 </td>
 </tr>
@@ -609,10 +767,10 @@ DeMarcus Cousins
 <td data-th="TPA">
 210
 </td>
-<td data-th="FTA">
+<td data-th="FTM">
 476
 </td>
-<td data-th="FTP">
+<td data-th="FTA">
 663
 </td>
 </tr>
@@ -635,222 +793,217 @@ Marc Gasol
 <td data-th="TPA">
 3
 </td>
-<td data-th="FTA">
+<td data-th="FTM">
 203
 </td>
-<td data-th="FTP">
+<td data-th="FTA">
 245
 </td>
 </tr>
 </table>
 </center>
-<p>Within the tidyverse, the standard way to store and manipulate tabular data like this is to use what is known as a tbl (pronounced ``tibble’’). At a high-level, a tbl is a two-dimensional array whose columns can be of different data types. That is, the first column might be characters (e.g. the names of athletes) and the second column can be numeric (e.g. the number of points scored).</p>
-<p>Last night, your RTA created a few folders in your working directory. One of them is called “data” and this folder will contain almost all of the data we will work with during this course. All of these datasets are stored on your computer in <a href="https://en.wikipedia.org/wiki/Comma-separated_values">comma-separated</a> files, which have extension ‘.csv’.</p>
+<p>Within the tidyverse, the standard way to store and manipulate tabular data like this is to use what is known as a <code>tbl</code> (pronounced <em>tibble</em>), synonymous with a spreadsheet or <code>data.frame</code>. At a high-level, a <code>tbl</code> is a two-dimensional array whose columns can be of different data types. That is, the first column might be characters (e.g. the names of athletes) and the second column can be numeric (e.g. the number of points scored).</p>
+<p>Your RTA should have created a few folders in your working directory (please inform us if you do not have these folders). One of them is called “data” and this folder will contain almost all of the data we will work with during this course. All of these datasets are stored on your computer in <a href="https://en.wikipedia.org/wiki/Comma-separated_values">comma-separated</a> files, which have extension ‘.csv’.</p>
 <p>Within the tidyverse, we can use the function <code>read_csv()</code> to read in a csv file that is stored on your computer and create a tibble containing all of the data. The dataset showed above is stored in a csv file named “nba_shooting_small.csv” in the “data” folder of our working directory. We will read it into <code>R</code> with the <code>read_csv()</code> function like so:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>nba_shooting_small &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="dt">file =</span> <span class="st">&quot;data/nba_shooting_small.csv&quot;</span>)
-Parsed with column specification:
-<span class="kw">cols</span>(
-  <span class="dt">PLAYER =</span> <span class="kw">col_character</span>(),
-  <span class="dt">SEASON =</span> <span class="kw">col_integer</span>(),
-  <span class="dt">FGM =</span> <span class="kw">col_integer</span>(),
-  <span class="dt">FGA =</span> <span class="kw">col_integer</span>(),
-  <span class="dt">TPM =</span> <span class="kw">col_integer</span>(),
-  <span class="dt">TPA =</span> <span class="kw">col_integer</span>(),
-  <span class="dt">FTA =</span> <span class="kw">col_integer</span>(),
-  <span class="dt">FTM =</span> <span class="kw">col_integer</span>()
-)</code></pre></div>
-<p>Before proceeding, let us parse the syntax <code>nba_shooting_small &lt;- read_csv(...)</code> The first thing to notice is that we’re using the assignment operator that we saw in <a href="ps0.html">Problem Set 0</a>. This tells <code>R</code> that we want it to evalaute whatever is on the right-hand side (in this case <code>read_csv(file = &quot;data/nba_shooting_small.csv&quot;)</code>) and assign the resulting evaluation to a new object called <code>nba_shooting_small</code> (which <code>R</code> will create). We called the function <code>read_csv()</code> with one argument <code>file</code>. This argument is the <em>relative path</em> of the CSV file that we want to read into <code>R</code>. Basically, <code>R</code> starts in the working directory and first looks for a folder called “data.” If it finds such a folder, it looks inside it for a file called “nba_shooting_small.csv.” If it finds the file, it creates a tbl called <code>nba_shooting_small</code> that contains all of the data.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span>nba_shooting_small &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="dt">file =</span> <span class="st">&quot;data/nba_shooting_small.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">Parsed with column specification<span class="op">:</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw">cols</span>(</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">  <span class="dt">PLAYER =</span> <span class="kw">col_character</span>(),</a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">  <span class="dt">SEASON =</span> <span class="kw">col_double</span>(),</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">  <span class="dt">FGM =</span> <span class="kw">col_double</span>(),</a>
+<a class="sourceLine" id="cb3-7" data-line-number="7">  <span class="dt">FGA =</span> <span class="kw">col_double</span>(),</a>
+<a class="sourceLine" id="cb3-8" data-line-number="8">  <span class="dt">TPM =</span> <span class="kw">col_double</span>(),</a>
+<a class="sourceLine" id="cb3-9" data-line-number="9">  <span class="dt">TPA =</span> <span class="kw">col_double</span>(),</a>
+<a class="sourceLine" id="cb3-10" data-line-number="10">  <span class="dt">FTA =</span> <span class="kw">col_double</span>(),</a>
+<a class="sourceLine" id="cb3-11" data-line-number="11">  <span class="dt">FTM =</span> <span class="kw">col_double</span>()</a>
+<a class="sourceLine" id="cb3-12" data-line-number="12">)</a></code></pre></div>
+<p>Before proceeding, let us parse the syntax <code>nba_shooting_small &lt;- read_csv(...)</code> The first thing to notice is that we’re using the assignment operator that we saw in <a href="ps0.html">Problem Set 0</a>. This tells <code>R</code> that we want it to evalaute whatever is on the right-hand side (in this case <code>read_csv(file = &quot;data/nba_shooting_small.csv&quot;)</code>) and assign the resulting evaluation to a new object called <code>nba_shooting_small</code> (which <code>R</code> will create). We called the function <code>read_csv()</code> with one argument <code>file</code>. This argument is the <em>relative path</em> of the CSV file that we want to read into <code>R</code>. Basically, <code>R</code> starts in the working directory and first looks for a folder called “data.” If it finds such a folder, it looks inside it for a file called “nba_shooting_small.csv.” If it finds the file, it creates a <code>tbl</code> called <code>nba_shooting_small</code> that contains all of the data.</p>
 <p>When we type in the command and hit <kbd>Enter</kbd> or <kbd>Return</kbd>, we see some output printed to the console. This is <code>read_csv</code> telling us that it (a) found the file, (b) read it in successfully, and (c) identified the type of data stored in each column. We see, for instance, that the column named “PLAYER” contains <em>character strings</em>, and is parsed as <code>col_character()</code>. Similarly, the number of field goals made (“FGM”) is parsed as integer data.</p>
 <p>When we print out our tbl, <code>R</code> outputs many things: the dimension (in this case, <span class="math inline">\(10 \times 7\)</span>), the column names, the <em>type</em> of data included in each column, and then the actual data.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>nba_shooting_small
-<span class="co"># A tibble: 10 x 8</span>
-   PLAYER                SEASON   FGM   FGA   TPM   TPA   FTA   FTM
-   &lt;chr&gt;<span class="st">                  </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;
-<span class="st"> </span><span class="dv">1</span> Stephen Curry           <span class="dv">2016</span>   <span class="dv">805</span>  <span class="dv">1597</span>   <span class="dv">402</span>   <span class="dv">887</span>   <span class="dv">363</span>   <span class="dv">400</span>
- <span class="dv">2</span> Damian Lillard          <span class="dv">2016</span>   <span class="dv">618</span>  <span class="dv">1474</span>   <span class="dv">229</span>   <span class="dv">610</span>   <span class="dv">414</span>   <span class="dv">464</span>
- <span class="dv">3</span> Jimmy Butler            <span class="dv">2016</span>   <span class="dv">470</span>  <span class="dv">1034</span>    <span class="dv">64</span>   <span class="dv">206</span>   <span class="dv">395</span>   <span class="dv">475</span>
- <span class="dv">4</span> James Harden            <span class="dv">2016</span>   <span class="dv">710</span>  <span class="dv">1617</span>   <span class="dv">236</span>   <span class="dv">657</span>   <span class="dv">720</span>   <span class="dv">837</span>
- <span class="dv">5</span> Kevin Durant            <span class="dv">2016</span>   <span class="dv">698</span>  <span class="dv">1381</span>   <span class="dv">186</span>   <span class="dv">480</span>   <span class="dv">447</span>   <span class="dv">498</span>
- <span class="dv">6</span> LeBron James            <span class="dv">2016</span>   <span class="dv">737</span>  <span class="dv">1416</span>    <span class="dv">87</span>   <span class="dv">282</span>   <span class="dv">359</span>   <span class="dv">491</span>
- <span class="dv">7</span> Dirk Nowitzki           <span class="dv">2016</span>   <span class="dv">498</span>  <span class="dv">1112</span>   <span class="dv">126</span>   <span class="dv">342</span>   <span class="dv">250</span>   <span class="dv">280</span>
- <span class="dv">8</span> Giannis Antetokounmpo   <span class="dv">2016</span>   <span class="dv">513</span>  <span class="dv">1013</span>    <span class="dv">28</span>   <span class="dv">110</span>   <span class="dv">296</span>   <span class="dv">409</span>
- <span class="dv">9</span> DeMarcus Cousins        <span class="dv">2016</span>   <span class="dv">601</span>  <span class="dv">1332</span>    <span class="dv">70</span>   <span class="dv">210</span>   <span class="dv">476</span>   <span class="dv">663</span>
-<span class="dv">10</span> Marc Gasol              <span class="dv">2016</span>   <span class="dv">328</span>   <span class="dv">707</span>     <span class="dv">2</span>     <span class="dv">3</span>   <span class="dv">203</span>   <span class="dv">245</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span>nba_shooting_small</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co"># A tibble: 10 x 8</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">   PLAYER                SEASON   FGM   FGA   TPM   TPA   FTA   FTM</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">   <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st">                  </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="st"> </span><span class="dv">1</span> Stephen Curry           <span class="dv">2016</span>   <span class="dv">805</span>  <span class="dv">1597</span>   <span class="dv">402</span>   <span class="dv">887</span>   <span class="dv">363</span>   <span class="dv">400</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"> <span class="dv">2</span> Damian Lillard          <span class="dv">2016</span>   <span class="dv">618</span>  <span class="dv">1474</span>   <span class="dv">229</span>   <span class="dv">610</span>   <span class="dv">414</span>   <span class="dv">464</span></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"> <span class="dv">3</span> Jimmy Butler            <span class="dv">2016</span>   <span class="dv">470</span>  <span class="dv">1034</span>    <span class="dv">64</span>   <span class="dv">206</span>   <span class="dv">395</span>   <span class="dv">475</span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"> <span class="dv">4</span> James Harden            <span class="dv">2016</span>   <span class="dv">710</span>  <span class="dv">1617</span>   <span class="dv">236</span>   <span class="dv">657</span>   <span class="dv">720</span>   <span class="dv">837</span></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9"> <span class="dv">5</span> Kevin Durant            <span class="dv">2016</span>   <span class="dv">698</span>  <span class="dv">1381</span>   <span class="dv">186</span>   <span class="dv">480</span>   <span class="dv">447</span>   <span class="dv">498</span></a>
+<a class="sourceLine" id="cb4-10" data-line-number="10"> <span class="dv">6</span> LeBron James            <span class="dv">2016</span>   <span class="dv">737</span>  <span class="dv">1416</span>    <span class="dv">87</span>   <span class="dv">282</span>   <span class="dv">359</span>   <span class="dv">491</span></a>
+<a class="sourceLine" id="cb4-11" data-line-number="11"> <span class="dv">7</span> Dirk Nowitzki           <span class="dv">2016</span>   <span class="dv">498</span>  <span class="dv">1112</span>   <span class="dv">126</span>   <span class="dv">342</span>   <span class="dv">250</span>   <span class="dv">280</span></a>
+<a class="sourceLine" id="cb4-12" data-line-number="12"> <span class="dv">8</span> Giannis Antetokounmpo   <span class="dv">2016</span>   <span class="dv">513</span>  <span class="dv">1013</span>    <span class="dv">28</span>   <span class="dv">110</span>   <span class="dv">296</span>   <span class="dv">409</span></a>
+<a class="sourceLine" id="cb4-13" data-line-number="13"> <span class="dv">9</span> DeMarcus Cousins        <span class="dv">2016</span>   <span class="dv">601</span>  <span class="dv">1332</span>    <span class="dv">70</span>   <span class="dv">210</span>   <span class="dv">476</span>   <span class="dv">663</span></a>
+<a class="sourceLine" id="cb4-14" data-line-number="14"><span class="dv">10</span> Marc Gasol              <span class="dv">2016</span>   <span class="dv">328</span>   <span class="dv">707</span>     <span class="dv">2</span>     <span class="dv">3</span>   <span class="dv">203</span>   <span class="dv">245</span></a></code></pre></div>
 </div>
 <div id="wrangling-data" class="section level2">
 <h2>Wrangling Data</h2>
-<p>Now that we have read in our dataset, we’re ready to begin our analysis. Very often, our analysis will involve some type of manipulation or <em>wrangling</em> of the data contained in the tbl. For instance, we may want to compute some new summary statistic based on the data in the table. In our NBA example, we could compute, say, each player’s field goal percentage. Alternatively, we could subset our data to find all players who took at least 100 three point shots and made at least 80% of their free throws. The package <code>dplyr()</code> contains five main functions corresponding to the most common things that you’ll end up doing to your data. Over the next two days, we will learn each of these</p>
+<p>Now that we have read in our dataset, we’re ready to begin analyzing it. Very often, our analysis will involve some type of manipulation or <em>wrangling</em> of the data contained in the <code>tbl</code>. For instance, we may want to compute some new summary statistic based on the data in the table. In our NBA example, we could compute, say, each player’s field goal percentage. Alternatively, we could subset our data to find all players who took at least 100 three point shots and made at least 80% of their free throws. One package within the <code>tidyverse</code> is called <code>dplyr</code> and it contains five main functions corresponding to the most common things that you’ll end up doing to your data. Over the next two days, we will learn each of these:</p>
 <ul>
-<li>Reorder the rows with <code>arrange()</code></li>
-<li>Creating new variables that are functions of existing variables with <code>mutate()</code></li>
-<li>Identify observations satisfying certain conditions with <code>filter()</code></li>
-<li>Picking a subset of variables by names with <code>select()</code></li>
-<li>Generating simple summaries of the data with <code>summarise()</code></li>
+<li>reorder the rows with <code>arrange()</code>,</li>
+<li>creating new variables that are functions of existing variables with <code>mutate()</code>,</li>
+<li>identify observations satisfying certain conditions with <code>filter()</code>,</li>
+<li>picking a subset of variables by names with <code>select()</code>,</li>
+<li>generating simple summaries of the data with <code>summarize()</code>.</li>
 </ul>
 <div id="arranging-data" class="section level3">
 <h3>Arranging Data</h3>
 <p>The <code>arrange()</code> function works by taking a tbl and a set of column names and sorting the data according to the values in these columns.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">arrange</span>(nba_shooting_small, FGA)
-<span class="co"># A tibble: 10 x 8</span>
-   PLAYER                SEASON   FGM   FGA   TPM   TPA   FTA   FTM
-   &lt;chr&gt;<span class="st">                  </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;
-<span class="st"> </span><span class="dv">1</span> Marc Gasol              <span class="dv">2016</span>   <span class="dv">328</span>   <span class="dv">707</span>     <span class="dv">2</span>     <span class="dv">3</span>   <span class="dv">203</span>   <span class="dv">245</span>
- <span class="dv">2</span> Giannis Antetokounmpo   <span class="dv">2016</span>   <span class="dv">513</span>  <span class="dv">1013</span>    <span class="dv">28</span>   <span class="dv">110</span>   <span class="dv">296</span>   <span class="dv">409</span>
- <span class="dv">3</span> Jimmy Butler            <span class="dv">2016</span>   <span class="dv">470</span>  <span class="dv">1034</span>    <span class="dv">64</span>   <span class="dv">206</span>   <span class="dv">395</span>   <span class="dv">475</span>
- <span class="dv">4</span> Dirk Nowitzki           <span class="dv">2016</span>   <span class="dv">498</span>  <span class="dv">1112</span>   <span class="dv">126</span>   <span class="dv">342</span>   <span class="dv">250</span>   <span class="dv">280</span>
- <span class="dv">5</span> DeMarcus Cousins        <span class="dv">2016</span>   <span class="dv">601</span>  <span class="dv">1332</span>    <span class="dv">70</span>   <span class="dv">210</span>   <span class="dv">476</span>   <span class="dv">663</span>
- <span class="dv">6</span> Kevin Durant            <span class="dv">2016</span>   <span class="dv">698</span>  <span class="dv">1381</span>   <span class="dv">186</span>   <span class="dv">480</span>   <span class="dv">447</span>   <span class="dv">498</span>
- <span class="dv">7</span> LeBron James            <span class="dv">2016</span>   <span class="dv">737</span>  <span class="dv">1416</span>    <span class="dv">87</span>   <span class="dv">282</span>   <span class="dv">359</span>   <span class="dv">491</span>
- <span class="dv">8</span> Damian Lillard          <span class="dv">2016</span>   <span class="dv">618</span>  <span class="dv">1474</span>   <span class="dv">229</span>   <span class="dv">610</span>   <span class="dv">414</span>   <span class="dv">464</span>
- <span class="dv">9</span> Stephen Curry           <span class="dv">2016</span>   <span class="dv">805</span>  <span class="dv">1597</span>   <span class="dv">402</span>   <span class="dv">887</span>   <span class="dv">363</span>   <span class="dv">400</span>
-<span class="dv">10</span> James Harden            <span class="dv">2016</span>   <span class="dv">710</span>  <span class="dv">1617</span>   <span class="dv">236</span>   <span class="dv">657</span>   <span class="dv">720</span>   <span class="dv">837</span></code></pre></div>
-<p>The code above takes our tbl and sorts the rows in ascending order of FGA. We see that Marc Gasol took the fewest number of field goals (707) while James Harden and Stephen Curry attempted more than twice as many. We could also sort the players in descending order using <code>desc()</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">arrange</span>(nba_shooting_small, <span class="kw">desc</span>(FGA))
-<span class="co"># A tibble: 10 x 8</span>
-   PLAYER                SEASON   FGM   FGA   TPM   TPA   FTA   FTM
-   &lt;chr&gt;<span class="st">                  </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;
-<span class="st"> </span><span class="dv">1</span> James Harden            <span class="dv">2016</span>   <span class="dv">710</span>  <span class="dv">1617</span>   <span class="dv">236</span>   <span class="dv">657</span>   <span class="dv">720</span>   <span class="dv">837</span>
- <span class="dv">2</span> Stephen Curry           <span class="dv">2016</span>   <span class="dv">805</span>  <span class="dv">1597</span>   <span class="dv">402</span>   <span class="dv">887</span>   <span class="dv">363</span>   <span class="dv">400</span>
- <span class="dv">3</span> Damian Lillard          <span class="dv">2016</span>   <span class="dv">618</span>  <span class="dv">1474</span>   <span class="dv">229</span>   <span class="dv">610</span>   <span class="dv">414</span>   <span class="dv">464</span>
- <span class="dv">4</span> LeBron James            <span class="dv">2016</span>   <span class="dv">737</span>  <span class="dv">1416</span>    <span class="dv">87</span>   <span class="dv">282</span>   <span class="dv">359</span>   <span class="dv">491</span>
- <span class="dv">5</span> Kevin Durant            <span class="dv">2016</span>   <span class="dv">698</span>  <span class="dv">1381</span>   <span class="dv">186</span>   <span class="dv">480</span>   <span class="dv">447</span>   <span class="dv">498</span>
- <span class="dv">6</span> DeMarcus Cousins        <span class="dv">2016</span>   <span class="dv">601</span>  <span class="dv">1332</span>    <span class="dv">70</span>   <span class="dv">210</span>   <span class="dv">476</span>   <span class="dv">663</span>
- <span class="dv">7</span> Dirk Nowitzki           <span class="dv">2016</span>   <span class="dv">498</span>  <span class="dv">1112</span>   <span class="dv">126</span>   <span class="dv">342</span>   <span class="dv">250</span>   <span class="dv">280</span>
- <span class="dv">8</span> Jimmy Butler            <span class="dv">2016</span>   <span class="dv">470</span>  <span class="dv">1034</span>    <span class="dv">64</span>   <span class="dv">206</span>   <span class="dv">395</span>   <span class="dv">475</span>
- <span class="dv">9</span> Giannis Antetokounmpo   <span class="dv">2016</span>   <span class="dv">513</span>  <span class="dv">1013</span>    <span class="dv">28</span>   <span class="dv">110</span>   <span class="dv">296</span>   <span class="dv">409</span>
-<span class="dv">10</span> Marc Gasol              <span class="dv">2016</span>   <span class="dv">328</span>   <span class="dv">707</span>     <span class="dv">2</span>     <span class="dv">3</span>   <span class="dv">203</span>   <span class="dv">245</span></code></pre></div>
-<p>In this small dataset, no two players attempted the same number of field goals. In larger datasets (like the one you’ll see in <a href="ps1.html">Problem Set1</a>), it can be the case that there are multiple rows with the same value in a given column. When arranging the rows of a tbl, to break ties, we can specify more than column. For instance, the code below sorts the players first by the number of field goal attempts and then by the number of three point attempts.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">arrange</span>(nba_shooting_small, FGA, TPA)
-<span class="co"># A tibble: 10 x 8</span>
-   PLAYER                SEASON   FGM   FGA   TPM   TPA   FTA   FTM
-   &lt;chr&gt;<span class="st">                  </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;
-<span class="st"> </span><span class="dv">1</span> Marc Gasol              <span class="dv">2016</span>   <span class="dv">328</span>   <span class="dv">707</span>     <span class="dv">2</span>     <span class="dv">3</span>   <span class="dv">203</span>   <span class="dv">245</span>
- <span class="dv">2</span> Giannis Antetokounmpo   <span class="dv">2016</span>   <span class="dv">513</span>  <span class="dv">1013</span>    <span class="dv">28</span>   <span class="dv">110</span>   <span class="dv">296</span>   <span class="dv">409</span>
- <span class="dv">3</span> Jimmy Butler            <span class="dv">2016</span>   <span class="dv">470</span>  <span class="dv">1034</span>    <span class="dv">64</span>   <span class="dv">206</span>   <span class="dv">395</span>   <span class="dv">475</span>
- <span class="dv">4</span> Dirk Nowitzki           <span class="dv">2016</span>   <span class="dv">498</span>  <span class="dv">1112</span>   <span class="dv">126</span>   <span class="dv">342</span>   <span class="dv">250</span>   <span class="dv">280</span>
- <span class="dv">5</span> DeMarcus Cousins        <span class="dv">2016</span>   <span class="dv">601</span>  <span class="dv">1332</span>    <span class="dv">70</span>   <span class="dv">210</span>   <span class="dv">476</span>   <span class="dv">663</span>
- <span class="dv">6</span> Kevin Durant            <span class="dv">2016</span>   <span class="dv">698</span>  <span class="dv">1381</span>   <span class="dv">186</span>   <span class="dv">480</span>   <span class="dv">447</span>   <span class="dv">498</span>
- <span class="dv">7</span> LeBron James            <span class="dv">2016</span>   <span class="dv">737</span>  <span class="dv">1416</span>    <span class="dv">87</span>   <span class="dv">282</span>   <span class="dv">359</span>   <span class="dv">491</span>
- <span class="dv">8</span> Damian Lillard          <span class="dv">2016</span>   <span class="dv">618</span>  <span class="dv">1474</span>   <span class="dv">229</span>   <span class="dv">610</span>   <span class="dv">414</span>   <span class="dv">464</span>
- <span class="dv">9</span> Stephen Curry           <span class="dv">2016</span>   <span class="dv">805</span>  <span class="dv">1597</span>   <span class="dv">402</span>   <span class="dv">887</span>   <span class="dv">363</span>   <span class="dv">400</span>
-<span class="dv">10</span> James Harden            <span class="dv">2016</span>   <span class="dv">710</span>  <span class="dv">1617</span>   <span class="dv">236</span>   <span class="dv">657</span>   <span class="dv">720</span>   <span class="dv">837</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw">arrange</span>(nba_shooting_small, FGA)</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co"># A tibble: 10 x 8</span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">   PLAYER                SEASON   FGM   FGA   TPM   TPA   FTA   FTM</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">   <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st">                  </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="st"> </span><span class="dv">1</span> Marc Gasol              <span class="dv">2016</span>   <span class="dv">328</span>   <span class="dv">707</span>     <span class="dv">2</span>     <span class="dv">3</span>   <span class="dv">203</span>   <span class="dv">245</span></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"> <span class="dv">2</span> Giannis Antetokounmpo   <span class="dv">2016</span>   <span class="dv">513</span>  <span class="dv">1013</span>    <span class="dv">28</span>   <span class="dv">110</span>   <span class="dv">296</span>   <span class="dv">409</span></a>
+<a class="sourceLine" id="cb5-7" data-line-number="7"> <span class="dv">3</span> Jimmy Butler            <span class="dv">2016</span>   <span class="dv">470</span>  <span class="dv">1034</span>    <span class="dv">64</span>   <span class="dv">206</span>   <span class="dv">395</span>   <span class="dv">475</span></a>
+<a class="sourceLine" id="cb5-8" data-line-number="8"> <span class="dv">4</span> Dirk Nowitzki           <span class="dv">2016</span>   <span class="dv">498</span>  <span class="dv">1112</span>   <span class="dv">126</span>   <span class="dv">342</span>   <span class="dv">250</span>   <span class="dv">280</span></a>
+<a class="sourceLine" id="cb5-9" data-line-number="9"> <span class="dv">5</span> DeMarcus Cousins        <span class="dv">2016</span>   <span class="dv">601</span>  <span class="dv">1332</span>    <span class="dv">70</span>   <span class="dv">210</span>   <span class="dv">476</span>   <span class="dv">663</span></a>
+<a class="sourceLine" id="cb5-10" data-line-number="10"> <span class="dv">6</span> Kevin Durant            <span class="dv">2016</span>   <span class="dv">698</span>  <span class="dv">1381</span>   <span class="dv">186</span>   <span class="dv">480</span>   <span class="dv">447</span>   <span class="dv">498</span></a>
+<a class="sourceLine" id="cb5-11" data-line-number="11"> <span class="dv">7</span> LeBron James            <span class="dv">2016</span>   <span class="dv">737</span>  <span class="dv">1416</span>    <span class="dv">87</span>   <span class="dv">282</span>   <span class="dv">359</span>   <span class="dv">491</span></a>
+<a class="sourceLine" id="cb5-12" data-line-number="12"> <span class="dv">8</span> Damian Lillard          <span class="dv">2016</span>   <span class="dv">618</span>  <span class="dv">1474</span>   <span class="dv">229</span>   <span class="dv">610</span>   <span class="dv">414</span>   <span class="dv">464</span></a>
+<a class="sourceLine" id="cb5-13" data-line-number="13"> <span class="dv">9</span> Stephen Curry           <span class="dv">2016</span>   <span class="dv">805</span>  <span class="dv">1597</span>   <span class="dv">402</span>   <span class="dv">887</span>   <span class="dv">363</span>   <span class="dv">400</span></a>
+<a class="sourceLine" id="cb5-14" data-line-number="14"><span class="dv">10</span> James Harden            <span class="dv">2016</span>   <span class="dv">710</span>  <span class="dv">1617</span>   <span class="dv">236</span>   <span class="dv">657</span>   <span class="dv">720</span>   <span class="dv">837</span></a></code></pre></div>
+<p>The code above takes our <code>tbl</code> and sorts the rows in ascending order of FGA. We see that Marc Gasol took the fewest number of field goals (707) while James Harden and Stephen Curry attempted more than twice as many. We could also sort the players in descending order using <code>desc()</code>:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw">arrange</span>(nba_shooting_small, <span class="kw">desc</span>(FGA))</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="co"># A tibble: 10 x 8</span></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3">   PLAYER                SEASON   FGM   FGA   TPM   TPA   FTA   FTM</a>
+<a class="sourceLine" id="cb6-4" data-line-number="4">   <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st">                  </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="st"> </span><span class="dv">1</span> James Harden            <span class="dv">2016</span>   <span class="dv">710</span>  <span class="dv">1617</span>   <span class="dv">236</span>   <span class="dv">657</span>   <span class="dv">720</span>   <span class="dv">837</span></a>
+<a class="sourceLine" id="cb6-6" data-line-number="6"> <span class="dv">2</span> Stephen Curry           <span class="dv">2016</span>   <span class="dv">805</span>  <span class="dv">1597</span>   <span class="dv">402</span>   <span class="dv">887</span>   <span class="dv">363</span>   <span class="dv">400</span></a>
+<a class="sourceLine" id="cb6-7" data-line-number="7"> <span class="dv">3</span> Damian Lillard          <span class="dv">2016</span>   <span class="dv">618</span>  <span class="dv">1474</span>   <span class="dv">229</span>   <span class="dv">610</span>   <span class="dv">414</span>   <span class="dv">464</span></a>
+<a class="sourceLine" id="cb6-8" data-line-number="8"> <span class="dv">4</span> LeBron James            <span class="dv">2016</span>   <span class="dv">737</span>  <span class="dv">1416</span>    <span class="dv">87</span>   <span class="dv">282</span>   <span class="dv">359</span>   <span class="dv">491</span></a>
+<a class="sourceLine" id="cb6-9" data-line-number="9"> <span class="dv">5</span> Kevin Durant            <span class="dv">2016</span>   <span class="dv">698</span>  <span class="dv">1381</span>   <span class="dv">186</span>   <span class="dv">480</span>   <span class="dv">447</span>   <span class="dv">498</span></a>
+<a class="sourceLine" id="cb6-10" data-line-number="10"> <span class="dv">6</span> DeMarcus Cousins        <span class="dv">2016</span>   <span class="dv">601</span>  <span class="dv">1332</span>    <span class="dv">70</span>   <span class="dv">210</span>   <span class="dv">476</span>   <span class="dv">663</span></a>
+<a class="sourceLine" id="cb6-11" data-line-number="11"> <span class="dv">7</span> Dirk Nowitzki           <span class="dv">2016</span>   <span class="dv">498</span>  <span class="dv">1112</span>   <span class="dv">126</span>   <span class="dv">342</span>   <span class="dv">250</span>   <span class="dv">280</span></a>
+<a class="sourceLine" id="cb6-12" data-line-number="12"> <span class="dv">8</span> Jimmy Butler            <span class="dv">2016</span>   <span class="dv">470</span>  <span class="dv">1034</span>    <span class="dv">64</span>   <span class="dv">206</span>   <span class="dv">395</span>   <span class="dv">475</span></a>
+<a class="sourceLine" id="cb6-13" data-line-number="13"> <span class="dv">9</span> Giannis Antetokounmpo   <span class="dv">2016</span>   <span class="dv">513</span>  <span class="dv">1013</span>    <span class="dv">28</span>   <span class="dv">110</span>   <span class="dv">296</span>   <span class="dv">409</span></a>
+<a class="sourceLine" id="cb6-14" data-line-number="14"><span class="dv">10</span> Marc Gasol              <span class="dv">2016</span>   <span class="dv">328</span>   <span class="dv">707</span>     <span class="dv">2</span>     <span class="dv">3</span>   <span class="dv">203</span>   <span class="dv">245</span></a></code></pre></div>
+<p>In this small dataset, no two players attempted the same number of field goals. In larger datasets (like the one you’ll see in <a href="ps1.html">Problem Set1</a>), it can be the case that there are multiple rows with the same value in a given column. When arranging the rows of a <code>tbl</code>, to break ties, we can specify more than column. For instance, the code below sorts the players first by the number of field goal attempts and then by the number of three point attempts.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw">arrange</span>(nba_shooting_small, FGA, TPA)</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="co"># A tibble: 10 x 8</span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3">   PLAYER                SEASON   FGM   FGA   TPM   TPA   FTA   FTM</a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">   <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st">                  </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="st"> </span><span class="dv">1</span> Marc Gasol              <span class="dv">2016</span>   <span class="dv">328</span>   <span class="dv">707</span>     <span class="dv">2</span>     <span class="dv">3</span>   <span class="dv">203</span>   <span class="dv">245</span></a>
+<a class="sourceLine" id="cb7-6" data-line-number="6"> <span class="dv">2</span> Giannis Antetokounmpo   <span class="dv">2016</span>   <span class="dv">513</span>  <span class="dv">1013</span>    <span class="dv">28</span>   <span class="dv">110</span>   <span class="dv">296</span>   <span class="dv">409</span></a>
+<a class="sourceLine" id="cb7-7" data-line-number="7"> <span class="dv">3</span> Jimmy Butler            <span class="dv">2016</span>   <span class="dv">470</span>  <span class="dv">1034</span>    <span class="dv">64</span>   <span class="dv">206</span>   <span class="dv">395</span>   <span class="dv">475</span></a>
+<a class="sourceLine" id="cb7-8" data-line-number="8"> <span class="dv">4</span> Dirk Nowitzki           <span class="dv">2016</span>   <span class="dv">498</span>  <span class="dv">1112</span>   <span class="dv">126</span>   <span class="dv">342</span>   <span class="dv">250</span>   <span class="dv">280</span></a>
+<a class="sourceLine" id="cb7-9" data-line-number="9"> <span class="dv">5</span> DeMarcus Cousins        <span class="dv">2016</span>   <span class="dv">601</span>  <span class="dv">1332</span>    <span class="dv">70</span>   <span class="dv">210</span>   <span class="dv">476</span>   <span class="dv">663</span></a>
+<a class="sourceLine" id="cb7-10" data-line-number="10"> <span class="dv">6</span> Kevin Durant            <span class="dv">2016</span>   <span class="dv">698</span>  <span class="dv">1381</span>   <span class="dv">186</span>   <span class="dv">480</span>   <span class="dv">447</span>   <span class="dv">498</span></a>
+<a class="sourceLine" id="cb7-11" data-line-number="11"> <span class="dv">7</span> LeBron James            <span class="dv">2016</span>   <span class="dv">737</span>  <span class="dv">1416</span>    <span class="dv">87</span>   <span class="dv">282</span>   <span class="dv">359</span>   <span class="dv">491</span></a>
+<a class="sourceLine" id="cb7-12" data-line-number="12"> <span class="dv">8</span> Damian Lillard          <span class="dv">2016</span>   <span class="dv">618</span>  <span class="dv">1474</span>   <span class="dv">229</span>   <span class="dv">610</span>   <span class="dv">414</span>   <span class="dv">464</span></a>
+<a class="sourceLine" id="cb7-13" data-line-number="13"> <span class="dv">9</span> Stephen Curry           <span class="dv">2016</span>   <span class="dv">805</span>  <span class="dv">1597</span>   <span class="dv">402</span>   <span class="dv">887</span>   <span class="dv">363</span>   <span class="dv">400</span></a>
+<a class="sourceLine" id="cb7-14" data-line-number="14"><span class="dv">10</span> James Harden            <span class="dv">2016</span>   <span class="dv">710</span>  <span class="dv">1617</span>   <span class="dv">236</span>   <span class="dv">657</span>   <span class="dv">720</span>   <span class="dv">837</span></a></code></pre></div>
 <p>Now consider the two lines of code:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">arrange</span>(nba_shooting_small, PLAYER)
-<span class="co"># A tibble: 10 x 8</span>
-   PLAYER                SEASON   FGM   FGA   TPM   TPA   FTA   FTM
-   &lt;chr&gt;<span class="st">                  </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;
-<span class="st"> </span><span class="dv">1</span> Damian Lillard          <span class="dv">2016</span>   <span class="dv">618</span>  <span class="dv">1474</span>   <span class="dv">229</span>   <span class="dv">610</span>   <span class="dv">414</span>   <span class="dv">464</span>
- <span class="dv">2</span> DeMarcus Cousins        <span class="dv">2016</span>   <span class="dv">601</span>  <span class="dv">1332</span>    <span class="dv">70</span>   <span class="dv">210</span>   <span class="dv">476</span>   <span class="dv">663</span>
- <span class="dv">3</span> Dirk Nowitzki           <span class="dv">2016</span>   <span class="dv">498</span>  <span class="dv">1112</span>   <span class="dv">126</span>   <span class="dv">342</span>   <span class="dv">250</span>   <span class="dv">280</span>
- <span class="dv">4</span> Giannis Antetokounmpo   <span class="dv">2016</span>   <span class="dv">513</span>  <span class="dv">1013</span>    <span class="dv">28</span>   <span class="dv">110</span>   <span class="dv">296</span>   <span class="dv">409</span>
- <span class="dv">5</span> James Harden            <span class="dv">2016</span>   <span class="dv">710</span>  <span class="dv">1617</span>   <span class="dv">236</span>   <span class="dv">657</span>   <span class="dv">720</span>   <span class="dv">837</span>
- <span class="dv">6</span> Jimmy Butler            <span class="dv">2016</span>   <span class="dv">470</span>  <span class="dv">1034</span>    <span class="dv">64</span>   <span class="dv">206</span>   <span class="dv">395</span>   <span class="dv">475</span>
- <span class="dv">7</span> Kevin Durant            <span class="dv">2016</span>   <span class="dv">698</span>  <span class="dv">1381</span>   <span class="dv">186</span>   <span class="dv">480</span>   <span class="dv">447</span>   <span class="dv">498</span>
- <span class="dv">8</span> LeBron James            <span class="dv">2016</span>   <span class="dv">737</span>  <span class="dv">1416</span>    <span class="dv">87</span>   <span class="dv">282</span>   <span class="dv">359</span>   <span class="dv">491</span>
- <span class="dv">9</span> Marc Gasol              <span class="dv">2016</span>   <span class="dv">328</span>   <span class="dv">707</span>     <span class="dv">2</span>     <span class="dv">3</span>   <span class="dv">203</span>   <span class="dv">245</span>
-<span class="dv">10</span> Stephen Curry           <span class="dv">2016</span>   <span class="dv">805</span>  <span class="dv">1597</span>   <span class="dv">402</span>   <span class="dv">887</span>   <span class="dv">363</span>   <span class="dv">400</span>
-&gt;<span class="st"> </span>nba_shooting_small
-<span class="co"># A tibble: 10 x 8</span>
-   PLAYER                SEASON   FGM   FGA   TPM   TPA   FTA   FTM
-   &lt;chr&gt;<span class="st">                  </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;
-<span class="st"> </span><span class="dv">1</span> Stephen Curry           <span class="dv">2016</span>   <span class="dv">805</span>  <span class="dv">1597</span>   <span class="dv">402</span>   <span class="dv">887</span>   <span class="dv">363</span>   <span class="dv">400</span>
- <span class="dv">2</span> Damian Lillard          <span class="dv">2016</span>   <span class="dv">618</span>  <span class="dv">1474</span>   <span class="dv">229</span>   <span class="dv">610</span>   <span class="dv">414</span>   <span class="dv">464</span>
- <span class="dv">3</span> Jimmy Butler            <span class="dv">2016</span>   <span class="dv">470</span>  <span class="dv">1034</span>    <span class="dv">64</span>   <span class="dv">206</span>   <span class="dv">395</span>   <span class="dv">475</span>
- <span class="dv">4</span> James Harden            <span class="dv">2016</span>   <span class="dv">710</span>  <span class="dv">1617</span>   <span class="dv">236</span>   <span class="dv">657</span>   <span class="dv">720</span>   <span class="dv">837</span>
- <span class="dv">5</span> Kevin Durant            <span class="dv">2016</span>   <span class="dv">698</span>  <span class="dv">1381</span>   <span class="dv">186</span>   <span class="dv">480</span>   <span class="dv">447</span>   <span class="dv">498</span>
- <span class="dv">6</span> LeBron James            <span class="dv">2016</span>   <span class="dv">737</span>  <span class="dv">1416</span>    <span class="dv">87</span>   <span class="dv">282</span>   <span class="dv">359</span>   <span class="dv">491</span>
- <span class="dv">7</span> Dirk Nowitzki           <span class="dv">2016</span>   <span class="dv">498</span>  <span class="dv">1112</span>   <span class="dv">126</span>   <span class="dv">342</span>   <span class="dv">250</span>   <span class="dv">280</span>
- <span class="dv">8</span> Giannis Antetokounmpo   <span class="dv">2016</span>   <span class="dv">513</span>  <span class="dv">1013</span>    <span class="dv">28</span>   <span class="dv">110</span>   <span class="dv">296</span>   <span class="dv">409</span>
- <span class="dv">9</span> DeMarcus Cousins        <span class="dv">2016</span>   <span class="dv">601</span>  <span class="dv">1332</span>    <span class="dv">70</span>   <span class="dv">210</span>   <span class="dv">476</span>   <span class="dv">663</span>
-<span class="dv">10</span> Marc Gasol              <span class="dv">2016</span>   <span class="dv">328</span>   <span class="dv">707</span>     <span class="dv">2</span>     <span class="dv">3</span>   <span class="dv">203</span>   <span class="dv">245</span></code></pre></div>
-<p>In the first line, we’ve sorted the players in alphabet order of their first name. But when we print out our tbl, <code>nba_shooting_small</code>, we see that the players are no longer sorted. This is because dplyr (and most other <code>R</code>) functions <strong>never</strong> modify their input but work by creating a copy and modifying that copy. If we wanted to preserve the new ordering, we would have to <em>overwrite</em> <code>nba_shooting_small</code> using a combination of the assignment operator and <code>arrange()</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>nba_shooting_small &lt;-<span class="st"> </span><span class="kw">arrange</span>(nba_shooting_small, PLAYER)
-&gt;<span class="st"> </span>nba_shooting_small
-<span class="co"># A tibble: 10 x 8</span>
-   PLAYER                SEASON   FGM   FGA   TPM   TPA   FTA   FTM
-   &lt;chr&gt;<span class="st">                  </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;
-<span class="st"> </span><span class="dv">1</span> Damian Lillard          <span class="dv">2016</span>   <span class="dv">618</span>  <span class="dv">1474</span>   <span class="dv">229</span>   <span class="dv">610</span>   <span class="dv">414</span>   <span class="dv">464</span>
- <span class="dv">2</span> DeMarcus Cousins        <span class="dv">2016</span>   <span class="dv">601</span>  <span class="dv">1332</span>    <span class="dv">70</span>   <span class="dv">210</span>   <span class="dv">476</span>   <span class="dv">663</span>
- <span class="dv">3</span> Dirk Nowitzki           <span class="dv">2016</span>   <span class="dv">498</span>  <span class="dv">1112</span>   <span class="dv">126</span>   <span class="dv">342</span>   <span class="dv">250</span>   <span class="dv">280</span>
- <span class="dv">4</span> Giannis Antetokounmpo   <span class="dv">2016</span>   <span class="dv">513</span>  <span class="dv">1013</span>    <span class="dv">28</span>   <span class="dv">110</span>   <span class="dv">296</span>   <span class="dv">409</span>
- <span class="dv">5</span> James Harden            <span class="dv">2016</span>   <span class="dv">710</span>  <span class="dv">1617</span>   <span class="dv">236</span>   <span class="dv">657</span>   <span class="dv">720</span>   <span class="dv">837</span>
- <span class="dv">6</span> Jimmy Butler            <span class="dv">2016</span>   <span class="dv">470</span>  <span class="dv">1034</span>    <span class="dv">64</span>   <span class="dv">206</span>   <span class="dv">395</span>   <span class="dv">475</span>
- <span class="dv">7</span> Kevin Durant            <span class="dv">2016</span>   <span class="dv">698</span>  <span class="dv">1381</span>   <span class="dv">186</span>   <span class="dv">480</span>   <span class="dv">447</span>   <span class="dv">498</span>
- <span class="dv">8</span> LeBron James            <span class="dv">2016</span>   <span class="dv">737</span>  <span class="dv">1416</span>    <span class="dv">87</span>   <span class="dv">282</span>   <span class="dv">359</span>   <span class="dv">491</span>
- <span class="dv">9</span> Marc Gasol              <span class="dv">2016</span>   <span class="dv">328</span>   <span class="dv">707</span>     <span class="dv">2</span>     <span class="dv">3</span>   <span class="dv">203</span>   <span class="dv">245</span>
-<span class="dv">10</span> Stephen Curry           <span class="dv">2016</span>   <span class="dv">805</span>  <span class="dv">1597</span>   <span class="dv">402</span>   <span class="dv">887</span>   <span class="dv">363</span>   <span class="dv">400</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw">arrange</span>(nba_shooting_small, PLAYER)</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="co"># A tibble: 10 x 8</span></a>
+<a class="sourceLine" id="cb8-3" data-line-number="3">   PLAYER                SEASON   FGM   FGA   TPM   TPA   FTA   FTM</a>
+<a class="sourceLine" id="cb8-4" data-line-number="4">   <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st">                  </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="st"> </span><span class="dv">1</span> Damian Lillard          <span class="dv">2016</span>   <span class="dv">618</span>  <span class="dv">1474</span>   <span class="dv">229</span>   <span class="dv">610</span>   <span class="dv">414</span>   <span class="dv">464</span></a>
+<a class="sourceLine" id="cb8-6" data-line-number="6"> <span class="dv">2</span> DeMarcus Cousins        <span class="dv">2016</span>   <span class="dv">601</span>  <span class="dv">1332</span>    <span class="dv">70</span>   <span class="dv">210</span>   <span class="dv">476</span>   <span class="dv">663</span></a>
+<a class="sourceLine" id="cb8-7" data-line-number="7"> <span class="dv">3</span> Dirk Nowitzki           <span class="dv">2016</span>   <span class="dv">498</span>  <span class="dv">1112</span>   <span class="dv">126</span>   <span class="dv">342</span>   <span class="dv">250</span>   <span class="dv">280</span></a>
+<a class="sourceLine" id="cb8-8" data-line-number="8"> <span class="dv">4</span> Giannis Antetokounmpo   <span class="dv">2016</span>   <span class="dv">513</span>  <span class="dv">1013</span>    <span class="dv">28</span>   <span class="dv">110</span>   <span class="dv">296</span>   <span class="dv">409</span></a>
+<a class="sourceLine" id="cb8-9" data-line-number="9"> <span class="dv">5</span> James Harden            <span class="dv">2016</span>   <span class="dv">710</span>  <span class="dv">1617</span>   <span class="dv">236</span>   <span class="dv">657</span>   <span class="dv">720</span>   <span class="dv">837</span></a>
+<a class="sourceLine" id="cb8-10" data-line-number="10"> <span class="dv">6</span> Jimmy Butler            <span class="dv">2016</span>   <span class="dv">470</span>  <span class="dv">1034</span>    <span class="dv">64</span>   <span class="dv">206</span>   <span class="dv">395</span>   <span class="dv">475</span></a>
+<a class="sourceLine" id="cb8-11" data-line-number="11"> <span class="dv">7</span> Kevin Durant            <span class="dv">2016</span>   <span class="dv">698</span>  <span class="dv">1381</span>   <span class="dv">186</span>   <span class="dv">480</span>   <span class="dv">447</span>   <span class="dv">498</span></a>
+<a class="sourceLine" id="cb8-12" data-line-number="12"> <span class="dv">8</span> LeBron James            <span class="dv">2016</span>   <span class="dv">737</span>  <span class="dv">1416</span>    <span class="dv">87</span>   <span class="dv">282</span>   <span class="dv">359</span>   <span class="dv">491</span></a>
+<a class="sourceLine" id="cb8-13" data-line-number="13"> <span class="dv">9</span> Marc Gasol              <span class="dv">2016</span>   <span class="dv">328</span>   <span class="dv">707</span>     <span class="dv">2</span>     <span class="dv">3</span>   <span class="dv">203</span>   <span class="dv">245</span></a>
+<a class="sourceLine" id="cb8-14" data-line-number="14"><span class="dv">10</span> Stephen Curry           <span class="dv">2016</span>   <span class="dv">805</span>  <span class="dv">1597</span>   <span class="dv">402</span>   <span class="dv">887</span>   <span class="dv">363</span>   <span class="dv">400</span></a>
+<a class="sourceLine" id="cb8-15" data-line-number="15"><span class="op">&gt;</span><span class="st"> </span>nba_shooting_small</a>
+<a class="sourceLine" id="cb8-16" data-line-number="16"><span class="co"># A tibble: 10 x 8</span></a>
+<a class="sourceLine" id="cb8-17" data-line-number="17">   PLAYER                SEASON   FGM   FGA   TPM   TPA   FTA   FTM</a>
+<a class="sourceLine" id="cb8-18" data-line-number="18">   <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st">                  </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb8-19" data-line-number="19"><span class="st"> </span><span class="dv">1</span> Stephen Curry           <span class="dv">2016</span>   <span class="dv">805</span>  <span class="dv">1597</span>   <span class="dv">402</span>   <span class="dv">887</span>   <span class="dv">363</span>   <span class="dv">400</span></a>
+<a class="sourceLine" id="cb8-20" data-line-number="20"> <span class="dv">2</span> Damian Lillard          <span class="dv">2016</span>   <span class="dv">618</span>  <span class="dv">1474</span>   <span class="dv">229</span>   <span class="dv">610</span>   <span class="dv">414</span>   <span class="dv">464</span></a>
+<a class="sourceLine" id="cb8-21" data-line-number="21"> <span class="dv">3</span> Jimmy Butler            <span class="dv">2016</span>   <span class="dv">470</span>  <span class="dv">1034</span>    <span class="dv">64</span>   <span class="dv">206</span>   <span class="dv">395</span>   <span class="dv">475</span></a>
+<a class="sourceLine" id="cb8-22" data-line-number="22"> <span class="dv">4</span> James Harden            <span class="dv">2016</span>   <span class="dv">710</span>  <span class="dv">1617</span>   <span class="dv">236</span>   <span class="dv">657</span>   <span class="dv">720</span>   <span class="dv">837</span></a>
+<a class="sourceLine" id="cb8-23" data-line-number="23"> <span class="dv">5</span> Kevin Durant            <span class="dv">2016</span>   <span class="dv">698</span>  <span class="dv">1381</span>   <span class="dv">186</span>   <span class="dv">480</span>   <span class="dv">447</span>   <span class="dv">498</span></a>
+<a class="sourceLine" id="cb8-24" data-line-number="24"> <span class="dv">6</span> LeBron James            <span class="dv">2016</span>   <span class="dv">737</span>  <span class="dv">1416</span>    <span class="dv">87</span>   <span class="dv">282</span>   <span class="dv">359</span>   <span class="dv">491</span></a>
+<a class="sourceLine" id="cb8-25" data-line-number="25"> <span class="dv">7</span> Dirk Nowitzki           <span class="dv">2016</span>   <span class="dv">498</span>  <span class="dv">1112</span>   <span class="dv">126</span>   <span class="dv">342</span>   <span class="dv">250</span>   <span class="dv">280</span></a>
+<a class="sourceLine" id="cb8-26" data-line-number="26"> <span class="dv">8</span> Giannis Antetokounmpo   <span class="dv">2016</span>   <span class="dv">513</span>  <span class="dv">1013</span>    <span class="dv">28</span>   <span class="dv">110</span>   <span class="dv">296</span>   <span class="dv">409</span></a>
+<a class="sourceLine" id="cb8-27" data-line-number="27"> <span class="dv">9</span> DeMarcus Cousins        <span class="dv">2016</span>   <span class="dv">601</span>  <span class="dv">1332</span>    <span class="dv">70</span>   <span class="dv">210</span>   <span class="dv">476</span>   <span class="dv">663</span></a>
+<a class="sourceLine" id="cb8-28" data-line-number="28"><span class="dv">10</span> Marc Gasol              <span class="dv">2016</span>   <span class="dv">328</span>   <span class="dv">707</span>     <span class="dv">2</span>     <span class="dv">3</span>   <span class="dv">203</span>   <span class="dv">245</span></a></code></pre></div>
+<p>In the first line, we’ve sorted the players in alphabet order of their first name. But when we print out our <code>tbl</code>, <code>nba_shooting_small</code>, we see that the players are no longer sorted. This is because <code>dplyr</code> (and most other <code>R</code>) functions <strong>never</strong> modify their input but work by creating a copy and modifying that copy. If we wanted to preserve the new ordering, we would have to <em>overwrite</em> <code>nba_shooting_small</code> using a combination of the assignment operator and <code>arrange()</code>.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span>nba_shooting_small &lt;-<span class="st"> </span><span class="kw">arrange</span>(nba_shooting_small, PLAYER)</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="op">&gt;</span><span class="st"> </span>nba_shooting_small</a>
+<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="co"># A tibble: 10 x 8</span></a>
+<a class="sourceLine" id="cb9-4" data-line-number="4">   PLAYER                SEASON   FGM   FGA   TPM   TPA   FTA   FTM</a>
+<a class="sourceLine" id="cb9-5" data-line-number="5">   <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st">                  </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb9-6" data-line-number="6"><span class="st"> </span><span class="dv">1</span> Damian Lillard          <span class="dv">2016</span>   <span class="dv">618</span>  <span class="dv">1474</span>   <span class="dv">229</span>   <span class="dv">610</span>   <span class="dv">414</span>   <span class="dv">464</span></a>
+<a class="sourceLine" id="cb9-7" data-line-number="7"> <span class="dv">2</span> DeMarcus Cousins        <span class="dv">2016</span>   <span class="dv">601</span>  <span class="dv">1332</span>    <span class="dv">70</span>   <span class="dv">210</span>   <span class="dv">476</span>   <span class="dv">663</span></a>
+<a class="sourceLine" id="cb9-8" data-line-number="8"> <span class="dv">3</span> Dirk Nowitzki           <span class="dv">2016</span>   <span class="dv">498</span>  <span class="dv">1112</span>   <span class="dv">126</span>   <span class="dv">342</span>   <span class="dv">250</span>   <span class="dv">280</span></a>
+<a class="sourceLine" id="cb9-9" data-line-number="9"> <span class="dv">4</span> Giannis Antetokounmpo   <span class="dv">2016</span>   <span class="dv">513</span>  <span class="dv">1013</span>    <span class="dv">28</span>   <span class="dv">110</span>   <span class="dv">296</span>   <span class="dv">409</span></a>
+<a class="sourceLine" id="cb9-10" data-line-number="10"> <span class="dv">5</span> James Harden            <span class="dv">2016</span>   <span class="dv">710</span>  <span class="dv">1617</span>   <span class="dv">236</span>   <span class="dv">657</span>   <span class="dv">720</span>   <span class="dv">837</span></a>
+<a class="sourceLine" id="cb9-11" data-line-number="11"> <span class="dv">6</span> Jimmy Butler            <span class="dv">2016</span>   <span class="dv">470</span>  <span class="dv">1034</span>    <span class="dv">64</span>   <span class="dv">206</span>   <span class="dv">395</span>   <span class="dv">475</span></a>
+<a class="sourceLine" id="cb9-12" data-line-number="12"> <span class="dv">7</span> Kevin Durant            <span class="dv">2016</span>   <span class="dv">698</span>  <span class="dv">1381</span>   <span class="dv">186</span>   <span class="dv">480</span>   <span class="dv">447</span>   <span class="dv">498</span></a>
+<a class="sourceLine" id="cb9-13" data-line-number="13"> <span class="dv">8</span> LeBron James            <span class="dv">2016</span>   <span class="dv">737</span>  <span class="dv">1416</span>    <span class="dv">87</span>   <span class="dv">282</span>   <span class="dv">359</span>   <span class="dv">491</span></a>
+<a class="sourceLine" id="cb9-14" data-line-number="14"> <span class="dv">9</span> Marc Gasol              <span class="dv">2016</span>   <span class="dv">328</span>   <span class="dv">707</span>     <span class="dv">2</span>     <span class="dv">3</span>   <span class="dv">203</span>   <span class="dv">245</span></a>
+<a class="sourceLine" id="cb9-15" data-line-number="15"><span class="dv">10</span> Stephen Curry           <span class="dv">2016</span>   <span class="dv">805</span>  <span class="dv">1597</span>   <span class="dv">402</span>   <span class="dv">887</span>   <span class="dv">363</span>   <span class="dv">400</span></a></code></pre></div>
 </div>
 <div id="creating-new-variables-from-old" class="section level3">
 <h3>Creating new variables from old</h3>
-<p>While arranging our data is useful, it is not quite sufficient to determine which player is the best shooter in our dataset. Perhaps the simplest way to compare players’ shooting ability is with field goal percentage (FGP). We can compute this percentage using the formula <span class="math inline">\(\text{FGP} = \frac{\text{FGA}}{\text{FGM}}.\)</span> We use the function <code>mutate()</code> to add a column to our tbl.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">mutate</span>(nba_shooting_small, <span class="dt">FGP =</span> FGA/FGM)
-<span class="co"># A tibble: 10 x 9</span>
-   PLAYER                SEASON   FGM   FGA   TPM   TPA   FTA   FTM   FGP
-   &lt;chr&gt;<span class="st">                  </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>dbl&gt;
-<span class="st"> </span><span class="dv">1</span> Damian Lillard          <span class="dv">2016</span>   <span class="dv">618</span>  <span class="dv">1474</span>   <span class="dv">229</span>   <span class="dv">610</span>   <span class="dv">414</span>   <span class="dv">464</span>  <span class="fl">2.39</span>
- <span class="dv">2</span> DeMarcus Cousins        <span class="dv">2016</span>   <span class="dv">601</span>  <span class="dv">1332</span>    <span class="dv">70</span>   <span class="dv">210</span>   <span class="dv">476</span>   <span class="dv">663</span>  <span class="fl">2.22</span>
- <span class="dv">3</span> Dirk Nowitzki           <span class="dv">2016</span>   <span class="dv">498</span>  <span class="dv">1112</span>   <span class="dv">126</span>   <span class="dv">342</span>   <span class="dv">250</span>   <span class="dv">280</span>  <span class="fl">2.23</span>
- <span class="dv">4</span> Giannis Antetokounmpo   <span class="dv">2016</span>   <span class="dv">513</span>  <span class="dv">1013</span>    <span class="dv">28</span>   <span class="dv">110</span>   <span class="dv">296</span>   <span class="dv">409</span>  <span class="fl">1.97</span>
- <span class="dv">5</span> James Harden            <span class="dv">2016</span>   <span class="dv">710</span>  <span class="dv">1617</span>   <span class="dv">236</span>   <span class="dv">657</span>   <span class="dv">720</span>   <span class="dv">837</span>  <span class="fl">2.28</span>
- <span class="dv">6</span> Jimmy Butler            <span class="dv">2016</span>   <span class="dv">470</span>  <span class="dv">1034</span>    <span class="dv">64</span>   <span class="dv">206</span>   <span class="dv">395</span>   <span class="dv">475</span>  <span class="fl">2.2</span> 
- <span class="dv">7</span> Kevin Durant            <span class="dv">2016</span>   <span class="dv">698</span>  <span class="dv">1381</span>   <span class="dv">186</span>   <span class="dv">480</span>   <span class="dv">447</span>   <span class="dv">498</span>  <span class="fl">1.98</span>
- <span class="dv">8</span> LeBron James            <span class="dv">2016</span>   <span class="dv">737</span>  <span class="dv">1416</span>    <span class="dv">87</span>   <span class="dv">282</span>   <span class="dv">359</span>   <span class="dv">491</span>  <span class="fl">1.92</span>
- <span class="dv">9</span> Marc Gasol              <span class="dv">2016</span>   <span class="dv">328</span>   <span class="dv">707</span>     <span class="dv">2</span>     <span class="dv">3</span>   <span class="dv">203</span>   <span class="dv">245</span>  <span class="fl">2.16</span>
-<span class="dv">10</span> Stephen Curry           <span class="dv">2016</span>   <span class="dv">805</span>  <span class="dv">1597</span>   <span class="dv">402</span>   <span class="dv">887</span>   <span class="dv">363</span>   <span class="dv">400</span>  <span class="fl">1.98</span></code></pre></div>
-<p>The syntax for <code>mutate()</code> looks kind of similar to <code>arrange()</code>: the first argument tells <code>R</code> what tbl we want to manipulate and the second argument tells <code>R</code> how to compute FGP. As expected, when we run this command, <code>R</code> returns a tbl with a new column containing the field goal percentage for each of these 10 players. Just like with <code>arrange()</code>, if we call <code>mutate()</code> by itself, <code>R</code> will not add the new column to our existing data frame. In order to permanently add a column for field goal percentages to <code>nba_shooting_small</code>, we’re going to need to use the assignment operator.</p>
-<p>It turns out that we can add <em>multiple</em> columns to a tbl at once by passing more arguments to <code>mutate()</code>, one for each column we wish to define.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">mutate</span>(nba_shooting_small, <span class="dt">FGP =</span> FGA/FGM, <span class="dt">TPP =</span> TPM/TPA, <span class="dt">FTP =</span> FTM/FTA)
-<span class="co"># A tibble: 10 x 11</span>
-   PLAYER      SEASON   FGM   FGA   TPM   TPA   FTA   FTM   FGP   TPP   FTP
-   &lt;chr&gt;<span class="st">        </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>dbl&gt;<span class="st"> </span><span class="er">&lt;</span>dbl&gt;<span class="st"> </span><span class="er">&lt;</span>dbl&gt;
-<span class="st"> </span><span class="dv">1</span> Damian Lil…   <span class="dv">2016</span>   <span class="dv">618</span>  <span class="dv">1474</span>   <span class="dv">229</span>   <span class="dv">610</span>   <span class="dv">414</span>   <span class="dv">464</span>  <span class="fl">2.39</span> <span class="fl">0.375</span>  <span class="fl">1.12</span>
- <span class="dv">2</span> DeMarcus C…   <span class="dv">2016</span>   <span class="dv">601</span>  <span class="dv">1332</span>    <span class="dv">70</span>   <span class="dv">210</span>   <span class="dv">476</span>   <span class="dv">663</span>  <span class="fl">2.22</span> <span class="fl">0.333</span>  <span class="fl">1.39</span>
- <span class="dv">3</span> Dirk Nowit…   <span class="dv">2016</span>   <span class="dv">498</span>  <span class="dv">1112</span>   <span class="dv">126</span>   <span class="dv">342</span>   <span class="dv">250</span>   <span class="dv">280</span>  <span class="fl">2.23</span> <span class="fl">0.368</span>  <span class="fl">1.12</span>
- <span class="dv">4</span> Giannis An…   <span class="dv">2016</span>   <span class="dv">513</span>  <span class="dv">1013</span>    <span class="dv">28</span>   <span class="dv">110</span>   <span class="dv">296</span>   <span class="dv">409</span>  <span class="fl">1.97</span> <span class="fl">0.255</span>  <span class="fl">1.38</span>
- <span class="dv">5</span> James Hard…   <span class="dv">2016</span>   <span class="dv">710</span>  <span class="dv">1617</span>   <span class="dv">236</span>   <span class="dv">657</span>   <span class="dv">720</span>   <span class="dv">837</span>  <span class="fl">2.28</span> <span class="fl">0.359</span>  <span class="fl">1.16</span>
- <span class="dv">6</span> Jimmy Butl…   <span class="dv">2016</span>   <span class="dv">470</span>  <span class="dv">1034</span>    <span class="dv">64</span>   <span class="dv">206</span>   <span class="dv">395</span>   <span class="dv">475</span>  <span class="fl">2.2</span>  <span class="fl">0.311</span>  <span class="fl">1.20</span>
- <span class="dv">7</span> Kevin Dura…   <span class="dv">2016</span>   <span class="dv">698</span>  <span class="dv">1381</span>   <span class="dv">186</span>   <span class="dv">480</span>   <span class="dv">447</span>   <span class="dv">498</span>  <span class="fl">1.98</span> <span class="fl">0.388</span>  <span class="fl">1.11</span>
- <span class="dv">8</span> LeBron Jam…   <span class="dv">2016</span>   <span class="dv">737</span>  <span class="dv">1416</span>    <span class="dv">87</span>   <span class="dv">282</span>   <span class="dv">359</span>   <span class="dv">491</span>  <span class="fl">1.92</span> <span class="fl">0.309</span>  <span class="fl">1.37</span>
- <span class="dv">9</span> Marc Gasol    <span class="dv">2016</span>   <span class="dv">328</span>   <span class="dv">707</span>     <span class="dv">2</span>     <span class="dv">3</span>   <span class="dv">203</span>   <span class="dv">245</span>  <span class="fl">2.16</span> <span class="fl">0.667</span>  <span class="fl">1.21</span>
-<span class="dv">10</span> Stephen Cu…   <span class="dv">2016</span>   <span class="dv">805</span>  <span class="dv">1597</span>   <span class="dv">402</span>   <span class="dv">887</span>   <span class="dv">363</span>   <span class="dv">400</span>  <span class="fl">1.98</span> <span class="fl">0.453</span>  <span class="fl">1.10</span></code></pre></div>
+<p>While arranging our data is useful, it is not quite sufficient to determine which player is the best shooter in our dataset. Perhaps the simplest way to compare players’ shooting ability is with field goal percentage (FGP). We can compute this percentage using the formula <span class="math inline">\(\text{FGP} = \frac{\text{FGA}}{\text{FGM}}.\)</span> We use the function <code>mutate()</code> to add a column to our <code>tbl</code>.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw">mutate</span>(nba_shooting_small, <span class="dt">FGP =</span> FGA<span class="op">/</span>FGM)</a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="co"># A tibble: 10 x 9</span></a>
+<a class="sourceLine" id="cb10-3" data-line-number="3">   PLAYER                SEASON   FGM   FGA   TPM   TPA   FTA   FTM   FGP</a>
+<a class="sourceLine" id="cb10-4" data-line-number="4">   <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st">                  </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb10-5" data-line-number="5"><span class="st"> </span><span class="dv">1</span> Damian Lillard          <span class="dv">2016</span>   <span class="dv">618</span>  <span class="dv">1474</span>   <span class="dv">229</span>   <span class="dv">610</span>   <span class="dv">414</span>   <span class="dv">464</span>  <span class="fl">2.39</span></a>
+<a class="sourceLine" id="cb10-6" data-line-number="6"> <span class="dv">2</span> DeMarcus Cousins        <span class="dv">2016</span>   <span class="dv">601</span>  <span class="dv">1332</span>    <span class="dv">70</span>   <span class="dv">210</span>   <span class="dv">476</span>   <span class="dv">663</span>  <span class="fl">2.22</span></a>
+<a class="sourceLine" id="cb10-7" data-line-number="7"> <span class="dv">3</span> Dirk Nowitzki           <span class="dv">2016</span>   <span class="dv">498</span>  <span class="dv">1112</span>   <span class="dv">126</span>   <span class="dv">342</span>   <span class="dv">250</span>   <span class="dv">280</span>  <span class="fl">2.23</span></a>
+<a class="sourceLine" id="cb10-8" data-line-number="8"> <span class="dv">4</span> Giannis Antetokounmpo   <span class="dv">2016</span>   <span class="dv">513</span>  <span class="dv">1013</span>    <span class="dv">28</span>   <span class="dv">110</span>   <span class="dv">296</span>   <span class="dv">409</span>  <span class="fl">1.97</span></a>
+<a class="sourceLine" id="cb10-9" data-line-number="9"> <span class="dv">5</span> James Harden            <span class="dv">2016</span>   <span class="dv">710</span>  <span class="dv">1617</span>   <span class="dv">236</span>   <span class="dv">657</span>   <span class="dv">720</span>   <span class="dv">837</span>  <span class="fl">2.28</span></a>
+<a class="sourceLine" id="cb10-10" data-line-number="10"> <span class="dv">6</span> Jimmy Butler            <span class="dv">2016</span>   <span class="dv">470</span>  <span class="dv">1034</span>    <span class="dv">64</span>   <span class="dv">206</span>   <span class="dv">395</span>   <span class="dv">475</span>  <span class="fl">2.2</span> </a>
+<a class="sourceLine" id="cb10-11" data-line-number="11"> <span class="dv">7</span> Kevin Durant            <span class="dv">2016</span>   <span class="dv">698</span>  <span class="dv">1381</span>   <span class="dv">186</span>   <span class="dv">480</span>   <span class="dv">447</span>   <span class="dv">498</span>  <span class="fl">1.98</span></a>
+<a class="sourceLine" id="cb10-12" data-line-number="12"> <span class="dv">8</span> LeBron James            <span class="dv">2016</span>   <span class="dv">737</span>  <span class="dv">1416</span>    <span class="dv">87</span>   <span class="dv">282</span>   <span class="dv">359</span>   <span class="dv">491</span>  <span class="fl">1.92</span></a>
+<a class="sourceLine" id="cb10-13" data-line-number="13"> <span class="dv">9</span> Marc Gasol              <span class="dv">2016</span>   <span class="dv">328</span>   <span class="dv">707</span>     <span class="dv">2</span>     <span class="dv">3</span>   <span class="dv">203</span>   <span class="dv">245</span>  <span class="fl">2.16</span></a>
+<a class="sourceLine" id="cb10-14" data-line-number="14"><span class="dv">10</span> Stephen Curry           <span class="dv">2016</span>   <span class="dv">805</span>  <span class="dv">1597</span>   <span class="dv">402</span>   <span class="dv">887</span>   <span class="dv">363</span>   <span class="dv">400</span>  <span class="fl">1.98</span></a></code></pre></div>
+<p>The syntax for <code>mutate()</code> looks kind of similar to <code>arrange()</code>: the first argument tells <code>R</code> what <code>tbl</code> we want to manipulate and the second argument tells <code>R</code> how to compute FGP. As expected, when we run this command, <code>R</code> returns a `<code>tbl</code> with a new column containing the field goal percentage for each of these 10 players. Just like with <code>arrange()</code>, if we call <code>mutate()</code> by itself, <code>R</code> will not add the new column to our existing data frame. In order to permanently add a column for field goal percentages to <code>nba_shooting_small</code>, we’re going to need to use the assignment operator.</p>
+<p>It turns out that we can add <em>multiple</em> columns to a <code>tbl</code> at once by passing more arguments to <code>mutate()</code>, one for each column we wish to define.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw">mutate</span>(nba_shooting_small, <span class="dt">FGP =</span> FGA<span class="op">/</span>FGM, <span class="dt">TPP =</span> TPM<span class="op">/</span>TPA, <span class="dt">FTP =</span> FTM<span class="op">/</span>FTA)</a>
+<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="co"># A tibble: 10 x 11</span></a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">   PLAYER      SEASON   FGM   FGA   TPM   TPA   FTA   FTM   FGP   TPP   FTP</a>
+<a class="sourceLine" id="cb11-4" data-line-number="4">   <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st">        </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb11-5" data-line-number="5"><span class="st"> </span><span class="dv">1</span> Damian Lil…   <span class="dv">2016</span>   <span class="dv">618</span>  <span class="dv">1474</span>   <span class="dv">229</span>   <span class="dv">610</span>   <span class="dv">414</span>   <span class="dv">464</span>  <span class="fl">2.39</span> <span class="fl">0.375</span>  <span class="fl">1.12</span></a>
+<a class="sourceLine" id="cb11-6" data-line-number="6"> <span class="dv">2</span> DeMarcus C…   <span class="dv">2016</span>   <span class="dv">601</span>  <span class="dv">1332</span>    <span class="dv">70</span>   <span class="dv">210</span>   <span class="dv">476</span>   <span class="dv">663</span>  <span class="fl">2.22</span> <span class="fl">0.333</span>  <span class="fl">1.39</span></a>
+<a class="sourceLine" id="cb11-7" data-line-number="7"> <span class="dv">3</span> Dirk Nowit…   <span class="dv">2016</span>   <span class="dv">498</span>  <span class="dv">1112</span>   <span class="dv">126</span>   <span class="dv">342</span>   <span class="dv">250</span>   <span class="dv">280</span>  <span class="fl">2.23</span> <span class="fl">0.368</span>  <span class="fl">1.12</span></a>
+<a class="sourceLine" id="cb11-8" data-line-number="8"> <span class="dv">4</span> Giannis An…   <span class="dv">2016</span>   <span class="dv">513</span>  <span class="dv">1013</span>    <span class="dv">28</span>   <span class="dv">110</span>   <span class="dv">296</span>   <span class="dv">409</span>  <span class="fl">1.97</span> <span class="fl">0.255</span>  <span class="fl">1.38</span></a>
+<a class="sourceLine" id="cb11-9" data-line-number="9"> <span class="dv">5</span> James Hard…   <span class="dv">2016</span>   <span class="dv">710</span>  <span class="dv">1617</span>   <span class="dv">236</span>   <span class="dv">657</span>   <span class="dv">720</span>   <span class="dv">837</span>  <span class="fl">2.28</span> <span class="fl">0.359</span>  <span class="fl">1.16</span></a>
+<a class="sourceLine" id="cb11-10" data-line-number="10"> <span class="dv">6</span> Jimmy Butl…   <span class="dv">2016</span>   <span class="dv">470</span>  <span class="dv">1034</span>    <span class="dv">64</span>   <span class="dv">206</span>   <span class="dv">395</span>   <span class="dv">475</span>  <span class="fl">2.2</span>  <span class="fl">0.311</span>  <span class="fl">1.20</span></a>
+<a class="sourceLine" id="cb11-11" data-line-number="11"> <span class="dv">7</span> Kevin Dura…   <span class="dv">2016</span>   <span class="dv">698</span>  <span class="dv">1381</span>   <span class="dv">186</span>   <span class="dv">480</span>   <span class="dv">447</span>   <span class="dv">498</span>  <span class="fl">1.98</span> <span class="fl">0.388</span>  <span class="fl">1.11</span></a>
+<a class="sourceLine" id="cb11-12" data-line-number="12"> <span class="dv">8</span> LeBron Jam…   <span class="dv">2016</span>   <span class="dv">737</span>  <span class="dv">1416</span>    <span class="dv">87</span>   <span class="dv">282</span>   <span class="dv">359</span>   <span class="dv">491</span>  <span class="fl">1.92</span> <span class="fl">0.309</span>  <span class="fl">1.37</span></a>
+<a class="sourceLine" id="cb11-13" data-line-number="13"> <span class="dv">9</span> Marc Gasol    <span class="dv">2016</span>   <span class="dv">328</span>   <span class="dv">707</span>     <span class="dv">2</span>     <span class="dv">3</span>   <span class="dv">203</span>   <span class="dv">245</span>  <span class="fl">2.16</span> <span class="fl">0.667</span>  <span class="fl">1.21</span></a>
+<a class="sourceLine" id="cb11-14" data-line-number="14"><span class="dv">10</span> Stephen Cu…   <span class="dv">2016</span>   <span class="dv">805</span>  <span class="dv">1597</span>   <span class="dv">402</span>   <span class="dv">887</span>   <span class="dv">363</span>   <span class="dv">400</span>  <span class="fl">1.98</span> <span class="fl">0.453</span>  <span class="fl">1.10</span></a></code></pre></div>
 </div>
 </div>
 <div id="a-quick-digression-r-scripts" class="section level2">
 <h2>A quick digression: <code>R</code> Scripts</h2>
-<p>Up to this point, we have been working strictly within the <code>R</code> console, proceeding line-by-line. In the previous code block, we tried to add three columns to our tbl and the <code>mutate</code> call got a little bit over-whelming. Imagine trying to add five or six more columns simultaneously! As our commands become more and more complex, you’ll find that using the console can get pretty cramped. And if you make a mistake in entering your code, you’ll get an error and have to start all over again. Plus, when we start a new session of R Studio, the console is cleared. How can we save the commands we typed into <code>R</code>? We do so using an <strong>R Script</strong>.</p>
-<p>An <code>R</code> Script is a file type which <code>R</code> recognizes as storing <code>R</code> commands and is saved as a .R file. <code>R</code> Scripts are useful as we can edit our code before sending it to be run in the console.</p>
+<p>Up to this point, we have been working strictly within the <code>R</code> console, proceeding line-by-line. In the previous code block, we tried to add three columns to our <code>tbl</code> and the <code>mutate</code> call got a little bit over-whelming. Imagine trying to add five or six more columns simultaneously! As our commands become more and more complex, you’ll find that using the console can get pretty cramped. And if you make a mistake in entering your code, you’ll get an error and have to start all over again. Plus, when we start a new session of R Studio, the console is cleared. How can we save the commands we typed into <code>R</code>? We do so using an <strong>R Script</strong>.</p>
+<p>An <code>R</code> Script is a file type which <code>R</code> recognizes as storing <code>R</code> commands and is saved as a _.R_s file. <code>R</code> Scripts are useful as we can edit our code before sending it to be run in the console.</p>
 <p>We can start a new <code>R</code> Script by clicking on the top left symbol in RStudio and selecting “R Script”.</p>
-<div class="figure">
-<img src="figures/lecture1_fig1.png" />
-
-</div>
+<p><img src="figures/lecture1_fig1.png" /></p>
 <p>The untitled <code>R</code> Script will then appear in the top left hand box of RStudio.</p>
-<div class="figure">
-<img src="figures/lecture1_fig2.png" />
-
-</div>
+<p><img src="figures/lecture1_fig2.png" /></p>
 <p>In the <code>R</code> Script, type the following:</p>
 <pre><code>2 * 3
 x &lt;- 4
 sqrt(x)</code></pre>
-<p>Now our code is just sitting in the <code>R</code> Script. To run the code (that is, evalutate it in the console) we click the “Run” button in the top right of the script. This will run one line of code at a time - whichever line the cursor is on. Place your cursor on the first line and click “Run”. Observe how <code>2 * 3</code> now appears in the console, as well as the output <code>6</code>.</p>
-<div class="figure">
-<img src="figures/lecture1_fig3.png" />
-
-</div>
+<p>Now our code is just sitting in the <code>R</code> Script. To run the code (that is, evaluate it in the console) we click the “Run” button in the top right of the script. This will run one line of code at a time - whichever line the cursor is on. Place your cursor on the first line and click “Run”. Observe how <code>2 * 3</code> now appears in the console, as well as the output <code>6</code>.</p>
+<p><img src="figures/lecture1_fig3.png" /></p>
 <p>If we want to run multiple lines at once, we highlight them all and click “Run”.</p>
-<div class="figure">
-<img src="figures/lecture1_fig4.png" />
-
-</div>
+<p><img src="figures/lecture1_fig4.png" /></p>
 <p>Note in the above that we had to run <code>x &lt;- 4</code> before <code>sqrt(x)</code>. We need to define our variables first and run this code in the console before performing calculations with those variables. The console can’t “see” the script unless you run the code in the script.</p>
 <p>One very nice thing about RStudio’s script editor is that it will highlight syntax errors with a red squiggly line and a red cross in the sidebar. If you move your mouse over the line, a pop-up will appear that can help you diagnose the potential problem.</p>
-<p>Another advantage of <code>R</code> scripts is that you can add comments to your code, which are preceded by the pound sign / hash sign #. Comments are useful because they allow you to explain what your code is doing. <strong>Throughout the rest of this course, we will be working almost exclusively with <code>R</code> scripts rather than directly entering commands into the console.</strong></p>
+<p>Another advantage of <code>R</code> scripts is that you can add comments to your code, which are preceded by the pound sign / hash sign <code>#</code>. Comments are useful because they allow you to explain what your code is doing. <strong>Throughout the rest of this course, we will be working almost exclusively with <code>R</code> scripts rather than directly entering commands into the console.</strong></p>
 </div>
 <div id="back-to-the-nba-data" class="section level2">
 <h2>Back to the NBA data</h2>
 <p>One huge advantage with working with <code>R</code> script is the ability to separate commands onto multiple lines. For instance, to add columns for FGP, FTP, and TPP to our tbl, we can write the following in our script window.</p>
-<p>Notice how we have separated our command into multiple lines. This makes our script much easier to read. While it seems a bit cumbersome to write our code like this now, it will make our code much easier to read when we start to string multiple manipulations together using the pipe operator <code>%&gt;%</code>, which we will meet in <a href="lecture2.html">Lecture 2</a>.</p>
+<p>Notice how we have separated our command into multiple lines. This makes our script much easier to read.</p>
+<div id="chaining-commands-together-with-pipes" class="section level3">
+<h3>Chaining commands together with pipes</h3>
+<p>When dealing with data, we often want to <strong>chain</strong> multiple commands together. People will often describe the entire process of reading in data, wrangling it with commands like <code>mutate</code> and <code>arrange</code>, then creating visuals and models, as the data analysis <strong>pipeline</strong>. The <strong>pipe operator</strong> <code>%&gt;%</code> is a convenient tool in the <code>tidyverse</code> that allows us to create a sequence of code to analyze data, such as the following code to arrange in descending order the players based on the rate of field goal attempts that are three point attempts:</p>
+<p>Let’s break down what’s happening here. First, <code>R</code> “pipes” the <code>tbl</code> <code>nba_shooting_small</code> into into <code>mutate</code> to create a new variable <code>three_point_fg_rate</code>. Then it pipes the result of this <code>mutate</code> into <code>arrange</code> to sort the players based on this newly created column. With this <strong>pipeline</strong> we have created a new variable, and view the players in descending order without having to specify the data <code>nba_shooting_small</code> more than once! The sequence of analysis flow naturally top-to-bottom and puts the emphasis on the <em>actions</em> being carried out by the analyst (like the functions <code>mutate</code> and <code>arrange</code>) and the final output rather than a bunch of temporary <code>tbl</code>’s that may not be of much interest.</p>
+<p>We will be using the pipe <code>%&gt;%</code> operator for the remainder of the week, and you will see how convenient it is to use in the <a href="tc_lecture2.html">next lecture</a> when making visualizations. Next, proceed to practice the basics of reading and wrangling data in <a href="tc_ps1.html">Problem Set 1</a>.</p>
+<p><strong>NOTE</strong>: There are several conventions for formating code when using the pipe. See <a href="http://style.tidyverse.org/pipes.html">here</a> and <a href="http://r4ds.had.co.nz/pipes.html">here</a> for much more information and for some advanced “special” pipes.</p>
+</div>
 </div>
 
 

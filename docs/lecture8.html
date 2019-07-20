@@ -21,52 +21,104 @@
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <script src="site_libs/navigation-1.1/codefolding.js"></script>
-<link href="site_libs/font-awesome-5.0.13/css/fa-svg-with-js.css" rel="stylesheet" />
-<script src="site_libs/font-awesome-5.0.13/js/fontawesome-all.min.js"></script>
-<script src="site_libs/font-awesome-5.0.13/js/fa-v4-shims.min.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 
 <style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-pre, code { background-color: #f8f8f8; }
-code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
-code > span.dt { color: #204a87; } /* DataType */
-code > span.dv { color: #0000cf; } /* DecVal */
-code > span.bn { color: #0000cf; } /* BaseN */
-code > span.fl { color: #0000cf; } /* Float */
-code > span.ch { color: #4e9a06; } /* Char */
-code > span.st { color: #4e9a06; } /* String */
-code > span.co { color: #8f5902; font-style: italic; } /* Comment */
-code > span.ot { color: #8f5902; } /* Other */
-code > span.al { color: #ef2929; } /* Alert */
-code > span.fu { color: #000000; } /* Function */
-code > span.er { color: #a40000; font-weight: bold; } /* Error */
-code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #000000; } /* Constant */
-code > span.sc { color: #000000; } /* SpecialChar */
-code > span.vs { color: #4e9a06; } /* VerbatimString */
-code > span.ss { color: #4e9a06; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #000000; } /* Variable */
-code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
-code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-code > span.ex { } /* Extension */
-code > span.at { color: #c4a000; } /* Attribute */
-code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
-code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
-div.sourceCode {
-  overflow-x: visible;
+<style type="text/css" data-origin="pandoc">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+
+.sourceCode .row {
+  width: 100%;
+}
+.sourceCode {
+  overflow-x: auto;
+}
+.code-folding-btn {
+  margin-right: -30px;
 }
 </style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' || rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
 <style type="text/css">
   pre:not([class]) {
     background-color: white;
@@ -102,9 +154,7 @@ h6 {
 </style>
 
 
-</head>
 
-<body>
 
 <style type = "text/css">
 .main-container {
@@ -129,6 +179,9 @@ img {
 button.code-folding-btn:focus {
   outline: none;
 }
+summary {
+  display: list-item;
+}
 </style>
 
 
@@ -143,7 +196,6 @@ body {
   padding-top: 56px;
   margin-top: -56px;
 }
-
 .section h2 {
   padding-top: 56px;
   margin-top: -56px;
@@ -163,6 +215,43 @@ body {
 .section h6 {
   padding-top: 56px;
   margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
 }
 </style>
 
@@ -184,13 +273,71 @@ $(document).ready(function () {
 });
 </script>
 
-
-<div class="container-fluid main-container">
-
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
 });
 </script>
 
@@ -205,6 +352,14 @@ $(document).ready(function () {
 </script>
 
 
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
 
 
 
@@ -300,6 +455,9 @@ $(document).ready(function () {
     <li>
       <a href="tc_lecture1.html">Lecture 1</a>
     </li>
+    <li>
+      <a href="tc_ps1.html">Problem Set 1</a>
+    </li>
   </ul>
 </li>
       </ul>
@@ -327,54 +485,54 @@ $(document).ready(function () {
 </div>
 
 
-<p>In <a href="lecture7.html">Lecture 7</a>, we predicted field goal success using a similar strategy to the one we used in <a href="lecture4.html">Lecture 4</a> to predict batting averages in 2015 using batting averages from 2014. This strategy amounted to “binning-and-averaging: we divided the dataset into many small bins, based on the value of the input or predictor, and then averaged the outcomes within each bin. In <a href="lecture6.html">Lecture 6</a>, we used <em>linear regression</em> to take this process to the logical extreme with infinitessimally small bins in the context of predicting a continuous response. Today, we will use <em>logistic regression</em> to take the binning-and-averaging to predicting binary responses to the same logical extreme. Just as our goal with linear regression was to predict the average outcome for any given input, our ultimate goal with logistic regression is to produce a <em>probability</em> forecast for each input. For instance, in the context of NFL field goals, we would like to know, say, what the probability is that a kicker successfully converts a 45-yard field goal attempt.</p>
+<p>In <a href="lecture7.html">Lecture 7</a>, we predicted field goal success using a similar strategy to the one we used in <a href="lecture4.html">Lecture 4</a> to predict batting averages in 2015 using batting averages from 2014. This strategy amounted to &quot;binning-and-averaging: we divided the dataset into many small bins, based on the value of the input or predictor, and then averaged the outcomes within each bin. In <a href="lecture6.html">Lecture 6</a>, we used <em>linear regression</em> to take this process to the logical extreme with infinitessimally small bins in the context of predicting a continuous response. Today, we will use <em>logistic regression</em> to take the binning-and-averaging to predicting binary responses to the same logical extreme. Just as our goal with linear regression was to predict the average outcome for any given input, our ultimate goal with logistic regression is to produce a <em>probability</em> forecast for each input. For instance, in the context of NFL field goals, we would like to know, say, what the probability is that a kicker successfully converts a 45-yard field goal attempt.</p>
 <div id="logistic-regression-with-glm" class="section level2">
 <h2>Logistic Regression with glm()</h2>
 <p>Before we get started, we will load the tidyverse and modelr packages and also load the tbls we saved at the end of <a href="lecture7.html">Lecture 7</a>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
-<span class="kw">library</span>(modelr)
-
-<span class="kw">load</span>(<span class="st">&quot;data/nfl_fg.RData&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">library</span>(modelr)</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw">load</span>(<span class="st">&quot;data/nfl_fg.RData&quot;</span>)</a></code></pre></div>
 <p>We can fit a logistic regression model using the function <code>glm()</code>. In the code block below, we fit a model of the success probability as a function of distance. You’ll notice that the syntax is very similar to the <code>lm()</code> syntax we saw in <a href="lecture6.html">Lecture 6</a>. The major difference is that we have to include an argument <code>family = binomial</code>. This tells R that we are fitting a regression model for <em>binary</em> outcomes.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">logit_distance &lt;-<span class="st"> </span><span class="kw">glm</span>(Success~Distance, <span class="dt">family =</span> binomial, <span class="dt">data =</span> fg_train)</code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">logit_distance &lt;-<span class="st"> </span><span class="kw">glm</span>(Success<span class="op">~</span>Distance, <span class="dt">family =</span> binomial, <span class="dt">data =</span> fg_train)</a></code></pre></div>
 <p>We can visualize this model fit by (i) creating a grid of distance values and (ii) plotting the estimated probability of field goal success at each of the distances in the grid. We can do this using <code>data_grid()</code> and <code>add_predictions()</code> just like we did in <a href="lecture6.html">Lecture 6</a>. Notice, however, that in <code>add_predictions()</code> we have an extra argument <code>type=&quot;response&quot;</code>. In the context of logistic regression, this argument tells R that we want to return the fitted probabilities instead of the fitted log-odds.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">distance_preds &lt;-<span class="st"> </span>
-<span class="st">  </span>fg_train %&gt;%
-<span class="st">  </span><span class="kw">data_grid</span>(Distance) %&gt;%
-<span class="st">  </span><span class="kw">add_predictions</span>(<span class="dt">model =</span> logit_distance, <span class="dt">type =</span> <span class="st">&quot;response&quot;</span>, <span class="dt">var =</span> <span class="st">&quot;Prediction&quot;</span>)
-
-<span class="kw">ggplot</span>(<span class="dt">data =</span> distance_preds) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> Distance, <span class="dt">y =</span> Prediction)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">ylim</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">distance_preds &lt;-<span class="st"> </span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="st">  </span>fg_train <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="st">  </span><span class="kw">data_grid</span>(Distance) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="st">  </span><span class="kw">add_predictions</span>(<span class="dt">model =</span> logit_distance, <span class="dt">type =</span> <span class="st">&quot;response&quot;</span>, <span class="dt">var =</span> <span class="st">&quot;Prediction&quot;</span>)</a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="kw">ggplot</span>(<span class="dt">data =</span> distance_preds) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> Distance, <span class="dt">y =</span> Prediction)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="st">  </span><span class="kw">ylim</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</a></code></pre></div>
 <p><img src="lecture8_files/figure-html/plot-logit-dist-1.png" width="672" /></p>
 <p>Looking at the plot, things look quite reasonable – short field goals are nearly always made and as the distance increases, the fitted probability of success goes down in a non-linear fashion. The question we face now is assessing how well our simple logistic regression model compares to the “binning-and-averaging” models we built in <a href="lecture7.html">Lecture 7</a>. In order to assess this, we would like to append the model predictions to the tbls <code>fg_train</code> and <code>fg_test</code>, respectively. Rather than using a join, we can actually do this directly with <code>add_prediction()</code>. The reason for this is that <code>add_prediction()</code> is able to accept as an argument the output of <code>lm()</code> or <code>glm()</code>. Since our “binning-and-averaging” models were not created by either of these functions we had to use a join in <a href="lecture7.html">Lecture 7</a>. The codeblock below shows how to add our predictions to <code>fg_train</code> and <code>fg_test</code> and also computes the Brier score associated with all of the models we’ve built so far. Notice that we are saving the predictions in a column called “phat_dist_logit.”</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fg_train &lt;-
-<span class="st">  </span>fg_train %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">add_predictions</span>(<span class="dt">model =</span> logit_distance, <span class="dt">var =</span> <span class="st">&quot;phat_dist_logit&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;response&quot;</span>)
-<span class="kw">summarise</span>(fg_train,
-          <span class="dt">phat_all =</span> <span class="kw">mean</span>( (Success -<span class="st"> </span>phat_all)^<span class="dv">2</span>),
-          <span class="dt">phat_kicker =</span> <span class="kw">mean</span>( (Success -<span class="st"> </span>phat_kicker)^<span class="dv">2</span>),
-          <span class="dt">phat_dist_10 =</span> <span class="kw">mean</span>( (Success -<span class="st"> </span>phat_dist_10)^<span class="dv">2</span>),
-          <span class="dt">phat_dist_5 =</span> <span class="kw">mean</span>( (Success -<span class="st"> </span>phat_dist_5)^<span class="dv">2</span>),
-          <span class="dt">phat_dist_2 =</span> <span class="kw">mean</span>( (Success -<span class="st"> </span>phat_dist_2)^<span class="dv">2</span>),
-          <span class="dt">phat_dist_logit =</span> <span class="kw">mean</span>( (Success -<span class="st"> </span>phat_dist_logit)^<span class="dv">2</span>))</code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">fg_train &lt;-</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="st">  </span>fg_train <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="st">  </span><span class="kw">add_predictions</span>(<span class="dt">model =</span> logit_distance, <span class="dt">var =</span> <span class="st">&quot;phat_dist_logit&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;response&quot;</span>)</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="kw">summarise</span>(fg_train,</a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">          <span class="dt">phat_all =</span> <span class="kw">mean</span>( (Success <span class="op">-</span><span class="st"> </span>phat_all)<span class="op">^</span><span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">          <span class="dt">phat_kicker =</span> <span class="kw">mean</span>( (Success <span class="op">-</span><span class="st"> </span>phat_kicker)<span class="op">^</span><span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb4-7" data-line-number="7">          <span class="dt">phat_dist_10 =</span> <span class="kw">mean</span>( (Success <span class="op">-</span><span class="st"> </span>phat_dist_<span class="dv">10</span>)<span class="op">^</span><span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb4-8" data-line-number="8">          <span class="dt">phat_dist_5 =</span> <span class="kw">mean</span>( (Success <span class="op">-</span><span class="st"> </span>phat_dist_<span class="dv">5</span>)<span class="op">^</span><span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb4-9" data-line-number="9">          <span class="dt">phat_dist_2 =</span> <span class="kw">mean</span>( (Success <span class="op">-</span><span class="st"> </span>phat_dist_<span class="dv">2</span>)<span class="op">^</span><span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb4-10" data-line-number="10">          <span class="dt">phat_dist_logit =</span> <span class="kw">mean</span>( (Success <span class="op">-</span><span class="st"> </span>phat_dist_logit)<span class="op">^</span><span class="dv">2</span>))</a></code></pre></div>
 <pre><code>## # A tibble: 1 x 6
 ##   phat_all phat_kicker phat_dist_10 phat_dist_5 phat_dist_2 phat_dist_logit
 ##      &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;           &lt;dbl&gt;
 ## 1    0.140       0.138        0.125       0.123       0.123           0.123</code></pre>
 <p>Looking at the Brier scores, we see that our new logistic model fits the data much better than “phat_all”, the overall average success rate, and “phat_kicker”, the kicker-specific overall average. Moreover, it also fits better than the first model we built where we binning the distances into 10-yard increments. It turns out, however, that our logistic regression model fits the <strong>training</strong> data <strong>worse</strong> than the the models which binned the distances into 5-yard and 2-yard increments. However, to better assess whether the new logistic regression model is truly better than these two, we have to look at how well it performs out-of-sample on the <strong>testing</strong> dataset.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fg_test &lt;-<span class="st"> </span>
-<span class="st">  </span>fg_test %&gt;%
-<span class="st">  </span><span class="kw">add_predictions</span>(<span class="dt">model =</span> logit_distance, <span class="dt">var =</span> <span class="st">&quot;phat_dist_logit&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;response&quot;</span>)
-
-
-<span class="kw">summarise</span>(fg_test,
-          <span class="dt">phat_all =</span> <span class="kw">mean</span>( (Success -<span class="st"> </span>phat_all)^<span class="dv">2</span>),
-          <span class="dt">phat_kicker =</span> <span class="kw">mean</span>( (Success -<span class="st"> </span>phat_kicker)^<span class="dv">2</span>),
-          <span class="dt">phat_dist_10 =</span> <span class="kw">mean</span>( (Success -<span class="st"> </span>phat_dist_10)^<span class="dv">2</span>),
-          <span class="dt">phat_dist_5 =</span> <span class="kw">mean</span>( (Success -<span class="st"> </span>phat_dist_5)^<span class="dv">2</span>),
-          <span class="dt">phat_dist_2 =</span> <span class="kw">mean</span>( (Success -<span class="st"> </span>phat_dist_2)^<span class="dv">2</span>),
-          <span class="dt">phat_dist_logit =</span> <span class="kw">mean</span>( (Success -<span class="st"> </span>phat_dist_logit)^<span class="dv">2</span>))</code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">fg_test &lt;-<span class="st"> </span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="st">  </span>fg_test <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="st">  </span><span class="kw">add_predictions</span>(<span class="dt">model =</span> logit_distance, <span class="dt">var =</span> <span class="st">&quot;phat_dist_logit&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;response&quot;</span>)</a>
+<a class="sourceLine" id="cb6-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb6-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="kw">summarise</span>(fg_test,</a>
+<a class="sourceLine" id="cb6-7" data-line-number="7">          <span class="dt">phat_all =</span> <span class="kw">mean</span>( (Success <span class="op">-</span><span class="st"> </span>phat_all)<span class="op">^</span><span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb6-8" data-line-number="8">          <span class="dt">phat_kicker =</span> <span class="kw">mean</span>( (Success <span class="op">-</span><span class="st"> </span>phat_kicker)<span class="op">^</span><span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb6-9" data-line-number="9">          <span class="dt">phat_dist_10 =</span> <span class="kw">mean</span>( (Success <span class="op">-</span><span class="st"> </span>phat_dist_<span class="dv">10</span>)<span class="op">^</span><span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb6-10" data-line-number="10">          <span class="dt">phat_dist_5 =</span> <span class="kw">mean</span>( (Success <span class="op">-</span><span class="st"> </span>phat_dist_<span class="dv">5</span>)<span class="op">^</span><span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb6-11" data-line-number="11">          <span class="dt">phat_dist_2 =</span> <span class="kw">mean</span>( (Success <span class="op">-</span><span class="st"> </span>phat_dist_<span class="dv">2</span>)<span class="op">^</span><span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb6-12" data-line-number="12">          <span class="dt">phat_dist_logit =</span> <span class="kw">mean</span>( (Success <span class="op">-</span><span class="st"> </span>phat_dist_logit)<span class="op">^</span><span class="dv">2</span>))</a></code></pre></div>
 <pre><code>## # A tibble: 1 x 6
 ##   phat_all phat_kicker phat_dist_10 phat_dist_5 phat_dist_2 phat_dist_logit
 ##      &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;           &lt;dbl&gt;
@@ -384,47 +542,47 @@ $(document).ready(function () {
 <div id="regression-with-multiple-predictors" class="section level2">
 <h2>Regression with Multiple Predictors</h2>
 <p>Up to this point, we have only talked about regression models with a single predictor. Though the logistic regression model we just built out-performs all of the ones we had built before, it is still pretty limited. After all, for any specific distance, this model estimates that every kicker has exactly the same chance of making a field goal. The code below fits a logistic regression model that accounts for both the kicker and the distance.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">logit_dist_kicker &lt;-<span class="st"> </span><span class="kw">glm</span>(Success ~<span class="st"> </span>Distance +<span class="st"> </span>Kicker, <span class="dt">family =</span> binomial, <span class="dt">data =</span> fg_train)</code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">logit_dist_kicker &lt;-<span class="st"> </span><span class="kw">glm</span>(Success <span class="op">~</span><span class="st"> </span>Distance <span class="op">+</span><span class="st"> </span>Kicker, <span class="dt">family =</span> binomial, <span class="dt">data =</span> fg_train)</a></code></pre></div>
 <p>Before proceeding, notice that the syntax for fitting such a model with multiple predictors is really similar to the syntax we used above to fit a simple logistic regression model. In both cases, we used <code>glm()</code> and specified <code>family = binomial</code> and <code>data = fg_train</code>. The only difference is on the right hand side of the <code>~</code> in the <em>formula</em>, the first argument in <code>glm()</code>. Now, we have <code>Success ~ Distance + Kicker</code> instead of just <code>Success ~ Distance</code>. The syntax <code>Distance + Kicker</code> tells R that we want to include both the distance and identity of the kicker to predict field goal success.</p>
 <p>To visualize the predictions made by this model, we can also use <code>data_grid()</code>. Since there are so many kickers in our dataset, we will restrict our attention to just a small handful.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dist_kick_grid &lt;-
-<span class="st">  </span>fg_train %&gt;%
-<span class="st">  </span><span class="kw">filter</span>(Kicker %in%<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Bailey&quot;</span>, <span class="st">&quot;Vinatieri&quot;</span>, <span class="st">&quot;Zuerlein&quot;</span>)) %&gt;%
-<span class="st">  </span><span class="kw">data_grid</span>(Distance, Kicker) %&gt;%
-<span class="st">  </span><span class="kw">add_predictions</span>(<span class="dt">model =</span> logit_dist_kicker, <span class="dt">var =</span> <span class="st">&quot;Prediction&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;response&quot;</span>)
-
-<span class="kw">ggplot</span>(<span class="dt">data =</span> dist_kick_grid) +
-<span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> Distance, <span class="dt">y =</span> Prediction, <span class="dt">col =</span> Kicker))</code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">dist_kick_grid &lt;-</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="st">  </span>fg_train <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(Kicker <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Bailey&quot;</span>, <span class="st">&quot;Vinatieri&quot;</span>, <span class="st">&quot;Zuerlein&quot;</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="st">  </span><span class="kw">data_grid</span>(Distance, Kicker) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb9-5" data-line-number="5"><span class="st">  </span><span class="kw">add_predictions</span>(<span class="dt">model =</span> logit_dist_kicker, <span class="dt">var =</span> <span class="st">&quot;Prediction&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;response&quot;</span>)</a>
+<a class="sourceLine" id="cb9-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb9-7" data-line-number="7"><span class="kw">ggplot</span>(<span class="dt">data =</span> dist_kick_grid) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-8" data-line-number="8"><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> Distance, <span class="dt">y =</span> Prediction, <span class="dt">col =</span> Kicker))</a></code></pre></div>
 <p><img src="lecture8_files/figure-html/visualize-dist-kicker-1.png" width="672" /></p>
 <p>In the call to <code>data_grid()</code> we included all of the variables that went into the model (<code>Distance</code> and <code>Kicker</code>). This creates a tbl with every combination of distance and kicker. Note that if we had not filtered to just three kickers, the resulting tbl would incredibly long. Just like we did earlier, in our call to <code>geom_line()</code>, we specified that we wanted to plot distance on the x-axis and the predicted success probability on the y-axis. However, we now have an additional aesthetic <code>col = Kicker</code>. Since our model predicts different probabilities for different kickers, this additional aesthetic tells ggplot to use a separate color for each kicker’s probability curve. We can see that the model predicts Dan Bailey to have consistently higher chances of converting a field goal successfull than either Greg Zuerlein or Adam Vinatieri.</p>
 <p>Just like we did above, we can also assess the in-sample and out-of-sample prediction performance by computing the Brier score:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fg_train &lt;-
-<span class="st">  </span>fg_train %&gt;%
-<span class="st">  </span><span class="kw">add_predictions</span>(<span class="dt">model =</span> logit_dist_kicker, <span class="dt">type =</span> <span class="st">&quot;response&quot;</span>, <span class="dt">var =</span> <span class="st">&quot;phat_dist_kick_logit&quot;</span>)
-<span class="kw">summarise</span>(fg_train,
-          <span class="dt">phat_all =</span> <span class="kw">mean</span>( (Success -<span class="st"> </span>phat_all)^<span class="dv">2</span>),
-          <span class="dt">phat_kicker =</span> <span class="kw">mean</span>( (Success -<span class="st"> </span>phat_kicker)^<span class="dv">2</span>),
-          <span class="dt">phat_dist_10 =</span> <span class="kw">mean</span>( (Success -<span class="st"> </span>phat_dist_10)^<span class="dv">2</span>),
-          <span class="dt">phat_dist_5 =</span> <span class="kw">mean</span>( (Success -<span class="st"> </span>phat_dist_5)^<span class="dv">2</span>),
-          <span class="dt">phat_dist_2 =</span> <span class="kw">mean</span>( (Success -<span class="st"> </span>phat_dist_2)^<span class="dv">2</span>),
-          <span class="dt">phat_dist_logit =</span> <span class="kw">mean</span>( (Success -<span class="st"> </span>phat_dist_logit)^<span class="dv">2</span>),
-          <span class="dt">phat_dist_kick_logit=</span> <span class="kw">mean</span>( (Success -<span class="st"> </span>phat_dist_kick_logit)^<span class="dv">2</span>))</code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">fg_train &lt;-</a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="st">  </span>fg_train <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="st">  </span><span class="kw">add_predictions</span>(<span class="dt">model =</span> logit_dist_kicker, <span class="dt">type =</span> <span class="st">&quot;response&quot;</span>, <span class="dt">var =</span> <span class="st">&quot;phat_dist_kick_logit&quot;</span>)</a>
+<a class="sourceLine" id="cb10-4" data-line-number="4"><span class="kw">summarise</span>(fg_train,</a>
+<a class="sourceLine" id="cb10-5" data-line-number="5">          <span class="dt">phat_all =</span> <span class="kw">mean</span>( (Success <span class="op">-</span><span class="st"> </span>phat_all)<span class="op">^</span><span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb10-6" data-line-number="6">          <span class="dt">phat_kicker =</span> <span class="kw">mean</span>( (Success <span class="op">-</span><span class="st"> </span>phat_kicker)<span class="op">^</span><span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb10-7" data-line-number="7">          <span class="dt">phat_dist_10 =</span> <span class="kw">mean</span>( (Success <span class="op">-</span><span class="st"> </span>phat_dist_<span class="dv">10</span>)<span class="op">^</span><span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb10-8" data-line-number="8">          <span class="dt">phat_dist_5 =</span> <span class="kw">mean</span>( (Success <span class="op">-</span><span class="st"> </span>phat_dist_<span class="dv">5</span>)<span class="op">^</span><span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb10-9" data-line-number="9">          <span class="dt">phat_dist_2 =</span> <span class="kw">mean</span>( (Success <span class="op">-</span><span class="st"> </span>phat_dist_<span class="dv">2</span>)<span class="op">^</span><span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb10-10" data-line-number="10">          <span class="dt">phat_dist_logit =</span> <span class="kw">mean</span>( (Success <span class="op">-</span><span class="st"> </span>phat_dist_logit)<span class="op">^</span><span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb10-11" data-line-number="11">          <span class="dt">phat_dist_kick_logit=</span> <span class="kw">mean</span>( (Success <span class="op">-</span><span class="st"> </span>phat_dist_kick_logit)<span class="op">^</span><span class="dv">2</span>))</a></code></pre></div>
 <pre><code>## # A tibble: 1 x 7
 ##   phat_all phat_kicker phat_dist_10 phat_dist_5 phat_dist_2 phat_dist_logit
 ##      &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;           &lt;dbl&gt;
 ## 1    0.140       0.138        0.125       0.123       0.123           0.123
 ## # … with 1 more variable: phat_dist_kick_logit &lt;dbl&gt;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fg_test &lt;-
-<span class="st">  </span>fg_test %&gt;%
-<span class="st">  </span><span class="kw">add_predictions</span>(<span class="dt">model =</span> logit_dist_kicker, <span class="dt">type =</span> <span class="st">&quot;response&quot;</span>, <span class="dt">var =</span> <span class="st">&quot;phat_dist_kick_logit&quot;</span>)
-<span class="kw">summarise</span>(fg_test,
-          <span class="dt">phat_all =</span> <span class="kw">mean</span>( (Success -<span class="st"> </span>phat_all)^<span class="dv">2</span>),
-          <span class="dt">phat_kicker =</span> <span class="kw">mean</span>( (Success -<span class="st"> </span>phat_kicker)^<span class="dv">2</span>),
-          <span class="dt">phat_dist_10 =</span> <span class="kw">mean</span>( (Success -<span class="st"> </span>phat_dist_10)^<span class="dv">2</span>),
-          <span class="dt">phat_dist_5 =</span> <span class="kw">mean</span>( (Success -<span class="st"> </span>phat_dist_5)^<span class="dv">2</span>),
-          <span class="dt">phat_dist_2 =</span> <span class="kw">mean</span>( (Success -<span class="st"> </span>phat_dist_2)^<span class="dv">2</span>),
-          <span class="dt">phat_dist_logit =</span> <span class="kw">mean</span>( (Success -<span class="st"> </span>phat_dist_logit)^<span class="dv">2</span>),
-          <span class="dt">phat_dist_kick_logit=</span> <span class="kw">mean</span>( (Success -<span class="st"> </span>phat_dist_kick_logit)^<span class="dv">2</span>))</code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">fg_test &lt;-</a>
+<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="st">  </span>fg_test <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb12-3" data-line-number="3"><span class="st">  </span><span class="kw">add_predictions</span>(<span class="dt">model =</span> logit_dist_kicker, <span class="dt">type =</span> <span class="st">&quot;response&quot;</span>, <span class="dt">var =</span> <span class="st">&quot;phat_dist_kick_logit&quot;</span>)</a>
+<a class="sourceLine" id="cb12-4" data-line-number="4"><span class="kw">summarise</span>(fg_test,</a>
+<a class="sourceLine" id="cb12-5" data-line-number="5">          <span class="dt">phat_all =</span> <span class="kw">mean</span>( (Success <span class="op">-</span><span class="st"> </span>phat_all)<span class="op">^</span><span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb12-6" data-line-number="6">          <span class="dt">phat_kicker =</span> <span class="kw">mean</span>( (Success <span class="op">-</span><span class="st"> </span>phat_kicker)<span class="op">^</span><span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb12-7" data-line-number="7">          <span class="dt">phat_dist_10 =</span> <span class="kw">mean</span>( (Success <span class="op">-</span><span class="st"> </span>phat_dist_<span class="dv">10</span>)<span class="op">^</span><span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb12-8" data-line-number="8">          <span class="dt">phat_dist_5 =</span> <span class="kw">mean</span>( (Success <span class="op">-</span><span class="st"> </span>phat_dist_<span class="dv">5</span>)<span class="op">^</span><span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb12-9" data-line-number="9">          <span class="dt">phat_dist_2 =</span> <span class="kw">mean</span>( (Success <span class="op">-</span><span class="st"> </span>phat_dist_<span class="dv">2</span>)<span class="op">^</span><span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb12-10" data-line-number="10">          <span class="dt">phat_dist_logit =</span> <span class="kw">mean</span>( (Success <span class="op">-</span><span class="st"> </span>phat_dist_logit)<span class="op">^</span><span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb12-11" data-line-number="11">          <span class="dt">phat_dist_kick_logit=</span> <span class="kw">mean</span>( (Success <span class="op">-</span><span class="st"> </span>phat_dist_kick_logit)<span class="op">^</span><span class="dv">2</span>))</a></code></pre></div>
 <pre><code>## # A tibble: 1 x 7
 ##   phat_all phat_kicker phat_dist_10 phat_dist_5 phat_dist_2 phat_dist_logit
 ##      &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;           &lt;dbl&gt;
