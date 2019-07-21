@@ -84,7 +84,7 @@ Now we can see an axis for FGP, but still no histogram! That's because we need t
 To display the FGP histogram, we will simply add the `geom_histogram()` layer to the
 plot using the `+` operator:
 
-```{r shooting_hist_x_geom}
+```{r shooting_hist_x_geom, tidy = FALSE}
 ggplot(data = raw_shooting, aes(x = FGP)) +
   geom_histogram()
 ```
@@ -94,7 +94,7 @@ into the ``ggplot`` function. The remaining examples will use the pipe operator 
 for the remainder of this week, emphasizing how you can manipulate the `tbl` with various
 other functions prior to displaying the data:
 
-```{r pipe_shooting_hist_x_geom}
+```{r pipe_shooting_hist_x_geom, tidy = FALSE}
 raw_shooting %>%
   ggplot(aes(x = FGP)) +
   geom_histogram()
@@ -107,7 +107,7 @@ smoothing do we want of the data? You might have noticed that by default `geom_h
 is using 30 bins and prints out a message for us about this decision. We can easily
 modify the number of bins in the `geom_histogram` function using the `bins` argument:
 
-```{r shooting_hist_nbins}
+```{r shooting_hist_nbins, tidy = FALSE}
 raw_shooting %>%
   ggplot(aes(x = FGP)) +
   geom_histogram(bins = 50)
@@ -116,7 +116,7 @@ raw_shooting %>%
 Or we directly specify the width of the bins reflecting the range of FGP included
 in each bin using `binwidth`:
 
-```{r shooting_hist_binwidth}
+```{r shooting_hist_binwidth, tidy = FALSE}
 raw_shooting %>%
   ggplot(aes(x = FGP)) +
   geom_histogram(binwidth = 0.05)
@@ -177,7 +177,7 @@ raw_shooting %>%
 
 For the remainder of this module, we will focus on the non-lockout seasons (ie `!SEASON %in% c(1999, 2012, 2016)`) but we still need to determine a cutoff for FGA and TPA. Let's start by making histograms of the two variables to see their individual distributions, and rather than creating a new temporary `tbl` we'll take advantage of the `%>%`. First for FGA,
 
-```{r fga-hist}
+```{r fga-hist, tidy = FALSE}
 raw_shooting %>%
   filter(!SEASON %in% c(1999, 2012)) %>%
   ggplot(aes(x = FGA)) +
@@ -186,7 +186,7 @@ raw_shooting %>%
 
 And now for TPA,
 
-```{r tpa-hist}
+```{r tpa-hist, tidy = FALSE}
 raw_shooting %>%
   filter(!SEASON %in% c(1999, 2012)) %>%
   ggplot(aes(x = TPA)) +
@@ -205,7 +205,7 @@ attempts). We create a scatterplot by mapping multiple variables to `x` and `y`,
 and use `geom_point` to display the desired geometric object of points instead of
 `geom_histogram` from before.
 
-```{r scatter-fga-tpa}
+```{r scatter-fga-tpa, tidy = FALSE}
 raw_shooting %>%
   filter(!SEASON %in% c(1999, 2012)) %>%
   ggplot(aes(x = TPA, y = FGA)) +
@@ -219,7 +219,7 @@ When there are many points plotted in the same region, that region will appear d
 `binwidth` or `bins` for `geom_histogram`, `geom_point` has settings we can change such as the `alpha`
 setting in this case which ranges from 0 (completely transparent) to 1 (solid and opaque, the default).
 
-```{r scatterplot-alpha}
+```{r scatterplot-alpha, tidy = FALSE}
 raw_shooting %>%
   filter(!SEASON %in% c(1999, 2012)) %>%
   ggplot(aes(x = TPA, y = FGA)) +
@@ -228,7 +228,7 @@ raw_shooting %>%
 
 Now we have a much better idea of where the majority of points are, with a clear group of players displaying a smaller number of TPA. Another type of plot commonly used in this situation is a __heatmap__ which you can thnk of as a two-dimensional histogram. To form a heatmap, you start by dividing the coordinate plane into many evenly-sized two-dimensional bins and then count the number of points within each bin. You then color the bin according to the count. 
 While you can conceptually make the bins any shape you want, there are two popular conventions: rectangular binning and hexagonal binning. For this plot, we will focus on rectangular binning, using the `geom_bin2d()` function.
-```{r heatmap}
+```{r heatmap, tidy = FALSE}
 raw_shooting %>%
   filter(!SEASON %in% c(1999, 2012)) %>%
   ggplot(aes(x = TPA, y = FGA)) +
@@ -236,7 +236,7 @@ raw_shooting %>%
 ```
 
 Now we have a color scale that has appeared to tell us the number of points in each bin. Just like histograms, we can increase the number of bins to get a much more high-resolution view of our data.
-```{r}
+```{r, tidy = FALSE}
 raw_shooting %>%
   filter(!SEASON %in% c(1999, 2012)) %>%
   ggplot(aes(x = TPA, y = FGA)) +
@@ -249,7 +249,7 @@ made for each variable as well, let's use a cutoff of `TPA > 50` and `FGA > 150`
 We can create the scatterplot as before but, to demonstrate a convenient feature
 of `ggplot2`, we'll now assign the plot to a variable named `fga_tpa_plot`,
 
-```{r init-fga-tpa-plot}
+```{r init-fga-tpa-plot, tidy = FALSE}
 fga_tpa_plot <- raw_shooting %>%
   filter(!SEASON %in% c(1999, 2012)) %>%
   ggplot(aes(x = TPA, y = FGA)) +
@@ -270,7 +270,7 @@ using the `geom`s `geom_vline` and `geom_hline` where we specify for each the va
 for the intercepts to draw the lines at. Since we've stored the plot in `fga_tpa_plot`,
 we can add these layers with the `+` operator to `fga_tpa_plot` directly:
 
-```{r add-lines}
+```{r add-lines, tidy = FALSE}
 fga_tpa_plot +
   # Add TPA cutoff
   geom_vline(xintercept = 50) +
@@ -283,7 +283,7 @@ distinguish these lines separately from the points more. Since these are both
 `geom`s with their own set of attributes, we'll change the color and make the line
 type to be dashed,
 
-```{r add-lines-color}
+```{r add-lines-color, tidy = FALSE}
 fga_tpa_plot +
   # Add TPA cutoff
   geom_vline(xintercept = 50, color = "red", linetype = "dashed") +
@@ -299,7 +299,7 @@ other parts of the plot to label such as the title, subtitle, and caption. We ad
 appropriate labels to the plot above, with better descriptions for the axes, as
 well as an informative subtitle regarding the red-dashed lines:
 
-```{r add-labels}
+```{r add-labels, tidy = FALSE}
 fga_tpa_plot +
   # Add TPA cutoff
   geom_vline(xintercept = 50, color = "red", linetype = "dashed") +
@@ -316,7 +316,7 @@ fga_tpa_plot +
 As a reminder, the code chunk above is equivalent to running the entire pipeline
 of code without creating any temporary objects, although not recommended...
 
-```{r full-pipeline}
+```{r full-pipeline, tidy = FALSE}
 read_csv(file = "data/nba_shooting.csv") %>%
   filter(!SEASON %in% c(1999, 2012)) %>%
   ggplot(aes(x = TPA, y = FGA)) +
@@ -337,7 +337,7 @@ For next [lecture](tc_lecture3.html) we will focus on the dataset of players who
 the resulting dataset as `nba_shooting`. Finally, we'll add a `mutate()` line to
 create the `three_point_fg_rate = TPA / FGA` variable from [yesterday](tc_lecture1.html).
 
-```{r create-nba_shooting}
+```{r create-nba_shooting, tidy = FALSE}
 nba_shooting <- raw_shooting %>%
   # Filter on the conditions
   filter(!SEASON %in% c(1999, 2012),
