@@ -43,6 +43,8 @@ navbar:
     - text: "Training Camp"
       icon: fa-bar-chart
       menu:
+        - text: "Installation"
+          href: "install_setup.html"
         - text: "Lecture 1"
           href: tc_lecture1.html
         - text: "Problem Set 1"

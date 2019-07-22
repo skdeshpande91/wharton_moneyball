@@ -11,7 +11,7 @@
 
 
 
-<title>Lecture 8: Logistic Regression</title>
+<title>Installation and directory set-up</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -396,14 +396,44 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Lecture 8: Logistic Regression</h1>
+<h1 class="title toc-ignore">Installation and directory set-up</h1>
 
 </div>
 
 
-<div id="regression-with-multiple-predictors" class="section level2">
-<h2>Regression with multiple predictors</h2>
-<p>Up to this point, all of the regression models we have built involves predicting either a continuous or binary outcome using a single predictor variable. For instance, in <a href="lecture6.html">Lecture 6</a>, we tried to predict a continuous outcome (batting average in 2015) using a single predictor (batting average in 2014). Above, we predicted whether an NFL kicker would make a field goal</p>
+<div id="installing-r-and-r-studio-on-computer" class="section level1">
+<h1>Installing R and R Studio on computer:</h1>
+<div id="for-mac-users" class="section level2">
+<h2>For Mac Users:</h2>
+<p><strong>To Install R:</strong></p>
+<p>Open an internet browser and go to www.r-project.org. Click the “download R” link in the middle of the page under “Getting Started.” Select a CRAN location (a mirror site) and click the corresponding link. Click on the “Download R for (Mac) OS X” link at the top of the page. Click on the file containing the latest version of R under “Files.” Save the .pkg file, double-click it to open, and follow the installation instructions. Now that R is installed, you need to download and install RStudio.</p>
+<p><strong>To Install RStudio:</strong></p>
+<p>Go to www.rstudio.com and click on the “Download RStudio” button. Click on “Download RStudio Desktop.” Click on the version recommended for your system, or the latest Mac version, save the .dmg file on your computer, double-click it to open, and then drag and drop it to your applications folder.</p>
+</div>
+<div id="for-windows-users" class="section level2">
+<h2>For Windows Users:</h2>
+<p><strong>To Install R:</strong></p>
+<p>Open an internet browser and go to www.r-project.org. Click the “download R” link in the middle of the page under “Getting Started.” Select a CRAN location (a mirror site) and click the corresponding link. Click on the “Download R for Windows” link at the top of the page. Click on the “install R for the first time” link at the top of the page. Click “Download R for Windows” and save the executable file somewhere on your computer. Run the .exe file and follow the installation instructions. Now that R is installed, you need to download and install RStudio.</p>
+<p><strong>To Install RStudio:</strong></p>
+<p>Go to www.rstudio.com and click on the “Download RStudio” button. Click on “Download RStudio Desktop.” Click on the version recommended for your system, or the latest Windows version, and save the executable file. Run the .exe file and follow the installation instructions.</p>
+</div>
+<div id="installing-tidyverse" class="section level2">
+<h2>Installing tidyverse:</h2>
+<p>Open RStudio, read the basic instructions about using R and RStudio here: <a href="https://skdeshpande91.github.io/wharton_moneyball/ps0.html" class="uri">https://skdeshpande91.github.io/wharton_moneyball/ps0.html</a> Then in the console, proceed to enter the following command: install.packages(“tidyverse”)</p>
+<p>If an error appears - then proceed to set-up an RStudio Cloud account: <a href="https://rstudio.cloud/" class="uri">https://rstudio.cloud/</a> Click on the ‘Get Started’ button. You will be asked to create an account, which is free, provided you have an email to use.</p>
+<p>Once you make an account, click on the ‘New Project’ button. In there rename the project to be “Moneyball” at the top. And your use of R is ready to go within the browser!</p>
+</div>
+<div id="creating-the-moneyball-and-data-directory" class="section level2">
+<h2>Creating the Moneyball and data directory</h2>
+<p>Once you have RStudio set-up (whether on the cloud or on their computer), create a folder named ‘Moneyball’. Then inside that folder, create a new folder named ‘data’. You can do this directly in RStudio with the ‘New Folder’ button in the bottom right pane.</p>
+</div>
+<div id="downloading-data-and-saving-into-moneyballdata-folder" class="section level2">
+<h2>Downloading data and saving into Moneyball/data folder</h2>
+<p>After you get the folders ready, go to the following page: <a href="https://github.com/skdeshpande91/wharton_moneyball/tree/master/website_files/data" class="uri">https://github.com/skdeshpande91/wharton_moneyball/tree/master/website_files/data</a></p>
+<p>And from here, have download the following files: + nba_shooting_small.csv + nba_shooting.csv + mlb_relative_payrolls.csv</p>
+<p>To download each of these files, clink on their links in the page. Then click on the ‘Raw’ button. Once from there, right-click and ‘Save As’. Then should proceed to save the dataset in the Moneyball/data folder you created.</p>
+<p>If you are using RStudio Cloud, download the files by using the same ‘Save As’ instructions above. Then inside your RStudio Cloud project, move to their ‘Moneyball/data’ folder by clicking on the folder names. Then once inside the data folder click on the ‘Upload’ button to upload each respective dataset to the data folder.</p>
+</div>
 </div>
 
 

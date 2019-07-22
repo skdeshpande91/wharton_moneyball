@@ -1,0 +1,68 @@
+---
+title: "Installation and directory set-up"
+output: html_document
+---
+
+# Installing R and R Studio on computer:
+
+## For Mac Users:
+
+**To Install R:**
+
+Open an internet browser and go to www.r-project.org.
+Click the "download R" link in the middle of the page under "Getting Started."
+Select a CRAN location (a mirror site) and click the corresponding link.
+Click on the "Download R for (Mac) OS X" link at the top of the page.
+Click on the file containing the latest version of R under "Files."
+Save the .pkg file, double-click it to open, and follow the installation instructions.
+Now that R is installed, you need to download and install RStudio. 
+
+**To Install RStudio:**
+
+Go to www.rstudio.com and click on the "Download RStudio" button.
+Click on "Download RStudio Desktop."
+Click on the version recommended for your system, or the latest Mac version, save the .dmg file on your computer, double-click it to open, and then drag and drop it to your applications folder.
+
+## For Windows Users:
+
+**To Install R:**
+
+Open an internet browser and go to www.r-project.org.
+Click the "download R" link in the middle of the page under "Getting Started."
+Select a CRAN location (a mirror site) and click the corresponding link.
+Click on the "Download R for Windows" link at the top of the page.
+Click on the "install R for the first time" link at the top of the page.
+Click "Download R for Windows" and save the executable file somewhere on your computer. Run the .exe file and follow the installation instructions.
+Now that R is installed, you need to download and install RStudio. 
+
+**To Install RStudio:**
+
+Go to www.rstudio.com and click on the "Download RStudio" button.
+Click on "Download RStudio Desktop."
+Click on the version recommended for your system, or the latest Windows version, and save the executable file.
+Run the .exe file and follow the installation instructions.
+
+## Installing tidyverse:
+
+Open RStudio, read the basic instructions about using R and RStudio here: https://skdeshpande91.github.io/wharton_moneyball/ps0.html Then in the console, proceed to enter the following command: install.packages("tidyverse")
+
+If an error appears - then proceed to set-up an RStudio Cloud account: https://rstudio.cloud/ Click on the 'Get Started' button. You will be asked to create an account, which is free, provided you have an email to use. 
+
+Once you make an account, click on the 'New Project' button. In there rename the project to be "Moneyball" at the top. And your use of R is ready to go within the browser!
+
+## Creating the Moneyball and data directory
+
+Once you have RStudio set-up (whether on the cloud or on their computer), create a folder named 'Moneyball'. Then inside that folder, create a new folder named 'data'. You can do this directly in RStudio with the 'New Folder' button in the bottom right pane.
+
+## Downloading data and saving into Moneyball/data folder
+
+After you get the folders ready, go to the following page: https://github.com/skdeshpande91/wharton_moneyball/tree/master/website_files/data
+
+And from here, have download the following files: 
++ nba_shooting_small.csv
++ nba_shooting.csv
++ mlb_relative_payrolls.csv
+
+To download each of these files, clink on their links in the page. Then click on the 'Raw' button. Once from there, right-click and 'Save As'. Then should proceed to save the dataset in the Moneyball/data folder you created.
+
+If you are using RStudio Cloud, download the files by using the same 'Save As' instructions above. Then inside your RStudio Cloud project, move to their 'Moneyball/data' folder by clicking on the folder names. Then once inside the data folder click on the 'Upload' button to upload each respective dataset to the data folder.
