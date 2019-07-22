@@ -25,6 +25,8 @@ navbar:
           href: lecture7.html
         - text: "Lecture 8"
           href: lecture8.html
+        - text: "nflscrapR lecture"
+          href: nfl_lecture.html
     - text: "Problem Sets"
       icon: fa-dribbble
       menu:
@@ -38,8 +40,6 @@ navbar:
           href: ps3.html
         - text: "Problem Set 4"
           href: ps4.html
-        - text: "nflscrapR lecture"
-          href: nfl_lecture.html
     - text: "Training Camp"
       icon: fa-bar-chart
       menu:
