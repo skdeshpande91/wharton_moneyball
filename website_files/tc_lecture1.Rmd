@@ -148,7 +148,7 @@ arrange(nba_shooting_small, desc(FGA))
 ```
 
 In this small dataset, no two players attempted the same number of field goals.
-In larger datasets (like the one you'll see in [Problem Set1](ps1.html)), it can be the case that there are multiple rows with the same value in a given column.
+In larger datasets (like the one you'll see in [Problem Set 1](tc_ps1.html)), it can be the case that there are multiple rows with the same value in a given column.
 When arranging the rows of a `tbl`, to break ties, we can specify more than column.
 For instance, the code below sorts the players first by the number of field goal attempts and then by the number of three point attempts.
 ```{r arrange-fga-mult-cols}

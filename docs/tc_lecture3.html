@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Lecture 3: Visualizations with categorical data and grouped operations</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+
+.sourceCode .row {
+  width: 100%;
+}
+.sourceCode {
+  overflow-x: auto;
+}
+.code-folding-btn {
+  margin-right: -30px;
+}
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' || rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("show" === "show");
+});
+</script>
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">WMA19</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-futbol-o"></span>
+     
+    Lecture Notes
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="lecture1.html">Lecture 1</a>
+    </li>
+    <li>
+      <a href="lecture2.html">Lecture 2</a>
+    </li>
+    <li>
+      <a href="lecture3.html">Lecture 3</a>
+    </li>
+    <li>
+      <a href="lecture4.html">Lecture 4</a>
+    </li>
+    <li>
+      <a href="lecture5.html">Lecture 5</a>
+    </li>
+    <li>
+      <a href="lecture6.html">Lecture 6</a>
+    </li>
+    <li>
+      <a href="lecture7.html">Lecture 7</a>
+    </li>
+    <li>
+      <a href="lecture8.html">Lecture 8</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-dribbble"></span>
+     
+    Problem Sets
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="ps0.html">Problem Set 0</a>
+    </li>
+    <li>
+      <a href="ps1.html">Problem Set 1</a>
+    </li>
+    <li>
+      <a href="ps2.html">Problem Set 2</a>
+    </li>
+    <li>
+      <a href="ps3.html">Problem Set 3</a>
+    </li>
+    <li>
+      <a href="ps4.html">Problem Set 4</a>
+    </li>
+    <li>
+      <a href="nfl_lecture.html">nflscrapR lecture</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-bar-chart"></span>
+     
+    Training Camp
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="tc_lecture1.html">Lecture 1</a>
+    </li>
+    <li>
+      <a href="tc_ps1.html">Problem Set 1</a>
+    </li>
+    <li>
+      <a href="tc_lecture2.html">Lecture 2</a>
+    </li>
+    <li>
+      <a href="tc_ps2.html">Problem Set 2</a>
+    </li>
+    <li>
+      <a href="tc_lecture3.html">Lecture 3</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+<div class="btn-group pull-right">
+<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">Lecture 3: Visualizations with categorical data and grouped operations</h1>
+
+</div>
+
+
+<p>We’re going to pick up right where we left off in <a href="tc_lecture2.html">Lecture 2</a> by loading the <code>nba_shooting</code> dataset we created using the <code>filter</code> and <code>mutate</code> functions.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw">load</span>(<span class="st">&quot;data/clean_nba_shooting.RData&quot;</span>)</a></code></pre></div>
+<p>We’re interested in the rate and efficiency of three-point attempts over time. To start, let’s make simple histograms for <code>three_point_fg_rate = TPA / FGA</code> and <code>TPP</code> following what we learned in <a href="tc_lecture2.html">Lecture 2</a>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span>nba_shooting <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> three_point_fg_rate)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="fl">0.05</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="op">+</span><span class="st">     </span><span class="co"># label!</span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Three-point shot rate = TPA / FGA&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Count&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Distribution of three-pointer shot rate&quot;</span>)</a></code></pre></div>
+<p><img src="tc_lecture3_files/figure-html/tp-rate-hist-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span>nba_shooting <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> TPP)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">30</span>) <span class="op">+</span><span class="st"> </span><span class="co"># label!</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Three-point shot proportion = TPM / TPA&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Count&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Distribution of three-point shot proportion&quot;</span>)</a></code></pre></div>
+<p><img src="tc_lecture3_files/figure-html/tpp-hist-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Next let’s make a scatterplot showing the relationship between the rate at which players attempt three point shots and the proportion at which they make them:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span>nba_shooting <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> three_point_fg_rate, <span class="dt">y =</span> TPP)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.25</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="op">+</span><span class="st">     </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Three-point shot rate = TPA / FGA&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Three-point shot proportion = TPM / TPA&quot;</span>, </a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="op">+</span><span class="st">         </span><span class="dt">title =</span> <span class="st">&quot;Relationship between three point shot rate and efficiency&quot;</span>)</a></code></pre></div>
+<p><img src="tc_lecture3_files/figure-html/tp-scatter-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Unsurprisingly, for the most part we see a random scattering of points. But we can see that players who attempt a minimal proportion of three-point shots for their field goal attempts also have typically low values for their three point shot efficiency. You can expect players that can make three-pointers more often to then attempt more and more three-pointers - but, as the plot shows, they will reach a point where their advantage diminishes.</p>
+<div id="plotting-categorical-data" class="section level2">
+<h2>Plotting categorical data</h2>
+<p>The style of shooting in the NBA has been evolving over the past decade, with teams attempting more and more three-point shots than ever before. We can look into this trend ourselves using the <code>nba_shooting</code> dataset we constructed. Something such as the season/year could be considered like a continuous variable. For instance, we could create a scatterplot with the <code>SEASON</code> variable on the x-axis and each of the variables of interest on the y-axis, such as:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span>nba_shooting <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> SEASON, <span class="dt">y =</span> three_point_fg_rate)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.25</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="op">+</span><span class="st">     </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Season&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Three-point shot rate = TPA / FGA&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Distribution of three point shot rate each year&quot;</span>)</a></code></pre></div>
+<p><img src="tc_lecture3_files/figure-html/season-scatter-tp-rate-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>It is hard to see any real differences between the years this way. Instead, we can treat the season as a <strong>categorical variable</strong> to then more appropriately compare the distributions between each year. To do so, we are going to create a new variable in our dataset called <code>season_factor</code> which is simply a new version of the <code>SEASON</code> variable but is converted to a special type of data in <code>R</code> known as a “factor”. We won’t cover the details, but “factors” are essentially categorical variables with an order to them. By default, when we create <code>season_factor</code> using the <code>as.factor()</code> function, the natural chronological order is used.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span>nba_shooting &lt;-<span class="st"> </span>nba_shooting <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">season_factor =</span> <span class="kw">as.factor</span>(SEASON))</a></code></pre></div>
+<p>Now with this variable, prior to comparing distributions between the different seasons, we will create a <strong>barchart</strong> to compare the number of players we have in each season that met our criteria from <a href="tc_lecture2.html">Lecture 2</a>.</p>
+<p>This can be done using <code>geom_bar</code>, and all we have to specify is the categorical variable to be displayed along the x-axis - <code>ggplot</code> will count the number of each player and display it for us just like <code>geom_histogram</code>.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span>nba_shooting <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> season_factor)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>() <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Season&quot;</span>, </a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="op">+</span><span class="st">     </span><span class="dt">y =</span> <span class="st">&quot;Count&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Number of players in each season meeting TPA and FGA cutoffs&quot;</span>, </a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="op">+</span><span class="st">     </span><span class="dt">subtitle =</span> <span class="st">&quot;Excluding lockout seasons 1999 and 2012&quot;</span>)</a></code></pre></div>
+<p><img src="tc_lecture3_files/figure-html/season-bars-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>What shouldn’t come as a surprise is that we’re seeing more and more player stats in more recent years. This makes sense since more players are shooting three-pointers more frequently now.</p>
+</div>
+<div id="comparing-distributions" class="section level2">
+<h2>Comparing distributions</h2>
+<p>Now that we have a categorical version of the season to use for plotting, we can proceed to compare the distributions of the three-point stats in a variety of ways.</p>
+<p>Naturally you can make <strong>multiple</strong> histograms to compare the distributions of several different categories with simple extensions of code you are already familiar with. This can be done in several different ways.</p>
+<div id="facets" class="section level3">
+<h3>Facets</h3>
+<p>We can use <em>facets</em> to create histograms for each different season. Facets allow you to separate graphs by category. We do not need to do anything different from our above code for creating histograms except we only need to add a <em>facet</em> layer to our graph. The first argument of <code>facet_wrap</code> is the column of our dataset that contains the category information.Note that we need a tilde (<code>~</code>) in front of <code>season_factor</code>. The second argument of <code>facet_wrap</code> specifies the number of rows for which to display the graphs.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span>nba_shooting <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> three_point_fg_rate)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="fl">0.05</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="op">+</span><span class="st">     </span><span class="co"># label!</span></a>
+<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Three-point shot rate = TPA / FGA&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Count&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Distribution of three-pointer shot rate by season&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="op">+</span><span class="st">     </span><span class="kw">facet_wrap</span>(<span class="op">~</span>season_factor, <span class="dt">nrow =</span> <span class="dv">3</span>)</a></code></pre></div>
+<p><img src="tc_lecture3_files/figure-html/facet-hist-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Although we can now see a histogram of three-point shot rate for each separate season, it’s a little hard to make comparisons across all the years.</p>
+</div>
+<div id="colors" class="section level3">
+<h3>Colors</h3>
+<p>We can also proceed to create multiple histograms using colors instead of facets, by just adding the <code>fill = season_factor</code> line to the <code>aes</code> function. <strong>NOTE</strong>: it’s important to remember the difference between <code>fill</code> and <code>color</code>. In this case, <code>fill</code> actually changes the literal <em>fill</em> of the bars while <code>color</code> changes the line. This differs from <code>geom_point</code> and is important to keep in mind when making plots.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span>nba_shooting <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> three_point_fg_rate, <span class="dt">fill =</span> season_factor)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="op">+</span><span class="st">     </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="fl">0.05</span>) <span class="op">+</span><span class="st"> </span><span class="co"># label!</span></a>
+<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Three-point shot rate = TPA / FGA&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Count&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;Season&quot;</span>, </a>
+<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="op">+</span><span class="st">     </span><span class="dt">title =</span> <span class="st">&quot;Distribution of three-pointer shot rate by season&quot;</span>)</a></code></pre></div>
+<p><img src="tc_lecture3_files/figure-html/hist-color-stacked-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Well that’s a weird looking plot! This is because by default the multiple histograms will be stacked on top of one another. We can instead change the <code>position</code> of the <code>geom_histogram</code> call to be equal to “identity” rather than the default which is “stacked”. When doing this we’ll have several histograms overlaid on top of each other, so it’s important to change the <code>alpha</code> to be a lower value.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span>nba_shooting <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> three_point_fg_rate, <span class="dt">fill =</span> season_factor)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="op">+</span><span class="st">     </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="fl">0.05</span>, <span class="dt">position =</span> <span class="st">&quot;identity&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.1</span>) <span class="op">+</span><span class="st"> </span><span class="co"># label!</span></a>
+<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Three-point shot rate = TPA / FGA&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Count&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;Season&quot;</span>, </a>
+<a class="sourceLine" id="cb10-4" data-line-number="4"><span class="op">+</span><span class="st">     </span><span class="dt">title =</span> <span class="st">&quot;Distribution of three-pointer shot rate by season&quot;</span>)</a></code></pre></div>
+<p><img src="tc_lecture3_files/figure-html/hist-color-dodge-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Overall this is still a rather difficult figure to digest. Instead, we should make figures that take advantage of the natural ordering implied by the season along an axis while displying various comparisons of the distributions.</p>
+</div>
+</div>
+<div id="boxplots" class="section level2">
+<h2>Boxplots</h2>
+<p>By far the simplest way to compare distributions across many levels of a categorical variable is with boxplots. Side-by-side boxplots can be generated easily using <code>geom_boxplot</code>. Now we specify the categorical variable we want <strong>mapped</strong> to the x-axis (<code>season_factor</code>) and then the variable we want mapped to the y-axis.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span>nba_shooting <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> season_factor, <span class="dt">y =</span> three_point_fg_rate)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_boxplot</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="op">+</span><span class="st">     </span><span class="co"># label!</span></a>
+<a class="sourceLine" id="cb11-3" data-line-number="3"><span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Season&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Three-point shot rate = TPA / FGA&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Comparison of three-pointer shot rate for each season with boxplots&quot;</span>)</a></code></pre></div>
+<p><img src="tc_lecture3_files/figure-html/boxplot-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Remember, boxplots are displaying summary statistics (median, min, max, and percentiles) which allows us to easily see an increase in the median three-point shot rate over time. <strong>But boxplots are extremely limited visualizations!</strong> All they provide are summary statistics - think of all the information we observed in histograms that are lost in boxplots! There is no way of knowing if we’re looking at distributions with multiple modes!</p>
+</div>
+<div id="violin-plots" class="section level2">
+<h2>Violin plots</h2>
+<p>A much more informative plot than only a boxplot, is a <strong>violin plot</strong>. Violin plots display the density curves giving us the general shape of a distribution. And of course, there’s a <code>geom</code> for that as well called… <code>geom_violin</code>!</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span>nba_shooting <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> season_factor, <span class="dt">y =</span> three_point_fg_rate)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_violin</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="op">+</span><span class="st">     </span><span class="co"># label!</span></a>
+<a class="sourceLine" id="cb12-3" data-line-number="3"><span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Season&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Three-point shot rate = TPA / FGA&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Comparison of three-pointer shot rate for each season with violin plots&quot;</span>)</a></code></pre></div>
+<p><img src="tc_lecture3_files/figure-html/violin-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>This gives us a sense of the distributions in each season, and any sort of subtle differences over time. What’s missing from this plot is the key points provided by boxplots to show the increasing rate of three point attempts. Because we are using <code>ggplot</code>, we can easily add the boxplot layer on top of the violin plots to get the best of both visualizations! We just specify a small <code>width</code> for our boxplots so that they don’t take up too much space and fit inside the violin plots.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span>nba_shooting <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> season_factor, <span class="dt">y =</span> three_point_fg_rate)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_violin</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="op">+</span><span class="st">     </span><span class="kw">geom_boxplot</span>(<span class="dt">width =</span> <span class="fl">0.2</span>) <span class="op">+</span><span class="st"> </span><span class="co"># label!</span></a>
+<a class="sourceLine" id="cb13-3" data-line-number="3"><span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Season&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Three-point shot rate = TPA / FGA&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Comparison of three-pointer shot rate for each season with violin and boxplots&quot;</span>)</a></code></pre></div>
+<p><img src="tc_lecture3_files/figure-html/violin-box-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

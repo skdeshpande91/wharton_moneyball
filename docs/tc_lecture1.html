@@ -441,6 +441,9 @@ $(document).ready(function () {
     <li>
       <a href="ps4.html">Problem Set 4</a>
     </li>
+    <li>
+      <a href="nfl_lecture.html">nflscrapR lecture</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -463,6 +466,9 @@ $(document).ready(function () {
     </li>
     <li>
       <a href="tc_ps2.html">Problem Set 2</a>
+    </li>
+    <li>
+      <a href="tc_lecture3.html">Lecture 3</a>
     </li>
   </ul>
 </li>
@@ -883,7 +889,7 @@ Marc Gasol
 <a class="sourceLine" id="cb6-12" data-line-number="12"> <span class="dv">8</span> Jimmy Butler            <span class="dv">2016</span>   <span class="dv">470</span>  <span class="dv">1034</span>    <span class="dv">64</span>   <span class="dv">206</span>   <span class="dv">395</span>   <span class="dv">475</span></a>
 <a class="sourceLine" id="cb6-13" data-line-number="13"> <span class="dv">9</span> Giannis Antetokounmpo   <span class="dv">2016</span>   <span class="dv">513</span>  <span class="dv">1013</span>    <span class="dv">28</span>   <span class="dv">110</span>   <span class="dv">296</span>   <span class="dv">409</span></a>
 <a class="sourceLine" id="cb6-14" data-line-number="14"><span class="dv">10</span> Marc Gasol              <span class="dv">2016</span>   <span class="dv">328</span>   <span class="dv">707</span>     <span class="dv">2</span>     <span class="dv">3</span>   <span class="dv">203</span>   <span class="dv">245</span></a></code></pre></div>
-<p>In this small dataset, no two players attempted the same number of field goals. In larger datasets (like the one you’ll see in <a href="ps1.html">Problem Set1</a>), it can be the case that there are multiple rows with the same value in a given column. When arranging the rows of a <code>tbl</code>, to break ties, we can specify more than column. For instance, the code below sorts the players first by the number of field goal attempts and then by the number of three point attempts.</p>
+<p>In this small dataset, no two players attempted the same number of field goals. In larger datasets (like the one you’ll see in <a href="tc_ps1.html">Problem Set 1</a>), it can be the case that there are multiple rows with the same value in a given column. When arranging the rows of a <code>tbl</code>, to break ties, we can specify more than column. For instance, the code below sorts the players first by the number of field goal attempts and then by the number of three point attempts.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw">arrange</span>(nba_shooting_small, FGA, TPA)</a>
 <a class="sourceLine" id="cb7-2" data-line-number="2"><span class="co"># A tibble: 10 x 8</span></a>
 <a class="sourceLine" id="cb7-3" data-line-number="3">   PLAYER                SEASON   FGM   FGA   TPM   TPA   FTA   FTM</a>

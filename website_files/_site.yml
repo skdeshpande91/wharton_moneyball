@@ -38,6 +38,8 @@ navbar:
           href: ps3.html
         - text: "Problem Set 4"
           href: ps4.html
+        - text: "nflscrapR lecture"
+          href: nfl_lecture.html
     - text: "Training Camp"
       icon: fa-bar-chart
       menu:
@@ -49,6 +51,8 @@ navbar:
           href: tc_lecture2.html
         - text: "Problem Set 2"
           href: tc_ps2.html
+        - text: "Lecture 3"
+          href: tc_lecture3.html
 output:
   html_document:
     theme: cerulean
