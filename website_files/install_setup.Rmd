@@ -59,6 +59,7 @@ Once you have RStudio set-up (whether on the cloud or on their computer), create
 After you get the folders ready, go to the following page: https://github.com/skdeshpande91/wharton_moneyball/tree/master/website_files/data
 
 And from here, have download the following files: 
+
 + nba_shooting_small.csv
 + nba_shooting.csv
 + mlb_relative_payrolls.csv

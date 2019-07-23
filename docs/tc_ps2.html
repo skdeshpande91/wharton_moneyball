@@ -473,6 +473,9 @@ $(document).ready(function () {
     <li>
       <a href="tc_lecture3.html">Lecture 3</a>
     </li>
+    <li>
+      <a href="tc_ps3.html">Problem Set 3</a>
+    </li>
   </ul>
 </li>
       </ul>
@@ -532,118 +535,6 @@ $(document).ready(function () {
 <ol start="6" style="list-style-type: decimal">
 <li><p>Execute the code above. What can you say about how team payrolls have evolved over time? Make a similar plot that visualizes how <em>relative payrolls</em> have evolved over time.</p></li>
 <li><p>Add an appropriate title and relabel the y-axis using the <code>labs()</code> function to the plot above.</p></li>
-</ol>
-</div>
-<div id="mlb-batting-statistics" class="section level2">
-<h2>MLB Batting Statistics</h2>
-<p>Next, you will gain more experience using the <code>dplyr</code> verbs we learned about in Lectures <a href="tc_lecture1.html">1</a> and <a href="tc_lecture2.html">2</a> to analyze batting statistics of MLB players with at least 503 plate appearances. All of the data is contained in the file “data/hitting_qualified.csv”. You should save all of the code for this analysis in an R script called “ps2_mlb_batting.R”.</p>
-<ol style="list-style-type: decimal">
-<li>Load the data into a tibble called <code>hitting_qualified</code> using <code>read_csv()</code>.</li>
-</ol>
-<pre><code>## Parsed with column specification:
-## cols(
-##   .default = col_double(),
-##   playerID = col_character(),
-##   teamID = col_character(),
-##   lgID = col_character(),
-##   CS = col_logical(),
-##   IBB = col_logical(),
-##   SF = col_logical(),
-##   GIDP = col_logical()
-## )</code></pre>
-<pre><code>## See spec(...) for full column specifications.</code></pre>
-<pre><code>## Warning: 28057 parsing failures.
-##  row col           expected actual                         file
-## 1870  CS 1/0/T/F/TRUE/FALSE     23 &#39;data/hitting_qualified.csv&#39;
-## 1871  CS 1/0/T/F/TRUE/FALSE     20 &#39;data/hitting_qualified.csv&#39;
-## 1872  CS 1/0/T/F/TRUE/FALSE     13 &#39;data/hitting_qualified.csv&#39;
-## 1877  CS 1/0/T/F/TRUE/FALSE     15 &#39;data/hitting_qualified.csv&#39;
-## 1880  CS 1/0/T/F/TRUE/FALSE     13 &#39;data/hitting_qualified.csv&#39;
-## .... ... .................. ...... ............................
-## See problems(...) for more details.</code></pre>
-<p>The columns of this dataset include</p>
-<ul>
-<li><code>playerID</code>: the player’s ID code</li>
-<li><code>yearID</code>: Year</li>
-<li><code>stint</code>: the player’s stint (order of appearances within a season)</li>
-<li><code>teamID</code>: the player’s team</li>
-<li><code>lgID</code>: the player’s league</li>
-<li><code>G</code>: the number of Games the player played in that year</li>
-<li><code>AB</code>: number of At Bats of that player in that year</li>
-<li><code>PA</code>: number of plate appearances by the player that year</li>
-<li><code>R</code>: number of Runs the player made in that year</li>
-<li><code>H</code>: number of Hits the player had in that year</li>
-<li><code>X2B</code>: number of Doubles (hits on which the batter reached second base safely)</li>
-<li><code>X3B</code>: number of Triples (hits on which the batter reached third base safely)</li>
-<li><code>HR</code>: number of Homeruns the player made that year</li>
-<li><code>RBI</code>: number of Runs Batted In the player made that year</li>
-<li><code>SB</code>: number of Bases Stolen by the player in that year</li>
-<li><code>CS</code>: number of times a player was Caught Stealing that year</li>
-<li><code>BB</code>: Base on Balls</li>
-<li><code>SO</code>: number of Strikeouts the player had that year</li>
-<li><code>IBB</code> Intentional walks</li>
-<li><code>HBP</code>: Hit by pitch</li>
-<li><code>SH</code>: Sacrifice hits</li>
-<li><code>SF</code> Sacrifice flies</li>
-<li><code>GIDP</code> Grounded into double plays</li>
-</ul>
-<ol start="2" style="list-style-type: decimal">
-<li><p>Use <code>arrange()</code> to find out the first and last season for which we have data. <em>Hint: you may need to use <code>desc()</code> as well.</em></p></li>
-<li><p>When you print out <code>hitting_qualified</code> you’ll notice that some columns were read in as characters and not integers or numerics. This can happen sometimes whenever the original csv file has missing values. In this case, the columns IBB, HBP, SH, SF, and GIDP were read in as characters. We want to <em>convert</em> these to integers. We can do this using <code>mutate()</code> and the function <code>as.integer()</code>.</p></li>
-</ol>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">hitting_qualified &lt;-<span class="st"> </span>hitting_qualified <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">IBB =</span> <span class="kw">as.integer</span>(IBB),</a>
-<a class="sourceLine" id="cb7-3" data-line-number="3">         <span class="dt">HBP =</span> <span class="kw">as.integer</span>(HBP),</a>
-<a class="sourceLine" id="cb7-4" data-line-number="4">         <span class="dt">SH =</span> <span class="kw">as.integer</span>(SH),</a>
-<a class="sourceLine" id="cb7-5" data-line-number="5">         <span class="dt">SF =</span> <span class="kw">as.integer</span>(SF),</a>
-<a class="sourceLine" id="cb7-6" data-line-number="6">         <span class="dt">GIDP =</span> <span class="kw">as.integer</span>(GIDP))</a></code></pre></div>
-<ol start="5" style="list-style-type: decimal">
-<li>Let’s take a look at some of the columns we just converted using the <code>select</code> function, which takes in a dataset that we <strong>pipe in</strong> and then a set of variable names we wish to extract or <strong>select</strong>:</li>
-</ol>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">hitting_qualified <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(playerID, yearID, AB, IBB, HBP, SH, SF, GIDP)</a></code></pre></div>
-<pre><code>## # A tibble: 12,043 x 8
-##    playerID  yearID    AB   IBB   HBP    SH    SF  GIDP
-##    &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
-##  1 ansonca01   1884   475    NA    NA    NA    NA    NA
-##  2 bradyst01   1884   485    NA     0    NA    NA    NA
-##  3 connoro01   1884   477    NA    NA    NA    NA    NA
-##  4 dalryab01   1884   521    NA    NA    NA    NA    NA
-##  5 farreja02   1884   469    NA    NA    NA    NA    NA
-##  6 gleasbi01   1884   472    NA    12    NA    NA    NA
-##  7 hinespa01   1884   490    NA    NA    NA    NA    NA
-##  8 hornujo01   1884   518    NA    NA    NA    NA    NA
-##  9 jonesch01   1884   472    NA    10    NA    NA    NA
-## 10 nelsoca01   1884   432    NA     9    NA    NA    NA
-## # … with 12,033 more rows</code></pre>
-<p>You’ll notice that a lot of these columns contain <code>NA</code> values, which indicates that some of these values are missing. This make sense, since a lot of these statistics were not recorded in the early years of baseball. A popular convention for dealing with these missing statistics is to <strong>impute</strong> the missing values with 0. That is, for instance, every place we see an <code>NA</code> we need to replace it with a 0. We can do that with the <code>replace_na()</code> function as follows.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">hitting_qualified &lt;-<span class="st"> </span>hitting_qualified <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="st">  </span><span class="kw">replace_na</span>(<span class="kw">list</span>(<span class="dt">IBB =</span> <span class="dv">0</span>, <span class="dt">HBP =</span> <span class="dv">0</span>, <span class="dt">SH =</span> <span class="dv">0</span>, <span class="dt">SF =</span> <span class="dv">0</span>, <span class="dt">GIDP =</span> <span class="dv">0</span>))</a></code></pre></div>
-<p>The <code>replace_na</code> function works a little differently than previous functions since you provide it a <code>list</code> of variables and what value you want the <code>NA</code> values to be changed to. In this case for each of the variables in the <code>list</code>, we are replacing the <code>NA</code>s all with 0.</p>
-<ol start="6" style="list-style-type: decimal">
-<li><p>Use <code>mutate()</code> to add a column for the number of singles, which can be computed as <span class="math inline">\(\text{X1B} = \text{H} - \text{X2B} - \text{X3B} - \text{HR}\)</span>.</p></li>
-<li><p>The variable BB includes as a subset all intentional walks (IBB). Use <code>mutate()</code> to add a column to <code>hitting_qualified</code> that counts the number of <em>un-intentional walks</em> (uBB). Be sure to save the resulting tibble as <code>hitting_qualified</code>.</p></li>
-<li><p>Use <code>mutate()</code> to add columns for the following offensive statistics, whose formulae are given below. We have also included links to pages on <a href="htpps://www.fangraphs.com">Fangraphs</a> that define and discuss each of these statistics. <strong>Remember the order of operations!</strong> The order of operations and use of parentheses to separate calculations, such as numerators and denominators, is the same in <code>R</code> as it is in general.</p></li>
-</ol>
-<ul>
-<li><a href="https://www.fangraphs.com/library/offense/rate-stats/">Walk Percentage</a> (BBP): <span class="math display">\[
-\text{BBP} = \frac{\text{BB}}{\text{PA}}
-\]</span></li>
-<li><p><a href="https://www.fangraphs.com/library/offense/rate-stats/">Strike-out Percentage</a> (KP): <span class="math display">\[\text{KP} = \frac{\text{SO}}{\text{PA}}\]</span></p></li>
-<li><a href="https://www.fangraphs.com/library/offense/obp/">On-Base Percentage</a> (OBP): <span class="math display">\[\text{OBP} = \frac{\text{H} + \text{BB} + \text{HBP}}{\text{AB} + \text{BB} + \text{HBP} + \text{SF}}\]</span></li>
-<li><p>Slugging (SLG): <span class="math display">\[
-\text{SLG} = \frac{\text{X1B} + 2 \times \text{X2B} + 3\times \text{X3B} + 4\times \text{HR}}{\text{AB}}
-\]</span></p></li>
-<li><a href="https://www.fangraphs.com/library/offense/ops/">On-Base Plus Slugging</a> (OPS): <span class="math display">\[\text{OPS} = \text{OBP} + \text{SLG}\]</span></li>
-<li><p><a href="https://www.fangraphs.com/library/offense/woba/">weighted On-Base Average</a> (wOBA): We will use the 2013 weights which can be found <a href="https://www.fangraphs.com/guts.aspx?type=cn">here</a> <span class="math display">\[
-\text{wOBA} = \frac{0.687 \times \text{uBB} + 0.718 \times \text{HBP} + 0.881 \times \text{X1B} + 1.256 \times \text{X2B} + 1.594 \times \text{X3B} + 2.065 \times \text{HR}}{\text{AB} + \text{uBB} + \text{SF} + \text{HBP}}
-\]</span></p></li>
-</ul>
-<ol start="9" style="list-style-type: decimal">
-<li><p>Use <code>filter()</code> to subset the players who played between 2000 and 2015. Call the new tbl <code>tmp_batting</code>.</p></li>
-<li><p>Use <code>select()</code> to create a tibble called <code>batting_recent</code> containing all players who played between 2000 and 2015 with the following columns: playerID, yearID, teamID, lgID, and all of the statistics and rankings created in problems 6 through 8.</p></li>
-<li><p>Create histograms using <code>ggplot2</code> to explore the distribution of the batting statistics introduced in problems 6 through 8 for the <code>batting_recent</code> dataset.</p></li>
-<li><p>Create scatterplots using <code>ggplot2</code> between the variables of the <code>batting_recent</code> dataset created in problem 10. Make sure to include an appropriate title!</p></li>
 </ol>
 </div>
 

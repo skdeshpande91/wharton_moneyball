@@ -1,0 +1,24 @@
+---
+title: "Problem Set 3"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+## Review Lecture 3 Notes
+
+Please spend a few minutes reading through the notes from [Lecture 3](tc_lecture3.html). 
+Like before, you should go through each code block with someone in your group and see if you can both explain to each other what all of the code does.
+
+## NBA Three-Point Efficiency
+
+In [Lecture 3](tc_lecture3.html) we saw that three-point shot rates have been increasing
+over time by creating visualizations of the distributions for each season. 
+
+Now, create the same visuals but use TPP as the continous variable of interest. As players
+are attempting more three-pointers than ever before, are they also making them more?
+
+Discuss with other students in your group the meaning of these plots.
