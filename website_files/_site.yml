@@ -57,6 +57,8 @@ navbar:
           href: tc_lecture3.html
         - text: "Problem Set 3"
           href: tc_ps3.html
+        - text: "Lecture 4"
+          href: tc_lecture4.html
 output:
   html_document:
     theme: cerulean

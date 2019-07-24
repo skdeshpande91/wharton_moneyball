@@ -476,6 +476,9 @@ $(document).ready(function () {
     <li>
       <a href="tc_ps3.html">Problem Set 3</a>
     </li>
+    <li>
+      <a href="tc_lecture4.html">Lecture 4</a>
+    </li>
   </ul>
 </li>
       </ul>
@@ -638,14 +641,19 @@ $(document).ready(function () {
 <p>Many people often find violin plots hard to look at, and this has led to the development of another curve-based approach known as <strong>ridge plots</strong>. Ridge plots are often used to view the change in distributions over time, especially with a large number of years considered such as the example here. In order to make ridge plots, we need to install an additional package: <a href="https://cran.r-project.org/web/packages/ggridges/vignettes/introduction.html"><code>ggridges</code></a>. With this package installed, we can now access it and use what appears to be a slightly different mapping then boxplots and violin plots:</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span><span class="co"># install.packages(&quot;ggridges&quot;)</span></a>
 <a class="sourceLine" id="cb14-2" data-line-number="2"><span class="er">&gt;</span><span class="st"> </span><span class="kw">library</span>(ggridges)</a>
-<a class="sourceLine" id="cb14-3" data-line-number="3"><span class="op">&gt;</span><span class="st"> </span>nba_shooting <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb14-4" data-line-number="4"><span class="op">+</span><span class="st">   </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> three_point_fg_rate, <span class="dt">y =</span> season_factor)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb14-5" data-line-number="5"><span class="op">+</span><span class="st">   </span><span class="kw">geom_density_ridges</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb14-6" data-line-number="6"><span class="op">+</span><span class="st">   </span><span class="co"># label!</span></a>
-<a class="sourceLine" id="cb14-7" data-line-number="7"><span class="op">+</span><span class="st">   </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Season&quot;</span>,</a>
-<a class="sourceLine" id="cb14-8" data-line-number="8"><span class="op">+</span><span class="st">        </span><span class="dt">x =</span> <span class="st">&quot;Three-point shot rate = TPA / FGA&quot;</span>,</a>
-<a class="sourceLine" id="cb14-9" data-line-number="9"><span class="op">+</span><span class="st">        </span><span class="dt">title =</span> <span class="st">&quot;Comparison of 3PT shot rate for each season with ridges&quot;</span>) </a>
-<a class="sourceLine" id="cb14-10" data-line-number="10">Picking joint bandwidth of <span class="fl">0.0435</span></a></code></pre></div>
+<a class="sourceLine" id="cb14-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb14-4" data-line-number="4">Attaching package<span class="op">:</span><span class="st"> &#39;ggridges&#39;</span></a>
+<a class="sourceLine" id="cb14-5" data-line-number="5">The following object is masked from <span class="st">&#39;package:ggplot2&#39;</span><span class="op">:</span></a>
+<a class="sourceLine" id="cb14-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb14-7" data-line-number="7"><span class="st">    </span>scale_discrete_manual</a>
+<a class="sourceLine" id="cb14-8" data-line-number="8"><span class="op">&gt;</span><span class="st"> </span>nba_shooting <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb14-9" data-line-number="9"><span class="op">+</span><span class="st">   </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> three_point_fg_rate, <span class="dt">y =</span> season_factor)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb14-10" data-line-number="10"><span class="op">+</span><span class="st">   </span><span class="kw">geom_density_ridges</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb14-11" data-line-number="11"><span class="op">+</span><span class="st">   </span><span class="co"># label!</span></a>
+<a class="sourceLine" id="cb14-12" data-line-number="12"><span class="op">+</span><span class="st">   </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Season&quot;</span>,</a>
+<a class="sourceLine" id="cb14-13" data-line-number="13"><span class="op">+</span><span class="st">        </span><span class="dt">x =</span> <span class="st">&quot;Three-point shot rate = TPA / FGA&quot;</span>,</a>
+<a class="sourceLine" id="cb14-14" data-line-number="14"><span class="op">+</span><span class="st">        </span><span class="dt">title =</span> <span class="st">&quot;Comparison of 3PT shot rate for each season with ridges&quot;</span>) </a>
+<a class="sourceLine" id="cb14-15" data-line-number="15">Picking joint bandwidth of <span class="fl">0.0435</span></a></code></pre></div>
 <p><img src="tc_lecture3_files/figure-html/ridges-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>The code above is similar to <code>geom_histogram</code> but now maps the y-axis to a variable for separating the distributions. The idea is it eliminates the redundancy in the symmetry of violin plots by just displaying one side of the curve. We can see a slight shift taking place over time to higher 3PT shot rates.</p>
 </div>

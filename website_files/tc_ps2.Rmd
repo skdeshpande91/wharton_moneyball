@@ -19,6 +19,8 @@ In lecture, Prof. Wyner discussed the relationship between a team's payroll and 
 We will create plots from his analysis in the following problems using the dataset "mlb_relative_payrolls.csv", which you can find in the "data/" folder of your working directory.
 You should save all of the code for this analysis in an R script called "ps2_mlb_payroll.R".
 
+If you don't have the dataset in your data folder yet, download it from the GitHub page [here](https://github.com/skdeshpande91/wharton_moneyball/raw/master/website_files/data/mlb_relative_payrolls.csv).
+
 1. Read the data in from the file and save it as a tbl called "relative_payroll"
 ```{r read-payrolls}
 relative_payroll <- read_csv(file = "data/mlb_relative_payrolls.csv")

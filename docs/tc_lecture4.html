@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Lecture 4</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+
+.sourceCode .row {
+  width: 100%;
+}
+.sourceCode {
+  overflow-x: auto;
+}
+.code-folding-btn {
+  margin-right: -30px;
+}
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' || rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("show" === "show");
+});
+</script>
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">WMA19</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-futbol-o"></span>
+     
+    Lecture Notes
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="lecture1.html">Lecture 1</a>
+    </li>
+    <li>
+      <a href="lecture2.html">Lecture 2</a>
+    </li>
+    <li>
+      <a href="lecture3.html">Lecture 3</a>
+    </li>
+    <li>
+      <a href="lecture4.html">Lecture 4</a>
+    </li>
+    <li>
+      <a href="lecture5.html">Lecture 5</a>
+    </li>
+    <li>
+      <a href="lecture6.html">Lecture 6</a>
+    </li>
+    <li>
+      <a href="lecture7.html">Lecture 7</a>
+    </li>
+    <li>
+      <a href="lecture8.html">Lecture 8</a>
+    </li>
+    <li>
+      <a href="nfl_lecture.html">nflscrapR lecture</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-dribbble"></span>
+     
+    Problem Sets
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="ps0.html">Problem Set 0</a>
+    </li>
+    <li>
+      <a href="ps1.html">Problem Set 1</a>
+    </li>
+    <li>
+      <a href="ps2.html">Problem Set 2</a>
+    </li>
+    <li>
+      <a href="ps3.html">Problem Set 3</a>
+    </li>
+    <li>
+      <a href="ps4.html">Problem Set 4</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-bar-chart"></span>
+     
+    Training Camp
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="install_setup.html">Installation</a>
+    </li>
+    <li>
+      <a href="tc_lecture1.html">Lecture 1</a>
+    </li>
+    <li>
+      <a href="tc_ps1.html">Problem Set 1</a>
+    </li>
+    <li>
+      <a href="tc_lecture2.html">Lecture 2</a>
+    </li>
+    <li>
+      <a href="tc_ps2.html">Problem Set 2</a>
+    </li>
+    <li>
+      <a href="tc_lecture3.html">Lecture 3</a>
+    </li>
+    <li>
+      <a href="tc_ps3.html">Problem Set 3</a>
+    </li>
+    <li>
+      <a href="tc_lecture4.html">Lecture 4</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+<div class="btn-group pull-right">
+<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">Lecture 4</h1>
+
+</div>
+
+
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<!-- Original graphic is on pg 18 of Adi's Lecture 3 -->
+<p>In Prof. Wyner’s lectures, you saw a graph of Earned Run Average (ERA) against year. Also shown was a line connecting the average ERA in each year.</p>
+<p><img src="figures/lecture3_era.png" /></p>
+<p>In order to reproduce this image, we will work with the <a href="http://www.seanlahman.com/baseball-database.html">Lahman Baseball Database</a>. As it turns out, there is an R package that includes the entire database (up until the 2018 season). We will load that into R along with the <code>tidyverse</code> packages when we begin our analysis.</p>
+</div>
+<div id="the-lahman-baseball-database" class="section level2">
+<h2>The Lahman Baseball Database</h2>
+<!-- Short description of the Lahman database can go here. We have to convert things to a tibble, using as_tibble(). -->
+<p>As mentioned above, we will use data from a baseball data maintained by <a href="http://www.seanlahman.com">Sean Lahman</a>. This database contains pitching, hitting, and fielding statistics from Major League Baseball from 1871 to 2018 (most recent fully completed season). The data is available as an R package, which we will need to install and load. To install the package, we need to run the following in our console</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;Lahman&quot;</span>)</a></code></pre></div>
+<p>Once the package is installed, we can load it into R along with the <code>tidyverse</code> packages:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">library</span>(Lahman)</a></code></pre></div>
+<p>We will focus on pitching statistics today. To load the pitching data into R from the <code>Lahman</code> package, we have to use the <code>data()</code> function. We also will need to <em>convert</em> the data into a <code>tibble</code>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">Pitching &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(Pitching)</a></code></pre></div>
+<p>There are tons of rows and columns in the dataset. For this exercise, we will only want to focus on ERA and also focus only on those pitchers who have pitched at least 150 innings. Unfortunately, the Lahman pitching dataset does not contain the number of innings pitched (IP). Instead, it has a column called <code>IPouts</code>, which is the number of outs pitched and with the formula of <span class="math inline">\(\text{IPOuts} = 3 \times \text{IP}.\)</span></p>
+<p>Using what we covered in previous lectures, we will create a new tibble called <code>pitching</code> which contains all players who pitched at least 150 innings, played in either the AL or the NL and which contains only the columns corresponding the player, year, team, league, innings pitched, and ERA.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">pitching &lt;-<span class="st"> </span>Pitching <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">IP =</span> IPouts <span class="op">/</span><span class="st"> </span><span class="dv">3</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(lgID <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;AL&#39;</span>, <span class="st">&#39;NL&#39;</span>) <span class="op">&amp;</span><span class="st"> </span>IP <span class="op">&gt;=</span><span class="st"> </span><span class="dv">150</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="st">  </span><span class="kw">select</span>(playerID, yearID, teamID, lgID, IP, ERA)</a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">pitching</a></code></pre></div>
+<pre><code>## # A tibble: 9,459 x 6
+##    playerID  yearID teamID lgID     IP   ERA
+##    &lt;chr&gt;      &lt;int&gt; &lt;fct&gt;  &lt;fct&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1 bondto01    1876 HAR    NL     408   1.68
+##  2 bordejo01   1876 BSN    NL     218.  2.89
+##  3 bradlfo01   1876 BSN    NL     173.  2.49
+##  4 bradlge01   1876 SL3    NL     573   1.23
+##  5 cummica01   1876 HAR    NL     216   1.67
+##  6 deando01    1876 CN1    NL     263.  3.73
+##  7 devliji01   1876 LS1    NL     622   1.56
+##  8 fishech01   1876 CN1    NL     229.  3.02
+##  9 knighlo01   1876 PHN    NL     282   2.62
+## 10 mannija01   1876 BSN    NL     197.  2.14
+## # … with 9,449 more rows</code></pre>
+<p><strong>IMPORTANT</strong>: Before reading any further, make sure you and your team understand completely what is happening in the code above.</p>
+<p>Now that we have ERA for all pitchers eligible for our analysis, we can plot the ERAs by year. Feel free to experiment with different ways of presenting this information via the different visualizations we covered in <a href="tc_lecture3.html">Lecture 3</a>.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> pitching) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> yearID, <span class="dt">y =</span> ERA), <span class="dt">size =</span> <span class="fl">0.3</span>)</a></code></pre></div>
+<p><img src="tc_lecture4_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>Looking at the plot, it appears that some of the pitchers from the first few decades of baseball had the lowest ERA. Using <code>arrange()</code>, we can see which pitcher had the best season according to ERA.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">arrange</span>(pitching, ERA)</a></code></pre></div>
+<pre><code>## # A tibble: 9,459 x 6
+##    playerID  yearID teamID lgID     IP   ERA
+##    &lt;chr&gt;      &lt;int&gt; &lt;fct&gt;  &lt;fct&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1 leonadu01   1914 BOS    AL     225.  0.96
+##  2 brownmo01   1906 CHN    NL     277.  1.04
+##  3 gibsobo01   1968 SLN    NL     305.  1.12
+##  4 mathech01   1909 NY1    NL     275.  1.14
+##  5 johnswa01   1913 WS1    AL     346   1.14
+##  6 pfiesja01   1907 CHN    NL     195   1.15
+##  7 jossad01    1908 CLE    AL     325   1.16
+##  8 lundgca01   1907 CHN    NL     207   1.17
+##  9 alexape01   1915 PHI    NL     376.  1.22
+## 10 bradlge01   1876 SL3    NL     573   1.23
+## # … with 9,449 more rows</code></pre>
+<p>It would appear that the best pitching season of all time was <a href="https://en.wikipedia.org/wiki/Dutch_Leonard_(left-handed_pitcher)">Dutch Leonard’s</a> 1914 season with the Red Sox. The next best was <a href="https://en.wikipedia.org/wiki/Mordecai_Brown">Mordecai Brown</a>’s 1906 season with the Cubs. How much better was Leonard’s 0.96 ERA than Brown’s 1.04 ERA?</p>
+<p>To answer this, we can transform ERA to standardized units using the <code>mutate()</code> function. There is a minor complication: there is not a built-in function for standardizing a variable in R! Luckily for us, R allows us to define our own functions like so:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">standardize &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2">  mu &lt;-<span class="st"> </span><span class="kw">mean</span>(x, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb9-3" data-line-number="3">  sigma &lt;-<span class="st"> </span><span class="kw">sd</span>(x, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb9-4" data-line-number="4">  <span class="kw">return</span>((x <span class="op">-</span><span class="st"> </span>mu) <span class="op">/</span><span class="st"> </span>sigma)</a>
+<a class="sourceLine" id="cb9-5" data-line-number="5">}</a></code></pre></div>
+<p>For now, don’t worry too much about the syntax or the <code>na.rm = TRUE</code> bits - that’s just telling R to remove any missing values when computing the average and standard deviation (easy way to deal with messy data). Armed with our <code>standardize()</code> function, we can add a column called <code>z_era_all</code> which transforms ERA to the standardized scale.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">pitching &lt;-<span class="st"> </span>pitching <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">z_era_all =</span> <span class="kw">standardize</span>(ERA))</a>
+<a class="sourceLine" id="cb10-3" data-line-number="3">pitching <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(z_era_all)</a></code></pre></div>
+<pre><code>## # A tibble: 9,459 x 7
+##    playerID  yearID teamID lgID     IP   ERA z_era_all
+##    &lt;chr&gt;      &lt;int&gt; &lt;fct&gt;  &lt;fct&gt; &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;
+##  1 leonadu01   1914 BOS    AL     225.  0.96     -3.00
+##  2 brownmo01   1906 CHN    NL     277.  1.04     -2.91
+##  3 gibsobo01   1968 SLN    NL     305.  1.12     -2.82
+##  4 mathech01   1909 NY1    NL     275.  1.14     -2.80
+##  5 johnswa01   1913 WS1    AL     346   1.14     -2.80
+##  6 pfiesja01   1907 CHN    NL     195   1.15     -2.79
+##  7 jossad01    1908 CLE    AL     325   1.16     -2.78
+##  8 lundgca01   1907 CHN    NL     207   1.17     -2.77
+##  9 alexape01   1915 PHI    NL     376.  1.22     -2.71
+## 10 bradlge01   1876 SL3    NL     573   1.23     -2.70
+## # … with 9,449 more rows</code></pre>
+<p>Now we see that Leonard’s 0.96 ERA was about 3 standard deviations below the overall mean of qualified pitchers, while Brown’s was about 2.91 standard deviations below the mean! On the other hand, the ostensibly worst pitching season was Philadelphia’s own <a href="https://en.wikipedia.org/wiki/Les_Sweetland">Les Sweetland</a> in 1930. Incidentally enough, Sweetland started that season with a three-hit shutout! Check out this <a href="http://www.espn.com/blog/sweetspot/post/_/id/48687/the-amazing-1930-philadelphia-phillies">ESPN blog post</a> about the 1930’s Phillies pitching staff.</p>
+<p>Of course, you can argue that comparing the raw ERAs across the various years is unfair. After all, the game as it was played in 1914 is very different to the one played today! As such, it may be more appropriate to standardize all of the ERAs <strong>within each season</strong> separately. To do this, we will have to compute the mean and standard deviation of ERAs within each season.</p>
+</div>
+<div id="grouped-calculations" class="section level2">
+<h2>Grouped calculations</h2>
+<p>Very often in a data analysis, instead of performing a calculation on the entire data set, you’ll want to first <em>split</em> the data into smaller subsets, <em>apply</em> the same calculation on every subset, and then <em>combine</em> the results from each subset. For example, in order to replicate the figure above from Prof. Wyner’s lecture, we need to split our pitching dataset based on the year, compute the average ERA within each year, and then combine these into a single tibble.</p>
+<p>One strength of dplyr is the ease with which you can follow this “split-apply-combine” paradigm using the function <code>group_by()</code>. We can use this in concert with the pipe as follows</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">pitching &lt;-<span class="st"> </span>pitching <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(yearID)</a></code></pre></div>
+<p>When we print out <code>pitching</code> now, we notice an extra line that tells us the grouping variable. Now when we pass this dataset on to subsequent calculations, these calculations will be done on each group.</p>
+<p>We can now summarize each season using another <code>tidyverse</code> function called… <code>summarize()</code>! This convenient function will compute summary statistics that we specify with respect to the groups from <code>group_by()</code>. For instance, we can compute the average ERA in each year in the following way:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">pitching <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">ave_ERA =</span> <span class="kw">mean</span>(ERA))</a></code></pre></div>
+<pre><code>## # A tibble: 143 x 2
+##    yearID ave_ERA
+##     &lt;int&gt;   &lt;dbl&gt;
+##  1   1876    2.42
+##  2   1877    2.78
+##  3   1878    2.32
+##  4   1879    2.57
+##  5   1880    2.33
+##  6   1881    2.76
+##  7   1882    2.76
+##  8   1883    2.79
+##  9   1884    3.04
+## 10   1885    2.87
+## # … with 133 more rows</code></pre>
+<p>The following functions are quite useful for summarizing several aspects of the distribution of the variables in our dataset:</p>
+<ul>
+<li>Center: <code>mean()</code>, <code>median()</code></li>
+<li>Spread: <code>sd()</code>, <code>IQR()</code></li>
+<li>Range: <code>min()</code>, <code>max()</code></li>
+<li>Count: <code>n()</code>, <code>n_distinct()</code></li>
+</ul>
+<p>We’ll now create a dataset, <code>pitching_summary</code>, that contains the mean and standard deviation of ERA <strong>within each year</strong>:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1">pitching_summary &lt;-<span class="st"> </span>pitching <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb15-2" data-line-number="2"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(ERA), </a>
+<a class="sourceLine" id="cb15-3" data-line-number="3">            <span class="dt">sd =</span> <span class="kw">sd</span>(ERA))</a></code></pre></div>
+<p>One of the most commonly used functions, <code>n()</code>, returns counts and is especially useful when used on a grouped dataset We can, for instance, count the number of pitchers in our dataset within each year using <code>n()</code>.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1">pitching <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb16-2" data-line-number="2"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">count =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb16-3" data-line-number="3"><span class="st">  </span><span class="kw">arrange</span>(count)</a></code></pre></div>
+<pre><code>## # A tibble: 143 x 2
+##    yearID count
+##     &lt;int&gt; &lt;int&gt;
+##  1   1877     7
+##  2   1878     7
+##  3   1880    12
+##  4   1876    13
+##  5   1879    13
+##  6   1883    13
+##  7   1881    14
+##  8   1882    14
+##  9   1884    19
+## 10   1885    19
+## # … with 133 more rows</code></pre>
+<p>Or equivalently, we can use the <code>count</code> function:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1">pitching <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb18-2" data-line-number="2"><span class="st">  </span><span class="kw">count</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb18-3" data-line-number="3"><span class="st">  </span><span class="kw">arrange</span>(n)</a></code></pre></div>
+<pre><code>## # A tibble: 143 x 2
+## # Groups:   yearID [143]
+##    yearID     n
+##     &lt;int&gt; &lt;int&gt;
+##  1   1877     7
+##  2   1878     7
+##  3   1880    12
+##  4   1876    13
+##  5   1879    13
+##  6   1883    13
+##  7   1881    14
+##  8   1882    14
+##  9   1884    19
+## 10   1885    19
+## # … with 133 more rows</code></pre>
+<p>What’s the difference between the two approaches above?</p>
+<p><strong>Exercise</strong>: Describe, in words, what the following code does.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1">pitching <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb20-2" data-line-number="2"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">count =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb20-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(count <span class="op">&gt;=</span><span class="st"> </span><span class="dv">90</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb20-4" data-line-number="4"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(count))</a></code></pre></div>
+<p>Once we add a grouping to our dataset, it also changes the way <code>mutate()</code> operates on it. We can now standardize each pitcher’s ERA within each year and store that result in a column called z_era_year</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1">pitching &lt;-<span class="st"> </span>pitching <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb21-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">z_era_year =</span> <span class="kw">standardize</span>(ERA))</a>
+<a class="sourceLine" id="cb21-3" data-line-number="3">pitching <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(z_era_year)</a></code></pre></div>
+<pre><code>## # A tibble: 9,459 x 8
+## # Groups:   yearID [143]
+##    playerID  yearID teamID lgID     IP   ERA z_era_all z_era_year
+##    &lt;chr&gt;      &lt;int&gt; &lt;fct&gt;  &lt;fct&gt; &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
+##  1 leonadu01   1914 BOS    AL     225.  0.96     -3.00      -3.48
+##  2 martipe02   2000 BOS    AL     217   1.74     -2.12      -3.16
+##  3 maddugr01   1995 ATL    NL     210.  1.63     -2.24      -3.02
+##  4 luquedo01   1923 CIN    NL     322   1.93     -1.90      -2.88
+##  5 martipe02   1999 BOS    AL     213.  2.07     -1.74      -2.85
+##  6 brownke01   1996 FLO    NL     233   1.89     -1.95      -2.82
+##  7 eichhma01   1986 TOR    AL     157   1.72     -2.14      -2.81
+##  8 maddugr01   1994 ATL    NL     202   1.56     -2.32      -2.79
+##  9 piercbi02   1955 CHA    AL     206.  1.97     -1.86      -2.77
+## 10 hubbeca01   1933 NY1    NL     309.  1.66     -2.21      -2.77
+## # … with 9,449 more rows</code></pre>
+<div id="ungrouping-and-grouping-on-multiple-variables" class="section level3">
+<h3>Ungrouping and grouping on multiple variables</h3>
+<p>As we just saw, when we add a grouping to a dataset, it affects how verbs like <code>summarize()</code> and <code>mutate()</code> operate on our data. It is sometimes the case that we wish to remove the grouping and let these verbs (and others) operate on the entire dataset again. To remove the grouping, we have to use the <code>ungroup()</code> function. Remember, as with the other <code>tidyverse</code> verbs we’ve learned, we need to store the result if we want the dataset to remain ungrouped!</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1">pitching &lt;-<span class="st"> </span>pitching <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb23-2" data-line-number="2"><span class="st">  </span><span class="kw">ungroup</span>()</a></code></pre></div>
+<p>To verify that we’ve indeed removed the grouping, let’s re-run the code from above to compute the mean and standard deviation of ERA.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1">pitching <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarize</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(ERA), <span class="dt">sd =</span> <span class="kw">sd</span>(ERA))</a></code></pre></div>
+<pre><code>## # A tibble: 1 x 2
+##    mean    sd
+##   &lt;dbl&gt; &lt;dbl&gt;
+## 1  3.61 0.882</code></pre>
+<p>Up to this point, we have only grouped on a single variable. It is sometimes desirable to group on multiple variables at once. For instance, we may want to standardize ERA not only within each year but also within each leauge (AL and NL). That is, we may want to standardize each individual pitcher’s ERA using only the data from the other pitchers who pitched in the same league and in the same season. We also add a column called <code>count_year_lg</code> to record the number of pitchers included in each year-league combination.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1">pitching &lt;-<span class="st"> </span>pitching <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb26-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(yearID, lgID) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb26-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">z_era_year_lg =</span> <span class="kw">standardize</span>(ERA),</a>
+<a class="sourceLine" id="cb26-4" data-line-number="4">         <span class="dt">count =</span> <span class="kw">n</span>())</a></code></pre></div>
+<p>When we arrange by the ERA standardized within the year and league, we now see that Pedro Martinez’s 1999 and 2000 season with the Red Sox were even better than Dutch Leonard’s 1914 season!</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" data-line-number="1">pitching <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb27-2" data-line-number="2"><span class="st">  </span><span class="kw">arrange</span>(z_era_year_lg)</a></code></pre></div>
+<pre><code>## # A tibble: 9,459 x 10
+## # Groups:   yearID, lgID [261]
+##    playerID yearID teamID lgID     IP   ERA z_era_all z_era_year
+##    &lt;chr&gt;     &lt;int&gt; &lt;fct&gt;  &lt;fct&gt; &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
+##  1 martipe…   2000 BOS    AL     217   1.74     -2.12      -3.16
+##  2 martipe…   1999 BOS    AL     213.  2.07     -1.74      -2.85
+##  3 leonadu…   1914 BOS    AL     225.  0.96     -3.00      -3.48
+##  4 eichhma…   1986 TOR    AL     157   1.72     -2.14      -2.81
+##  5 youngcy…   1901 BOS    AL     371.  1.62     -2.26      -2.51
+##  6 alexape…   1915 PHI    NL     376.  1.22     -2.71      -2.28
+##  7 maddugr…   1995 ATL    NL     210.  1.63     -2.24      -3.02
+##  8 gibsobo…   1968 SLN    NL     305.  1.12     -2.82      -2.73
+##  9 grovele…   1931 PHA    AL     289.  2.06     -1.76      -2.39
+## 10 guidrro…   1978 NYA    AL     274.  1.74     -2.12      -2.67
+## # … with 9,449 more rows, and 2 more variables: z_era_year_lg &lt;dbl&gt;,
+## #   count &lt;int&gt;</code></pre>
+<p>As a final note, when we group by multiple variables, the order in which we specify the variables in <code>group_by()</code> matters.</p>
+</div>
+</div>
+<div id="back-to-the-figure" class="section level2">
+<h2>Back to the figure</h2>
+<p>We started this module with a figure similar to one from Professor Wyner’s class that plotted ERAs over time. When we run the following code, we get a plot that’s very similar to the desired one but that is missing the red line showing the average ERA within each season.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" data-line-number="1"><span class="kw">ggplot</span>(pitching) <span class="op">+</span></a>
+<a class="sourceLine" id="cb29-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> yearID, <span class="dt">y =</span> ERA), <span class="dt">size =</span> <span class="fl">0.3</span>)</a></code></pre></div>
+<p>To <em>add</em> this to our plot, we need to simply re-run the code above but with some additional calls to <code>geom_line</code>.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1"><span class="kw">ggplot</span>(pitching) <span class="op">+</span></a>
+<a class="sourceLine" id="cb30-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> yearID, <span class="dt">y =</span> ERA), <span class="dt">size =</span> <span class="fl">0.3</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb30-3" data-line-number="3"><span class="st">  </span><span class="kw">ylim</span>(<span class="dv">0</span>, <span class="dv">10</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb30-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">data =</span> pitching_summary, </a>
+<a class="sourceLine" id="cb30-5" data-line-number="5">            <span class="kw">aes</span>(<span class="dt">x =</span> yearID, <span class="dt">y =</span> mean), <span class="dt">col =</span> <span class="st">&#39;red&#39;</span>)</a></code></pre></div>
+<p><img src="tc_lecture4_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p>You’ll notice that the last line of code is a bit different than anything we’ve seen before. In particular, we are specifying both the data and mapping within the same ggplot2 function. If all of the information we want to include in the plot is coming from the same data source, it’s enough to just specify the <code>data</code> argument in the first line, like we do with <code>ggplot(data = pitching)</code> and not in every subsequent call to functions like <code>geom_point</code> or <code>geom_line</code>. However, whenever we want to add layers to a plot using data from another source (in this case, using data from <code>pitching_summary</code> to plot the average ERAs), we need to tell R explicitly and specify the data argument in <code>geom_line</code>.</p>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
