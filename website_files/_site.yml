@@ -61,6 +61,8 @@ navbar:
           href: tc_lecture4.html
         - text: "Lecture 5"
           href: tc_lecture5.html
+        - text: "More resources"
+          href: more_resources.html
 output:
   html_document:
     theme: cerulean
