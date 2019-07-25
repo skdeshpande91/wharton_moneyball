@@ -1,0 +1,226 @@
+---
+title: "Lecture 5"
+output: html_document
+---
+
+## MLB Batting Statistics
+
+Let's first load the `Lahman` library used in [Lecture 4](tc_lecture4.html). In
+the code below we'll create a dataset to use that has player batting averages
+from the 2017 and 2018 seasons. **Can you describe what this code is doing?**
+
+```{r}
+library(tidyverse)
+library(Lahman)
+batting <- as_tibble(Batting)
+
+batting_2017_2018 <- batting %>%
+  filter(yearID %in% c(2017, 2018)) %>%
+  group_by(playerID, yearID) %>%
+  summarize(H = sum(H),
+            AB = sum(AB)) %>%
+  filter(AB >= 300) %>%
+  mutate(BA = H / AB) %>%
+  ungroup() %>%
+  filter(!is.na(BA)) %>%
+  group_by(playerID) %>%
+  filter(n() == 2) %>% 
+  select(playerID, yearID, BA) %>%
+  arrange(playerID)
+```
+
+
+In order to study the relationship between a player's 2017 batting average and his 2018 batting average, it will be more convenient to store the data as below.
+```{r spread, echo = FALSE, tidy=FALSE}
+batting_2017_2018 %>%
+  spread(yearID, BA)
+```
+In this format, we have a row for each player and two columns for his batting averages, one for 2017 and one for 2018. In order to convert our data into this format, we use *spreading*.
+```{r, spread-assign, tidy = FALSE}
+batting_2017_2018 <- batting_2017_2018 %>%
+  spread(yearID, BA)
+```
+
+When we print out `batting_2017_2018` now, we notice that it is a grouped dataset
+Before proceeding we will need to remove this grouping
+```{r ungroup, tidy=FALSE}
+batting_2017_2018 <- batting_2017_2018 %>%
+  ungroup()
+```
+
+
+Notice that the column names of the tbl are now "2017" and "2018".
+We can **rename** these column names with the `rename` function:
+```{r rename, tidy=FALSE}
+batting_2017_2018 <- batting_2017_2018 %>%
+  rename(BA_2017 = `2017`, BA_2018 = `2018`)
+```
+
+## Predicting Batting Averages
+
+```{r}
+ba_plot <- batting_2017_2018 %>% 
+  ggplot(aes(x = BA_2017, y = BA_2018)) + 
+  geom_point() + 
+  labs(x = "2017 Batting Average", y = "2018 Batting Average")
+ba_plot
+```
+
+### Correlation
+
+We can see a positive trend between the 2017 and 2018 batting averages. How can we quantify the relationship between the 2017 and 2018 data? 
+
+The **correlation coefficient**, *r*, is one way to summarize the dependence between two seasons with one number. *r* is a standardized measure of the *linear* dependence between two variables (usually called $x$ and $y$) and can take values between -1 and +1.  
+
+If $r = 1$, then the points all lie on a line with positive slope. If $r = -1$, the points all lie on a line with negative slope. 
+
+Loosely speaking, we can think of correlation as a measure of how well a line fits our data. [Let's get some practice!](http://guessthecorrelation.com/)
+
+We can calculate the correlation between two variables in `R` using the function `cor()`. The correlation between the 2017 and 2018 batting averages is:
+
+```{r}
+cor(batting_2017_2018$BA_2017, batting_2017_2018$BA_2018)
+```
+
+We have a moderate amount of correlation between 2017 and 2018 batting averages, but there is still a lot of noise. 
+
+It is important to remember that correlation is only a measure of *linear* dependence between two variables. The below example shows data where $y = x^2$ exactly. 
+
+```{r, echo = F}
+set.seed(1234)
+x <- runif(50, -1, 1)
+y <- x^2
+dat <- data.frame(x = x, y = y)
+eg <- ggplot(data = dat, aes(x, y)) + geom_point() + labs(title = expression(paste("y = ", x^2)))
+eg
+```
+
+Even though $x$ and $y$ are dependent, $r = -0.1$, indicating a weak linear dependence. If we were to draw a line to fit this data, it would be quite flat!
+
+```{r, echo = F}
+fit <- summary(lm(y~x, data = dat))
+a  <- fit$coefficients[1,1]
+b <- fit$coefficients[2,1]
+eg <- eg + geom_abline(intercept = a, slope = b, color = "red")
+eg
+```
+
+Now let's go back to the 2017 and 2018 batting data. To visualize our correlation, we draw the *line of best fit* through our data.  In this example, the line of best fit has $y$-intercept = 0.131 and slope = 0.474 (we'll talk about how we find this values later). 
+
+```{r, echo=FALSE}
+fit <- summary(lm(BA_2018 ~ BA_2017, data = batting_2017_2018))
+a_best <- fit$coefficients[1,1]
+b_best <- fit$coefficients[2,1]
+```
+
+```{r}
+ba_plot <- ba_plot + 
+  geom_abline(intercept = a_best, slope = b_best, color = "red") + 
+  labs(title = "y = 0.131 + 0.474x")
+ba_plot
+```
+
+**Question:** Which feature of the best fit line, $a$ or $b$, quantifies the linear dependence between 2017 and 2018 FG%?
+
+
+How does correlation relate to our line of best fit? This brings us to the *regression method*.
+
+### The Regression Method
+
+If we standardize both datasets, $x$ and $y$, the correlation is the *slope* of the line of best fit:
+
+$$\frac{y - \bar{y}}{sd(y)} = r \times \frac{x - \bar{x}}{sd(x)}$$
+
+We can unpack this equation to get the formula for our unstandardized line of best fit:
+
+$$y = a + bx$$
+where $a = \bar{y} - b\bar{x}$ and $b = r \times sd(y)/sd(x)$.
+
+Now that we have our regression line, we can predict a future $y$ value given we know $x$. For example, if we know that a player's 2017 batting average was 0.31, we predict that their 2018 batting average will be:
+$$\widehat{y} = 0.131 + 0.474 \times 0.31 = 0.278.$$
+Note that we use $\widehat{y}$ for a predicted value of $y$; we can think of this as $\widehat{y} = E[Y|x]$.
+
+### Fitting linear models
+
+To find the regression coefficients, $a$ and $b$, we use the function `lm()`. The usage of `lm()` is as follows:
+
+```{r}
+fit <- lm(BA_2018 ~ BA_2017, data = batting_2017_2018)
+```
+
+The first argument in the `lm()` call is called a `formula`. This takes input `y ~ x`, where `y` is our response and `x` is our predictor or covariate.  In the `lm()` call above, the column `BA_2018` is our response and `BA_2017` is our predictor. 
+
+The second argument in `lm()` is where we specifiy our data: `batting_2017_2018`. `R` then looks for the columns `BA_2017` and `BA_2018` in the given dataset to calculate the regression coefficients.
+
+Our new object, `fit`, contains a lot of information about our regression line. At the moment, we just want the coefficients. We can access the coefficients as follows:
+```{r}
+fit[["coefficients"]]
+```
+
+### The `modelr` package
+
+`modelr` is another package that is part of the `tidyverse`. It has a number of useful functions for linear regression models.
+
+```{r}
+library(modelr)
+```
+
+We can use the function `rsquare` to get the square of the correlation, $r^2$. The quantity $r^2$ is the *proportion of variance* explained by the linear model. The first argument of the `rsquare` function is the output `fit` from our linear model function `lm`. The second argument is our original dataset, `batting_2017_2018`:
+
+```{r}
+rsquare(fit, batting_2017_2018)
+```
+
+#### Adding Predictions and Residuals
+
+We can also use `modelr` to add predictions and residuals to our original dataset:
+
+```{r}
+batting_2017_2018 <- batting_2017_2018 %>% 
+  add_predictions(model = fit, type = "response", var = "pred") %>%
+  add_residuals(model = fit, var = "resid")
+batting_2017_2018
+```
+
+In `add_predictions`, we have to specify three arguments: (i) the model, which is just the output of `lm()`, (ii) the type, which will always be "response" for this course, and (iii) the name of the column we want our predictions to be stored in.
+We similarly have to specify a `model` and `var` argument in `add_residual`. 
+
+
+Using these new columns, we can create the original plot and add the residual lengths:
+
+```{r}
+batting_2017_2018 %>%
+  ggplot() + 
+  geom_segment(aes(x = BA_2017, xend = BA_2017, y = BA_2018, yend = pred), color = "dodgerblue") +
+  geom_point(aes(x = BA_2017, y = BA_2018)) + 
+  geom_abline(intercept = 0.1305237, slope = 0.4735976, color = "red")
+```
+
+### Predict
+
+So far we have looked at the predicted values from our *training* data; that is, the data we used to fit our linear model. Suppose we have more players' batting averages from 2017 but we do not have their batting averages from 2018. We can use our linear model to predict these players' 2018 batting average using the function `predict`. 
+
+In the below code, we enter the players' 2017 batting averages as the tibble `new_data`. We then use the function `predict`. The first argument of `predict` is the fitted model, `fit`. The second argument is `new_data`.
+
+```{r}
+new_data <- tibble(BA_2017 = c(0.241, 0.31, 0.265))
+new_pred <- predict(fit, new_data)
+new_pred
+```
+
+We can also add these predictions to `new_data` using `add_predictions`:
+```{r}
+new_data <- new_data %>%
+  add_predictions(fit)
+new_data
+```
+
+We add these predictions to our plot:
+
+```{r}
+ggplot() + 
+  geom_point(data = batting_2017_2018, aes(x = BA_2017, y = BA_2018)) + 
+  geom_abline(intercept = 0.1305237, slope = 0.4735976, color = "red") + 
+  geom_point(data = new_data, mapping = aes(x = BA_2017, y = pred), color = "dodgerblue")
+```
+

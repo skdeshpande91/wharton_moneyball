@@ -59,6 +59,8 @@ navbar:
           href: tc_ps3.html
         - text: "Lecture 4"
           href: tc_lecture4.html
+        - text: "Lecture 5"
+          href: tc_lecture5.html
 output:
   html_document:
     theme: cerulean
